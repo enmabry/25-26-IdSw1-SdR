@@ -1,14 +1,3 @@
-<p align="center">
-  <a href="#inicio">🏠 Inicio</a> |
-  <a href="#modelo-del-dominio">🧠 Modelo del Dominio</a> |
-  <a href="#casos-de-uso">🧾 Casos de Uso</a> |
-  <a href="#archivos-del-proyecto">📁 Archivos del Proyecto</a> |
-  <a href="#reuniones">🧍‍♂️ Reuniones</a> |
-  <a href="#recursos-visuales">🖼️ Recursos Visuales</a> |
-  <a href="#proximos-pasos">🧭 Próximos pasos</a>
-</p>
-
----
 
 <h1 id="inicio" align="center">🧩 Sistema de Gestión de Alumnos — Proyecto de Ingeniería de Software</h1>
 
