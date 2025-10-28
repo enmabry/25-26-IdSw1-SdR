@@ -42,23 +42,6 @@ Esto implica desafíos como:
 - **Historial académico:**  
   El sistema debe permitir detectar si **un alumno actual cursó asignaturas anteriores.**
 
-## 💬 Reunión 1 — Resumen del requisitado inicial
-
-📅 **Primera sesión**  
-Tema: *Gestión de listas abiertas, dispensas y registro de asistencia.*
-
-**Principales conclusiones:**
-- Las listas se actualizan periódicamente mediante carga de archivos.  
-- Se requiere guardar la **fecha de introducción** de cada alumno.  
-- El sistema debe **sincronizar automáticamente** las dispensas desde esa fecha.  
-- Se considera la posibilidad de una **interfaz de registro rápido** para asistencia.
-
-**Pendientes:**
-- Definir reglas exactas para notificación de dispensas.  
-- Decidir si el sistema gestionará evaluaciones o solo asistencias.  
-- Diseñar diagrama de dominio para próxima sesión.
-
----
 
 ## 🧭 Próximos pasos
 
