@@ -9,11 +9,11 @@
 
 | Sección | Descripción |
 |----------|--------------|
-| 🧠 [Modelo del Dominio](./modelo-del-dominio/) | Diagramas conceptuales y definición de entidades principales. |
-| 🧾 [Casos de Uso](./casos-de-uso/) | Escenarios funcionales con actores, flujos y resultados esperados. |
-| 📁 [Archivos del Proyecto](./archivos/) | Documentos base, entregas y materiales del equipo. |
-| 🧍‍♂️ [Reuniones](./reuniones/) | Actas y registros de cada sesión de requisitado. |
-| 🖼️ [Recursos Visuales (Fotos/Diagramas)](./recursos/) | Fotos de pizarras, diagramas, o maquetas iniciales. |
+| 🧠 [Modelo del Dominio](./ModeloDelDominio/) | Diagramas conceptuales y definición de entidades principales. |
+| 🧾 [Casos de Uso](./CasosDeUso/) | Escenarios funcionales con actores, flujos y resultados esperados. |
+| 📁 [Archivos del Proyecto](./documents/) | Documentos base, entregas y materiales del equipo. |
+| 🧍‍♂️ [Reuniones](./Reuniones/) | Actas y registros de cada sesión de requisitado. |
+| 🖼️ [Recursos Visuales (Fotos/Diagramas)](./images/) | Fotos de pizarras, diagramas, o maquetas iniciales. |
 
 ---
 
