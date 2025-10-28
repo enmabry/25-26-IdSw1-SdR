@@ -1,4 +1,16 @@
-# 🧩 Sistema de Gestión de Alumnos — Proyecto de Ingeniería de Software
+<p align="center">
+  <a href="#inicio">🏠 Inicio</a> |
+  <a href="#modelo-del-dominio">🧠 Modelo del Dominio</a> |
+  <a href="#casos-de-uso">🧾 Casos de Uso</a> |
+  <a href="#archivos-del-proyecto">📁 Archivos del Proyecto</a> |
+  <a href="#reuniones">🧍‍♂️ Reuniones</a> |
+  <a href="#recursos-visuales">🖼️ Recursos Visuales</a> |
+  <a href="#proximos-pasos">🧭 Próximos pasos</a>
+</p>
+
+---
+
+<h1 id="inicio" align="center">🧩 Sistema de Gestión de Alumnos — Proyecto de Ingeniería de Software</h1>
 
 > **Descripción general:**  
 > Proyecto académico destinado al desarrollo de un sistema para la **gestión dinámica de listas de alumnos**, **dispensas** y **asistencias** en un entorno universitario donde las inscripciones permanecen abiertas durante todo el año.  
@@ -42,8 +54,9 @@ Esto implica desafíos como:
 - **Historial académico:**  
   El sistema debe permitir detectar si **un alumno actual cursó asignaturas anteriores.**
 
+---
 
-## 🧭 Próximos pasos
+<h2 id="proximos-pasos">🧭 Próximos pasos</h2>
 
 1. ⏳ Crear diagrama de dominio (relaciones entre Alumnos, Asignaturas, Dispensas, Asistencias).  
 2. ⏳ Redactar casos de uso por actor.  
