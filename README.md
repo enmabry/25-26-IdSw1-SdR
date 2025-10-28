@@ -1,49 +1,71 @@
-# Sesiones de requisitado
+# 🧩 Sistema de Gestión de Alumnos — Proyecto de Ingeniería de Software
 
-<div align=right>
+> **Descripción general:**  
+> Proyecto académico destinado al desarrollo de un sistema para la **gestión dinámica de listas de alumnos**, **dispensas** y **asistencias** en un entorno universitario donde las inscripciones permanecen abiertas durante todo el año.  
 
-|<sub><i>Se ha demostrado, empírica y académicamente,<br>que un porcentaje no menor de proyectos de software que fracasan<br>lo hacen porque está mal llevada la fase de captura de los requisitos.</i></sub>
-|-:
+---
 
-</div>
+## 📚 Navegación rápida
 
-Este es el repositorio de las sesiones de requisitado de la asignatura de Ingeniería del Software I de UNEATLANTICO.
+| Sección | Descripción |
+|----------|--------------|
+| 🧠 [Modelo del Dominio](./modelo-del-dominio/) | Diagramas conceptuales y definición de entidades principales. |
+| 🧾 [Casos de Uso](./casos-de-uso/) | Escenarios funcionales con actores, flujos y resultados esperados. |
+| 📁 [Archivos del Proyecto](./archivos/) | Documentos base, entregas y materiales del equipo. |
+| 🧍‍♂️ [Reuniones](./reuniones/) | Actas y registros de cada sesión de requisitado. |
+| 🖼️ [Recursos Visuales (Fotos/Diagramas)](./recursos/) | Fotos de pizarras, diagramas, o maquetas iniciales. |
 
-Se desarrolla, en un caso real, la disciplina de requisitado, que es la puerta de entrada al desarrollo de una solución basada en software. 
+---
 
-Se evalúa de acuerdo a la [rúbrica](documents/l'Rubrica.md) indicada.
+## 🧩 Contexto del problema
 
-<div align=center>
+Las **listas de alumnos** deben mantenerse actualizadas en todo momento, dado que las **inscripciones están siempre abiertas**.  
+Esto implica desafíos como:
 
-| |Coordinador|Cliente|Estadísticas|
-|-|-|-|:-:|
-|1|@Camila-Lesly|Lucía Terán|[👁️](https://github.com/Camila-Lesly/25-26-IdSw1-SdR) / 📒
-|2|@31diego|Mar Pacheco|[👁️](https://github.com/31diego/25-26-IdSw1-SdR) / 📒
-|3|@martinlopez7|Jorge Crespo|[👁️](https://github.com/martinlopez7/25-26-IdSw1-SdR) / 📒
-|4|@Sergiorl2|Jose Breñosa|[👁️](https://github.com/Sergiorl2/25-26-IdSw1-SdR) / 📒
-|5|@Alejandrojuarez0105|David García|[👁️](https://github.com/Alejandrojuarez0105/25-26-IdSw1-SdR) / 📒
-|6|@enmabry|Jose Breñosa|[👁️](https://github.com/enmabry/25-26-IdSw1-SdR) / 📒
+- **Ingreso tardío de alumnos:**  
+  Los nuevos alumnos no deben acumular faltas previas a su fecha de ingreso.
 
-</div>
+- **Dispensas:**  
+  - Si la **dispensa** es **confirmada por el Director**, se aplica automáticamente desde la fecha indicada.  
+  - Si la **dispensa** es **solicitada por el alumno**, pero no confirmada, queda en estado **pending** hasta revisión.
 
-<div align=center>
+- **Asignaturas compartidas:**  
+  Un mismo alumno puede estar matriculado en varias asignaturas.  
+  El sistema debe **distinguir las dispensas por asignatura.**
 
-||
-|-|
-![](/images/modelosUML/modelosUML/trabajoRepos.svg)
+- **Evaluaciones:**  
+  Las **dispensas no afectan evaluaciones**, pero el sistema debe **notificar al alumno** de este hecho.
 
-</div>
+- **Asistencia:**  
+  Se busca una forma **más eficiente de registrar la asistencia**, considerando múltiples asignaturas.
 
-## Algunas reglas
+- **Historial académico:**  
+  El sistema debe permitir detectar si **un alumno actual cursó asignaturas anteriores.**
 
-- Reuniones oficiales (en horas de clase)
-  - A estas debe asistir el 100% de los integrantes de los grupos.
-  - Si a las reuniones asiste menos del 80% del grupo, la reunión se cancela y el grupo se da por cerrado. La evaluación se realiza de la forma tradicional (examen parcial, examen final).
-- Reuniones extra: de acuerdo a lo pautado con el cliente.
-- Se debe utilizar el repo del coordinador del grupo y las herramientas de GitHub para gestionar las reuniones y comunicaciones con el cliente, haciendo un racional uso de la trazabilidad.
-- Las imágenes, en la medida de lo posible en formato plantUML. 
-  - Todas las fuentes en la carpeta modelosUML y las imágenes exportadas, en formato svg.
+## 💬 Reunión 1 — Resumen del requisitado inicial
 
-## Rúbrica de revisión
+📅 **Primera sesión**  
+Tema: *Gestión de listas abiertas, dispensas y registro de asistencia.*
 
-[Rúbrica](documents/l'Rubrica.md)
+**Principales conclusiones:**
+- Las listas se actualizan periódicamente mediante carga de archivos.  
+- Se requiere guardar la **fecha de introducción** de cada alumno.  
+- El sistema debe **sincronizar automáticamente** las dispensas desde esa fecha.  
+- Se considera la posibilidad de una **interfaz de registro rápido** para asistencia.
+
+**Pendientes:**
+- Definir reglas exactas para notificación de dispensas.  
+- Decidir si el sistema gestionará evaluaciones o solo asistencias.  
+- Diseñar diagrama de dominio para próxima sesión.
+
+---
+
+## 🧭 Próximos pasos
+
+1. ⏳ Crear diagrama de dominio (relaciones entre Alumnos, Asignaturas, Dispensas, Asistencias).  
+2. ⏳ Redactar casos de uso por actor.  
+3. ⏳ Especificar requerimientos funcionales y no funcionales.  
+4. ⏳ Diseñar mockups o prototipos de interfaz (opcional).  
+5. ⏳ Revisar consistencia de reglas de negocio con el equipo.
+
+---
