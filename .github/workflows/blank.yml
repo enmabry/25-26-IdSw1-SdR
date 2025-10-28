@@ -1,0 +1,19 @@
+name: Verificación del repositorio
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Mostrar estructura de carpetas
+        run: |
+          echo "Estructura actual del repositorio:"
+          tree -L 2
