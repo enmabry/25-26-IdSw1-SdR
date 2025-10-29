@@ -1,0 +1,28 @@
+@startuml Dispensas
+title Diagrama de estados: Ciclo de vida de una Dispensa
+
+[*] --> Solicitada : Alumno solicita
+
+state Solicitada
+Solicitada --> EnRevision : Secretaría envía al Director
+
+state EnRevision as "En revisión del Director"
+EnRevision --> Aprobada : Director aprueba
+EnRevision --> Rechazada : Director rechaza
+
+state Aprobada
+
+
+state Rechazada
+Rechazada --> EnRevision : Alumno apela
+
+Aprobada --> [*]
+Rechazada --> [*]
+
+
+Aprobada : Secretaría informa al Alumno
+Aprobada : Director informa al Profesor
+
+Rechazada : Secretaría informa al Alumno
+Rechazada : Director informa al Profesor
+@enduml
