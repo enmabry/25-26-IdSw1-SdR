@@ -1,4 +1,4 @@
-@startuml
+@startuml Dispensas
 class Alumno{}
 
 class Profesor {}
