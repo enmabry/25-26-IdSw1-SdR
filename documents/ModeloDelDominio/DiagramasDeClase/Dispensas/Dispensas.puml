@@ -1,0 +1,20 @@
+@startuml
+class Alumno{}
+
+class Profesor {}
+
+class DirectorDeGrado {}
+
+class Secretaría {}
+
+class Asignatura {}
+
+class Dispensa {}
+
+Alumno --> Dispensa : tiene 
+Dispensa --> Asignatura : aplica a 
+Alumno --> Asignatura : matriculado en
+Profesor --> Asignatura : responsable de 
+DirectorDeGrado --> Dispensa : revisor de
+Secretaría --> Dispensa : gestiona
+@enduml
