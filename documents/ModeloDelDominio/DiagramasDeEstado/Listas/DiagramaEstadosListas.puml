@@ -1,0 +1,21 @@
+@startuml
+title Diagrama de estados - Lista de Alumnos (vista del Profesor)
+
+state ListaAlumnado {
+[*] --> Iniciada
+
+Iniciada --> Activa : Inicio del período lectivo
+
+state Activa {
+    ListaVigente --> ListaProvisional : Nuevo alumno/dispensa
+    ListaProvisional --> ListaVigente : Actualización aprobada por ordenación académica
+
+    ListaVigente --> EnConsulta : Consulta del profesor
+    EnConsulta --> ListaVigente
+
+}
+
+Activa --> Cerrada : Fin del período lectivo
+Cerrada --> [*] : Archivada
+}
+@enduml
