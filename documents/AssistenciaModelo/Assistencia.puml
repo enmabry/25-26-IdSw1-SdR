@@ -1,0 +1,23 @@
+@startuml
+title Diagrama de Clases - Lista de Asistencia
+
+class Profesor {
+}
+
+class Asignatura {
+}
+
+class Estudiante {
+}
+
+class Sesion {
+  +Assistenca : boolean
+}
+
+' ===== RELACIONES =====
+Profesor -- Asignatura : imparte >
+Asignatura -- Sesion : contiene >
+Asignatura -- Estudiante : tiene >
+Estudiante -- Sesion : assiste >
+@enduml
+
