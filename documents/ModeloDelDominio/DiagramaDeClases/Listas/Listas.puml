@@ -1,0 +1,16 @@
+@startuml
+title Diagrama de clases - Listas del alumnado
+
+class Alumno {}
+class Profesor {}
+class ListaDeAlumnos {}
+class OrdenacionAcademica {}
+class Matricula {}
+
+Alumno --> Matricula : realiza
+Matricula --> OrdenacionAcademica : gestionada por
+OrdenacionAcademica --> ListaDeAlumnos : actualiza
+ListaDeAlumnos --> Alumno : incluye
+Profesor --> ListaDeAlumnos : consulta
+
+@enduml
