@@ -1,4 +1,4 @@
-@startuml
+@startuml Lista de Asistencia
 title Diagrama de Clases - Lista de Asistencia
 
 class Profesor {

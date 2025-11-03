@@ -1,4 +1,4 @@
-@startuml
+@startuml Toma de Asistencia
 title Modelo Conceptual - Toma de Asistencia
 
 class Profesor {
