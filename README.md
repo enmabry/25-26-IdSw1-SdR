@@ -5,94 +5,13 @@
 </p>
 
 ---
-<div align="center" style="
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  background-color: #202225;
-  border: 1px solid #333;
-  border-radius: 6px;
-  padding: 12px;
-  margin: 20px 0;
-">
+<div align="center">
 
-  <!-- Modelo del Dominio (activo / color) -->
-  <a href="./documents/ModeloDelDominio/" style="
-    background-color: #1976D2;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Segoe UI', sans-serif;
-    padding: 8px 14px;
-    border-radius: 6px;
-    border: 1px solid #0D47A1;
-    transition: 0.3s;
-  ">
-    📘 Modelo del Dominio
-  </a>
-
-  <!-- Casos de Uso (gris, pendiente) -->
-  <a href="./documents/CasosDeUso/" style="
-    background-color: #2b2b2b;
-    color: #bbb;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Segoe UI', sans-serif;
-    padding: 8px 14px;
-    border-radius: 6px;
-    border: 1px solid #444;
-    transition: 0.3s;
-  ">
-    📄 Casos de Uso
-  </a>
-
-  <!-- Archivos del Proyecto -->
-  <a href="./documents/" style="
-    background-color: #2b2b2b;
-    color: #bbb;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Segoe UI', sans-serif;
-    padding: 8px 14px;
-    border-radius: 6px;
-    border: 1px solid #444;
-    transition: 0.3s;
-  ">
-    🗂️ Archivos del Proyecto
-  </a>
-
-  <!-- Reuniones -->
-  <a href="./documents/Reuniones/" style="
-    background-color: #2b2b2b;
-    color: #bbb;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Segoe UI', sans-serif;
-    padding: 8px 14px;
-    border-radius: 6px;
-    border: 1px solid #444;
-    transition: 0.3s;
-  ">
-    👥 Reuniones
-  </a>
-
-  <!-- Recursos Visuales -->
-  <a href="./documents/images/" style="
-    background-color: #2b2b2b;
-    color: #bbb;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Segoe UI', sans-serif;
-    padding: 8px 14px;
-    border-radius: 6px;
-    border: 1px solid #444;
-    transition: 0.3s;
-  ">
-    🖼️ Recursos Visuales
-  </a>
+| [![](https://img.shields.io/badge/📘_MODELO_DEL_DOMINIO-1E88E5?style=for-the-badge&labelColor=0D47A1)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/📄_CASOS_DE_USO-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/🗂️_ARCHIVOS_DEL_PROYECTO-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/) [![](https://img.shields.io/badge/👥_REUNIONES-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/Reuniones/) [![](https://img.shields.io/badge/🖼️_RECURSOS_VISUALES-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/images/) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 
 </div>
+
 
 ---
 
@@ -153,7 +72,7 @@ Las **listas de alumnos** deben mantenerse actualizadas en todo momento, dado qu
 </table>
 
 <ul>
-  <li>[] Crear diagrama de dominio.</li>
+  <li>[ ] Hacer Diagramas y Modelo del dominio.</li>
   <li>[ ] Redactar casos de uso por actor.</li>
   <li>[ ] Especificar requerimientos funcionales y no funcionales.</li>
   <li>[ ] Diseñar mockups o prototipos de interfaz.</li>
