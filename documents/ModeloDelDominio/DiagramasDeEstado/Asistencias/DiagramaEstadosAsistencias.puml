@@ -1,0 +1,16 @@
+@startuml
+title Diagrama de Estados - Toma de Asistencia
+state TomaDeAsistencia{
+[*] --> ClaseIniciada : Inicio de la clase
+ClaseIniciada --> TomandoAsistencia
+
+state TomandoAsistencia{
+    [*] --> NombraEstudiante : Inicio de la toma de asistencia
+    NombraEstudiante --> MarcandoAsistencia : Estudiante presente/ausente
+    MarcandoAsistencia --> NombraEstudiante : Siguiente estudiante
+    NombraEstudiante --> [*] : Lista finalizada
+}
+TomandoAsistencia --> GestionDispensas : Se gestionan las asistencias de alumnos con dispensa
+GestionDispensas --> [*] : Registro final
+}
+@enduml
