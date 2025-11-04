@@ -12,7 +12,7 @@
 |------------|-------------|
 | 🧩 [Diagrama de Clases](./DiagramasDeClase/) | Representa las entidades del sistema, sus atributos, operaciones y relaciones entre ellas. |
 | 🔄 [Diagrama de Estados](./DiagramasDeEstado/Dispensas/) | Describe los posibles estados de las entidades dinámicas (como Alumno o Dispensa) y las transiciones entre ellos. |
-| 🧮 [Vocabulario](./DiccionarioDeClases.md) | Define los atributos y métodos de cada clase con su descripción y tipo de dato.
+| 🧮 [Diccionario de Clases](./DiccionarioDeClases.md) | Define los atributos y métodos de cada clase con su descripción y tipo de dato.
 ---
 
 ## 🧩 Objetivos del modelo del dominio
