@@ -1,5 +1,5 @@
 @startuml Asistencia
-title Diagrama de Clases - Lista de Asistencia
+title Modelo Conceptual - Toma de Asistencia
 
 class Profesor {
 }
@@ -10,14 +10,19 @@ class Asignatura {
 class Estudiante {
 }
 
-class Sesion {
-  +Asistenca 
+class SesionDeClase {
+  +fecha
+}
+
+class RegistroAsistencia {
+ +estado : 'Presente, Ausente, Justificado, Dispensa
 }
 
 ' ===== RELACIONES =====
 Profesor -- Asignatura : imparte >
-Asignatura -- Sesion : contiene >
-Asignatura -- Estudiante : tiene >
-Estudiante -- Sesion : asiste >
+Asignatura -- SesionDeClase : programa >
+Asignatura -- Estudiante : contiene matriculado >
+Profesor -- RegistroAsistencia : realiza >
+SesionDeClase -- RegistroAsistencia : contiene >
+Estudiante -- SesionDeClase : asiste >
 @enduml
-
