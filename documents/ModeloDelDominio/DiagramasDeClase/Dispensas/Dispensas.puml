@@ -15,6 +15,7 @@ Alumno --> Dispensa : tiene
 Dispensa --> Asignatura : aplica a 
 Alumno --> Asignatura : matriculado en
 Profesor --> Asignatura : responsable de 
+Profesor -l-> Dispensa : consciente de
 DirectorDeGrado --> Dispensa : revisor de
 Secretaría --> Dispensa : gestiona
 @enduml
