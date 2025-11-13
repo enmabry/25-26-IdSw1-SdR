@@ -1,0 +1,34 @@
+@startuml
+
+class Alumno
+
+class Asignatura
+
+class Dispensa
+
+class Asistencia
+
+class Profesor
+
+class Director
+
+class Secretaria 
+
+
+Alumno "1" --> "0..*" Asignatura : Matriculado en >
+Alumno "1" --> "0..*" Dispensa : Puede tener >
+Alumno "1" --> "0..*" Asistencia : Tiene >
+
+Profesor "1" --> "0..*" Asignatura : Imparte >
+Profesor --> Asistencia : Toma >
+
+Secretaria "1" --> "0..*" Dispensa : Gestiona >
+Secretaria "1" --> "0..*" Alumno : Gestiona >
+
+Director "1" --> "0..*" Dispensa : Revisa >
+Director --|> Profesor
+
+Asignatura "1" -d-> "0..*" Asistencia : Tiene >
+Dispensa "1" -d-> "1" Asignatura : Sobre >
+
+@enduml
