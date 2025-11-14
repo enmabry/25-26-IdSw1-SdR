@@ -1,0 +1,10 @@
+@startuml
+class Alumno
+class Profesor
+class Sesion
+class Asistencia
+class DispensaAcademica
+class Secretaria
+class DirectorGrado
+class Matricula
+@enduml
