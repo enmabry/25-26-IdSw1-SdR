@@ -1,0 +1,39 @@
+@startuml
+title Modelo de Dominio
+
+class DirectorGrado{
+}
+
+class Secretaria {
+}
+
+class DispensaAcademica{
+}
+
+class Asignatura {
+}
+
+class SesionClase {
+}
+
+class Asistencia{
+}
+
+class Profesor {
+}
+
+class Alumno {
+}
+
+
+DirectorGrado -- Profesor : es
+Secretaria -- Alumno : matricula
+DirectorGrado -- DispensaAcademica : aprueba
+DispensaAcademica -- Alumno : es socilitada
+Alumno -- Asignatura : tiene 
+Profesor -- Asignatura : tiene 
+Asignatura -- SesionClase : hay 
+SesionClase -- Asistencia : toma
+DispensaAcademica -up- Secretaria : gestiona
+
+@enduml
