@@ -55,4 +55,9 @@ Se centra en el **qué existe** en el sistema, no en **cómo se comporta**.
 
 ---
 
+### 👤 Angel Romero
+![Diagrama de Clases - Saúl](./DiagramasDeClase/romeroAngel/DdC.svg)
+📁 [Carpeta](./DiagramasDeClase/romeroAngel/) | 📄 [SVG](./DiagramasDeClase/romeroAngel/DdC.svg) | 📋 [PUML](./DiagramasDeClase/romeroAngel/DdC.puml)
+
+
 > ✨ *El modelo del dominio constituye la base conceptual del proyecto, garantizando que todos los miembros del equipo compartan una misma comprensión sobre la estructura y funcionamiento del sistema.*
