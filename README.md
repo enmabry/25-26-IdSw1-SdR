@@ -1,7 +1,11 @@
-<h1 align="center">🧩 Sistema de Gestión de Alumnos — Proyecto de Ingeniería de Software</h1>
+<h1 align="center">Centro de Gestión Universitaria (CGU)</h1>
 
 <p align="center">
-  <i>Proyecto académico orientado al desarrollo de un sistema para la gestión dinámica de listas de alumnos, dispensas y asistencias.</i>
+  <img src="./documents/images/Logo/logoSoftware.png" alt="Logo CGU" width="200" height="auto" style="margin: 20px 0;">
+</p>
+
+<p align="center">
+  <i>Sistema institucional para la gestión centralizada de procesos académicos, estudiantes, asistencias y dispensas.</i>
 </p>
 
 ---
@@ -14,18 +18,12 @@
 
 
 
-
-
----
-
 ## 📚 Descripción general
 
-Este repositorio contiene los artefactos correspondientes a la **fase de requisitado** del proyecto.  
-El objetivo es modelar un sistema capaz de gestionar:
+El **Centro de Gestión Universitaria (CGU)** es un sistema institucional orientado a centralizar, organizar y optimizar los procesos académicos clave dentro del entorno universitario. Su propósito es proporcionar una plataforma unificada que permita gestionar información de estudiantes, asistencias, dispensas y otros procedimientos administrativos esenciales de forma eficiente, precisa y trazable.
 
-- Alumnos y su inscripción dinámica durante el año lectivo.  
-- Dispensas (solicitadas por alumno o director).  
-- Asistencias diferenciadas por asignatura.  
+CGU se concibe como un módulo académico integral dentro de la infraestructura administrativa de la universidad, ofreciendo soporte a las unidades de Secretaría, Dirección de Grado, docentes y otros agentes académicos.
+
 ---
 
 ## 🧩 Contexto del problema

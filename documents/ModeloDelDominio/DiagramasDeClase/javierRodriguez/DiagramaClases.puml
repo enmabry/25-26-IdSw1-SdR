@@ -1,0 +1,22 @@
+@startuml
+class Alumno
+class Profesor
+class Secretaria
+class Sesion
+class ListaAsistencia
+class DispensaAcademica
+class DirectorGrado
+class Matricula
+
+Alumno o-- Matricula : Realiza
+Alumno o-- DispensaAcademica : Solicita
+Alumno o-- Sesion : Asiste a
+Matricula o-- Secretaria : Gestionada por
+Profesor o-- Sesion : Imparte
+Sesion o-- ListaAsistencia : Tiene
+DispensaAcademica o-- Sesion : Exime de
+DispensaAcademica o-- DirectorGrado : Aprobada por
+DispensaAcademica o-- Secretaria : Gestionada por
+DirectorGrado o-- Profesor : Supervisa
+Secretaria o-- ListaAsistencia : Modifica
+@enduml

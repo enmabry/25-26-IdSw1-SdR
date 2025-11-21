@@ -1,0 +1,32 @@
+@startuml
+
+class Alumno
+class Matricula
+class Asignatura
+class Dispensa
+class TomaDeAsistencia
+class ListaDeAlumnos
+class Profesor
+class Grado
+class DirectorDeGrado
+class SecretariaAcademica 
+class SesionDeClase
+
+Alumno "1" -- "1..*" Matricula : Realiza >
+Alumno "1" -- "0..*" Dispensa : Solicita >
+Matricula "*" -- "1" Grado : Pertenece a >
+Matricula "*" -- "1" SecretariaAcademica : Gestionada por >
+Asignatura "*" -- "1" Grado : Pertenece a >
+Asignatura "1" *-- "1" ListaDeAlumnos : Tiene >
+Asignatura "1" *-- "1..*" SesionDeClase : Tiene >
+Asignatura "*" -- "*" Profesor : Impartida por >
+ListaDeAlumnos "1" o-- "0..*" Alumno : Contiene >
+SesionDeClase "1" *-- "1" TomaDeAsistencia : Registra >
+TomaDeAsistencia "0..*" -- "1" Profesor : Realizada por >
+Dispensa "1..*" -- "1..*" SesionDeClase : Exime de >
+Dispensa "*" -- "1" DirectorDeGrado : Aprobada por >
+Dispensa "*" -- "1" SecretariaAcademica : Gestionada por >
+Grado "1" -- "1" DirectorDeGrado : Dirigido por >
+Grado "*" -- "1" SecretariaAcademica : Gestionado por >
+
+@enduml
