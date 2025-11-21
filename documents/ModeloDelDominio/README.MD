@@ -56,7 +56,7 @@ Se centra en el **qué existe** en el sistema, no en **cómo se comporta**.
 ---
 
 ### 👤 Angel Romero
-![Diagrama de Clases - Saúl](./DiagramasDeClase/romeroAngel/DdC.svg)
+![Diagrama de Clases - Saúl](./DiagramasDeClase/romeroAngel/DdC.svg)  
 📁 [Carpeta](./DiagramasDeClase/romeroAngel/) | 📄 [SVG](./DiagramasDeClase/romeroAngel/DdC.svg) | 📋 [PUML](./DiagramasDeClase/romeroAngel/DdC.puml)
 
 
