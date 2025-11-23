@@ -1,0 +1,13 @@
+@startuml
+title Diagrama de Estados: Grado
+
+state Creado
+state EnCurso
+state Finalizado
+
+[*] --> Creado : Inicio del semestre
+Creado --> EnCurso : Semestre en curso
+EnCurso --> Finalizado : Fin del semestre
+Finalizado --> [*]
+
+@enduml
