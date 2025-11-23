@@ -1,0 +1,19 @@
+@startuml
+title Diagrama de Estados: Dispensa
+state Solicitada
+state Gestionada
+state Aprobada
+state Rechazada
+state Apelada
+
+[*] --> Solicitada : Alumno solicita dispensa
+Solicitada --> Gestionada : Secretaria revisa solicitud
+Gestionada --> Aprobada : Director aprueba
+Gestionada --> Rechazada : Director deniega
+Rechazada --> Apelada : Alumno apela decisión
+Apelada --> Aprobada : Apelación estimada
+Apelada --> Rechazada : Apelación desestimada
+Aprobada --> [*]
+Rechazada --> [*] : Dispensa rechazada definitivamente
+
+@enduml
