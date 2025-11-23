@@ -1,5 +1,7 @@
 @startuml
 
+title Modelo de dominio completo
+
 class Alumno
 class Matricula
 class Asignatura
