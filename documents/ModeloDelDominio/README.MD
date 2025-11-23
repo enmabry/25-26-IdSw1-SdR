@@ -19,39 +19,17 @@ El **modelo del dominio** es la representación de las **clases conceptuales má
 
 ## 🔍 Diagramas de Clases
 
-El **Diagrama de Clases** refleja la estructura estática del sistema.  
+El **Diagrama de Clases** refleja la estructura estática del sistema. 
+
 Permite visualizar las entidades principales, sus atributos y los vínculos entre ellas.  
+
 Se centra en el **qué existe** en el sistema, no en **cómo se comporta**.
 
-**Elementos principales:**
-- **Clases:** representan objetos del dominio (Alumno, Dispensa, Asignatura, etc.).  
-- **Atributos:** propiedades que describen las clases.  
-- **Asociaciones:** relaciones entre las clases (1 a N, N a N, etc.).  
-- **Generalizaciones:** jerarquías o herencia si corresponde.
-
 ---
 
-### 👤 Bryan Baquedano
-![Diagrama de Clases - Bryan](./DiagramasDeClase/bryanBaquedano/DiagramaDeClase.svg)
-📁 [Carpeta](./DiagramasDeClase/bryanBaquedano/) | 📄 [SVG](./DiagramasDeClase/bryanBaquedano/DiagramaDeClase.svg) | 📋 [PUML](./DiagramasDeClase/bryanBaquedano/DiagramaDeClase.puml)
-
----
-
-### 👤 Javier Rodríguez
-![Diagrama de Clases - Javier](./DiagramasDeClase/javierRodriguez/DiagramaClases.svg)
-📁 [Carpeta](./DiagramasDeClase/javierRodriguez/) | 📄 [SVG](./DiagramasDeClase/javierRodriguez/DiagramaClases.svg) | 📋 [PUML](./DiagramasDeClase/javierRodriguez/DiagramaClases.puml)
-
----
-
-### 👤 Óscar Pineda
-![Diagrama de Clases - Óscar](./DiagramasDeClase/oscarPineda/Universidad.svg)
-📁 [Carpeta](./DiagramasDeClase/oscarPineda/) | 📄 [SVG](./DiagramasDeClase/oscarPineda/Universidad.svg) | 📋 [PUML](./DiagramasDeClase/oscarPineda/Universidad.puml)
-
----
-
-### 👤 Saúl de Cos
-![Diagrama de Clases - Saúl](./DiagramasDeClase/saulDeCos/ModeloCompleto.svg)
-📁 [Carpeta](./DiagramasDeClase/saulDeCos/) | 📄 [SVG](./DiagramasDeClase/saulDeCos/ModeloCompleto.svg) | 📋 [PUML](./DiagramasDeClase/saulDeCos/ModeloCompleto.puml)
+### 📋 Diagrama de Clase
+![Diagrama de Clases](./DiagramasDeClase/ModeloCompleto.svg)
+📁 [Carpeta](./DiagramasDeClase/) | 📄 [SVG](./DiagramasDeClase/ModeloCompleto.svg) | 📋 [PUML](./DiagramasDeClase/ModeloCompleto.puml)
 
 ---
 
