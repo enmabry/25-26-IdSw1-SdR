@@ -17,26 +17,9 @@ El **modelo del dominio** es la representación de las **clases conceptuales má
 
 ---
 
-## 🔍 Diagramas de Clases
-
-El **Diagrama de Clases** refleja la estructura estática del sistema. 
-
-Permite visualizar las entidades principales, sus atributos y los vínculos entre ellas.  
-
-Se centra en el **qué existe** en el sistema, no en **cómo se comporta**.
-
----
-
 ### 📋 Diagrama de Clase
 ![Diagrama de Clases](./DiagramasDeClase/ModeloCompleto.svg)
 📁 [Carpeta](./DiagramasDeClase/) | 📄 [SVG](./DiagramasDeClase/ModeloCompleto.svg) | 📋 [PUML](./DiagramasDeClase/ModeloCompleto.puml)
-
----
-
-
-## 🔄 Diagramas de Estado
-
-Los **Diagramas de Estado** muestran los diferentes **estados posibles** de una entidad y **cómo cambia** según las acciones del sistema o los actores.
 
 ---
 
