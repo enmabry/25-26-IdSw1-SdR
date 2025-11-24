@@ -5,7 +5,7 @@
 | Artefacto | Descripción |
 |------------|-------------|
 | 🧩 [Diagrama de Clases](/documents/ModeloDelDominio/DiagramasDeClase/) | Representa las entidades del sistema, sus atributos, operaciones y relaciones entre ellas. |
-| 🔄 [Diagrama de Estados]() | ⚠️ **EN PROCESO** — Describe los posibles estados de las entidades dinámicas (como Alumno o Dispensa) y las transiciones entre ellos. |
+| 🔄 [Diagrama de Estados](/documents/ModeloDelDominio/DiagramasDeEstado/) | Describe los posibles estados de las entidades dinámicas (como Alumno o Dispensa) y las transiciones entre ellos. |
 | 🧮 [Diccionario de Clases]() | ⚠️ **EN PROCESO** — Define los atributos y métodos de cada clase con su descripción y tipo de dato.
 ---
 
@@ -19,40 +19,57 @@ El **modelo del dominio** es la representación de las **clases conceptuales má
 
 ## 🔍 Diagramas de Clases
 
-El **Diagrama de Clases** refleja la estructura estática del sistema.  
-Permite visualizar las entidades principales, sus atributos y los vínculos entre ellas.  
-Se centra en el **qué existe** en el sistema, no en **cómo se comporta**.
 
-**Elementos principales:**
-- **Clases:** representan objetos del dominio (Alumno, Dispensa, Asignatura, etc.).  
-- **Atributos:** propiedades que describen las clases.  
-- **Asociaciones:** relaciones entre las clases (1 a N, N a N, etc.).  
-- **Generalizaciones:** jerarquías o herencia si corresponde.
+
+### 📋 Diagrama de Clase
+![Diagrama de Clases](./DiagramasDeClase/ModeloCompleto.svg)
+📁 [Carpeta](./DiagramasDeClase/) | 📄 [SVG](./DiagramasDeClase/ModeloCompleto.svg) | 📋 [PUML](./DiagramasDeClase/ModeloCompleto.puml)
 
 ---
 
-### 👤 Bryan Baquedano
-![Diagrama de Clases - Bryan](./DiagramasDeClase/bryanBaquedano/DiagramaDeClase.svg)
-📁 [Carpeta](./DiagramasDeClase/bryanBaquedano/) | 📄 [SVG](./DiagramasDeClase/bryanBaquedano/DiagramaDeClase.svg) | 📋 [PUML](./DiagramasDeClase/bryanBaquedano/DiagramaDeClase.puml)
+## 🔄 Diagramas de Estado
+
+
+
+### 🧑‍🎓 Diagrama de Estado - Alumno
+![Diagrama de Estado - Alumno](./DiagramasDeEstado/Alumno/Alumno.svg)
+📁 [Carpeta](./DiagramasDeEstado/Alumno/) | 📄 [SVG](./DiagramasDeEstado/Alumno/Alumno.svg) | 📋 [PUML](./DiagramasDeEstado/Alumno/Alumno.puml)
 
 ---
 
-### 👤 Javier Rodríguez
-![Diagrama de Clases - Javier](./DiagramasDeClase/javierRodriguez/DiagramaClases.svg)
-📁 [Carpeta](./DiagramasDeClase/javierRodriguez/) | 📄 [SVG](./DiagramasDeClase/javierRodriguez/DiagramaClases.svg) | 📋 [PUML](./DiagramasDeClase/javierRodriguez/DiagramaClases.puml)
+### 📚 Diagrama de Estado - Asignatura
+![Diagrama de Estado - Asignatura](./DiagramasDeEstado/Asignatura/Asignatura.svg)
+📁 [Carpeta](./DiagramasDeEstado/Asignatura/) | 📄 [SVG](./DiagramasDeEstado/Asignatura/Asignatura.svg) | 📋 [PUML](./DiagramasDeEstado/Asignatura/Asignatura.puml)
 
 ---
 
-### 👤 Óscar Pineda
-![Diagrama de Clases - Óscar](./DiagramasDeClase/oscarPineda/Universidad.svg)
-📁 [Carpeta](./DiagramasDeClase/oscarPineda/) | 📄 [SVG](./DiagramasDeClase/oscarPineda/Universidad.svg) | 📋 [PUML](./DiagramasDeClase/oscarPineda/Universidad.puml)
+### 📋 Diagrama de Estado - Dispensas
+![Diagrama de Estado - Dispensas](./DiagramasDeEstado/Dispensas/Dispensas.svg)
+📁 [Carpeta](./DiagramasDeEstado/Dispensas/) | 📄 [SVG](./DiagramasDeEstado/Dispensas/Dispensas.svg) | 📋 [PUML](./DiagramasDeEstado/Dispensas/Dispensas.puml)
 
 ---
 
-### 👤 Saúl de Cos
-![Diagrama de Clases - Saúl](./DiagramasDeClase/saulDeCos/ModeloCompleto.svg)
-📁 [Carpeta](./DiagramasDeClase/saulDeCos/) | 📄 [SVG](./DiagramasDeClase/saulDeCos/ModeloCompleto.svg) | 📋 [PUML](./DiagramasDeClase/saulDeCos/ModeloCompleto.puml)
+### 🎓 Diagrama de Estado - Grado
+![Diagrama de Estado - Grado](./DiagramasDeEstado/Grado/Grado.svg)
+📁 [Carpeta](./DiagramasDeEstado/Grado/) | 📄 [SVG](./DiagramasDeEstado/Grado/Grado.svg) | 📋 [PUML](./DiagramasDeEstado/Grado/Grado.puml)
 
 ---
+
+### 📝 Diagrama de Estado - Matrícula
+![Diagrama de Estado - Matrícula](./DiagramasDeEstado/Matricula/Matricula.svg)
+📁 [Carpeta](./DiagramasDeEstado/Matricula/) | 📄 [SVG](./DiagramasDeEstado/Matricula/Matricula.svg) | 📋 [PUML](./DiagramasDeEstado/Matricula/Matricula.puml)
+
+---
+
+### 👨‍🏫 Diagrama de Estado - Profesor
+![Diagrama de Estado - Profesor](./DiagramasDeEstado/Profesor/DdE.svg)
+📁 [Carpeta](./DiagramasDeEstado/Profesor/) | 📄 [SVG](./DiagramasDeEstado/Profesor/DdE.svg) | 📋 [PUML](./DiagramasDeEstado/Profesor/DdE.puml)
+
+---
+
+### 🕐 Diagrama de Estado - Sesión de Clase
+![Diagrama de Estado - Sesión de Clase](./DiagramasDeEstado/SesionDeClase/DdE.svg)
+📁 [Carpeta](./DiagramasDeEstado/SesionDeClase/) | 📄 [SVG](./DiagramasDeEstado/SesionDeClase/DdE.svg) | 📋 [PUML](./DiagramasDeEstado/SesionDeClase/DdE.puml)
+
 
 > ✨ *El modelo del dominio constituye la base conceptual del proyecto, garantizando que todos los miembros del equipo compartan una misma comprensión sobre la estructura y funcionamiento del sistema.*
