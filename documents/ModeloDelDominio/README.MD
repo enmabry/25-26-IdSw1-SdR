@@ -17,11 +17,19 @@ El **modelo del dominio** es la representación de las **clases conceptuales má
 
 ---
 
+## 🔍 Diagramas de Clases
+
+
+
 ### 📋 Diagrama de Clase
 ![Diagrama de Clases](./DiagramasDeClase/ModeloCompleto.svg)
 📁 [Carpeta](./DiagramasDeClase/) | 📄 [SVG](./DiagramasDeClase/ModeloCompleto.svg) | 📋 [PUML](./DiagramasDeClase/ModeloCompleto.puml)
 
 ---
+
+## 🔄 Diagramas de Estado
+
+
 
 ### 🧑‍🎓 Diagrama de Estado - Alumno
 ![Diagrama de Estado - Alumno](./DiagramasDeEstado/Alumno/Alumno.svg)
