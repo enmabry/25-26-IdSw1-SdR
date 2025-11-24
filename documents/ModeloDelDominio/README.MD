@@ -5,7 +5,7 @@
 | Artefacto | Descripción |
 |------------|-------------|
 | 🧩 [Diagrama de Clases](/documents/ModeloDelDominio/DiagramasDeClase/) | Representa las entidades del sistema, sus atributos, operaciones y relaciones entre ellas. |
-| 🔄 [Diagrama de Estados]() | ⚠️ **EN PROCESO** — Describe los posibles estados de las entidades dinámicas (como Alumno o Dispensa) y las transiciones entre ellos. |
+| 🔄 [Diagrama de Estados](/documents/ModeloDelDominio/DiagramasDeEstado/) | Describe los posibles estados de las entidades dinámicas (como Alumno o Dispensa) y las transiciones entre ellos. |
 | 🧮 [Diccionario de Clases]() | ⚠️ **EN PROCESO** — Define los atributos y métodos de cada clase con su descripción y tipo de dato.
 ---
 
