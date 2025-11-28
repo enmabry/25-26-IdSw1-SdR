@@ -1,0 +1,17 @@
+@startuml
+title Estados de Asistencia
+
+[*] --> Pendiente
+
+Pendiente --> TomandoAsistencia : iniciarTomaAsistencia()
+TomandoAsistencia --> Pendiente : finalizarTomaAsistencia()
+
+Pendiente --> Presente : marcarPresente()
+Pendiente --> Ausente : marcarAusente()
+Pendiente --> Justificada : aplicarDispensa()
+
+Presente --> [*]
+Ausente --> [*]
+Justificada --> [*]
+
+@enduml
