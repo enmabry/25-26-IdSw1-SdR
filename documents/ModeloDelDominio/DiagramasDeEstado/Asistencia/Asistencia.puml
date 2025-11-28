@@ -4,14 +4,11 @@ title Estados de Asistencia
 [*] --> Pendiente
 
 Pendiente --> TomandoAsistencia : iniciarTomaAsistencia()
-TomandoAsistencia --> Pendiente : finalizarTomaAsistencia()
+TomandoAsistencia --> AsistenciaRegistrada : registrandoTomaAsistencia()
 
-Pendiente --> Presente : marcarPresente()
-Pendiente --> Ausente : marcarAusente()
-Pendiente --> Justificada : aplicarDispensa()
+AsistenciaRegistrada --> Cerrada : finalizarRegistroSesionTomandoAsistencia()
+Pendiente --> Cerrada : finalizarRegistroSesionSinTomarAsistencia()
 
-Presente --> [*]
-Ausente --> [*]
-Justificada --> [*]
+Cerrada --> [*]
 
 @enduml
