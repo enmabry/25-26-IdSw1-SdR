@@ -1,0 +1,15 @@
+@startuml
+title Ciclo de vida de ListaDeAlumnos
+
+[*] --> No_generada
+
+No_generada --> Generada        : Secretaría genera lista inicial a partir de matrículas activas
+Generada     --> Publicada      : Secretaría publica la lista para el profesor
+Generada     --> En_actualizacion : Se detectan nuevas matrículas o bajas de alumnos
+Publicada    --> En_actualizacion : Se registran altas o bajas de alumnos o cambios de dispensa
+En_actualizacion --> Publicada  : Sistema aplica cambios y actualiza la lista
+Publicada    --> Cerrada        : Fin de curso, la lista deja de actualizarse
+
+Cerrada --> [*]
+
+@enduml
