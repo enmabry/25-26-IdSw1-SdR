@@ -1,0 +1,35 @@
+@startuml
+
+title Modelo de dominio completo
+
+class Alumno
+class Matricula
+class Asignatura
+class Dispensa
+class TomaDeAsistencia
+class ListaDeAlumnos
+class Profesor
+class Grado
+class DirectorDeGrado
+class SecretariaAcademica 
+class SesionDeClase
+
+Alumno --> Matricula : Realiza
+Alumno --> Dispensa : Solicita
+Matricula --> Grado : Pertenece a
+Matricula --> SecretariaAcademica : Gestionada por
+Asignatura --> Grado : Pertenece a
+Asignatura *-- ListaDeAlumnos : Tiene
+Asignatura *-- SesionDeClase : Tiene
+Asignatura --> Profesor : Impartida por
+ListaDeAlumnos o-- Alumno : Contiene
+SesionDeClase *-- TomaDeAsistencia : Registra
+TomaDeAsistencia --> Profesor : Realizada por
+Dispensa --> SesionDeClase : Exime de
+Dispensa --> DirectorDeGrado : Aprobada por
+Dispensa --> SecretariaAcademica : Gestionada por
+Grado --> DirectorDeGrado : Dirigido por
+Grado --> SecretariaAcademica : Gestionado por
+DirectorDeGrado -u-|> Profesor : Es un
+
+@enduml
