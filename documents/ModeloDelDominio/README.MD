@@ -13,8 +13,6 @@
 
 El **modelo del dominio** es la representación de las **clases conceptuales más importantes del mundo real** en el contexto de nuestra solución. Se centra en **vocabulario, abstracciones relevantes e información del dominio**, actuando como punto de entrada para muchos artefactos que se construyen en un proceso de software.
 
-**Importante:** El modelo del dominio *no es* la representación de las clases del software ni de los objetos. Se expresa en el lenguaje del cliente, no depende de ningún entorno informático y no considera restricciones de implementación.
-
 ---
 
 ## 🔍 Diagramas de Clases
@@ -30,16 +28,9 @@ El **modelo del dominio** es la representación de las **clases conceptuales má
 ## 🔄 Diagramas de Estado
 
 
-
 ### 🧑‍🎓 Diagrama de Estado - Alumno
 ![Diagrama de Estado - Alumno](./DiagramasDeEstado/Alumno/Alumno.svg)
 📁 [Carpeta](./DiagramasDeEstado/Alumno/) | 📄 [SVG](./DiagramasDeEstado/Alumno/Alumno.svg) | 📋 [PUML](./DiagramasDeEstado/Alumno/Alumno.puml)
-
----
-
-### 📚 Diagrama de Estado - Asignatura
-![Diagrama de Estado - Asignatura](./DiagramasDeEstado/Asignatura/Asignatura.svg)
-📁 [Carpeta](./DiagramasDeEstado/Asignatura/) | 📄 [SVG](./DiagramasDeEstado/Asignatura/Asignatura.svg) | 📋 [PUML](./DiagramasDeEstado/Asignatura/Asignatura.puml)
 
 ---
 
@@ -49,21 +40,9 @@ El **modelo del dominio** es la representación de las **clases conceptuales má
 
 ---
 
-### 🎓 Diagrama de Estado - Grado
-![Diagrama de Estado - Grado](./DiagramasDeEstado/Grado/Grado.svg)
-📁 [Carpeta](./DiagramasDeEstado/Grado/) | 📄 [SVG](./DiagramasDeEstado/Grado/Grado.svg) | 📋 [PUML](./DiagramasDeEstado/Grado/Grado.puml)
-
----
-
 ### 📝 Diagrama de Estado - Matrícula
 ![Diagrama de Estado - Matrícula](./DiagramasDeEstado/Matricula/Matricula.svg)
 📁 [Carpeta](./DiagramasDeEstado/Matricula/) | 📄 [SVG](./DiagramasDeEstado/Matricula/Matricula.svg) | 📋 [PUML](./DiagramasDeEstado/Matricula/Matricula.puml)
-
----
-
-### 👨‍🏫 Diagrama de Estado - Profesor
-![Diagrama de Estado - Profesor](./DiagramasDeEstado/Profesor/DdE.svg)
-📁 [Carpeta](./DiagramasDeEstado/Profesor/) | 📄 [SVG](./DiagramasDeEstado/Profesor/DdE.svg) | 📋 [PUML](./DiagramasDeEstado/Profesor/DdE.puml)
 
 ---
 
