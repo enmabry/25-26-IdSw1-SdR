@@ -13,6 +13,7 @@
 |------------|-------------|
 | 🧩 [Diagrama de Clases](/documents/ModeloDelDominio/DiagramasDeClase/) | Representa las entidades del sistema, sus atributos, operaciones y relaciones entre ellas. |
 | 🔄 [Diagrama de Estados](/documents/ModeloDelDominio/DiagramasDeEstado/) | Describe los posibles estados de las entidades dinámicas (como Alumno o Dispensa) y las transiciones entre ellos. |
+| 🎯 [Diagrama de Objetos](/documents/ModeloDelDominio/DiagramaDeObjetos/) | Muestra instancias específicas de las clases del modelo en un momento determinado. |
 | 🧮 [Diccionario de Clases]() | ⚠️ **EN PROCESO** — Define los atributos y métodos de cada clase con su descripción y tipo de dato.
 ---
 
@@ -57,5 +58,14 @@ El **modelo del dominio** es la representación de las **clases conceptuales má
 ![Diagrama de Estado - Sesión de Clase](./DiagramasDeEstado/SesionDeClase/DdE.svg)
 📁 [Carpeta](./DiagramasDeEstado/SesionDeClase/) | 📄 [SVG](./DiagramasDeEstado/SesionDeClase/DdE.svg) | 📋 [PUML](./DiagramasDeEstado/SesionDeClase/DdE.puml)
 
+---
+
+## 🎯 Diagrama de Objetos
+
+### 📊 Diagrama de Objetos
+![Diagrama de Objetos](./DiagramaDeObjetos/DiagramaDeObjetos.svg)
+📁 [Carpeta](./DiagramaDeObjetos/) | 📄 [SVG](./DiagramaDeObjetos/DiagramaDeObjetos.svg) | 📋 [PUML](./DiagramaDeObjetos/DiagramaDeObjetos.puml)
+
+---
 
 > ✨ *El modelo del dominio constituye la base conceptual del proyecto, garantizando que todos los miembros del equipo compartan una misma comprensión sobre la estructura y funcionamiento del sistema.*
