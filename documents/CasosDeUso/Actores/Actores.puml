@@ -3,17 +3,28 @@ title Actores del sistema
 
 left to right direction
 
+actor Alumno as Alumno
 actor Profesor as Profesor
 actor DirectorDeGrado as Director
 actor SecretariaAcademica as Secretaria
+actor Administrador as Admin
 
 ' El Director de Grado puede hacer todo lo que hace un Profesor
 Profesor <|-down- Director
 
+' El Administrador puede hacer todo lo que hacen Director y Secretaría
+Director <|-down- Admin
+Secretaria <|-down- Admin
+
+note right of Alumno
+  Alumno:
+  Puede solicitar una dispensa.
+end note
+
 note right of Profesor
   Profesor:
-  Puede consultar listas de alumnos
-  y registrar asistencia y evaluaciones.
+  Puede consultar listas de alumnos y dispensas,
+  y registrar la asistencia.
 end note
 
 note right of Director
@@ -28,6 +39,14 @@ note right of Secretaria
   Gestiona matrículas y listas de alumnos,
   y registra/tramita las solicitudes
   de dispensa de los alumnos.
+end note
+
+note right of Admin
+  Administrador del sistema:
+  Puede hacer todo lo que hacen
+  Profesor, Director y Secretaría,
+  además de crear y gestionar usuarios
+  y la configuración general del sistema.
 end note
 
 @enduml
