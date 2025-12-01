@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor DirectorDeGrado
+
+rectangle "Sistema de Gestión Universitaria (CGU)" {
+
+    package "Grado" {
+        usecase "consultarInformacionGrado()" as GradoConsultarInfo
+        usecase "gestionarAsignaturasGrado()" as GradoGestionarAsignaturas
+    }
+
+    package "Dispensas" {
+        usecase "consultarSolicitudesDispensa()" as DispensasConsultarSolicitudes
+        usecase "aprobarDispensa()" as DispensasAprobar
+        usecase "rechazarDispensa()" as DispensasRechazar
+        usecase "consultarDispensas()" as DispensasConsultar
+    }
+
+    package "Alumnos" {
+        usecase "consultarAlumnosGrado()" as AlumnosConsultarGrado
+
+        usecase "consultarMatriculas()" as AlumnosConsultarMatriculas
+    }
+
+    package "Profesores" {
+        usecase "consultarProfesoresGrado()" as ProfesoresConsultar
+        usecase "asignarProfesorAsignatura()" as ProfesoresAsignar
+    }
+
+    DirectorDeGrado --> GradoConsultarInfo
+    DirectorDeGrado --> GradoGestionarAsignaturas
+
+    DirectorDeGrado --> DispensasConsultarSolicitudes
+    DirectorDeGrado --> DispensasAprobar
+    DirectorDeGrado --> DispensasRechazar
+    DirectorDeGrado --> DispensasConsultar
+    
+    DirectorDeGrado --> AlumnosConsultarGrado
+    DirectorDeGrado --> AlumnosConsultarMatriculas
+    
+    DirectorDeGrado --> ProfesoresConsultar
+    DirectorDeGrado --> ProfesoresAsignar
+}
+
+@enduml
