@@ -1,0 +1,14 @@
+@startuml
+title Estados de Asistencia
+
+[*] --> Pendiente
+
+Pendiente --> TomandoAsistencia : iniciarTomaAsistencia()
+TomandoAsistencia --> AsistenciaRegistrada : registrandoTomaAsistencia()
+
+AsistenciaRegistrada --> Cerrada : finalizarRegistroSesionTomandoAsistencia()
+Pendiente --> Cerrada : finalizarRegistroSesionSinTomarAsistencia()
+
+Cerrada --> [*]
+
+@enduml
