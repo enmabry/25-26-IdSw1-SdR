@@ -1,0 +1,23 @@
+@startuml Admin
+title Casos de uso del Administrador
+left to right direction
+
+actor Administrador as Admin
+
+rectangle "Gestión de usuarios y roles" {
+
+  usecase "crearUsuario()"            as UC_Crear
+  usecase "modificarUsuario()"        as UC_Modificar
+  usecase "desactivarUsuario()"       as UC_Desactivar
+  usecase "asignarRolUsuario()"       as UC_AsignarRol
+  usecase "consultarUsuarios()"       as UC_Consultar
+
+}
+
+Admin --> UC_Crear
+Admin --> UC_Modificar
+Admin --> UC_Desactivar
+Admin --> UC_AsignarRol
+Admin --> UC_Consultar
+
+@enduml
