@@ -12,8 +12,8 @@
 | Artefacto | Descripción |
 |-----------|-------------|
 | 👥 [Actores](/documents/CasosDeUso/Actores/) | Define los diferentes tipos de usuarios que interactúan con el sistema. |
-| 📄 [Casos de Uso]| ⚠️ **EN PROCESO** Describe las funcionalidades específicas del sistema desde la perspectiva del usuario. |
-| 🌐 [Diagrama de Contexto] | ⚠️ **EN PROCESO** Muestra el sistema en relación con su entorno y actores externos. |
+| 🌐 [Diagrama de Contexto](/documents/CasosDeUso/DiagramaDeContexto/) | Muestra el sistema en relación con su entorno y actores externos. |
+| 📄 [Casos de Uso](/documents/CasosDeUso/CasoDeUso/) | Describe las funcionalidades específicas del sistema desde la perspectiva del usuario. |
 | 🧩 [Prototipos]| ⚠️ **EN PROCESO** Interfaces visuales que representan las interacciones del sistema. |
 
 ---
@@ -23,6 +23,46 @@
 ### 📊 Diagrama de Actores
 ![Diagrama de Actores](./Actores/Actores.svg)
 📁 [Carpeta](./Actores/) | 📄 [SVG](./Actores/Actores.svg) | 📋 [PUML](./Actores/Actores.puml)
+
+---
+
+## 🌐 Diagrama de Contexto
+
+### 🎯 Diagrama de Contexto del Sistema
+![Diagrama de Contexto](./DiagramaDeContexto/DiagramaDeContexto.svg)
+📁 [Carpeta](./DiagramaDeContexto/) | 📄 [SVG](./DiagramaDeContexto/DiagramaDeContexto.svg) | 📋 [PUML](./DiagramaDeContexto/DiagramaDeContexto.puml)
+
+---
+
+## 📄 Casos de Uso por Rol
+
+### 👤 Alumno
+![Casos de Uso - Alumno](./CasoDeUso/Alumno/DdCdU.svg)
+📁 [Carpeta](./CasoDeUso/Alumno/) | 📄 [SVG](./CasoDeUso/Alumno/DdCdU.svg) | 📋 [PUML](./CasoDeUso/Alumno/DdCdU.puml)
+
+---
+
+### 👨‍🏫 Profesor
+![Casos de Uso - Profesor](./CasoDeUso/Profesor/Profesor.svg)
+📁 [Carpeta](./CasoDeUso/Profesor/) | 📄 [SVG](./CasoDeUso/Profesor/Profesor.svg) | 📋 [PUML](./CasoDeUso/Profesor/Profesor.puml)
+
+---
+
+### 🔐 Administrador
+![Casos de Uso - Administrador](./CasoDeUso/Administrador/Administrador.svg)
+📁 [Carpeta](./CasoDeUso/Administrador/) | 📄 [SVG](./CasoDeUso/Administrador/Administrador.svg) | 📋 [PUML](./CasoDeUso/Administrador/Administrador.puml)
+
+---
+
+### 👔 Secretaria
+![Casos de Uso - Secretaria](./CasoDeUso/Secretaria/DiagramaCompletodeCasosDeUsoSecretaria.png)
+📁 [Carpeta](./CasoDeUso/Secretaria/) | 📄 [Detalles](./CasoDeUso/Secretaria/CasosDeUsoDetallados.md)
+
+---
+
+### 🎓 Director de Grado
+![Casos de Uso - Director de Grado](./CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg)
+📁 [Carpeta](./CasoDeUso/DirectorDeGrado/) | 📄 [SVG](./CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) | 📋 [PUML](./CasoDeUso/DirectorDeGrado/DirectorDeGrado.puml)
 
 ---
 

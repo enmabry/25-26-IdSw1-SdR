@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor DirectorDeGrado
+
+rectangle "Sistema de Gestión Universitaria (CGU)" {
+
+    package "Dispensas" {
+        usecase "consultarSolicitudesDispensa()" as DispensasConsultarSolicitudes
+        usecase "aprobarDispensa()" as DispensasAprobar
+        usecase "rechazarDispensa()" as DispensasRechazar
+        usecase "consultarDispensasAlumno()" as DispensasAlumnoConsultar
+    }
+
+    DirectorDeGrado --> DispensasConsultarSolicitudes
+    DirectorDeGrado --> DispensasAprobar
+    DirectorDeGrado --> DispensasRechazar
+    DirectorDeGrado --> DispensasAlumnoConsultar
+}
+
+@enduml
