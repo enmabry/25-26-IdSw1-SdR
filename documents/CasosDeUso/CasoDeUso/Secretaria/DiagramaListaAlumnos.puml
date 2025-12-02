@@ -1,0 +1,21 @@
+@startuml
+left to right direction
+skinparam actorStyle awesome
+
+actor "Secretaría" as Secretaria
+
+rectangle "Gestión de Listas de Alumnos" {
+  usecase "Consultar lista de alumnos" as CU01
+  usecase "Eliminar alumno" as CU02
+  usecase "Registrar nuevo alumno" as CU03
+  usecase "Actualizar datos de alumno" as CU04
+  usecase "Generar listado de alumnos\npor curso/programa" as CU05
+}
+
+Secretaria --> CU01
+Secretaria --> CU02
+Secretaria --> CU03
+Secretaria --> CU04
+Secretaria --> CU05
+
+@enduml
