@@ -1,0 +1,34 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Profesor
+
+rectangle "Sistema de Gestión Universitaria (CGU)" {
+
+    package "Alumnos" {
+        usecase "consultarListaAlumnos()" as AlumnosConsultarLista
+        usecase "verDetalleAlumno()" as AlumnosVerDetalle
+    }
+
+    package "Asistencias" {
+        usecase "crearSesionClase()" as AsistenciasCrearSesion
+        usecase "registrarTomaAsistencia()" as AsistenciasRegistrarToma
+        usecase "consultarHistorialAsistencias()" as AsistenciasConsultarHistorial
+    }
+
+    package "Dispensas" {
+        usecase "consultarDispensasAlumno()" as DispensasConsultar
+    }
+
+    Profesor --> AlumnosConsultarLista
+    Profesor --> AlumnosVerDetalle
+    
+    Profesor --> AsistenciasCrearSesion
+    Profesor --> AsistenciasRegistrarToma
+    Profesor --> AsistenciasConsultarHistorial
+    
+    Profesor --> DispensasConsultar
+}
+
+@enduml
