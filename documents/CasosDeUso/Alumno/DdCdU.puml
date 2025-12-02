@@ -1,0 +1,40 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Alumno
+
+rectangle "Sistema de Gestión Universitaria (CGU)" {
+
+    package "Grado" {
+        usecase "consultarHistorialAcademico()" as ConsultarHistorial
+        usecase "matricularAsignatura()" as MatricularAsignatura
+        usecase "consultarNotas()" as ConsultarNotas
+        usecase "consultarSesionesDeClase()" as ConsultarSesiones
+    }
+
+    package "Dispensas" {
+        usecase "solicitarDispensa()" as SolicitarDispensa
+        usecase "apelarDispensa()" as ApelarDispensa
+    }
+
+    package "Profesor" {
+        usecase "verProfesores()" as VerProfesores
+    }
+
+    package "SecretariaAcademica" {
+        usecase "actualizarDatosPersonales()" as ActualizarDatos
+    }
+
+}
+
+Alumno --> SolicitarDispensa
+Alumno --> ApelarDispensa
+Alumno --> ConsultarHistorial
+Alumno --> MatricularAsignatura
+Alumno --> ConsultarNotas
+Alumno --> ConsultarSesiones
+Alumno --> VerProfesores
+Alumno --> ActualizarDatos
+
+@enduml
