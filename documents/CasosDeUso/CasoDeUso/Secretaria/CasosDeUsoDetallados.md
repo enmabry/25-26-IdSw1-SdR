@@ -52,74 +52,38 @@ Actor: Secretaría
 
 Descripción: La secretaria genera informes de alumnos por curso, semestre, sección, carrera, etc.
 
-### 2. Gestion de Matriculas
 
-**CU-06: Registrar matrícula**
-Actor: Secretaría
+### 2 Gestion de Dispensas Academicas
 
-
-Descripción: La secretaria gestiona la matrícula de un estudiante seleccionando cursos, secciones y periodo académico.
-
-
-
-**CU-07: Actualizar matrícula**
-Actor: Secretaría
-
-
-Descripción: Modifica cursos, secciones o datos de matrícula cuando el estudiante lo solicita.
-
-
-**CU-08: Anular matrícula**
-Actor: Secretaría
-
-
-Descripción: Permite cancelar la matrícula de un estudiante por solicitud o por error de registro.
-
-
-**CU-09: Consultar estado de matrícula**
-Actor: Secretaría
-
-
-Descripción: Consulta si el alumno está matriculado, qué cursos lleva, horarios, etc.
-
-
-**CU-10: Generar constancia de matrícula**
-Actor: Secretaría
-
-
-Descripción: El sistema genera un documento oficial de matrícula para el alumno.
-
-### 3. Gestion de Dispensas Academicas
-
-**CU-11: Registrar solicitud de dispensa académica**
+**CU-6: Registrar solicitud de dispensa académica**
 Actor: Secretaría
 
 
 Descripción: La secretaria ingresa una solicitud de dispensa presentada por el alumno (ej. reposición de examen, falta justificada, ampliación de matrícula).
 
 
-**CU-12: Adjuntar documentación a dispensa**
+**CU-7: Adjuntar documentación a dispensa**
 Actor: Secretaría
 
 
 Descripción: Adjunta certificados médicos, documentos legales, o formularios.
 
 
-**CU-13: Ver estado de dispensa**
+**CU-8: Ver estado de dispensa**
 Actor: Secretaría
 
 
 Descripción: Consulta el estado (pendiente, aprobada, rechazada) de las dispensas académicas.
 
 
-**CU-14: Actualizar dispensa académica**
+**CU-9: Actualizar dispensa académica**
 Actor: Secretaría
 
 
 Descripción: Modifica datos de una solicitud (documentos, fechas, observaciones).
 
 
-**CU-15: Generar informe de dispensas**
+**CU-10: Generar informe de dispensas**
 Actor: Secretaría
 
 
