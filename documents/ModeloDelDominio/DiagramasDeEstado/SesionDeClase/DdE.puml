@@ -1,0 +1,18 @@
+@startuml
+title Estados de SesionDeClase
+
+[*] --> Programada
+
+Programada --> EnCurso : iniciarSesion
+Programada --> Cancelada : cancelarSesion
+
+EnCurso --> TomandoAsistencia : registrarAsistencia
+TomandoAsistencia --> EnCurso : guardarAsistencia
+
+EnCurso --> Finalizada : finalizarSesion
+EnCurso --> Cancelada : cancelarSesion
+
+Finalizada --> [*]
+Cancelada --> [*]
+
+@enduml

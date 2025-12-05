@@ -1,0 +1,96 @@
+@startuml DiagramaDeContexto
+title Vista global del sistema
+left to right direction
+skinparam linetype polyline
+
+[*] --> SESION_CERRADA
+
+SESION_CERRADA --> SISTEMA_DISPONIBLE : iniciarSesion()
+SISTEMA_DISPONIBLE --> SESION_CERRADA : cerrarSesion() / sesionInactiva()
+
+'==========================================
+'  MÓDULO LISTAS DE ALUMNOS
+'==========================================
+SISTEMA_DISPONIBLE --> LISTAS_ABIERTO : abrirListasAlumnos()
+
+LISTAS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionListas()
+
+' Casos de uso relacionados con listas
+LISTAS_ABIERTO --> LISTAS_ABIERTO : consultarListaAlumnos()
+LISTAS_ABIERTO --> LISTAS_ABIERTO : generarListadoAlumnosPorCurso()
+
+LISTAS_ABIERTO --> LISTA_ABIERTA   : abrirLista()
+LISTA_ABIERTA --> LISTAS_ABIERTO   : actualizarListaAlumnos() / guardarCambiosLista()
+
+'==========================================
+'  MÓDULO ALUMNOS
+'==========================================
+SISTEMA_DISPONIBLE --> ALUMNOS_ABIERTO : abrirAlumnos()
+
+ALUMNOS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionAlumnos()
+
+' Casos de uso de alumnos
+ALUMNOS_ABIERTO --> ALUMNO_ABIERTO  : registrarNuevoAlumno()
+ALUMNOS_ABIERTO --> ALUMNOS_ABIERTO : consultarAlumnosGrado()
+ALUMNOS_ABIERTO --> ALUMNO_ABIERTO  : seleccionarAlumno() / verDetalleAlumno()
+
+' Trabajando sobre la ficha de un alumno concreto
+ALUMNO_ABIERTO --> ALUMNOS_ABIERTO  : actualizarDatosAlumno()
+ALUMNO_ABIERTO --> ALUMNOS_ABIERTO  : eliminarAlumno()
+ALUMNO_ABIERTO --> ALUMNOS_ABIERTO  : guardarAlumno() / cancelarEdicion()
+
+'==========================================
+'  MÓDULO ASISTENCIAS
+'==========================================
+SISTEMA_DISPONIBLE --> ASISTENCIAS_ABIERTO : abrirAsistencias()
+
+ASISTENCIAS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionAsistencias()
+
+ASISTENCIAS_ABIERTO --> ASISTENCIAS_ABIERTO        : consultarHistorialAsistencias()
+ASISTENCIAS_ABIERTO --> SESION_ASISTENCIA_ABIERTA : crearSesionClase() / abrirSesionClase()
+
+SESION_ASISTENCIA_ABIERTA --> ASISTENCIAS_ABIERTO : registrarTomaAsistencia()
+SESION_ASISTENCIA_ABIERTA --> ASISTENCIAS_ABIERTO : cerrarSesionClase()
+
+'==========================================
+'  MÓDULO DISPENSAS
+'==========================================
+SISTEMA_DISPONIBLE --> DISPENSAS_ABIERTO : abrirDispensas()
+
+DISPENSAS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionDispensas()
+
+' Acciones típicas del Alumno sobre su solicitud
+DISPENSAS_ABIERTO --> SOLICITUD_DISPENSA_ABIERTA : crearSolicitudDispensa() / seleccionarSolicitud()
+
+SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO : editarSolicitudDispensa()
+SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO : borrarSolicitudDispensa()
+SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO : verSolicitudDispensa() / verEstadoDispensa()
+SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO : apelarDispensa()
+
+' Acciones de Secretaría / Director sobre la dispensa
+DISPENSAS_ABIERTO --> DISPENSAS_ABIERTO : consultarDispensasAlumno()
+DISPENSAS_ABIERTO --> DISPENSAS_ABIERTO : generarInformeDispensas()
+
+SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO : adjuntarDocumentacionDispensa()
+SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO : aprobarDispensa() / rechazarDispensa()
+
+'==========================================
+'  MÓDULO USUARIOS Y ROLES (ADMINISTRADOR)
+'==========================================
+SISTEMA_DISPONIBLE --> USUARIOS_ABIERTO : abrirUsuarios()
+
+USUARIOS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionUsuarios()
+
+' listado / consultas generales
+USUARIOS_ABIERTO --> USUARIOS_ABIERTO : consultarUsuarios()
+
+' crear o editar un usuario concreto
+USUARIOS_ABIERTO --> USUARIO_ABIERTO  : crearUsuario()
+USUARIOS_ABIERTO --> USUARIO_ABIERTO  : seleccionarUsuario() / modificarUsuario()
+
+' dentro de la ficha de usuario
+USUARIO_ABIERTO --> USUARIO_ABIERTO   : asignarRolUsuario()
+USUARIO_ABIERTO --> USUARIO_ABIERTO   : desactivarUsuario()
+USUARIO_ABIERTO --> USUARIOS_ABIERTO  : guardarUsuario() / cancelarEdicion()
+
+@enduml
