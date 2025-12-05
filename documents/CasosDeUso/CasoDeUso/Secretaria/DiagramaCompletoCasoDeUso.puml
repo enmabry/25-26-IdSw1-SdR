@@ -18,13 +18,6 @@ rectangle "Gestión de Listas de Alumnos" {
   usecase "Generar listado de alumnos\npor curso/programa" as CU05
 }
 
-rectangle "Gestión de Matrículas" {
-  usecase "Registrar matrícula" as CU06
-  usecase "Actualizar matrícula" as CU07
-  usecase "Anular matrícula" as CU08
-  usecase "Consultar estado de matrícula" as CU09
-  usecase "Generar constancia de matrícula" as CU10
-}
 
 rectangle "Gestión de Dispensas Académicas" {
   usecase "Registrar solicitud de dispensa" as CU11
@@ -40,12 +33,6 @@ Secretaria --> CU02
 Secretaria --> CU03
 Secretaria --> CU04
 Secretaria --> CU05
-
-Secretaria --> CU06
-Secretaria --> CU07
-Secretaria --> CU08
-Secretaria --> CU09
-Secretaria --> CU10
 
 Secretaria --> CU11
 Secretaria --> CU12
