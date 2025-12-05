@@ -1,0 +1,44 @@
+@startuml consultarDispensasAlumno
+
+skinparam linetype polyline
+
+state consultarDispensasAlumno as "consultarDispensasAlumno()" {
+
+  state " " as AlumnoSeleccionado
+  state " " as FiltrandoLista
+
+    [*] -[#green]-> AlumnoSeleccionado
+    note on link
+    <b>Profesor</b> selecciona alumno
+    end note
+
+    AlumnoSeleccionado -[#green]-> FiltrandoLista 
+    note on link
+      • <b>Sistema</b> muestra el historial de dispensas de un alumno
+      • Nombre del alumno, sesion, con/sin dispensa
+      • Permite filtrar
+    end note
+
+    FiltrandoLista -[#green]-> FiltrandoLista
+    note on link
+    <b>Profesor</b> selecciona fecha/sesión específica
+    <b>Sistema</b> confirma si aplica la exención
+    end note
+
+    FiltrandoLista -[#green]-> [*]
+    note on link
+      <b>Profesor</b> finaliza la consulta
+    end note
+}
+
+consultarDispensasAlumno -[#green]-> DISPENSAS_ABIERTO
+note on link
+volverMenu()
+end note
+
+consultarDispensasAlumno -[#green]-> SOLICITUD_DISPENSA_ABIERTA
+note on link
+verDispensa()
+end note
+
+@enduml

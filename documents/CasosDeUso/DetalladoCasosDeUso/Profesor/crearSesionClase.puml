@@ -1,0 +1,39 @@
+@startuml crearSesionClase
+
+skinparam linetype polyline
+
+state crearSesionClase as "crearSesionClase()" {
+
+    state " " as ConfigurandoDatos
+
+    [*] -[#green]-> ConfigurandoDatos 
+    note on link
+    <b>Profesor</b> selecciona asignatura
+    y solicita nueva sesión
+    end note    
+    
+    ConfigurandoDatos -[#green]-> ConfigurandoDatos
+    note on link
+    <b>Sistema</b> solicita formulario:
+    • Fecha y Hora
+    • <b>Tipo</b>
+    <b>Profesor</b> introduce datos
+    end note
+    
+    ConfigurandoDatos -[#green]-> [*]
+    note on link
+    <b>Sistema</b> valida y crea la sesión
+    end note
+}
+
+crearSesionClase -[#green]-> SESION_ASISTENCIA_ABIERTA
+note on link
+abrirSesionClase()
+end note
+
+crearSesionClase -[#green]-> ASISTENCIAS_ABIERTO
+note on link
+volverMenu()
+end note
+
+@enduml

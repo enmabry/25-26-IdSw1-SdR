@@ -1,0 +1,43 @@
+@startuml consultarHistorialAsistencias
+
+skinparam linetype polyline
+
+state consultarHistorialAsistencias as "consultarHistorialAsistencias()" {
+
+    state " " as SeleccionandoParametros
+    state " " as VisualizandoMatriz
+
+    [*] -[#green]-> SeleccionandoParametros
+    note on link
+    <b>Profesor</b> selecciona Asignatura
+    end note
+
+    SeleccionandoParametros -[#green]-> VisualizandoMatriz
+    note on link
+    • <b>Sistema</b> muestra el listado
+    • Permite filtrar
+    end note
+
+    VisualizandoMatriz -[#green]-> VisualizandoMatriz
+    note on link
+    <b>Profesor</b> aplica filtros
+    (Ej. "Ver solo alumnos con < 80% asistencia")
+    end note
+
+    VisualizandoMatriz -[#green]-> [*]
+    note on link
+    <b>Profesor</b> finaliza la consulta
+    end note
+}
+
+consultarHistorialAsistencias -[#green]-> ASISTENCIAS_ABIERTO
+note on link
+volverMenu()
+end note
+
+consultarHistorialAsistencias -[#green]-> SESION_ASISTENCIA_ABIERTA
+note on link
+abrirSesionClase()
+end note
+
+@enduml

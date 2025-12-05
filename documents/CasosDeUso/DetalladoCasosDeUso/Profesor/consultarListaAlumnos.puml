@@ -1,0 +1,46 @@
+@startuml consultarListaAlumnos
+
+skinparam linetype polyline
+
+state consultarListaAlumnos as "consultarListaAlumnos()" {
+
+    state " " as SeleccionandoAsignatura
+    state " " as VisualizandoListado
+
+    [*] -[#green]-> SeleccionandoAsignatura 
+    note on link
+    <b>Profesor</b> selecciona asignatura
+    end note    
+    
+    SeleccionandoAsignatura -[#green]-> VisualizandoListado
+    note on link
+    <b>Sistema</b> recupera y muestra listado
+    • Muestra Matrícula, Nombre, Apellidos
+    • <b>Fecha de Alta</b>
+    • <b>Estado Dispensa</b>
+    • Permite filtrar
+    end note
+    
+    VisualizandoListado -[#green]-> VisualizandoListado
+    note on link
+    <b>Profesor</b> solicita filtrar lista
+    <b>Sistema</b> actualiza la vista
+    end note
+    
+    VisualizandoListado -[#green]-> [*]
+    note on link
+    <b>Profesor</b> selecciona una opción de salida
+    end note
+}
+
+consultarListaAlumnos -[#green]-> LISTA_ABIERTA
+note on link
+abrirLista()
+end note
+
+consultarListaAlumnos -[#green]-> LISTAS_ABIERTO
+note on link
+volverMenu()
+end note
+
+@enduml

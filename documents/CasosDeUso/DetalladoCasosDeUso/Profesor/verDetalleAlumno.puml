@@ -1,0 +1,41 @@
+@startuml verDetalleAlumno
+
+skinparam linetype polyline
+
+state verDetalleAlumno as "verDetalleAlumno()" {
+
+    state " " as VisualizandoFicha
+    state " " as NavegandoDetalles
+
+    [*] -[#green]-> VisualizandoFicha 
+    note on link
+    <b>Profesor</b> selecciona un alumno específico
+    end note    
+    
+    VisualizandoFicha -[#green]-> NavegandoDetalles
+    note on link
+      <b>Sistema</b> presenta ficha alumno
+    end note
+    
+    NavegandoDetalles -[#green]-> NavegandoDetalles
+    note on link
+    <b>Profesor</b> alterna pestañas
+    end note
+    
+    NavegandoDetalles -[#green]-> [*]
+    note on link
+    <b>Profesor</b> finaliza la revisión
+    end note
+}
+
+verDetalleAlumno -[#green]-> ALUMNO_ABIERTO
+note on link
+actualizarDatosAlumno()
+end note
+
+verDetalleAlumno -[#green]-> ALUMNOS_ABIERTO
+note on link
+volverMenu()
+end note
+
+@enduml

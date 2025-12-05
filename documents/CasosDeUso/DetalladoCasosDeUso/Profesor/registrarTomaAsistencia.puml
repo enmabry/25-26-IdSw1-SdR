@@ -1,0 +1,38 @@
+@startuml registrarTomaAsistencia
+
+skinparam linetype polyline
+
+state registrarTomaAsistencia as "registrarTomaAsistencia()" {
+
+    state " " as EditandoPlanilla
+
+    [*] -[#green]-> EditandoPlanilla 
+    note on link
+    <b>Profesor</b> accede a la planilla
+    de una sesión creada
+    end note    
+    
+    EditandoPlanilla -[#green]-> EditandoPlanilla
+    note on link
+    <b>Sistema</b> carga lista de alumnos vigentes
+    <b>Profesor</b> modifica estados
+    end note
+    
+    EditandoPlanilla -[#green]-> [*]
+    note on link
+    <b>Profesor</b> guarda la asistencia
+    <b>Sistema</b> confirma y cierra
+    end note
+}
+
+registrarTomaAsistencia -[#green]-> ASISTENCIAS_ABIERTO
+note on link
+completarGestionAsistencias()
+end note
+
+registrarTomaAsistencia -[#green]-> SESION_ASISTENCIA_ABIERTA
+note on link
+cancelarEdicion()
+end note
+
+@enduml
