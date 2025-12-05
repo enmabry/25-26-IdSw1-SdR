@@ -1,6 +1,7 @@
 @startuml DiagramaDeContexto
 title Vista global del sistema
 left to right direction
+skinparam linetype polyline
 
 [*] --> SESION_CERRADA
 
