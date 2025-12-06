@@ -1,43 +1,54 @@
-@startuml consultarHistorialAsistencias
+@startuml
+title Consultar Historial Asistencias
 
-skinparam linetype polyline
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
 
-state consultarHistorialAsistencias as "consultarHistorialAsistencias()" {
+hide empty description
 
-    state " " as SeleccionandoParametros
-    state " " as VisualizandoMatriz
+state startState as "ASISTENCIAS_ABIERTO"
+state endState as "ASISTENCIAS_ABIERTO"
 
-    [*] -[#green]-> SeleccionandoParametros
+startState --> consultarHistorialAsistencias
+note on link
+    <b>Usuario selecciona</b>
+    Consultar Historial de asistencias
+end note
+
+state consultarHistorialAsistencias {
+    state SeleccionFiltros as " "
+    state ValidarBusqueda <<choice>>
+
+    [*] --> SeleccionFiltros
     note on link
-    <b>Profesor</b> selecciona Asignatura
+        <b>Sistema solicita criterios</b>
+        * Rango de fechas
+        * Grupo o Alumno
     end note
 
-    SeleccionandoParametros -[#green]-> VisualizandoMatriz
+    SeleccionFiltros --> ValidarBusqueda
     note on link
-    • <b>Sistema</b> muestra el listado
-    • Permite filtrar
+        <b>Usuario introduce</b>
+        Filtros de búsqueda
     end note
 
-    VisualizandoMatriz -[#green]-> VisualizandoMatriz
+    ValidarBusqueda -[#red]-> SeleccionFiltros
     note on link
-    <b>Profesor</b> aplica filtros
-    (Ej. "Ver solo alumnos con < 80% asistencia")
+        <b>Sistema informa</b>
+        Error
     end note
 
-    VisualizandoMatriz -[#green]-> [*]
+    ValidarBusqueda --> [*]
     note on link
-    <b>Profesor</b> finaliza la consulta
+        <b>Sistema muestra</b>
+        Historial de asistencias
     end note
 }
 
-consultarHistorialAsistencias -[#green]-> ASISTENCIAS_ABIERTO
-note on link
-volverMenu()
-end note
-
-consultarHistorialAsistencias -[#green]-> SESION_ASISTENCIA_ABIERTA
-note on link
-abrirSesionClase()
-end note
+consultarHistorialAsistencias --> endState
 
 @enduml

@@ -1,44 +1,53 @@
-@startuml consultarDispensasAlumno
+@startuml
+title Consultar Dispensas Alumno
 
-skinparam linetype polyline
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
 
-state consultarDispensasAlumno as "consultarDispensasAlumno()" {
+hide empty description
 
-  state " " as AlumnoSeleccionado
-  state " " as FiltrandoLista
+state startState as "DISPENSAS_ABIERTO"
+state endState as "DISPENSAS_ABIERTO"
 
-    [*] -[#green]-> AlumnoSeleccionado
+startState --> consultarDispensasAlumno
+note on link
+    <b>Usuario selecciona</b>
+    Consultar dispensas de alumno
+end note
+
+state consultarDispensasAlumno {
+    state IngresoDatos as " "
+    state ValidarAlumno <<choice>>
+
+    [*] --> IngresoDatos
     note on link
-    <b>Profesor</b> selecciona alumno
+        <b>Sistema solicita</b>
+        Identificación del alumno
     end note
 
-    AlumnoSeleccionado -[#green]-> FiltrandoLista 
+    IngresoDatos --> ValidarAlumno
     note on link
-      • <b>Sistema</b> muestra el historial de dispensas de un alumno
-      • Nombre del alumno, sesion, con/sin dispensa
-      • Permite filtrar
+        <b>Usuario introduce</b>
+        * Nombre/DNI/Identificador
     end note
 
-    FiltrandoLista -[#green]-> FiltrandoLista
+    ValidarAlumno -[#red]-> IngresoDatos
     note on link
-    <b>Profesor</b> selecciona fecha/sesión específica
-    <b>Sistema</b> confirma si aplica la exención
+        <b>Sistema informa</b>
+        Error
     end note
 
-    FiltrandoLista -[#green]-> [*]
+    ValidarAlumno --> [*]
     note on link
-      <b>Profesor</b> finaliza la consulta
+        <b>Sistema muestra</b>
+        Listado de dispensas del alumno
     end note
 }
 
-consultarDispensasAlumno -[#green]-> DISPENSAS_ABIERTO
-note on link
-volverMenu()
-end note
-
-consultarDispensasAlumno -[#green]-> SOLICITUD_DISPENSA_ABIERTA
-note on link
-verDispensa()
-end note
+consultarDispensasAlumno --> endState
 
 @enduml

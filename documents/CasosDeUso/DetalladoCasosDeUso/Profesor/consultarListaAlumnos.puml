@@ -1,46 +1,53 @@
-@startuml consultarListaAlumnos
+@startuml
+title Consultar Lista Alumnos
 
-skinparam linetype polyline
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
 
-state consultarListaAlumnos as "consultarListaAlumnos()" {
+hide empty description
 
-    state " " as SeleccionandoAsignatura
-    state " " as VisualizandoListado
+state startState as "LISTAS_ABIERTO"
+state endState as "LISTAS_ABIERTO"
 
-    [*] -[#green]-> SeleccionandoAsignatura 
+startState --> consultarListaAlumnos
+note on link
+    <b>Usuario selecciona</b>
+    Consultar Lista
+end note
+
+state consultarListaAlumnos {
+    state SeleccionGrupo as " "
+    state ValidarExistencia <<choice>>
+
+    [*] --> SeleccionGrupo
     note on link
-    <b>Profesor</b> selecciona asignatura
-    end note    
-    
-    SeleccionandoAsignatura -[#green]-> VisualizandoListado
-    note on link
-    <b>Sistema</b> recupera y muestra listado
-    • Muestra Matrícula, Nombre, Apellidos
-    • <b>Fecha de Alta</b>
-    • <b>Estado Dispensa</b>
-    • Permite filtrar
+        <b>Sistema solicita</b>
+        Selección de Curso/Grupo
     end note
-    
-    VisualizandoListado -[#green]-> VisualizandoListado
+
+    SeleccionGrupo --> ValidarExistencia
     note on link
-    <b>Profesor</b> solicita filtrar lista
-    <b>Sistema</b> actualiza la vista
+        <b>Usuario selecciona</b>
+        * Grado / Año
     end note
-    
-    VisualizandoListado -[#green]-> [*]
+
+    ValidarExistencia -[#red]-> SeleccionGrupo
     note on link
-    <b>Profesor</b> selecciona una opción de salida
+        <b>Sistema informa</b>
+        Error
+    end note
+
+    ValidarExistencia --> [*]
+    note on link
+        <b>Sistema muestra</b>
+        Listado de alumnos matriculados
     end note
 }
 
-consultarListaAlumnos -[#green]-> LISTA_ABIERTA
-note on link
-abrirLista()
-end note
-
-consultarListaAlumnos -[#green]-> LISTAS_ABIERTO
-note on link
-volverMenu()
-end note
+consultarListaAlumnos --> endState
 
 @enduml

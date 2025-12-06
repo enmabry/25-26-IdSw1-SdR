@@ -1,39 +1,56 @@
-@startuml crearSesionClase
+@startuml
+title Crear Sesion Clase
 
-skinparam linetype polyline
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
 
-state crearSesionClase as "crearSesionClase()" {
+hide empty description
 
-    state " " as ConfigurandoDatos
+state startState as "ASISTENCIAS_ABIERTO"
+state endState as "SESION_ASISTENCIA_ABIERTA"
 
-    [*] -[#green]-> ConfigurandoDatos 
+startState --> crearSesionClase
+note on link
+    <b>Usuario selecciona</b>
+    Nueva Sesión
+end note
+
+state crearSesionClase {
+    state FormularioSesion as " "
+    state ValidarDatosSesion <<choice>>
+
+    [*] --> FormularioSesion
     note on link
-    <b>Profesor</b> selecciona asignatura
-    y solicita nueva sesión
-    end note    
-    
-    ConfigurandoDatos -[#green]-> ConfigurandoDatos
-    note on link
-    <b>Sistema</b> solicita formulario:
-    • Fecha y Hora
-    • <b>Tipo</b>
-    <b>Profesor</b> introduce datos
+        <b>Sistema solicita</b>
+        Datos de la clase
     end note
-    
-    ConfigurandoDatos -[#green]-> [*]
+
+    FormularioSesion --> ValidarDatosSesion
     note on link
-    <b>Sistema</b> valida y crea la sesión
+        <b>Usuario introduce</b>
+        * Fecha y Hora
+        * Curso / Asignatura
+        * Tema (opcional)
+    end note
+
+    ValidarDatosSesion -[#red]-> FormularioSesion
+    note on link
+        <b>Sistema informa</b>
+        Error
+    end note
+
+    ValidarDatosSesion --> [*]
+    note on link
+        <b>Sistema crea</b>
+        * Sesión
+        * Lista de alumnos
     end note
 }
 
-crearSesionClase -[#green]-> SESION_ASISTENCIA_ABIERTA
-note on link
-abrirSesionClase()
-end note
-
-crearSesionClase -[#green]-> ASISTENCIAS_ABIERTO
-note on link
-volverMenu()
-end note
+crearSesionClase --> endState
 
 @enduml

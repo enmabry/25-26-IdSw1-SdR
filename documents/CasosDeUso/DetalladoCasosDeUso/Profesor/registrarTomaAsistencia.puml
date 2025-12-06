@@ -1,38 +1,54 @@
-@startuml registrarTomaAsistencia
+@startuml
+title Registrar Toma Asistencia
 
-skinparam linetype polyline
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
 
-state registrarTomaAsistencia as "registrarTomaAsistencia()" {
+hide empty description
 
-    state " " as EditandoPlanilla
+state startState as "SESION_ASISTENCIA_ABIERTA"
+state endState as "ASISTENCIAS_ABIERTO"
 
-    [*] -[#green]-> EditandoPlanilla 
+startState --> registrarTomaAsistencia
+note on link
+    <b>Usuario selecciona</b>
+    registrarTomaAsistencia
+end note
+
+state registrarTomaAsistencia {
+    state MarcadoDeAlumnos as " "
+    state ValidarCompletitud <<choice>>
+
+    [*] --> MarcadoDeAlumnos
     note on link
-    <b>Profesor</b> accede a la planilla
-    de una sesión creada
-    end note    
-    
-    EditandoPlanilla -[#green]-> EditandoPlanilla
-    note on link
-    <b>Sistema</b> carga lista de alumnos vigentes
-    <b>Profesor</b> modifica estados
+        <b>Usuario asigna estados</b>
+        Para cada alumno de la lista
     end note
-    
-    EditandoPlanilla -[#green]-> [*]
+
+    MarcadoDeAlumnos --> ValidarCompletitud
     note on link
-    <b>Profesor</b> guarda la asistencia
-    <b>Sistema</b> confirma y cierra
+        <b>Usuario confirma</b>
+        Guardar Asistencia
+    end note
+
+    ValidarCompletitud -[#red]-> MarcadoDeAlumnos
+    note on link
+        <b>Sistema informa</b>
+        Error
+    end note
+
+    ValidarCompletitud --> [*]
+    note on link
+        <b>Sistema procesa</b>
+        Guarda los registros y 
+        cierra la sesión de clase
     end note
 }
 
-registrarTomaAsistencia -[#green]-> ASISTENCIAS_ABIERTO
-note on link
-completarGestionAsistencias()
-end note
-
-registrarTomaAsistencia -[#green]-> SESION_ASISTENCIA_ABIERTA
-note on link
-cancelarEdicion()
-end note
+registrarTomaAsistencia --> endState
 
 @enduml

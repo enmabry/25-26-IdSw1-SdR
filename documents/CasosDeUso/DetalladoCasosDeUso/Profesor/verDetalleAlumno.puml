@@ -1,41 +1,52 @@
-@startuml verDetalleAlumno
+@startuml
+title Ver Detalle Alumno
 
-skinparam linetype polyline
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
 
-state verDetalleAlumno as "verDetalleAlumno()" {
+hide empty description
 
-    state " " as VisualizandoFicha
-    state " " as NavegandoDetalles
+state startState as "ALUMNOS_ABIERTO"
+state endState as "ALUMNO_ABIERTO"
 
-    [*] -[#green]-> VisualizandoFicha 
+startState --> verDetalleAlumno
+note on link
+    <b>Usuario selecciona</b>
+    Alumno de la lista
+end note
+
+state verDetalleAlumno {
+    state RecuperandoDatos as " "
+    state ValidarSeleccion <<choice>>
+
+    [*] --> RecuperandoDatos
     note on link
-    <b>Profesor</b> selecciona un alumno específico
-    end note    
-    
-    VisualizandoFicha -[#green]-> NavegandoDetalles
-    note on link
-      <b>Sistema</b> presenta ficha alumno
+        <b>Sistema identifica</b>
+        Alumno seleccionado
     end note
-    
-    NavegandoDetalles -[#green]-> NavegandoDetalles
+
+    RecuperandoDatos --> ValidarSeleccion
     note on link
-    <b>Profesor</b> alterna pestañas
+        <b>Sistema</b>
+        Carga ficha completa
     end note
-    
-    NavegandoDetalles -[#green]-> [*]
+
+    ValidarSeleccion -[#red]-> [*]
     note on link
-    <b>Profesor</b> finaliza la revisión
+        <b>Sistema informa</b>
+        Error al cargar datos
+    end note
+
+    ValidarSeleccion --> [*]
+    note on link
+        <b>Sistema muestra</b>
+        Ficha detallada del alumno
     end note
 }
 
-verDetalleAlumno -[#green]-> ALUMNO_ABIERTO
-note on link
-actualizarDatosAlumno()
-end note
-
-verDetalleAlumno -[#green]-> ALUMNOS_ABIERTO
-note on link
-volverMenu()
-end note
-
+verDetalleAlumno --> endState
 @enduml
