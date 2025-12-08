@@ -1,0 +1,31 @@
+@startuml
+title consultarSolicitudesDispensa()
+
+start
+
+:DISPENSAS_ABIERTO;
+:Director de Grado selecciona
+"Consultar solicitudes de dispensa";
+
+partition consultarSolicitudesDispensa {
+
+  :Sistema valida credenciales
+  y rol del Director de Grado;
+
+  if (Credenciales válidas) then (sí)
+    :Sistema muestra lista de
+    solicitudes de dispensa;
+
+    :Director de Grado selecciona
+    una solicitud;
+
+    :Sistema muestra el detalle
+    de la solicitud seleccionada;
+  else (no)
+    :Sistema informa
+    "Error de autenticación";
+  endif
+}
+
+stop
+@enduml
