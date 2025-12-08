@@ -1,0 +1,31 @@
+@startuml
+title consultarDispensasAlumno()
+
+start
+
+:DISPENSAS_ABIERTO;
+:Usuario selecciona
+"Consultar dispensas de alumno";
+
+partition consultarDispensasAlumno {
+
+  :Sistema solicita
+  identificación del alumno;
+
+  :Usuario introduce
+  Nombre/DNI/Identificador;
+
+  :Sistema valida los datos
+  e intenta localizar al alumno;
+
+  if (Alumno encontrado) then (sí)
+    :Sistema muestra listado
+    de dispensas del alumno;
+  else (no)
+    :Sistema informa
+    "Alumno no encontrado";
+  endif
+}
+
+stop
+@enduml
