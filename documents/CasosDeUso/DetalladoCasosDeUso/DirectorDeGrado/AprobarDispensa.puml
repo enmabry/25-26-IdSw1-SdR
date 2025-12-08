@@ -1,0 +1,37 @@
+@startuml
+title aprobarDispensa()
+
+start
+
+:DISPENSAS_ABIERTO;
+:Director de Grado selecciona
+"Aprobar dispensa" sobre una
+solicitud pendiente;
+
+partition aprobarDispensa {
+
+  :Sistema muestra el detalle
+  de la solicitud;
+
+  if (Solicitud pendiente) then (sí)
+    :Sistema solicita confirmación
+    de la aprobación;
+
+    if (Director confirma) then (sí)
+      :Sistema registra la aprobación
+      y actualiza el estado a APROBADA;
+
+      :Sistema notifica al alumno
+      el resultado;
+    else (no)
+      :Sistema cancela la operación
+      sin cambios;
+    endif
+  else (no)
+    :Sistema informa que la solicitud
+    no puede aprobarse;
+  endif
+}
+
+stop
+@enduml
