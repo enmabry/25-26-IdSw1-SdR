@@ -1,0 +1,38 @@
+@startuml
+title rechazarDispensa()
+
+start
+
+:DISPENSAS_ABIERTO;
+:Director de Grado selecciona
+"Rechazar dispensa" sobre una
+solicitud pendiente;
+
+partition rechazarDispensa {
+
+  :Sistema muestra el detalle
+  de la solicitud;
+
+  if (Solicitud pendiente) then (sí)
+    :Sistema solicita motivo
+    y confirmación de rechazo;
+
+    if (Motivo y confirmación correctos) then (sí)
+      :Sistema registra el rechazo
+      y actualiza el estado a RECHAZADA;
+
+      :Sistema notifica al alumno
+      el resultado;
+    else (no)
+      :Sistema informa
+      "Datos de rechazo incompletos"
+      y no realiza cambios;
+    endif
+  else (no)
+    :Sistema informa que la solicitud
+    no puede rechazarse;
+  endif
+}
+
+stop
+@enduml
