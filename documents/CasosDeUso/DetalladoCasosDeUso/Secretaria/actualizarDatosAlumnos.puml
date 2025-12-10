@@ -1,0 +1,78 @@
+@startuml
+title Actualizar Datos Alumno
+
+' --- CONFIGURACIÓN DE ESTILO (Idéntico a tus ejemplos) ---
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+state startState as "ALUMNO_ABIERTO"
+state endState as "ALUMNOS_ABIERTO"
+
+startState --> actualizarDatosAlumno
+note on link
+    <b>Usuario solicita</b>
+    Actualizar datos
+end note
+
+state actualizarDatosAlumno {
+    state HabilitarEdicion as " "
+    state ModificarDatos as " "
+    state FinalizarOpciones <<choice>>
+
+    ' 1. Inicio
+    [*] --> HabilitarEdicion
+    note on link
+        <b>Sistema permite</b>
+        editar los campos del alumno.
+    end note
+
+    ' 2. Modificación de datos
+    HabilitarEdicion --> ModificarDatos
+    note on link
+        <b>Usuario modifica los datos</b>
+        * Nombre
+        * Edad
+        * Curso 
+        * Direccion
+        * Asignaturas
+    end note
+    
+    ' 3. Validación y Decisión final
+    ModificarDatos --> FinalizarOpciones
+    note on link
+        <b>Sistema valida los cambios</b>
+        a medida que se completan.
+        Usuario solicita una de las opciones.
+    end note
+
+    ' --- FLUJO ALTERNATIVO (Cancelar - Camino Rojo) ---
+    FinalizarOpciones -[#red]-> [*]
+    note on link
+        <b>Si el usuario selecciona Cancelar:</b>
+        Se aborta la operación sin guardar.
+    end note
+
+    ' --- FLUJO BÁSICO (Actualizar/Commit - Éxito) ---
+    FinalizarOpciones --> GuardarCambios
+    
+    state GuardarCambios as " "
+    note on link
+        <b>Sistema actualiza los datos</b>
+    end note
+    
+    GuardarCambios --> [*]
+    note on link
+        <b>Sistema confirma</b>
+        que la operación fue exitosa.
+    end note
+}
+
+actualizarDatosAlumno --> endState
+
+@enduml

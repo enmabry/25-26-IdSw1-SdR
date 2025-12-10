@@ -1,0 +1,61 @@
+@startuml
+title Eliminar Alumno
+
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+state startState as "ALUMNO_ABIERTO"
+state endState as "ALUMNOS_ABIERTO"
+
+startState --> eliminarAlumno
+note on link
+    <b>Usuario selecciona</b>
+    opcion Eliminar Alumno()
+end note
+
+state eliminarAlumno {
+    
+    ' Definición de los estados internos y el punto de decisión
+    state SolicitudConfirmacion as " "
+    state ConfirmarEliminacion <<choice>>
+    state EjecucionEliminacion as " " 
+
+    ' 1. Inicio
+    [*] --> SolicitudConfirmacion
+    note on link
+        <b>Sistema solicita confirmación
+    end note
+
+    ' 2. Respuesta del Usuario
+    SolicitudConfirmacion --> ConfirmarEliminacion
+    note on link
+        <b>Usuario confirma</b>
+        la eliminación
+    end note
+
+  
+    ' --- 3. FLUJO BÁSICO (Sí/Éxito) ---
+    ConfirmarEliminacion --> EjecucionEliminacion
+    note on link
+        <b>Sistema permite la eliminacion de el registro</b>
+        del alumno en la BD.
+    end note
+    
+    ' 4. Fin del caso de uso interno
+    EjecucionEliminacion --> [*]
+    note on link
+        <b>Sistema muestra mensaje</b>
+        indicando que la operación fue exitosa.
+    end note
+}
+
+eliminarAlumno --> endState
+
+@enduml
