@@ -1,6 +1,6 @@
 # Detallado Casos de Uso Secretaria
 
-## Datos
+## Dispensa
 
 ![Crear Solicitud Dispensa ](./crearSolicitudDispensa.svg)
 📄 [SVG](./crearSolicitudDispensa.svg) | 📋 [PUML](./crearSolicitudDispensa.puml)
@@ -11,8 +11,8 @@
 ![Ver Estado Dispensa](./verEstadoDispensa.svg)
 📄 [SVG](./verEstadoDispensa.svg) | 📋 [PUML](./verEstadoDispensa.puml)
 
-![Generar Informe Datos](./generarInformeDatos.svg)
-📄 [SVG](./generarInformeDatos.svg) | 📋 [PUML](./generarInformeDatos.puml)
+![Generar Informe Dispensa](./generarInformeDispensas.svg)
+📄 [SVG](./generarInformeDispensas.svg) | 📋 [PUML](./generarInformeDispensas.puml)
 
 
 ## Alumnos
