@@ -1,53 +1,40 @@
 @startuml
 title Consultar Dispensas Alumno
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
+skinparam linetype polyline
+
+state DISPENSAS_ABIERTO_INICIAL as "DISPENSAS_ABIERTO"
+state DISPENSAS_ABIERTO_FINAL as "DISPENSAS_ABIERTO"
+
+DISPENSAS_ABIERTO_INICIAL -[#green]-> consultarDispensasAlumno
+
+state consultarDispensasAlumno as "consultarDispensasAlumno()" {
+
+    state " " as SolicitandoBusqueda
+    state " " as ResultadosDispensas
+
+    [*] -[#green]-> SolicitandoBusqueda
+    note on link
+    <b>Profesor</b> solicita consultar
+    las dispensas de un alumno
+    end note
+
+    SolicitandoBusqueda -[#green]-> ResultadosDispensas
+    note on link
+    <b>Sistema</b> solicita identificar al alumno
+    
+    <b>Profesor</b> selecciona al alumno
+
+    <b>Sistema</b> recupera dispensas asociadas al alumno
+    end note
+
+    ResultadosDispensas -[#green]-> [*]
+    note on link
+    <b>Sistema</b> presenta las dispensas encontradas
+    end note
+
 }
 
-hide empty description
-
-state startState as "DISPENSAS_ABIERTO"
-state endState as "DISPENSAS_ABIERTO"
-
-startState --> consultarDispensasAlumno
-note on link
-    <b>Usuario selecciona</b>
-    Consultar dispensas de alumno
-end note
-
-state consultarDispensasAlumno {
-    state IngresoDatos as " "
-    state ValidarAlumno <<choice>>
-
-    [*] --> IngresoDatos
-    note on link
-        <b>Sistema solicita</b>
-        Identificación del alumno
-    end note
-
-    IngresoDatos --> ValidarAlumno
-    note on link
-        <b>Usuario introduce</b>
-        * Nombre/DNI/Identificador
-    end note
-
-    ValidarAlumno -[#red]-> IngresoDatos
-    note on link
-        <b>Sistema informa</b>
-        Error
-    end note
-
-    ValidarAlumno --> [*]
-    note on link
-        <b>Sistema muestra</b>
-        Listado de dispensas del alumno
-    end note
-}
-
-consultarDispensasAlumno --> endState
+consultarDispensasAlumno -[#green]-> DISPENSAS_ABIERTO_FINAL
 
 @enduml

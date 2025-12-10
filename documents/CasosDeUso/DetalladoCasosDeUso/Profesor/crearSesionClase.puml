@@ -1,56 +1,43 @@
 @startuml
 title Crear Sesion Clase
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
+skinparam linetype polyline
+
+state ASISTENCIAS_ABIERTO_INICIAL as "ASISTENCIAS_ABIERTO"
+state SESION_ASISTENCIA_ABIERTA_FINAL as "SESION_ASISTENCIA_ABIERTA"
+
+ASISTENCIAS_ABIERTO_INICIAL -[#green]-> crearSesionClase
+
+state crearSesionClase as "crearSesionClase()" {
+
+    state " " as ConfigurandoSesion
+    state " " as SesionInicializada
+
+    [*] -[#green]-> ConfigurandoSesion
+    note on link
+    <b>Profesor</b> solicita iniciar una
+    nueva toma de asistencia
+    end note
+
+    ConfigurandoSesion -[#green]-> SesionInicializada
+    note on link
+    <b>Sistema</b> solicita datos de la sesión:
+    • Fecha, Hora, Curso, Asignatura
+
+    <b>Profesor</b> introduce/confirma datos
+
+    <b>Sistema</b> genera planilla vacía:
+    • Carga lista de alumnos del curso
+    • Establece estado inicial
+    end note
+
+    SesionInicializada -[#green]-> [*]
+    note on link
+    <b>Sistema</b> abre la interfaz de toma de asistencia
+    end note
+
 }
 
-hide empty description
-
-state startState as "ASISTENCIAS_ABIERTO"
-state endState as "SESION_ASISTENCIA_ABIERTA"
-
-startState --> crearSesionClase
-note on link
-    <b>Usuario selecciona</b>
-    Nueva Sesión
-end note
-
-state crearSesionClase {
-    state FormularioSesion as " "
-    state ValidarDatosSesion <<choice>>
-
-    [*] --> FormularioSesion
-    note on link
-        <b>Sistema solicita</b>
-        Datos de la clase
-    end note
-
-    FormularioSesion --> ValidarDatosSesion
-    note on link
-        <b>Usuario introduce</b>
-        * Fecha y Hora
-        * Curso / Asignatura
-        * Tema (opcional)
-    end note
-
-    ValidarDatosSesion -[#red]-> FormularioSesion
-    note on link
-        <b>Sistema informa</b>
-        Error
-    end note
-
-    ValidarDatosSesion --> [*]
-    note on link
-        <b>Sistema crea</b>
-        * Sesión
-        * Lista de alumnos
-    end note
-}
-
-crearSesionClase --> endState
+crearSesionClase -[#green]-> SESION_ASISTENCIA_ABIERTA_FINAL
 
 @enduml

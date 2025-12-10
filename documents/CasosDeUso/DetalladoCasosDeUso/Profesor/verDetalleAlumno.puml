@@ -1,52 +1,43 @@
 @startuml
 title Ver Detalle Alumno
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
+skinparam linetype polyline
+
+state ALUMNOS_ABIERTO_INICIAL as "ALUMNOS_ABIERTO"
+state ALUMNO_ABIERTO_FINAL as "ALUMNO_ABIERTO"
+
+ALUMNOS_ABIERTO_INICIAL -[#green]-> verDetalleAlumno
+
+state verDetalleAlumno as "verDetalleAlumno()" {
+
+    state " " as SeleccionEnLista
+    state " " as DetalleCargado
+
+    [*] -[#green]-> SeleccionEnLista
+    note on link
+    <b>Profesor</b> busca un alumno específico
+    en el listado general
+    end note
+
+    SeleccionEnLista -[#green]-> DetalleCargado
+    note on link
+    <b>Profesor</b> selecciona al alumno
+
+    <b>Sistema</b> recupera ficha completa:
+    • Datos personales
+    • Informacion sobre dispensas y asistencias
+    • Otros datos
+    end note
+
+    DetalleCargado -[#green]-> [*]
+    note on link
+    <b>Sistema</b> presenta la ficha del alumno
+
+    <b>Sistema</b> cambia contexto a ALUMNO_ABIERTO
+    end note
+
 }
 
-hide empty description
+verDetalleAlumno -[#green]-> ALUMNO_ABIERTO_FINAL
 
-state startState as "ALUMNOS_ABIERTO"
-state endState as "ALUMNO_ABIERTO"
-
-startState --> verDetalleAlumno
-note on link
-    <b>Usuario selecciona</b>
-    Alumno de la lista
-end note
-
-state verDetalleAlumno {
-    state RecuperandoDatos as " "
-    state ValidarSeleccion <<choice>>
-
-    [*] --> RecuperandoDatos
-    note on link
-        <b>Sistema identifica</b>
-        Alumno seleccionado
-    end note
-
-    RecuperandoDatos --> ValidarSeleccion
-    note on link
-        <b>Sistema</b>
-        Carga ficha completa
-    end note
-
-    ValidarSeleccion -[#red]-> [*]
-    note on link
-        <b>Sistema informa</b>
-        Error al cargar datos
-    end note
-
-    ValidarSeleccion --> [*]
-    note on link
-        <b>Sistema muestra</b>
-        Ficha detallada del alumno
-    end note
-}
-
-verDetalleAlumno --> endState
 @enduml

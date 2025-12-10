@@ -1,53 +1,39 @@
 @startuml
 title Consultar Lista Alumnos
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
+skinparam linetype polyline
+
+state LISTAS_ABIERTO_INICIAL as "LISTAS_ABIERTO"
+state LISTAS_ABIERTO_FINAL as "LISTAS_ABIERTO"
+
+LISTAS_ABIERTO_INICIAL -[#green]-> consultarListaAlumnos
+
+state consultarListaAlumnos as "consultarListaAlumnos()" {
+
+    state " " as SolicitandoCriterios
+    state " " as ListaRenderizada
+
+    [*] -[#green]-> SolicitandoCriterios
+    note on link
+    <b>Profesor</b> solicita ver lista de alumnos
+    end note
+
+    SolicitandoCriterios -[#green]-> ListaRenderizada
+    note on link
+    <b>Sistema</b> solicita selección de curso/grado
+    
+    <b>Profesor</b> selecciona el curso asignado
+
+    <b>Sistema</b> recupera listado de alumnos matriculados
+    end note
+
+    ListaRenderizada -[#green]-> [*]
+    note on link
+    <b>Sistema</b> presenta la lista de alumnos
+    end note
+
 }
 
-hide empty description
-
-state startState as "LISTAS_ABIERTO"
-state endState as "LISTAS_ABIERTO"
-
-startState --> consultarListaAlumnos
-note on link
-    <b>Usuario selecciona</b>
-    Consultar Lista
-end note
-
-state consultarListaAlumnos {
-    state SeleccionGrupo as " "
-    state ValidarExistencia <<choice>>
-
-    [*] --> SeleccionGrupo
-    note on link
-        <b>Sistema solicita</b>
-        Selección de Curso/Grupo
-    end note
-
-    SeleccionGrupo --> ValidarExistencia
-    note on link
-        <b>Usuario selecciona</b>
-        * Grado / Año
-    end note
-
-    ValidarExistencia -[#red]-> SeleccionGrupo
-    note on link
-        <b>Sistema informa</b>
-        Error
-    end note
-
-    ValidarExistencia --> [*]
-    note on link
-        <b>Sistema muestra</b>
-        Listado de alumnos matriculados
-    end note
-}
-
-consultarListaAlumnos --> endState
+consultarListaAlumnos -[#green]-> LISTAS_ABIERTO_FINAL
 
 @enduml

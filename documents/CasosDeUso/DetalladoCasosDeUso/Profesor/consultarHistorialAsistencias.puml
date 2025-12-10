@@ -1,54 +1,38 @@
 @startuml
 title Consultar Historial Asistencias
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
+skinparam linetype polyline
+
+state ASISTENCIAS_ABIERTO_INICIAL as "ASISTENCIAS_ABIERTO"
+state ASISTENCIAS_ABIERTO_FINAL as "ASISTENCIAS_ABIERTO"
+
+ASISTENCIAS_ABIERTO_INICIAL -[#green]-> consultarHistorialAsistencias
+
+state consultarHistorialAsistencias as "consultarHistorialAsistencias()" {
+
+    state " " as SeleccionFiltros
+    state " " as VisualizandoHistorial
+
+    [*] -[#green]-> SeleccionFiltros
+    note on link
+    <b>Profesor</b> solicita ver historial
+    de asistencias
+    end note
+
+    SeleccionFiltros -[#green]-> VisualizandoHistorial
+    note on link
+    <b>Sistema</b> compila estadísticas:
+    • % de asistencia
+    • Listado de ausencias por fecha
+    end note
+
+    VisualizandoHistorial -[#green]-> [*]
+    note on link
+    <b>Sistema</b> muestra el reporte de asistencias
+    end note
+
 }
 
-hide empty description
-
-state startState as "ASISTENCIAS_ABIERTO"
-state endState as "ASISTENCIAS_ABIERTO"
-
-startState --> consultarHistorialAsistencias
-note on link
-    <b>Usuario selecciona</b>
-    Consultar Historial de asistencias
-end note
-
-state consultarHistorialAsistencias {
-    state SeleccionFiltros as " "
-    state ValidarBusqueda <<choice>>
-
-    [*] --> SeleccionFiltros
-    note on link
-        <b>Sistema solicita criterios</b>
-        * Rango de fechas
-        * Grupo o Alumno
-    end note
-
-    SeleccionFiltros --> ValidarBusqueda
-    note on link
-        <b>Usuario introduce</b>
-        Filtros de búsqueda
-    end note
-
-    ValidarBusqueda -[#red]-> SeleccionFiltros
-    note on link
-        <b>Sistema informa</b>
-        Error
-    end note
-
-    ValidarBusqueda --> [*]
-    note on link
-        <b>Sistema muestra</b>
-        Historial de asistencias
-    end note
-}
-
-consultarHistorialAsistencias --> endState
+consultarHistorialAsistencias -[#green]-> ASISTENCIAS_ABIERTO_FINAL
 
 @enduml

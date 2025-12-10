@@ -1,54 +1,43 @@
 @startuml
 title Registrar Toma Asistencia
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
+skinparam linetype polyline
+
+state SESION_ASISTENCIA_ABIERTA_INICIAL as "SESION_ASISTENCIA_ABIERTA"
+state ASISTENCIAS_ABIERTO_FINAL as "ASISTENCIAS_ABIERTO"
+
+SESION_ASISTENCIA_ABIERTA_INICIAL -[#green]-> registrarTomaAsistencia
+
+state registrarTomaAsistencia as "registrarTomaAsistencia()" {
+
+    state " " as VerificandoEstado
+    state " " as GuardadoConfirmado
+
+    [*] -[#green]-> VerificandoEstado
+    note on link
+    <b>Profesor</b> ha marcado las asistencias
+    y solicita finalizar la toma de asistencias
+    end note
+
+    VerificandoEstado -[#green]-> GuardadoConfirmado
+    note on link
+    <b>Sistema</b> valida los datos ingresados
+    
+    <b>Sistema</b> registra la asistencia:
+    • Guarda estados (Presente, Ausente, Tarde)
+    • Asocia la sesión al historial del curso
+    end note
+
+    GuardadoConfirmado -[#green]-> [*]
+    note on link
+    <b>Sistema</b> confirma el guardado exitoso
+
+    <b>Sistema</b> cierra la sesión de clase
+    y vuelve al panel general de asistencias
+    end note
+
 }
 
-hide empty description
-
-state startState as "SESION_ASISTENCIA_ABIERTA"
-state endState as "ASISTENCIAS_ABIERTO"
-
-startState --> registrarTomaAsistencia
-note on link
-    <b>Usuario selecciona</b>
-    registrarTomaAsistencia
-end note
-
-state registrarTomaAsistencia {
-    state MarcadoDeAlumnos as " "
-    state ValidarCompletitud <<choice>>
-
-    [*] --> MarcadoDeAlumnos
-    note on link
-        <b>Usuario asigna estados</b>
-        Para cada alumno de la lista
-    end note
-
-    MarcadoDeAlumnos --> ValidarCompletitud
-    note on link
-        <b>Usuario confirma</b>
-        Guardar Asistencia
-    end note
-
-    ValidarCompletitud -[#red]-> MarcadoDeAlumnos
-    note on link
-        <b>Sistema informa</b>
-        Error
-    end note
-
-    ValidarCompletitud --> [*]
-    note on link
-        <b>Sistema procesa</b>
-        Guarda los registros y 
-        cierra la sesión de clase
-    end note
-}
-
-registrarTomaAsistencia --> endState
+registrarTomaAsistencia -[#green]-> ASISTENCIAS_ABIERTO_FINAL
 
 @enduml
