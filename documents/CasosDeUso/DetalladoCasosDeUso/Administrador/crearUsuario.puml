@@ -1,0 +1,49 @@
+@startuml
+
+title Crear Usuario
+skinparam linetype polyline
+
+state USUARIOS_ABIERTO_INICIAL as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO_FINAL as "USUARIO_ABIERTO"
+
+USUARIOS_ABIERTO_INICIAL -[#green]-> crearUsuario
+
+state crearUsuario as "crearUsuario()" {
+
+    state " " as FormularioDatos
+    state " " as UsuarioRegistrado
+
+    [*] -[#green]-> FormularioDatos
+    note on link
+    <b>Administrador</b> solicita registrar
+    un nuevo usuario en el sistema
+    end note
+
+    FormularioDatos -[#green]-> UsuarioRegistrado
+    note on link
+    <b>Sistema</b> presenta formulario en blanco
+    
+    <b>Administrador</b> introduce datos:
+    • Nombre de usuario y Contraseña
+    • Otros datos
+
+    <b>Sistema</b> valida y crea la cuenta
+    end note
+
+    UsuarioRegistrado -[#green]-> [*]
+    note on link
+    <b>Sistema</b> confirma la creación
+
+    <b>Sistema</b> cambia el contexto a USUARIO_ABIERTO
+
+    <b>Sistema</b> permite solicitar:
+    • asignarRolUsuario()
+    • guardarUsuario()
+    • desactivarUsuario()
+    end note
+
+}
+
+crearUsuario -[#green]-> USUARIO_ABIERTO_FINAL
+
+@enduml

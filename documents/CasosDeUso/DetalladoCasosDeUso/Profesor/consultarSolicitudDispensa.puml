@@ -1,0 +1,42 @@
+@startuml
+title Consultar Solicitud Dispensa
+
+skinparam linetype polyline
+
+state DISPENSAS_ABIERTO_INICIAL as "DISPENSAS_ABIERTO"
+state SOLICITUD_DISPENSA_ABIERTA_FINAL as "SOLICITUD_DISPENSA_ABIERTA"
+
+DISPENSAS_ABIERTO_INICIAL -[#green]-> consultarSolicitudDispensa
+
+state consultarSolicitudDispensa as "consultarSolicitudDispensa()" {
+
+    state " " as SeleccionSolicitud
+    state " " as CargandoDetalle
+    state " " as VisualizacionDetalle
+
+    [*] -[#green]-> SeleccionSolicitud
+    note on link
+    <b>Profesor</b> visualiza la lista de dispensas
+    y selecciona una solicitud específica
+    end note
+
+    SeleccionSolicitud -[#green]-> CargandoDetalle
+    note on link
+    <b>Sistema</b> recupera la información completa:
+    • Motivo de la falta
+    • Archivos adjuntos (justificantes)
+    • Estado actual (Aprobada/Pendiente)
+    end note
+
+    CargandoDetalle -[#green]-> VisualizacionDetalle
+    note on link
+    <b>Sistema</b> despliega el formulario de detalle
+    end note
+
+    VisualizacionDetalle -[#green]-> [*]
+
+}
+
+consultarSolicitudDispensa -[#green]-> SOLICITUD_DISPENSA_ABIERTA_FINAL
+
+@enduml
