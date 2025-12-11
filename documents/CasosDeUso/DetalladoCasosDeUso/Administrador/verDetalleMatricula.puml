@@ -1,0 +1,41 @@
+@startuml
+title Ver Detalle Matrícula
+
+skinparam linetype polyline
+
+state MATRICULAS_ABIERTO_INICIAL as "MATRICULAS_ABIERTO"
+state MATRICULA_ABIERTA_FINAL as "MATRICULA_ABIERTA"
+
+MATRICULAS_ABIERTO_INICIAL -[#green]-> verDetalleMatricula
+
+state verDetalleMatricula as "verDetalleMatricula()" {
+
+    state " " as SeleccionRegistro
+    state " " as RecuperacionDatos
+    state " " as DespliegueInfo
+
+    [*] -[#green]-> SeleccionRegistro
+    note on link
+    <b>Administrador</b> busca y selecciona una matrícula
+    específica en el listado general
+    end note
+
+    SeleccionRegistro -[#green]-> RecuperacionDatos
+    note on link
+      <b>Sistema</b> consulta la matrícula:
+    • Datos del estudiante
+    • Datos de la asignatura
+    end note
+
+    RecuperacionDatos -[#green]-> DespliegueInfo
+    note on link
+    <b>Sistema</b> presenta la ficha completa de la matrícula
+    end note
+
+    DespliegueInfo -[#green]-> [*]
+
+}
+
+verDetalleMatricula -[#green]-> MATRICULA_ABIERTA_FINAL
+
+@enduml
