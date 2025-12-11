@@ -7,26 +7,28 @@ actor Profesor
 rectangle "Sistema de Gestión Universitaria (CGU)" {
 
     package "Alumnos" {
-        usecase "consultarListaAlumnos()" as AlumnosConsultarLista
         usecase "verDetalleAlumno()" as AlumnosVerDetalle
+        usecase "importarAlumnos()" as AlumnosImportar
     }
 
     package "Asistencias" {
         usecase "crearSesionClase()" as AsistenciasCrearSesion
+        usecase "cerrarSesionClase()" as AsistenciasCerrarSesion
         usecase "registrarTomaAsistencia()" as AsistenciasRegistrarToma
-        usecase "consultarHistorialAsistencias()" as AsistenciasConsultarHistorial
+        usecase "exportarHistorialAsistencias()" as AsistenciasExportarHistorial
     }
 
     package "Dispensas" {
-        usecase "consultarDispensasAlumno()" as DispensasConsultar
+      usecase "consultarSolicitudDispensa()" as DispensasConsultar
     }
 
-    Profesor --> AlumnosConsultarLista
     Profesor --> AlumnosVerDetalle
+    Profesor --> AlumnosImportar
     
     Profesor --> AsistenciasCrearSesion
+    Profesor --> AsistenciasCerrarSesion
     Profesor --> AsistenciasRegistrarToma
-    Profesor --> AsistenciasConsultarHistorial
+    Profesor --> AsistenciasExportarHistorial
     
     Profesor --> DispensasConsultar
 }

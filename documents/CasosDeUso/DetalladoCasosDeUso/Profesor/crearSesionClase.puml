@@ -1,0 +1,43 @@
+@startuml
+title Crear Sesion Clase
+
+skinparam linetype polyline
+
+state ASISTENCIAS_ABIERTO_INICIAL as "ASISTENCIAS_ABIERTO"
+state SESION_ASISTENCIA_ABIERTA_FINAL as "SESION_ASISTENCIA_ABIERTA"
+
+ASISTENCIAS_ABIERTO_INICIAL -[#green]-> crearSesionClase
+
+state crearSesionClase as "crearSesionClase()" {
+
+    state " " as ConfigurandoSesion
+    state " " as SesionInicializada
+
+    [*] -[#green]-> ConfigurandoSesion
+    note on link
+    <b>Profesor</b> solicita iniciar una
+    nueva toma de asistencia
+    end note
+
+    ConfigurandoSesion -[#green]-> SesionInicializada
+    note on link
+    <b>Sistema</b> solicita datos de la sesión:
+    • Fecha, Hora, Curso, Asignatura
+
+    <b>Profesor</b> introduce/confirma datos
+
+    <b>Sistema</b> genera planilla vacía:
+    • Carga lista de alumnos del curso
+    • Establece estado inicial
+    end note
+
+    SesionInicializada -[#green]-> [*]
+    note on link
+    <b>Sistema</b> abre la interfaz de toma de asistencia
+    end note
+
+}
+
+crearSesionClase -[#green]-> SESION_ASISTENCIA_ABIERTA_FINAL
+
+@enduml
