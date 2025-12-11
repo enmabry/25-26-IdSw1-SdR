@@ -1,0 +1,18 @@
+@startuml
+title Estados de DirectorDeGrado
+
+[*] --> Disponible
+
+Disponible --> ImpartiendoAsignatura : iniciarSesion()
+ImpartiendoAsignatura --> Disponible : finalizarSesion()
+
+Disponible --> RevisandoDispensa : recibirSolicitudDispensa()
+RevisandoDispensa --> Aprobada : aprobarDispensa()
+RevisandoDispensa --> Rechazada : rechazarDispensa()
+
+Aprobada --> Disponible : notificarGestionDispensa()
+Rechazada --> Disponible : notificarGestionDispensa()
+
+Rechazada --> [*]
+Aprobada --> [*]
+@enduml

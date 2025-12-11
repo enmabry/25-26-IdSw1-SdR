@@ -1,0 +1,43 @@
+@startuml
+left to right direction
+skinparam actorStyle awesome
+skinparam packageStyle rectangle
+skinparam usecase {
+  BackgroundColor #F0F0F0
+  BorderColor #333
+  ArrowColor #333
+}
+
+actor "Secretaría" as Secretaria
+
+rectangle "Gestión de Listas de Alumnos" {
+  usecase "Consultar lista de alumnos" as CU01
+  usecase "Eliminar alumno" as CU02
+  usecase "Registrar nuevo alumno" as CU03
+  usecase "Actualizar datos de alumno" as CU04
+  usecase "Generar listado de alumnos\npor curso/programa" as CU05
+}
+
+
+rectangle "Gestión de Dispensas Académicas" {
+  usecase "Registrar solicitud de dispensa" as CU11
+  usecase "Adjuntar documentación a dispensa" as CU12
+  usecase "Ver estado de dispensa" as CU13
+  usecase "Actualizar dispensa académica" as CU14
+  usecase "Generar informe de dispensas" as CU15
+}
+
+' Relaciones del Actor con los CU
+Secretaria --> CU01
+Secretaria --> CU02
+Secretaria --> CU03
+Secretaria --> CU04
+Secretaria --> CU05
+
+Secretaria --> CU11
+Secretaria --> CU12
+Secretaria --> CU13
+Secretaria --> CU14
+Secretaria --> CU15
+
+@enduml
