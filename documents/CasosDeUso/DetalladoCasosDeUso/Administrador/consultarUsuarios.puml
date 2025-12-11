@@ -1,0 +1,50 @@
+@startuml
+
+title Consultar Usuarios
+
+skinparam linetype polyline
+
+state USUARIOS_ABIERTO_INICIAL as "USUARIOS_ABIERTO"
+state USUARIOS_ABIERTO_FINAL as "USUARIOS_ABIERTO"
+
+USUARIOS_ABIERTO_INICIAL -[#green]-> consultarUsuarios
+
+state consultarUsuarios as "consultarUsuarios()" {
+
+    state " " as CriteriosBusqueda
+    state " " as ResultadosUsuarios
+
+    [*] -[#green]-> CriteriosBusqueda
+    note on link
+    <b>Administrador</b> solicita ver el listado
+    general de usuarios del sistema
+    end note
+
+    CriteriosBusqueda -[#green]-> ResultadosUsuarios
+    note on link
+    <b>Sistema</b> ofrece filtros de búsqueda:
+    • Por Rol
+    • Por Estado
+    • Por Nombre o Usuario
+
+    <b>Administrador</b> aplica filtros o busca todos
+
+    <b>Sistema</b> recupera listado de cuentas
+    end note
+
+    ResultadosUsuarios -[#green]-> [*]
+    note on link
+    <b>Sistema</b> presenta tabla de usuarios
+
+    <b>Sistema</b> permite solicitar:
+    • crearUsuario()
+    • consultarUsuarios()
+    • completarGestionUsuarios()
+    • seleccionarUsuario()/modificarUsuario()
+    end note
+
+}
+
+consultarUsuarios -[#green]-> USUARIOS_ABIERTO_FINAL
+
+@enduml

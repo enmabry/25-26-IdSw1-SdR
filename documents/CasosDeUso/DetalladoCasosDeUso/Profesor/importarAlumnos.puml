@@ -1,0 +1,49 @@
+@startuml
+title Importar Alumnos
+
+skinparam linetype polyline
+
+state ALUMNOS_ABIERTO_INICIAL as "ALUMNOS_ABIERTO"
+state ALUMNOS_ABIERTO_FINAL as "ALUMNOS_ABIERTO"
+
+ALUMNOS_ABIERTO_INICIAL -[#green]-> importarAlumnos
+
+state importarAlumnos as "importarAlumnos()" {
+
+    state " " as SeleccionArchivo
+    state " " as ProcesamientoDatos
+    state " " as CargaCompletada
+
+    [*] -[#green]-> SeleccionArchivo
+    note on link
+    <b>Profesor</b> selecciona la opción de importar
+    y elige el archivo origen
+    end note
+
+    SeleccionArchivo -[#green]-> ProcesamientoDatos
+    note on link
+    <b>Sistema</b> carga el archivo y valida estructura:
+    • Verifica cabeceras y formato
+    • Comprueba duplicados
+    
+    <b>Profesor</b> confirma la previsualización
+    end note
+
+    ProcesamientoDatos -[#green]-> CargaCompletada
+    note on link
+    <b>Sistema</b> procesa la inserción:
+    • Crea registros de nuevos alumnos
+    • Actualiza el listado visible en pantalla
+    end note
+
+    CargaCompletada -[#green]-> [*]
+    note on link
+    <b>Sistema</b> notifica el resultado:
+    "X alumnos importados correctamente"
+    end note
+
+}
+
+importarAlumnos -[#green]-> ALUMNOS_ABIERTO_FINAL
+
+@enduml
