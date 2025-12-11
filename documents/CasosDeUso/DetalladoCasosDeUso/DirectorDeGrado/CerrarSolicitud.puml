@@ -1,0 +1,76 @@
+@startuml
+title Cerrar Solicitud
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+state startState as "SOLICITUD_DISPENSA_ABIERTA"
+state endState as "DISPENSAS_ABIERTO"
+
+startState --> CerrarSolicitud
+note on link
+    <b>Director de Grado selecciona</b>
+    la opción "Cerrar solicitud"
+    para salir sin guardar cambios.
+end note
+
+state CerrarSolicitud {
+    state VerificarCambiosPendientes as " "
+    state FinalizarOpciones <<choice>>
+
+    [*] --> VerificarCambiosPendientes
+    note on link
+        <b>Sistema verifica</b>
+        si existen cambios sin guardar
+        en la solicitud actual.
+    end note
+
+    VerificarCambiosPendientes --> FinalizarOpciones
+    note on link
+        <b>Sistema evalúa:</b>
+        * Si hay cambios sin guardar → Advertencia
+        * Si no hay cambios → Cierre directo
+    end note
+
+    FinalizarOpciones --> MostrarAdvertencia
+
+    state MostrarAdvertencia as " "
+    note on link
+        <b>Si hay cambios sin guardar:</b>
+        Sistema muestra advertencia
+        y solicita confirmación.
+    end note
+
+    MostrarAdvertencia --> ConfirmarCierre <<choice>>
+
+    ConfirmarCierre -[#red]-> VerificarCambiosPendientes
+    note on link
+        <b>Si cancela el cierre:</b>
+        Vuelve a la solicitud abierta
+        para continuar editando.
+    end note
+
+    ConfirmarCierre --> [*]
+    note on link
+        <b>Si confirma el cierre:</b>
+        Se descartan los cambios
+        y se cierra la solicitud.
+    end note
+
+    FinalizarOpciones --> [*]
+    note on link
+        <b>Si no hay cambios pendientes:</b>
+        Se cierra la solicitud directamente
+        sin advertencias.
+    end note
+}
+
+CerrarSolicitud --> endState
+
+@enduml
