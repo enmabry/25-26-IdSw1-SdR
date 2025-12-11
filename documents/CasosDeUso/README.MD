@@ -55,8 +55,8 @@
 ---
 
 ### 👔 Secretaria
-![Casos de Uso - Secretaria](./CasoDeUso/Secretaria/DiagramaCompletodeCasosDeUsosSecretaria.png)
-📁 [Carpeta](./CasoDeUso/Secretaria/) | 📄 [Detalles](./CasoDeUso/Secretaria/CasosDeUsoDetallados.md)
+![Casos de Uso - Secretaria](./CasoDeUso/Secretaria/CasoDeUsosCompleto.svg)
+📁 [Carpeta](./CasoDeUso/Secretaria/) | 📄 [SVG](./CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) | 📋 [PUML](./CasoDeUso/Secretaria/DiagramaCompletoCasoDeUso.puml)
 
 ---
 
