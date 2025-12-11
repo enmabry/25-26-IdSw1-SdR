@@ -1,0 +1,51 @@
+@startuml
+
+title Asignar Rol a Usuario
+
+skinparam linetype polyline
+
+state USUARIO_ABIERTO_INICIAL as "USUARIO_ABIERTO"
+state USUARIO_ABIERTO_FINAL as "USUARIO_ABIERTO"
+
+USUARIO_ABIERTO_INICIAL -[#green]-> asignarRolUsuario
+
+state asignarRolUsuario as "asignarRolUsuario()" {
+
+    state " " as SeleccionRoles
+    state " " as PermisosAplicados
+
+    [*] -[#green]-> SeleccionRoles
+    note on link
+    <b>Administrador</b> solicita gestionar
+    los roles del usuario actual
+    end note
+
+    SeleccionRoles -[#green]-> PermisosAplicados
+    note on link
+    <b>Sistema</b> lista roles disponibles:
+    • Administrador, Profesor, Secretaría, etc.
+
+    <b>Administrador</b> asigna o elimina roles
+
+    <b>Sistema</b> actualiza privilegios:
+    • Valida compatibilidad de roles
+    • Asigna nuevos permisos de acceso
+    end note
+
+    PermisosAplicados -[#green]-> [*]
+    note on link
+    <b>Sistema</b> confirma la asignación del rol
+
+    <b>Sistema</b> actualiza la vista del usuario
+
+    <b>Sistema</b> permite solicitar:
+    • asignarRolUsuario()
+    • guardarUsuario()
+    • desactivarUsuario()
+    end note
+
+}
+
+asignarRolUsuario -[#green]-> USUARIO_ABIERTO_FINAL
+
+@enduml
