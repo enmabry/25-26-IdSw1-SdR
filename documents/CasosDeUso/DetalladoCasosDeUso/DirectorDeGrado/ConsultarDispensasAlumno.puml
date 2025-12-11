@@ -1,31 +1,81 @@
 @startuml
-title consultarDispensasAlumno()
+title Consultar Dispensas de Alumno
 
-start
-
-:DISPENSAS_ABIERTO;
-:Usuario selecciona
-"Consultar dispensas de alumno";
-
-partition consultarDispensasAlumno {
-
-  :Sistema solicita
-  identificación del alumno;
-
-  :Usuario introduce
-  Nombre/DNI/Identificador;
-
-  :Sistema valida los datos
-  e intenta localizar al alumno;
-
-  if (Alumno encontrado) then (sí)
-    :Sistema muestra listado
-    de dispensas del alumno;
-  else (no)
-    :Sistema informa
-    "Alumno no encontrado";
-  endif
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
 }
 
-stop
+hide empty description
+
+state startState as "DISPENSAS_ABIERTO"
+state endState as "DISPENSAS_ABIERTO"
+
+startState --> ConsultarDispensasAlumno
+note on link
+    <b>Director de Grado selecciona</b>
+    "Consultar dispensas de alumno"
+    desde el módulo de dispensas.
+end note
+
+state ConsultarDispensasAlumno {
+    state SeleccionarAlumno as " "
+    state VisualizarDispensas as " "
+    state FinalizarOpciones <<choice>>
+
+    ' 1. Selección de alumno
+    [*] --> SeleccionarAlumno
+    note on link
+        <b>Sistema permite</b>
+        buscar y seleccionar un alumno
+        por nombre, DNI, matrícula, etc.
+    end note
+
+    ' 2. Visualización de dispensas del alumno
+    SeleccionarAlumno --> VisualizarDispensas
+    note on link
+        <b>Sistema muestra</b>
+        todas las dispensas del alumno:
+        * Pendientes
+        * Aprobadas
+        * Rechazadas
+    end note
+
+    ' 3. Opciones finales: cerrar o actualizar
+    VisualizarDispensas --> FinalizarOpciones
+    note on link
+        <b>Director puede</b>
+        * Cerrar consulta
+        * Actualizar lista (refrescar datos)
+    end note
+
+    ' --- FLUJO ALTERNATIVO (Cerrar - Camino Rojo) ---
+    FinalizarOpciones -[#red]-> [*]
+    note on link
+        <b>Si selecciona Cerrar:</b>
+        Se cierra la pantalla de consulta
+        y se vuelve al listado general.
+    end note
+
+    ' --- FLUJO BÁSICO (Actualizar) ---
+    FinalizarOpciones --> RefrescarListado
+
+    state RefrescarListado as " "
+    note on link
+        <b>Sistema actualiza</b>
+        la información de las dispensas
+        del alumno consultado.
+    end note
+
+    RefrescarListado --> VisualizarDispensas
+    note on link
+        <b>Sistema vuelve a mostrar</b>
+        la lista actualizada.
+    end note
+}
+
+ConsultarDispensasAlumno --> endState
+
 @enduml
