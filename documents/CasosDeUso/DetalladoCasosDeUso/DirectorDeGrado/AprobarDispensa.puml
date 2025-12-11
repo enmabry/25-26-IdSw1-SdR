@@ -1,37 +1,84 @@
 @startuml
-title aprobarDispensa()
+title Aprobar Dispensa
 
-start
-
-:DISPENSAS_ABIERTO;
-:Director de Grado selecciona
-"Aprobar dispensa" sobre una
-solicitud pendiente;
-
-partition aprobarDispensa {
-
-  :Sistema muestra el detalle
-  de la solicitud;
-
-  if (Solicitud pendiente) then (sí)
-    :Sistema solicita confirmación
-    de la aprobación;
-
-    if (Director confirma) then (sí)
-      :Sistema registra la aprobación
-      y actualiza el estado a APROBADA;
-
-      :Sistema notifica al alumno
-      el resultado;
-    else (no)
-      :Sistema cancela la operación
-      sin cambios;
-    endif
-  else (no)
-    :Sistema informa que la solicitud
-    no puede aprobarse;
-  endif
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
 }
 
-stop
+hide empty description
+
+state startState as "SOLICITUD_DISPENSA_ABIERTA"
+state endState as "DISPENSAS_ABIERTO"
+
+startState --> AprobarDispensa
+note on link
+    <b>Director de Grado selecciona</b>
+    la opción "Aprobar dispensa"
+    sobre una solicitud pendiente.
+end note
+
+state AprobarDispensa {
+    state RevisarSolicitud as " "
+    state EvaluarCriterios as " "
+    state FinalizarOpciones <<choice>>
+
+    ' 1. Inicio: revisión de la solicitud
+    [*] --> RevisarSolicitud
+    note on link
+        <b>Sistema muestra</b>
+        los datos completos de la solicitud:
+        * Alumno
+        * Asignatura / actividad
+        * Motivo de la dispensa
+        * Documentación adjunta
+    end note
+
+    ' 2. Evaluación de criterios
+    RevisarSolicitud --> EvaluarCriterios
+    note on link
+        <b>Director analiza</b>
+        la información y la documentación
+        presentada por el alumno.
+    end note
+
+    ' 3. Decisión: aprobar o cancelar
+    EvaluarCriterios --> FinalizarOpciones
+    note on link
+        <b>Director selecciona</b>
+        una de las opciones disponibles:
+        * Aprobar
+        * Cancelar operación
+    end note
+
+    ' --- FLUJO ALTERNATIVO (Cancelar - Camino Rojo) ---
+    FinalizarOpciones -[#red]-> [*]
+    note on link
+        <b>Si selecciona Cancelar:</b>
+        Se cierra la operación sin aprobar
+        ni modificar la solicitud.
+    end note
+
+    ' --- FLUJO BÁSICO (Aprobación - Éxito) ---
+    FinalizarOpciones --> RegistrarAprobacion
+
+    state RegistrarAprobacion as " "
+    note on link
+        <b>Sistema registra</b>
+        la dispensa como APROBADA,
+        almacena la decisión y fecha,
+        y notifica al alumno.
+    end note
+
+    RegistrarAprobacion --> [*]
+    note on link
+        <b>Sistema confirma</b>
+        que la dispensa ha sido aprobada.
+    end note
+}
+
+AprobarDispensa --> endState
+
 @enduml
