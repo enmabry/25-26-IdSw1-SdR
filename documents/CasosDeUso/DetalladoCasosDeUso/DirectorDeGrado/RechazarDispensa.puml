@@ -1,38 +1,81 @@
 @startuml
-title rechazarDispensa()
+title Rechazar Dispensa
 
-start
-
-:DISPENSAS_ABIERTO;
-:Director de Grado selecciona
-"Rechazar dispensa" sobre una
-solicitud pendiente;
-
-partition rechazarDispensa {
-
-  :Sistema muestra el detalle
-  de la solicitud;
-
-  if (Solicitud pendiente) then (sí)
-    :Sistema solicita motivo
-    y confirmación de rechazo;
-
-    if (Motivo y confirmación correctos) then (sí)
-      :Sistema registra el rechazo
-      y actualiza el estado a RECHAZADA;
-
-      :Sistema notifica al alumno
-      el resultado;
-    else (no)
-      :Sistema informa
-      "Datos de rechazo incompletos"
-      y no realiza cambios;
-    endif
-  else (no)
-    :Sistema informa que la solicitud
-    no puede rechazarse;
-  endif
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
 }
 
-stop
+hide empty description
+
+state startState as "SOLICITUD_DISPENSA_ABIERTA"
+state endState as "DISPENSAS_ABIERTO"
+
+startState --> RechazarDispensa
+note on link
+    <b>Director de Grado selecciona</b>
+    la opción "Rechazar dispensa"
+    sobre una solicitud pendiente.
+end note
+
+state RechazarDispensa {
+    state RevisarSolicitud as " "
+    state IntroducirMotivoRechazo as " "
+    state FinalizarOpciones <<choice>>
+
+    ' 1. Inicio: revisión de la solicitud
+    [*] --> RevisarSolicitud
+    note on link
+        <b>Sistema muestra</b>
+        los datos completos de la solicitud
+        para ser evaluada.
+    end note
+
+    ' 2. Registro del motivo del rechazo
+    RevisarSolicitud --> IntroducirMotivoRechazo
+    note on link
+        <b>Director decide rechazar</b>
+        e introduce el motivo del rechazo
+        (campo obligatorio).
+    end note
+
+    ' 3. Decisión final: confirmar o cancelar
+    IntroducirMotivoRechazo --> FinalizarOpciones
+    note on link
+        <b>Director selecciona</b>
+        una de las opciones:
+        * Confirmar rechazo
+        * Cancelar operación
+    end note
+
+    ' --- FLUJO ALTERNATIVO (Cancelar - Camino Rojo) ---
+    FinalizarOpciones -[#red]-> [*]
+    note on link
+        <b>Si selecciona Cancelar:</b>
+        No se registra el rechazo
+        y la solicitud permanece pendiente.
+    end note
+
+    ' --- FLUJO BÁSICO (Rechazo - Éxito) ---
+    FinalizarOpciones --> RegistrarRechazo
+
+    state RegistrarRechazo as " "
+    note on link
+        <b>Sistema registra</b>
+        la dispensa como RECHAZADA,
+        almacena motivo y fecha,
+        y notifica al alumno.
+    end note
+
+    RegistrarRechazo --> [*]
+    note on link
+        <b>Sistema confirma</b>
+        que la dispensa ha sido rechazada.
+    end note
+}
+
+RechazarDispensa --> endState
+
 @enduml
