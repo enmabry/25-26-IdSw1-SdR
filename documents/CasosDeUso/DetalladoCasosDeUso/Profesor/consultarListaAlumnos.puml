@@ -4,36 +4,40 @@ title Consultar Lista Alumnos
 skinparam linetype polyline
 
 state LISTAS_ABIERTO_INICIAL as "LISTAS_ABIERTO"
-state LISTAS_ABIERTO_FINAL as "LISTAS_ABIERTO"
+state LISTA_ABIERTA_FINAL as "LISTA_ABIERTA"
 
 LISTAS_ABIERTO_INICIAL -[#green]-> consultarListaAlumnos
 
 state consultarListaAlumnos as "consultarListaAlumnos()" {
 
-    state " " as SolicitandoCriterios
-    state " " as ListaRenderizada
+    state " " as SeleccionCurso
+    state " " as RecuperandoDatos
+    state " " as VistaDetallada
 
-    [*] -[#green]-> SolicitandoCriterios
+    [*] -[#green]-> SeleccionCurso
     note on link
-    <b>Profesor</b> solicita ver lista de alumnos
+    <b>Profesor</b> selecciona un curso o grado
+    para ver el detalle de los alumnos
     end note
 
-    SolicitandoCriterios -[#green]-> ListaRenderizada
+    SeleccionCurso -[#green]-> RecuperandoDatos
     note on link
-    <b>Sistema</b> solicita selección de curso/grado
+    <b>Sistema</b> recibe el criterio de búsqueda
     
-    <b>Profesor</b> selecciona el curso asignado
-
-    <b>Sistema</b> recupera listado de alumnos matriculados
+    <b>Sistema</b> consulta la base de datos para
+    obtener los alumnos de ese curso específico
     end note
 
-    ListaRenderizada -[#green]-> [*]
+    RecuperandoDatos -[#green]-> VistaDetallada
     note on link
-    <b>Sistema</b> presenta la lista de alumnos
+      <b>Sistema</b> muestra la tabla con los estudiantes
+    listos para ser gestionados
     end note
+
+    VistaDetallada -[#green]-> [*]
 
 }
 
-consultarListaAlumnos -[#green]-> LISTAS_ABIERTO_FINAL
+consultarListaAlumnos -[#green]-> LISTA_ABIERTA_FINAL
 
 @enduml

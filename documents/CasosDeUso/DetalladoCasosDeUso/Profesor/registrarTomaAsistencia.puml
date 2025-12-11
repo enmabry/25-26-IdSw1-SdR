@@ -4,7 +4,7 @@ title Registrar Toma Asistencia
 skinparam linetype polyline
 
 state SESION_ASISTENCIA_ABIERTA_INICIAL as "SESION_ASISTENCIA_ABIERTA"
-state ASISTENCIAS_ABIERTO_FINAL as "ASISTENCIAS_ABIERTO"
+state SESION_ASISTENCIA_ABIERTA_FINAL as "SESION_ASISTENCIA_ABIERTA"
 
 SESION_ASISTENCIA_ABIERTA_INICIAL -[#green]-> registrarTomaAsistencia
 
@@ -31,13 +31,10 @@ state registrarTomaAsistencia as "registrarTomaAsistencia()" {
     GuardadoConfirmado -[#green]-> [*]
     note on link
     <b>Sistema</b> confirma el guardado exitoso
-
-    <b>Sistema</b> cierra la sesión de clase
-    y vuelve al panel general de asistencias
     end note
 
 }
 
-registrarTomaAsistencia -[#green]-> ASISTENCIAS_ABIERTO_FINAL
+registrarTomaAsistencia -[#green]-> SESION_ASISTENCIA_ABIERTA_FINAL
 
 @enduml
