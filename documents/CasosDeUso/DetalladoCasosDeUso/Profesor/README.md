@@ -27,3 +27,4 @@
 ![Consultar Solicitud Dispensa](./consultarSolicitudDispensa.svg)
 📄 [SVG](./consultarSolicitudDispensa.svg) | 📋 [PUML](./consultarSolicitudDispensa.puml)
 
+

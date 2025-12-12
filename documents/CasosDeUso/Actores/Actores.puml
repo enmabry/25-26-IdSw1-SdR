@@ -1,20 +1,19 @@
 @startuml Actores
-title Actores del sistema
+title Actores del sistema (jerarquía)
 
-left to right direction
+top to bottom direction
 
-actor Alumno as Alumno
-actor Profesor as Profesor
+actor Alumno
+actor Profesor
 actor DirectorDeGrado as Director
 actor SecretariaAcademica as Secretaria
 actor Administrador as Admin
 
-' El Director de Grado puede hacer todo lo que hace un Profesor
-Profesor <|-down- Director
-
-' El Administrador puede hacer todo lo que hacen Director y Secretaría
-Director <|-down- Admin
-Secretaria <|-down- Admin
+' Jerarquía de capacidades
+Profesor  <|-- Director
+Director  <|-- Admin
+Secretaria <|-- Admin
+Alumno    <|-- Admin
 
 note right of Alumno
   Alumno:
@@ -44,9 +43,8 @@ end note
 note right of Admin
   Administrador del sistema:
   Puede hacer todo lo que hacen
-  Profesor, Director y Secretaría,
+  Alumno, Profesor, Director y Secretaría,
   además de crear y gestionar usuarios
   y la configuración general del sistema.
 end note
-
 @enduml

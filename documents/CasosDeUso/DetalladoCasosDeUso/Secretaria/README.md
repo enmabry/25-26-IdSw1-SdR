@@ -30,3 +30,4 @@
 
 ![Consultar Lista Alumnos](./consultarListaAlumno.svg)
 📄 [SVG](./consultarListaAlumno.svg) | 📋 [PUML](./consultarListaAlumnos.puml)
+

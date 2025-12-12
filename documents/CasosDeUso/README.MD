@@ -1,69 +1,116 @@
-# 🎭 Casos de Uso — Centro de Gestión Universitaria
+# Casos de Uso
 
-<div align="center">
+<div align="right">
 
-| [![](https://img.shields.io/badge/🏠_INICIO-1565C0?style=for-the-badge&labelColor=0D47A1)](/README.md) [![](https://img.shields.io/badge/📘_MODELO_DEL_DOMINIO-1E88E5?style=for-the-badge&labelColor=1565C0)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/🧍‍♂️_ACTORES-1E88E5?style=for-the-badge&labelColor=1565C0)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/📄_CASOS_DE_USO-1E88E5?style=for-the-badge&labelColor=1565C0)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/🔍_DETALLADO_CASOS_DE_USO-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/🌐_DIAGRAMA_DE_CONTEXTO-1E88E5?style=for-the-badge&labelColor=1565C0)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/🧩_PROTOTIPOS-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/CasosDeUso/Prototipos) [![](https://img.shields.io/badge/👥_REUNIONES-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/Reuniones/) [![](https://img.shields.io/badge/🖼️_RECURSOS_ADICIONALES-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/images/) |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![](https://img.shields.io/badge/-Inicio-0D47A1?style=flat&logo=Emlakjet&logoColor=white)](/README.md) [![](https://img.shields.io/badge/-Modelo_del_Dominio-0D47A1?style=flat&logo=LiveChat&logoColor=white)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/-Actores-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/-Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/-Detallado_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/-Prototipos-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/Prototipos/) [![](https://img.shields.io/badge/-Reuniones-0D47A1?style=flat&logo=Proton&logoColor=white)](/documents/Reuniones/) [![](https://img.shields.io/badge/-Priorización-0D47A1?style=flat&logo=Proton&logoColor=white)](/documents/CasosDeUso/PriorizaciónCasosDeUso.md) |
+| ---- |
 
 </div>
 
----
+<a name="Navbar"></a>
 
-| Artefacto | Descripción |
-|-----------|-------------|
-| 👥 [Actores](/documents/CasosDeUso/Actores/) | Define los diferentes tipos de usuarios que interactúan con el sistema. |
-| 🌐 [Diagrama de Contexto](/documents/CasosDeUso/DiagramaDeContexto/) | Muestra el sistema en relación con su entorno y actores externos. |
-| 📄 [Casos de Uso](/documents/CasosDeUso/CasoDeUso/) | Describe las funcionalidades específicas del sistema desde la perspectiva del usuario. |
-| 🧩 [Prototipos]| ⚠️ **EN PROCESO** Interfaces visuales que representan las interacciones del sistema. |
+Descripción de las funcionalidades del sistema por rol de usuario.
 
 ---
 
-## 👥 Actores del Sistema
+## Enlaces Rápidos
 
-### 📊 Diagrama de Actores
-![Diagrama de Actores](./Actores/Actores.svg)
-📁 [Carpeta](./Actores/) | 📄 [SVG](./Actores/Actores.svg) | 📋 [PUML](./Actores/Actores.puml)
+[![](https://img.shields.io/badge/-Alumno-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Alumno) [![](https://img.shields.io/badge/-Profesor-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Profesor) [![](https://img.shields.io/badge/-Administrador-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Administrador) [![](https://img.shields.io/badge/-Secretaria-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Secretaria) [![](https://img.shields.io/badge/-Director_de_Grado-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#DirectorGrado) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#DiagramaDeContexto)
 
 ---
 
-## 🌐 Diagrama de Contexto
+<a name="Alumno"></a>
 
-### 🎯 Diagrama de Contexto del Sistema
-![Diagrama de Contexto](./DiagramaDeContexto/DiagramaDeContexto.svg)
-📁 [Carpeta](./DiagramaDeContexto/) | 📄 [SVG](./DiagramaDeContexto/DiagramaDeContexto.svg) | 📋 [PUML](./DiagramaDeContexto/DiagramaDeContexto.puml)
+## Alumno
 
----
+<p align="center">
+  <img src="./CasoDeUso/Alumno/DdCdU.svg">
+</p>
 
-## 📄 Casos de Uso por Rol
-
-### 👤 Alumno
-![Casos de Uso - Alumno](./CasoDeUso/Alumno/DdCdU.svg)
-📁 [Carpeta](./CasoDeUso/Alumno/) | 📄 [SVG](./CasoDeUso/Alumno/DdCdU.svg) | 📋 [PUML](./CasoDeUso/Alumno/DdCdU.puml)
-
----
-
-### 👨‍🏫 Profesor
-![Casos de Uso - Profesor](./CasoDeUso/Profesor/Profesor.svg)
-📁 [Carpeta](./CasoDeUso/Profesor/) | 📄 [SVG](./CasoDeUso/Profesor/Profesor.svg) | 📋 [PUML](./CasoDeUso/Profesor/Profesor.puml)
+[![](https://img.shields.io/badge/-Ver_Detallado-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md#Alumno)
+[![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Alumno/)
+[![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Alumno/DdCdU.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Alumno/DdCdU.svg)
+[![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
-### 🔐 Administrador
-![Casos de Uso - Administrador](./CasoDeUso/Administrador/Administrador.svg)
-📁 [Carpeta](./CasoDeUso/Administrador/) | 📄 [SVG](./CasoDeUso/Administrador/Administrador.svg) | 📋 [PUML](./CasoDeUso/Administrador/Administrador.puml)
+<a name="Profesor"></a>
+
+## Profesor
+
+<p align="center">
+  <img src="./CasoDeUso/Profesor/Profesor.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Detallado-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md#Profesor)
+[![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Profesor/)
+[![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Profesor/Profesor.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Profesor/Profesor.svg)
+[![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
-### 👔 Secretaria
-![Casos de Uso - Secretaria](./CasoDeUso/Secretaria/CasoDeUsosCompleto.svg)
-📁 [Carpeta](./CasoDeUso/Secretaria/) | 📄 [SVG](./CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) | 📋 [PUML](./CasoDeUso/Secretaria/DiagramaCompletoCasoDeUso.puml)
+<a name="Administrador"></a>
+
+## Administrador
+
+<p align="center">
+  <img src="./CasoDeUso/Administrador/Administrador.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Detallado-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md#Administrador)
+[![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Administrador/)
+[![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Administrador/Administrador.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Administrador/Administrador.svg)
+[![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
-### 🎓 Director de Grado
-![Casos de Uso - Director de Grado](./CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg)
-📁 [Carpeta](./CasoDeUso/DirectorDeGrado/) | 📄 [SVG](./CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) | 📋 [PUML](./CasoDeUso/DirectorDeGrado/DirectorDeGrado.puml)
+<a name="Secretaria"></a>
+
+## Secretaria
+
+<p align="center">
+  <img src="./CasoDeUso/Secretaria/CasoDeUsosCompleto.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Detallado-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md#Secretaria)
+[![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Secretaria/)
+[![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Secretaria/DiagramaCompletoCasoDeUso.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Secretaria/CasoDeUsosCompleto.svg)
+[![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
-> ✨ *Los casos de uso definen las interacciones entre los actores y el sistema, asegurando que todas las funcionalidades sean claras, trazables y alineadas con los requisitos del negocio.*
+<a name="DirectorGrado"></a>
+
+## Director de Grado
+
+<p align="center">
+  <img src="./CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Detallado-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md#DirectorGrado)
+[![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/DirectorDeGrado/)
+[![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/DirectorDeGrado/DirectorDeGrado.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg)
+[![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+---
+
+<a name="DiagramaDeContexto"></a>
+
+## Diagrama de Contexto
+
+<p align="center">
+  <img src="./DiagramaDeContexto/DiagramaDeContexto.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DiagramaDeContexto/)
+[![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DiagramaDeContexto/DiagramaDeContexto.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DiagramaDeContexto/DiagramaDeContexto.svg)
+[![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+
+
