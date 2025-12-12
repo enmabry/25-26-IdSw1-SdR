@@ -1,0 +1,49 @@
+@startuml
+title Consultar Solicitud Dispensa
+
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+state startState as "DISPENSA_ABIERTO" 
+state endState1 as "SOLICITUD_DISPENSA_ABIERTA" 
+state endState2 as "DISPENSAS_ABIERTO" 
+
+startState --> consultarSolicitudDispensa
+note on link
+    <b>Usuario solicita</b>
+    Consultar Solicitud Dispensa
+end note
+
+state consultarSolicitudDispensa {
+    state MostrarSolicitud as " "
+
+    ' 1. Inicio: El sistema consulta y presenta la solicitud en modo lectura
+    [*] --> MostrarSolicitud
+    note on link
+        <b>Sistema presenta</b>
+        la solicitud de la dispensa en modo Lectura.
+    end note
+
+    ' 2. Fin: El caso de uso interno finaliza
+    MostrarSolicitud --> [*]
+}
+
+
+consultarSolicitudDispensa --> endState1
+note on link
+    <b>editarSolicitudDispensa()</b>
+end note
+
+consultarSolicitudDispensa --> endState2
+note on link
+    <b>Guardar/Cerrar solicitud()</b>
+end note
+
+@enduml

@@ -1,0 +1,46 @@
+@startuml
+title Ver Detalle Matrícula
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+state startState as "MATRICULAS_ABIERTO"
+state endState1 as "MATRICULA_ABIERTA"
+state endState2 as "MATRICULAS_ABIERTO"
+
+startState --> verDetalleMatricula
+note on link
+    <b>Usuario solicita</b>
+    Ver Detalle Matrícula
+end note
+
+state verDetalleMatricula {
+    state MostrarDetalle as " "
+
+    ' 1. Inicio: El sistema consulta y presenta el detalle
+    [*] --> MostrarDetalle
+    note on link
+        <b>Sistema presenta</b>
+        una vista detallada de la matrícula.
+    end note
+
+    ' 2. Fin: El caso de uso interno finaliza
+    MostrarDetalle --> [*]
+}
+
+
+verDetalleMatricula --> endState1
+
+' 2. Camino de cierre/retorno (cerrarDetalleMatricula())
+verDetalleMatricula --> endState2
+note on link
+    <b>cerrarDetalleMatricula()</b>
+end note
+
+@enduml

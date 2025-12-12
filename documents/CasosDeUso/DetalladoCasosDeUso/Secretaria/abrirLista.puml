@@ -1,0 +1,50 @@
+@startuml
+title Abrir Lista
+
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+
+state startState as "LISTAS_ABIERTO"
+state endState1 as "LISTA_ABIERTA"
+state endState2 as "LISTAS_ABIERTO" 
+
+startState --> abrirLista
+note on link
+    <b>Usuario solicita</b>
+    Abrir Lista
+end note
+
+state abrirLista {
+    state MostrarLista as " "
+
+    ' 1. Inicio: El sistema muestra la lista
+    [*] --> MostrarLista
+    note on link
+        <b>Sistema muestra</b>
+        la lista solicitada a por el usuario.
+    end note
+
+    ' 2. Fin: El caso de uso interno finaliza
+    MostrarLista --> [*]
+}
+
+abrirLista --> endState1
+note on link
+    <b>editarListaAlumnos()</b>
+end note
+
+abrirLista --> endState2
+note on link
+    <b> Guardar/Cerrar Lista()</b>
+    
+end note
+
+@enduml

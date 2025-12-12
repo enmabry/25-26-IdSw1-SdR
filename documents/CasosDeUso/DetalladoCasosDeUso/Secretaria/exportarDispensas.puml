@@ -1,0 +1,82 @@
+@startuml
+title Exportar Dispensas
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+' Estados inicial y final globales basados en el Diagrama de Contexto
+state startState as "DISPENSAS_ABIERTO"
+state endState1 as "DISPENSAS_ABIERTO" 
+state endState2 as "SOLICITUD_DISPENSA_ABIERTA"
+
+startState --> exportarDispensas
+note on link
+    <b>Usuario solicita</b>
+    Exportar Dispensas
+end note
+
+state exportarDispensas {
+    state SolicitudFiltros as " "
+    state ValidarFiltros <<choice>>
+
+    ' 1. Inicio: Solicita los filtros
+    [*] --> SolicitudFiltros
+    note on link
+        <b>Sistema muestra opciones</b>
+        de filtro y botón de exportación.
+    end note
+
+    ' 2. El usuario selecciona los filtros
+    SolicitudFiltros --> ValidarFiltros
+    note on link
+        <b>Usuario selecciona criterios:</b>
+        * Curso, Asignatura, Nombre, Id
+    end note
+
+    ' --- 3. FLUJO ALTERNATIVO (Error de filtros - Camino Rojo) ---
+    ValidarFiltros -[#red]-> SolicitudFiltros
+    note on link
+        <b>Sistema valida filtros.</b>
+        <b>Si hay error:</b>
+        Sistema informa error y vuelve a solicitar filtros.
+    end note
+
+    ' --- 4. FLUJO BÁSICO (Éxito) ---
+    ValidarFiltros --> SolicitudFormato
+    
+    state SolicitudFormato as " "
+    note on link
+        <b>Sistema solicita al usuario</b>
+        el formato de salida (PDF, CSV, etc.) y nombre del archivo.
+    end note
+    
+    SolicitudFormato --> Descarga
+    
+    state Descarga as " "
+    note on link
+        <b>El usuario solicita la descarga.</b>
+        Sistema permite la descarga.
+    end note
+    
+    Descarga --> [*]
+    note on link
+        <b>Sistema muestra confirmación</b>
+        de la descarga.
+    end note
+}
+
+
+exportarDispensas --> endState1
+
+exportarDispensas --> endState2
+note on link
+    <b>consultarSolicitudDispensa()</b>
+end note
+
+@enduml

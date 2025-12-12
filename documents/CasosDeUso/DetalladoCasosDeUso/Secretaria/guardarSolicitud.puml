@@ -1,0 +1,46 @@
+@startuml
+title Guardar Solicitud
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+state startState as "SOLICITUD_DISPENSA_ABIERTA"
+state endState as "DISPENSAS_ABIERTO"
+
+startState --> guardarSolicitud
+note on link
+    <b>Usuario solicita</b>
+    Guardar Solicitud
+end note
+
+state guardarSolicitud {
+    state ValidacionCompleta as " "
+    state PersistirDatos as " "
+
+    ' 1. Inicio: Validacion Final
+    [*] --> ValidacionCompleta
+    note on link
+        <b>Sistema completa la validación</b>
+        de todos los campos.
+    end note
+    
+    ' 2. Persistencia de Datos
+    ValidacionCompleta --> PersistirDatos
+    note on link
+        <b>Sistema completa la actualización</b>
+        y guarda los datos en la base de datos.
+    end note
+
+    ' 3. Fin: El caso de uso interno finaliza
+    PersistirDatos --> [*]
+}
+
+guardarSolicitud --> endState
+
+@enduml

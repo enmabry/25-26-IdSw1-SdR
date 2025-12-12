@@ -11,7 +11,7 @@
 
 ## 👔 Diagrama de Casos de Uso - Secretaria
 
-![Casos de Uso - Secretaria](./DiagramaCompletodeCasosDeUsoSecretaria.png)
+![Casos de Uso - Secretaria](./SecretariaCasoDeUso.svg)
 
 📁 [Carpeta](.) | 📄 [Detalles](./CasosDeUsoDetallados.md)
 

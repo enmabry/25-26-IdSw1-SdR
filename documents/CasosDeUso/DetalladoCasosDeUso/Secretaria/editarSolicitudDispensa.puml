@@ -1,0 +1,70 @@
+@startuml
+title Editar Solicitud Dispensa
+
+' --- CONFIGURACIÓN DE ESTILO (Idéntico a tus ejemplos) ---
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+' Estados inicial y final globales basados en el Diagrama de Contexto
+state startState as "SOLICITUD_DISPENSA_ABIERTA" 
+state endState1 as "DISPENSA_ABIERTO" 
+state endState2 as "SOLICITUD_DISPENSA_ABIERTA" 
+
+startState --> editarSolicitudDispensa
+note on link
+    <b>Usuario solicita</b>
+    Editar Solicitud Dispensa
+end note
+
+state editarSolicitudDispensa {
+    state PermitirModificacion as " "
+    state ValidarModificaciones <<choice>>
+
+    ' 1. Inicio: Habilita la edición
+    [*] --> PermitirModificacion
+    note on link
+        <b>Sistema permite modificar</b>
+        los datos de la solicitud.
+    end note
+
+    ' 2. El usuario realiza las modificaciones
+    PermitirModificacion --> ValidarModificaciones
+    note on link
+        <b>Usuario realiza las modificaciones</b>
+        y el sistema valida en tiempo real.
+    end note
+
+    ' --- FLUJO ALTERNATIVO (Error de validación de datos - Camino Rojo) ---
+    ValidarModificaciones -[#red]-> PermitirModificacion
+    note on link
+        <b>Sistema verifica la modificación</b>
+        por tipo de dato .
+        <b>Si hay error:</b>
+        Sistema muestra error y permite corregir.
+    end note
+
+    ' --- 4. FLUJO BÁSICO (Éxito) ---
+    ValidarModificaciones --> [*]
+    note on link
+        <b>Sistema marca los datos</b>
+        listos para ser guardados.
+    end note
+}
+
+' --- TRANSICIONES DE SALIDA (Según tu dibujo) ---
+
+editarSolicitudDispensa --> endState1
+note on link
+    <b>Guardar/Cerrar Solicitud()</b>
+end note
+
+editarSolicitudDispensa --> endState2
+
+
+@enduml
