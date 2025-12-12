@@ -10,20 +10,23 @@ skinparam usecase {
 actor Secretaria
 
 rectangle "GestiónListasAlumnos()" {
-  usecase "consultarlistadealumnos()" as CU01
-  usecase "eliminarAlumno()" as CU02
-  usecase "registrarNuevoAlumno()" as CU03
-  usecase "actualizarDatosAlumno()" as CU04
-  usecase "generarListadoAlumnos\nporcurso/programa()" as CU05
+  usecase "abrirLista()" as CU01
+  usecase "importarMatricula()" as CU02
+  usecase "verDetalleMatricula()" as CU03
+  usecase "cerrarMatricula()" as CU04
+  usecase "exportarListado()" as CU05
 }
 
 
 rectangle "Gestión de Dispensas Académicas" {
   usecase "CrearSolicitudDispensa()" as CU11
-  usecase "adjuntarDocumentaciónDispensa()" as CU12
-  usecase "verEstadoDispensa()" as CU13
-  usecase "actualizarDispensaAcadémica()" as CU14
-  usecase "generarInformeDispensas()" as CU15
+  usecase "consultarSolicitudDispensa()" as CU12
+  usecase "editarSolicitudDispensa()" as CU13
+  usecase "exportarDispensa()" as CU14
+  usecase "guardarSolicitud()" as CU15
+  usecase "cerrarSolicitud()" as CU16
+   
+   
 }
 
 Secretaria --> CU01
@@ -37,5 +40,6 @@ Secretaria --> CU12
 Secretaria --> CU13
 Secretaria --> CU14
 Secretaria --> CU15
+Secretaria --> CU16
 
 @enduml
