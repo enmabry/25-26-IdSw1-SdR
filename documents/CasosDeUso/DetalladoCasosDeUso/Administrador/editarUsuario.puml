@@ -1,27 +1,27 @@
 @startuml
 
-title Modificar Usuario
+title Editar Usuario
 
 skinparam linetype polyline
 
-state USUARIOS_ABIERTO_INICIAL as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO_INICIAL as "USUARIO_ABIERTO"
 state USUARIO_ABIERTO_FINAL as "USUARIO_ABIERTO"
 
-USUARIOS_ABIERTO_INICIAL -[#green]-> modificarUsuario
+USUARIO_ABIERTO_INICIAL -[#green]-> editarUsuario
 
-state modificarUsuario as "modificarUsuario()" {
+state editarUsuario as "editarUsuario()" {
 
     state " " as RecuperacionDatos
     state " " as EdicionEnCurso
 
     [*] -[#green]-> RecuperacionDatos
     note on link
-    <b>Administrador</b> selecciona un usuario
+      <b>Administrador</b> decide modificar los datos
     end note
 
     RecuperacionDatos -[#green]-> EdicionEnCurso
     note on link
-    <b>Sistema</b> carga la información actual del usuario
+      <b>Sistema</b> habilita los campos para su edición
 
     <b>Administrador</b> actualiza los campos necesarios
     end note
@@ -29,15 +29,10 @@ state modificarUsuario as "modificarUsuario()" {
     EdicionEnCurso -[#green]-> [*]
     note on link
     <b>Sistema</b> valida los nuevos datos
-
-    <b>Sistema</b> permite solicitar:
-    • asignarRolUsuario()
-    • desactivarUsuario()
-    • guardarUsuario() (para confirmar cambios en BD)
     end note
 
 }
 
-modificarUsuario -[#green]-> USUARIO_ABIERTO_FINAL
+editarUsuario -[#green]-> USUARIO_ABIERTO_FINAL
 
 @enduml
