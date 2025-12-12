@@ -1,91 +1,78 @@
 @startuml
-title Consultar Solicitudes de Dispensas
+title Consultar solicitudes de dispensa
+skinparam linetype polyline
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
-}
+state DISPENSAS_ABIERTO_INICIAL as "DISPENSAS_ABIERTO"
+state DISPENSAS_ABIERTO_FINAL   as "DISPENSAS_ABIERTO"
 
-hide empty description
+DISPENSAS_ABIERTO_INICIAL -[#green]-> consultarSolicitudesDispensas
 
-state startState as "DISPENSAS_ABIERTO"
-state endState as "DISPENSAS_ABIERTO"
+state consultarSolicitudesDispensas as "consultarSolicitudesDispensas()" {
 
-startState --> ConsultarSolicitudesDispensas
-note on link
-    <b>Director de Grado selecciona</b>
-    "Consultar solicitudes de dispensas"
-    desde el módulo de dispensas.
-end note
+    state " " as DefinirFiltros
+    state " " as MostrarListado
+    state " " as RevisarOpciones
+    state " " as RefrescarResultados
 
-state ConsultarSolicitudesDispensas {
-    state DefinirFiltros as " "
-    state MostrarListado as " "
-    state FinalizarOpciones <<choice>>
-
-    ' 1. Definición de filtros de búsqueda
-    [*] --> DefinirFiltros
+    [*] -[#green]-> DefinirFiltros
     note on link
-        <b>Sistema permite</b>
-        definir criterios de búsqueda:
-        * Estado (Pendiente, Aprobada, Rechazada)
-        * Alumno
-        * Asignatura
-        * Rango de fechas
+      <b>Director de Grado</b> se encuentra en DISPENSAS_ABIERTO
+      y selecciona "Consultar solicitudes de dispensa".
+
+      <b>Sistema</b> muestra un formulario
+      para definir criterios de búsqueda.
     end note
 
-    ' 2. Visualización del listado resultante
-    DefinirFiltros --> MostrarListado
+    DefinirFiltros -[#green]-> MostrarListado
     note on link
-        <b>Sistema muestra</b>
-        el listado de solicitudes de dispensa
-        que cumplen los filtros indicados.
+      <b>Director de Grado</b> define filtros como:
+      • Estado (Pendiente, Aprobada, Rechazada)
+      • Alumno
+      • Asignatura
+      • Rango de fechas
+
+      <b>Sistema</b> ejecuta la búsqueda y presenta
+      el listado de solicitudes que cumplen
+      los criterios indicados.
     end note
 
-    ' 3. Opciones finales: cerrar, cambiar filtros, refrescar
-    MostrarListado --> FinalizarOpciones
+    MostrarListado -[#green]-> RevisarOpciones
     note on link
-        <b>Director puede</b>
-        * Cerrar la consulta
-        * Modificar filtros
-        * Refrescar resultados
+      <b>Director de Grado</b> revisa el listado
+      y decide si:
+      • cerrar la consulta,
+      • modificar los filtros,
+      • o refrescar los resultados.
     end note
 
-    ' --- FLUJO ALTERNATIVO (Cerrar - Camino Rojo) ---
-    FinalizarOpciones -[#red]-> [*]
+    RevisarOpciones -[#green]-> DefinirFiltros
     note on link
-        <b>Si selecciona Cerrar:</b>
-        Se sale de la consulta
-        y se vuelve al módulo de dispensas.
+      <b>Si modifica filtros:</b>
+      el Sistema vuelve a la pantalla
+      de criterios de búsqueda para lanzar
+      una nueva consulta.
     end note
 
-    ' --- FLUJO ALTERNATIVO (Modificar filtros) ---
-    FinalizarOpciones --> DefinirFiltros
+    RevisarOpciones -[#green]-> RefrescarResultados
     note on link
-        <b>Si modifica filtros:</b>
-        Se vuelve a la pantalla
-        de criterios de búsqueda.
+      <b>Si refresca resultados:</b>
+      el Sistema vuelve a consultar la información
+      usando los mismos filtros actuales.
     end note
 
-    ' --- FLUJO BÁSICO (Refrescar resultados) ---
-    FinalizarOpciones --> RefrescarResultados
-
-    state RefrescarResultados as " "
+    RefrescarResultados -[#green]-> MostrarListado
     note on link
-        <b>Sistema actualiza</b>
-        el listado con la información
-        más reciente según los mismos filtros.
+      <b>Sistema</b> actualiza el listado con la
+      información más reciente disponible.
     end note
 
-    RefrescarResultados --> MostrarListado
+    RevisarOpciones -[#green]-> [*]
     note on link
-        <b>Sistema vuelve a mostrar</b>
-        el listado actualizado.
+      <b>Si cierra la consulta:</b>
+      el Sistema sale de la pantalla de búsqueda
+      y finaliza el caso de uso.
     end note
 }
 
-ConsultarSolicitudesDispensas --> endState
-
+consultarSolicitudesDispensas -[#green]-> DISPENSAS_ABIERTO_FINAL
 @enduml

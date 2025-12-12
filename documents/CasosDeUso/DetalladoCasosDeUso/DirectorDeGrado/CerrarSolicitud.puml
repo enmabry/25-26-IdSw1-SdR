@@ -1,76 +1,47 @@
 @startuml
-title Cerrar Solicitud
+title Cerrar solicitud de dispensa
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
-}
+skinparam linetype polyline
 
-hide empty description
+state SOLICITUD_DISPENSA_ABIERTA_INICIAL as "SOLICITUD_DISPENSA_ABIERTA"
+state DISPENSAS_ABIERTO_FINAL            as "DISPENSAS_ABIERTO"
 
-state startState as "SOLICITUD_DISPENSA_ABIERTA"
-state endState as "DISPENSAS_ABIERTO"
+SOLICITUD_DISPENSA_ABIERTA_INICIAL -[#green]-> cerrarSolicitud
 
-startState --> CerrarSolicitud
-note on link
-    <b>Director de Grado selecciona</b>
-    la opción "Cerrar solicitud"
-    para salir sin guardar cambios.
-end note
+state cerrarSolicitud as "cerrarSolicitud()" {
 
-state CerrarSolicitud {
-    state VerificarCambiosPendientes as " "
-    state FinalizarOpciones <<choice>>
+    state " " as VerificarCambios
+    state " " as ConfirmarCierre
 
-    [*] --> VerificarCambiosPendientes
+    [*] -[#green]-> VerificarCambios
     note on link
-        <b>Sistema verifica</b>
-        si existen cambios sin guardar
-        en la solicitud actual.
+      <b>Alumno / Director de Grado</b> selecciona
+      la opción "Cerrar solicitud" desde el detalle
+      de la dispensa.
     end note
 
-    VerificarCambiosPendientes --> FinalizarOpciones
+    VerificarCambios -[#green]-> ConfirmarCierre
     note on link
-        <b>Sistema evalúa:</b>
-        * Si hay cambios sin guardar → Advertencia
-        * Si no hay cambios → Cierre directo
+      <b>Sistema</b> comprueba si existen cambios
+      sin guardar en la solicitud.
+
+      • Si hay cambios → muestra un mensaje
+        de advertencia pidiendo confirmación.
+      • Si no hay cambios → permite cerrar directamente.
     end note
 
-    FinalizarOpciones --> MostrarAdvertencia
-
-    state MostrarAdvertencia as " "
+    ConfirmarCierre -[#green]-> [*]
     note on link
-        <b>Si hay cambios sin guardar:</b>
-        Sistema muestra advertencia
-        y solicita confirmación.
-    end note
+      <b>Si confirma el cierre:</b>
+      el sistema descarta los cambios no guardados
+      (si los hubiera) y cierra la solicitud.
 
-    MostrarAdvertencia --> ConfirmarCierre <<choice>>
-
-    ConfirmarCierre -[#red]-> VerificarCambiosPendientes
-    note on link
-        <b>Si cancela el cierre:</b>
-        Vuelve a la solicitud abierta
-        para continuar editando.
-    end note
-
-    ConfirmarCierre --> [*]
-    note on link
-        <b>Si confirma el cierre:</b>
-        Se descartan los cambios
-        y se cierra la solicitud.
-    end note
-
-    FinalizarOpciones --> [*]
-    note on link
-        <b>Si no hay cambios pendientes:</b>
-        Se cierra la solicitud directamente
-        sin advertencias.
+      <b>Si cancela:</b>
+      permanece en SOLICITUD_DISPENSA_ABIERTA
+      (no se ejecuta esta transición).
     end note
 }
 
-CerrarSolicitud --> endState
+cerrarSolicitud -[#green]-> DISPENSAS_ABIERTO_FINAL
 
 @enduml
