@@ -1,23 +1,22 @@
-@startuml Admin
+@startuml Administrador_CasosDeUso
 title Casos de uso del Administrador
 left to right direction
+skinparam packageStyle rectangle
 
-actor Administrador as Admin
+actor Administrador
 
 rectangle "Gestión de usuarios y roles" {
 
-  usecase "crearUsuario()"            as UC_Crear
-  usecase "modificarUsuario()"        as UC_Modificar
-  usecase "desactivarUsuario()"       as UC_Desactivar
-  usecase "asignarRolUsuario()"       as UC_AsignarRol
-  usecase "consultarUsuarios()"       as UC_Consultar
-
+    usecase "consultarUsuario()" as CU_Consultar
+    usecase "crearUsuario()"     as CU_Crear
+    usecase "editarUsuario()"    as CU_Editar
+    usecase "guardarUsuario()"   as CU_Guardar
+    usecase "cerrarUsuario()"    as CU_Cerrar
 }
 
-Admin --> UC_Crear
-Admin --> UC_Modificar
-Admin --> UC_Desactivar
-Admin --> UC_AsignarRol
-Admin --> UC_Consultar
-
+Administrador --> CU_Consultar
+Administrador --> CU_Crear
+Administrador --> CU_Editar
+Administrador --> CU_Guardar
+Administrador --> CU_Cerrar
 @enduml
