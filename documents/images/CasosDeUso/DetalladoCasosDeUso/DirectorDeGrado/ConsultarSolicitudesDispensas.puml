@@ -1,0 +1,91 @@
+@startuml
+title Consultar Solicitudes de Dispensas
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+state startState as "DISPENSAS_ABIERTO"
+state endState as "DISPENSAS_ABIERTO"
+
+startState --> ConsultarSolicitudesDispensas
+note on link
+    <b>Director de Grado selecciona</b>
+    "Consultar solicitudes de dispensas"
+    desde el módulo de dispensas.
+end note
+
+state ConsultarSolicitudesDispensas {
+    state DefinirFiltros as " "
+    state MostrarListado as " "
+    state FinalizarOpciones <<choice>>
+
+    ' 1. Definición de filtros de búsqueda
+    [*] --> DefinirFiltros
+    note on link
+        <b>Sistema permite</b>
+        definir criterios de búsqueda:
+        * Estado (Pendiente, Aprobada, Rechazada)
+        * Alumno
+        * Asignatura
+        * Rango de fechas
+    end note
+
+    ' 2. Visualización del listado resultante
+    DefinirFiltros --> MostrarListado
+    note on link
+        <b>Sistema muestra</b>
+        el listado de solicitudes de dispensa
+        que cumplen los filtros indicados.
+    end note
+
+    ' 3. Opciones finales: cerrar, cambiar filtros, refrescar
+    MostrarListado --> FinalizarOpciones
+    note on link
+        <b>Director puede</b>
+        * Cerrar la consulta
+        * Modificar filtros
+        * Refrescar resultados
+    end note
+
+    ' --- FLUJO ALTERNATIVO (Cerrar - Camino Rojo) ---
+    FinalizarOpciones -[#red]-> [*]
+    note on link
+        <b>Si selecciona Cerrar:</b>
+        Se sale de la consulta
+        y se vuelve al módulo de dispensas.
+    end note
+
+    ' --- FLUJO ALTERNATIVO (Modificar filtros) ---
+    FinalizarOpciones --> DefinirFiltros
+    note on link
+        <b>Si modifica filtros:</b>
+        Se vuelve a la pantalla
+        de criterios de búsqueda.
+    end note
+
+    ' --- FLUJO BÁSICO (Refrescar resultados) ---
+    FinalizarOpciones --> RefrescarResultados
+
+    state RefrescarResultados as " "
+    note on link
+        <b>Sistema actualiza</b>
+        el listado con la información
+        más reciente según los mismos filtros.
+    end note
+
+    RefrescarResultados --> MostrarListado
+    note on link
+        <b>Sistema vuelve a mostrar</b>
+        el listado actualizado.
+    end note
+}
+
+ConsultarSolicitudesDispensas --> endState
+
+@enduml

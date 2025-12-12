@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+
+actor "Secretaría" as Secretaria
+
+rectangle "Gestión de Listas de Alumnos" {
+  usecase "consultarListaAlumnos()" as CU01
+  usecase "eliminarAlumno()" as CU02
+  usecase "registrarNuevoAlumno()" as CU03
+  usecase "actualizarDatosAlumno()" as CU04
+  usecase "generarListadoAlumnos\nporcurso/programa()" as CU05
+}
+
+Secretaria --> CU01
+Secretaria --> CU02
+Secretaria --> CU03
+Secretaria --> CU04
+Secretaria --> CU05
+
+@enduml

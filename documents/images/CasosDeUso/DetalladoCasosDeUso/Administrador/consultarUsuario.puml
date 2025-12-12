@@ -1,0 +1,43 @@
+@startuml
+title Consultar Usuario
+
+skinparam linetype polyline
+
+state USUARIOS_ABIERTO_INICIAL as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO_FINAL as "USUARIO_ABIERTO"
+
+USUARIOS_ABIERTO_INICIAL -[#green]-> consultarUsuario
+
+state consultarUsuario as "consultarUsuario()" {
+
+    state " " as Busqueda
+    state " " as Seleccion
+    state " " as CargaDatos
+
+    [*] -[#green]-> Busqueda
+    note on link
+        <b>Administrador</b> utiliza los filtros de búsqueda
+    end note
+
+    Busqueda -[#green]-> Seleccion
+    note on link
+        <b>Sistema</b> muestra listado de coincidencias
+        
+        <b>Administrador</b> selecciona el usuario deseado
+    end note
+
+    Seleccion -[#green]-> CargaDatos
+    note on link
+        <b>Sistema</b> recupera el perfil completo
+    end note
+
+    CargaDatos -[#green]-> [*]
+    note on link
+        <b>Sistema</b> despliega la ficha del usuario
+    end note
+
+}
+
+consultarUsuario -[#green]-> USUARIO_ABIERTO_FINAL
+
+@enduml

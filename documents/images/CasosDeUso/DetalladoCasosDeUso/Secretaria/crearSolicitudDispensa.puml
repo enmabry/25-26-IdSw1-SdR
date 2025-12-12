@@ -1,0 +1,62 @@
+@startuml
+title Crear/Registrar Solicitud de Dispensa
+
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+state startState as "DISPENSAS_ABIERTO"
+state endState as "SOLICITUD_DISPENSA_ABIERTA"
+
+startState --> crearSolicitudDispensa
+note on link
+    <b>Usuario selecciona</b>
+    Crear/Registrar Solicitud de Dispensa
+end note
+
+state crearSolicitudDispensa {
+    state SolicitudDatos as " "
+    state ValidarDatos <<choice>>
+
+    [*] --> SolicitudDatos
+    note on link
+        <b>Sistema muestra un formulario</b>
+        para la solicitud
+    end note
+
+    SolicitudDatos --> ValidarDatos
+    note on link
+        <b>Usuario introduce datos</b>
+        * Nombre
+        * ID
+        * Asignatura
+        * Motivo
+        * Documentos
+        * Fechas
+    end note
+
+    ' --- FLUJO ALTERNATIVO (Error de validación de datos) ---
+    ValidarDatos -[#red]-> SolicitudDatos
+    note on link
+        <b>Sistema valida campos requeridos</b>
+        <b>Si hay error:</b>
+        Sistema informa error y vuelve a solicitar
+    end note
+
+    ' --- FLUJO BÁSICO (Éxito) ---
+    ValidarDatos --> [*]
+    note on link
+        <b>Sistema confirma y muestra</b>
+        la nueva solicitud registrada
+    end note
+}
+
+crearSolicitudDispensa --> endState
+
+@enduml

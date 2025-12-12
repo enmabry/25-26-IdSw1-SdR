@@ -1,0 +1,46 @@
+@startuml
+title Ver Estado Dispensa
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+state startState as "SOLICITUD_DISPENSA_ABIERTA"
+state endState as "DISPENSA_ABIERTO"
+
+startState --> verEstadoDispensa
+note on link
+    <b>Usuario solicita</b>
+    Ver estado de Dispensa
+end note
+
+state verEstadoDispensa {
+    state ConsultaBD as " "
+    state MuestraResultado as " "
+    
+    [*] --> ConsultaBD
+    note on link
+        <b>Sistema solicita el estado</b>
+        actual a base de datos
+    end note
+
+    ConsultaBD --> MuestraResultado
+    note on link
+        <b>Sistema muestra la información</b>
+        del estado de la solicitud:
+        * Aprobada
+        * Rechazada
+        * Pendiente
+    end note
+
+    MuestraResultado --> [*]
+}
+
+verEstadoDispensa --> endState
+
+@enduml
