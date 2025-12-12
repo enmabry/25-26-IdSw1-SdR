@@ -1,62 +1,71 @@
 @startuml
-title Crear/Registrar Solicitud de Dispensa
+title Crear Solicitud de Dispensa 
 
-
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
-}
-
-hide empty description
+skinparam linetype polyline
 
 state startState as "DISPENSAS_ABIERTO"
-state endState as "SOLICITUD_DISPENSA_ABIERTA"
+state endState1 as "SOLICITUD_DISPENSA_ABIERTA" 
+state endState2 as "DISPENSAS_ABIERTO" 
 
-startState --> crearSolicitudDispensa
+startState -[#green]-> crearSolicitudDispensa
 note on link
     <b>Usuario selecciona</b>
-    Crear/Registrar Solicitud de Dispensa
+    Crear Solicitud de Dispensa
 end note
 
-state crearSolicitudDispensa {
+state crearSolicitudDispensa as "crearSolicitudDispensa()" {
     state SolicitudDatos as " "
     state ValidarDatos <<choice>>
+    state CreacionExitosa as " "
 
-    [*] --> SolicitudDatos
+    ' 1. Inicio: Presenta el formulario
+    [*] -[#green]-> SolicitudDatos
     note on link
-        <b>Sistema muestra un formulario</b>
-        para la solicitud
+        <b>Sistema presenta formulario</b>
+        para nueva solicitud.
     end note
 
-    SolicitudDatos --> ValidarDatos
+    ' 2. Usuario introduce datos y se dispara la validación
+    SolicitudDatos -[#green]-> ValidarDatos
     note on link
         <b>Usuario introduce datos</b>
-        * Nombre
-        * ID
-        * Asignatura
-        * Motivo
-        * Documentos
-        * Fechas
+        * Nombre/ID, Asignatura
+        * Motivo, Documentos, Fechas
     end note
 
-    ' --- FLUJO ALTERNATIVO (Error de validación de datos) ---
+    ' --- FLUJO ALTERNATIVO (Error de validación - Rojo) ---
     ValidarDatos -[#red]-> SolicitudDatos
     note on link
-        <b>Sistema valida campos requeridos</b>
+        <b>Sistema valida si el alumno existe</b>
+        y que los datos sean correctos.
         <b>Si hay error:</b>
-        Sistema informa error y vuelve a solicitar
+        Sistema informa error y vuelve a solicitar.
     end note
 
-    ' --- FLUJO BÁSICO (Éxito) ---
-    ValidarDatos --> [*]
+    ' --- FLUJO BÁSICO (Éxito - Verde) ---
+    ValidarDatos -[#green]-> CreacionExitosa
+    
+    note on link
+        <b>Sistema valida y crea</b>
+        la solicitud.
+    end note
+    
+    CreacionExitosa -[#green]-> [*]
     note on link
         <b>Sistema confirma y muestra</b>
-        la nueva solicitud registrada
+        la nueva solicitud registrada.
     end note
 }
 
-crearSolicitudDispensa --> endState
+' Transiciones de Salida del Caso de Uso
+crearSolicitudDispensa -[#green]-> endState1
+note on link
+    <b>editarSolicitudDispensa()</b>
+end note
+
+crearSolicitudDispensa -[#green]-> endState2
+note on link
+    <b>Guardar/Cerrar Solicitud()</b>
+end note
 
 @enduml

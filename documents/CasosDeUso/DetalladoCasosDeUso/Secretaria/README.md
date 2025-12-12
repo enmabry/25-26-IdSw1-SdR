@@ -5,28 +5,34 @@
 ![Crear Solicitud Dispensa ](./crearSolicitudDispensa.svg)
 📄 [SVG](./crearSolicitudDispensa.svg) | 📋 [PUML](./crearSolicitudDispensa.puml)
 
-![adjuntar Documentacion Dispensa](./adjuntarDocumentacionDispensa.svg)
-📄 [SVG](./adjuntarDocumentacionDispensa.svg) | 📋 [PUML](./adjuntarDocumentacionDispensa.puml)
+![Consultar Solicitud Dispensa](./consultarSolicitudDispensa.svg)
+📄 [SVG](./consultarSolicitudDispensa.svg) | 📋 [PUML](./consultarSolicitudDispensa.puml)
 
-![Ver Estado Dispensa](./verEstadoDispensa.svg)
-📄 [SVG](./verEstadoDispensa.svg) | 📋 [PUML](./verEstadoDispensa.puml)
+![Editar Solicitud Dispensa](./editarSolicitudDispensa.svg)
+📄 [SVG](./editarSolicitudDispensa.svg) | 📋 [PUML](./editarSolicitudDispensa.puml)
 
-![Generar Informe Dispensa](./generarInformeDispensas.svg)
-📄 [SVG](./generarInformeDispensas.svg) | 📋 [PUML](./generarInformeDispensas.puml)
+![Exportar Dispensas](./exportarDispensas.svg)
+📄 [SVG](./exportarDispensas.svg) | 📋 [PUML](./exportarDispensas.puml)
 
+![Guardar Solicitud](./guardarSolicitud.svg)
+📄 [SVG](./guardarSolicitud.svg) | 📋 [PUML](./guardarSolicitud.puml)
 
-## Alumnos
+![Cerrar Solicitud](./cerrarSolicitud.svg)
+📄 [SVG](./cerrarSolicitud.svg) | 📋 [PUML](./cerrarSolicitud.puml)
 
-![Actualizar Datos Alumno](./actualizarDatosAlumno.svg)
-📄 [SVG](./actualizarDatosAlumno.svg) | 📋 [PUML](./actualizarDatosAlumnos.puml)
+## Matriculas
 
-![Eliminar  Alumno](./eliminarAlumno.svg)
-📄 [SVG](./eliminarAlumno.svg) | 📋 [PUML](./eliminarAlumno.puml)
+![Ver Detalle Matricula](./verDetalleMatricula.svg)
+📄 [SVG](./verDetalleMatricula.svg) | 📋 [PUML](./verDetalleMatricula.puml)
+
+![Importar Matriculas](./importarMatriculas.svg)
+📄 [SVG](./importarMatriculas.svg) | 📋 [PUML](./importarMatricula.puml)
+
+![Cerrar Matricula](./cerrarDetalleMatricula.svg)
+📄 [SVG](./cerrarDetalleMatricula.svg) | 📋 [PUML](./cerrarDetalleMatricula.puml)
 
 
 ## Listas
-![generar Listado Alumnos Por Curso](./generarListadoAlumnosPorCurso.svg)
-📄 [SVG](./generarListadoAlumnosPorCurso.svg) | 📋 [PUML](./generarListadoAlumnosPorCurso.puml)
 
 ![Consultar Lista Alumnos](./consultarListaAlumno.svg)
 📄 [SVG](./consultarListaAlumno.svg) | 📋 [PUML](./consultarListaAlumnos.puml)

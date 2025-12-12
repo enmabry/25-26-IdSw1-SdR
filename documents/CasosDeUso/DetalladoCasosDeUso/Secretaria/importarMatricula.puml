@@ -1,0 +1,75 @@
+@startuml
+title Importar Matrículas
+
+skinparam linetype polyline
+
+state startState as "MATRICULAS_ABIERTO"
+state endState1 as "MATRICULA_ABIERTA"
+state endState2 as "MATRICULAS_ABIERTO"
+
+startState -[#green]-> importarMatriculas
+note on link
+    <b>Usuario solicita</b>
+    Importar Matrícula
+end note
+
+state importarMatriculas as "importarMatriculas()" {
+    state SolicitudArchivo as " "
+    state ValidarFormato <<choice>>
+    state ImportarRegistros as " "
+    state MostrarInforme as " "
+
+    ' 1. Inicio: Solicita el archivo
+    [*] -[#green]-> SolicitudArchivo
+    note on link
+        <b>Sistema muestra interfaz</b>
+        para adjuntar archivos a importar.
+    end note
+
+    ' 2. El usuario elige el archivo
+    SolicitudArchivo -[#green]-> ValidarFormato
+    note on link
+        <b>Usuario elige el archivo</b>
+        con la matrícula.
+    end note
+
+    ' --- 3. FLUJO ALTERNATIVO (Error de formato - Camino Rojo) ---
+    ValidarFormato -[#red]-> SolicitudArchivo
+    note on link
+        <b>Sistema verifica el formato</b>
+        de los datos sea correcto.
+        <b>Si hay error:</b>
+        Sistema informa error y vuelve a solicitar.
+    end note
+
+    ' --- 4. FLUJO BÁSICO (Éxito - Verde) ---
+    ValidarFormato -[#green]-> ImportarRegistros
+    
+    note on link
+        <b>Sistema importa los registros</b>
+        de la matrícula.
+    end note
+    
+    ImportarRegistros -[#green]-> MostrarInforme
+    
+    note on link
+        <b>Sistema muestra un informe</b>
+        del registro importado.
+    end note
+    
+    MostrarInforme -[#green]-> [*]
+}
+
+
+importarMatriculas -[#green]-> endState1
+note on link
+    <b>verDetalleMatricula()</b>
+    (Transición a ver el detalle de lo importado)
+end note
+
+importarMatriculas -[#green]-> endState2
+note on link
+    <b>Regreso a Matrículas Abierto</b>
+end note
+
+@enduml
