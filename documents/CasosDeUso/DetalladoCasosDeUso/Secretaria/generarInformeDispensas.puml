@@ -1,0 +1,69 @@
+@startuml
+title Generar Informe Dispensas
+
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+state startState as "DISPENSAS_ABIERTO"
+state endState as "DISPENSAS_ABIERTO"
+
+startState --> generarInformeDispensas
+note on link
+    <b>Usuario solicita</b>
+    Generar Informe Dispensas
+end note
+
+state generarInformeDispensas {
+    state SolicitudFiltros as " "
+    state ValidarFiltros <<choice>>
+
+    ' 1. Inicio: Muestra opciones de filtro
+    [*] --> SolicitudFiltros
+    note on link
+        <b>Sistema muestra opciones</b>
+        de generación de informe:
+        * Rango de fechas
+        * Estado, Tipo Dispensa
+    end note
+
+    ' 2. El usuario define los filtros
+    SolicitudFiltros --> ValidarFiltros
+    note on link
+        <b>Usuario define los filtros</b>
+        o parámetros del informe.
+    end note
+
+    ' --- 3. FLUJO ALTERNATIVO (Error de filtros o datos) ---
+    ValidarFiltros -[#red]-> SolicitudFiltros
+    note on link
+        <b>Sistema valida filtros.</b>
+        <b>Si hay error o datos inconsistentes:</b>
+        Sistema informa error y vuelve a solicitar filtros.
+    end note
+
+    ' --- 4. FLUJO BÁSICO (Éxito) ---
+    ValidarFiltros --> ProcesarInforme
+    
+    state ProcesarInforme as " "
+    note on link
+        <b>Sistema procesa los datos</b>
+        y genera el informe.
+    end note
+    
+    ProcesarInforme --> [*]
+    note on link
+        <b>Sistema presenta</b>
+        el informe generado.
+    end note
+}
+
+generarInformeDispensas --> endState
+
+@enduml

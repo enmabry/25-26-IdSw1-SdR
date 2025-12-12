@@ -20,3 +20,4 @@ Este diagrama define los posibles estados por los que puede transitar una Matric
 ---
 
 > ✨ *Los diagramas de estado modelan el ciclo de vida de las entidades principales, permitiendo comprender y validar los comportamientos dinámicos del sistema.*
+

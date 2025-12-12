@@ -1,0 +1,57 @@
+@startuml
+title Adjuntar Documentación en Dispensa
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+    linetype polyline
+}
+
+hide empty description
+
+state startState as "SOLICITUD_DISPENSA_ABIERTA"
+state endState as "DISPENSA_ABIERTO"
+
+startState --> adjuntarDocumenatacionDispensa
+note on link
+    <b>Usuario solicita</b>
+    Adjuntar Documentación en Dispensa
+end note
+
+state adjuntarDocumenatacionDispensa {
+    state SubirArchivos as " "
+    state ValidarArchivos <<choice>>
+
+    [*] --> SubirArchivos
+    note on link
+        <b>Sistema solicita archivos</b>
+        * Muestra ventana
+    end note
+
+    SubirArchivos --> ValidarArchivos
+    note on link
+        <b>Usuario introduce</b>
+        Archivos adjuntos
+    end note
+
+    ' --- FLUJO ALTERNATIVO (Error) ---
+    ValidarArchivos -[#red]-> SubirArchivos
+    note on link
+        <b>Sistema valida:</b>
+        * Formato, Tamaño
+        <b>Si hay error:</b>
+        Sistema informa error y vuelve a solicitar
+    end note
+
+    ' --- FLUJO BÁSICO (Éxito) ---
+    ValidarArchivos --> [*]
+    note on link
+        <b>Sistema muestra</b>
+        Confirmación de archivos adjuntados
+    end note
+}
+
+adjuntarDocumenatacionDispensa --> endState
+
+@enduml
