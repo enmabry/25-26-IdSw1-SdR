@@ -1,71 +1,122 @@
-# 🧠 Modelo del Dominio — Centro de Gestión Universitaria
+# Modelo del Dominio
 
-<div align="center">
+<div align="right">
 
-| [![](https://img.shields.io/badge/🏠_INICIO-1565C0?style=for-the-badge&labelColor=0D47A1)](/README.md) [![](https://img.shields.io/badge/📘_MODELO_DEL_DOMINIO-1E88E5?style=for-the-badge&labelColor=1565C0)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/🧍‍♂️_ACTORES-1E88E5?style=for-the-badge&labelColor=1565C0)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/📄_CASOS_DE_USO-1E88E5?style=for-the-badge&labelColor=1565C0)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/🔍_DETALLADO_CASOS_DE_USO-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/🌐_DIAGRAMA_DE_CONTEXTO-1E88E5?style=for-the-badge&labelColor=1565C0)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/🧩_PROTOTIPOS-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/CasosDeUso/Prototipos) [![](https://img.shields.io/badge/👥_REUNIONES-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/Reuniones/) [![](https://img.shields.io/badge/🖼️_RECURSOS_ADICIONALES-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/images/) |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![](https://img.shields.io/badge/-Inicio-FFF?style=flat&logo=Emlakjet&logoColor=black)](/README.md) [![](https://img.shields.io/badge/-Modelo_del_Dominio-FFF?style=flat&logo=LiveChat&logoColor=black)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/-Actores-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/-Casos_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/-Detallado_Casos_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/-Prototipos-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/Prototipos/) [![](https://img.shields.io/badge/-Reuniones-FFF?style=flat&logo=Proton&logoColor=black)](/documents/Reuniones/) [![](https://img.shields.io/badge/-Priorización-FFF?style=flat&logo=Proton&logoColor=black)](/documents/CasosDeUso/PriorizaciónCasosDeUso.md) |
+| ---- |
 
 </div>
 
----
-
-| Artefacto | Descripción |
-|------------|-------------|
-| 🧩 [Diagrama de Clases](/documents/ModeloDelDominio/DiagramasDeClase/) | Representa las entidades del sistema, sus atributos, operaciones y relaciones entre ellas. |
-| 🔄 [Diagrama de Estados](/documents/ModeloDelDominio/DiagramasDeEstado/) | Describe los posibles estados de las entidades dinámicas (como Alumno o Dispensa) y las transiciones entre ellos. |
-| 🎯 [Diagrama de Objetos](/documents/ModeloDelDominio/DiagramaDeObjetos/) | Muestra instancias específicas de las clases del modelo en un momento determinado. |
-| 🧮 [Diccionario de Clases]() | ⚠️ **EN PROCESO** — Define los atributos y métodos de cada clase con su descripción y tipo de dato.
----
-
-## 🧩 ¿Qué es el Modelo del Dominio?
-
-El **modelo del dominio** es la representación de las **clases conceptuales más importantes del mundo real** en el contexto de nuestra solución. Se centra en **vocabulario, abstracciones relevantes e información del dominio**, actuando como punto de entrada para muchos artefactos que se construyen en un proceso de software.
+Representación de las entidades principales del sistema, sus atributos, relaciones y comportamientos.
 
 ---
 
-## 🔍 Diagramas de Clases
+## Diagrama de Clases
 
+<p align="center">
+  <img src="./DiagramasDeClase/ModeloCompleto.svg">
+</p>
 
-
-### 📋 Diagrama de Clase
-![Diagrama de Clases](./DiagramasDeClase/ModeloCompleto.svg)
-📁 [Carpeta](./DiagramasDeClase/) | 📄 [SVG](./DiagramasDeClase/ModeloCompleto.svg) | 📋 [PUML](./DiagramasDeClase/ModeloCompleto.puml)
-
----
-
-## 🔄 Diagramas de Estado
-
-
-### 🧑‍🎓 Diagrama de Estado - Alumno
-![Diagrama de Estado - Alumno](./DiagramasDeEstado/Alumno/Alumno.svg)
-📁 [Carpeta](./DiagramasDeEstado/Alumno/) | 📄 [SVG](./DiagramasDeEstado/Alumno/Alumno.svg) | 📋 [PUML](./DiagramasDeEstado/Alumno/Alumno.puml)
+[![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeClase/)
+[![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeClase/ModeloCompleto.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeClase/ModeloCompleto.svg)
 
 ---
 
-### 📋 Diagrama de Estado - Dispensas
-![Diagrama de Estado - Dispensas](./DiagramasDeEstado/Dispensas/Dispensas.svg)
-📁 [Carpeta](./DiagramasDeEstado/Dispensas/) | 📄 [SVG](./DiagramasDeEstado/Dispensas/Dispensas.svg) | 📋 [PUML](./DiagramasDeEstado/Dispensas/Dispensas.puml)
+## Diagrama de Objetos
+
+<p align="center">
+  <img src="./DiagramaDeObjetos/DiagramaDeObjetos.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramaDeObjetos/)
+[![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramaDeObjetos/DiagramaDeObjetos.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramaDeObjetos/DiagramaDeObjetos.svg)
 
 ---
 
-### 📝 Diagrama de Estado - Matrícula
-![Diagrama de Estado - Matrícula](./DiagramasDeEstado/Matricula/Matricula.svg)
-📁 [Carpeta](./DiagramasDeEstado/Matricula/) | 📄 [SVG](./DiagramasDeEstado/Matricula/Matricula.svg) | 📋 [PUML](./DiagramasDeEstado/Matricula/Matricula.puml)
+## Diagramas de Estados
+
+### Alumno
+
+<p align="center">
+  <img src="./DiagramasDeEstado/Alumno/Alumno.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/Alumno/)
+[![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/Alumno/Alumno.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/Alumno/Alumno.svg)
 
 ---
 
-### 🕐 Diagrama de Estado - Sesión de Clase
-![Diagrama de Estado - Sesión de Clase](./DiagramasDeEstado/SesionDeClase/DdE.svg)
-📁 [Carpeta](./DiagramasDeEstado/SesionDeClase/) | 📄 [SVG](./DiagramasDeEstado/SesionDeClase/DdE.svg) | 📋 [PUML](./DiagramasDeEstado/SesionDeClase/DdE.puml)
+### Asistencia
+
+<p align="center">
+  <img src="./DiagramasDeEstado/Asistencia/Asistencia.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/Asistencia/)
+[![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/Asistencia/Asistencia.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/Asistencia/Asistencia.svg)
 
 ---
 
-## 🎯 Diagrama de Objetos
+### Director de Grado
 
-### 📊 Diagrama de Objetos
-![Diagrama de Objetos](./DiagramaDeObjetos/DiagramaDeObjetos.svg)
-📁 [Carpeta](./DiagramaDeObjetos/) | 📄 [SVG](./DiagramaDeObjetos/DiagramaDeObjetos.svg) | 📋 [PUML](./DiagramaDeObjetos/DiagramaDeObjetos.puml)
+<p align="center">
+  <img src="./DiagramasDeEstado/DirectorGrado/DirectorDeGrado.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/DirectorGrado/)
+[![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/DirectorGrado/DirectorDeGrado.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/DirectorGrado/DirectorDeGrado.svg)
 
 ---
 
-> ✨ *El modelo del dominio constituye la base conceptual del proyecto, garantizando que todos los miembros del equipo compartan una misma comprensión sobre la estructura y funcionamiento del sistema.*
+### Dispensas
+
+<p align="center">
+  <img src="./DiagramasDeEstado/Dispensas/Dispensas.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/Dispensas/)
+[![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/Dispensas/Dispensas.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/Dispensas/Dispensas.svg)
+
+---
+
+### Lista de Alumnos
+
+<p align="center">
+  <img src="./DiagramasDeEstado/ListaAlumno/ListaAlumno.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/ListaAlumno/)
+[![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/ListaAlumno/ListaAlumno.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/ListaAlumno/ListaAlumno.svg)
+
+---
+
+### Matrícula
+
+<p align="center">
+  <img src="./DiagramasDeEstado/Matricula/Matricula.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/Matricula/)
+[![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/Matricula/Matricula.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/Matricula/Matricula.svg)
+
+---
+
+### Sesión de Clase
+
+<p align="center">
+  <img src="./DiagramasDeEstado/SesionDeClase/DdE.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/SesionDeClase/)
+[![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/SesionDeClase/DdE.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramasDeEstado/SesionDeClase/DdE.svg)
+
+---
