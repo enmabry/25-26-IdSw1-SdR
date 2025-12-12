@@ -1,52 +1,45 @@
 @startuml
 title Cerrar Solicitud
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
-}
-
-hide empty description
+skinparam linetype polyline
 
 state startState as "SOLICITUD_DISPENSA_ABIERTA"
 state endState as "DISPENSAS_ABIERTO"
 
-startState --> cerrarSolicitud
+startState -[#green]-> cerrarSolicitud
 note on link
     <b>Usuario solicita</b>
     Cerrar Solicitud
 end note
 
-state cerrarSolicitud {
+state cerrarSolicitud as "cerrarSolicitud()" {
     state VerificarCambios as " "
     state DecisionUsuario <<choice>>
     
     ' 1. Inicio: Verifica si hay cambios no guardados
-    [*] --> VerificarCambios
+    [*] -[#green]-> VerificarCambios
     note on link
         <b>Sistema verifica si hay modificaciones</b>
         pendientes de guardar.
     end note
     
     ' 2. Punto de Decisión: Si hay cambios, se pregunta al usuario
-    VerificarCambios --> DecisionUsuario
+    VerificarCambios -[#green]-> DecisionUsuario
     note on link
         <b>Si hay cambios, el sistema pregunta:</b>
         ¿Desea guardar o descartar?
         Si no hay cambios, avanza directamente.
     end note
     
-    ' --- FLUJO ALTERNATIVO (Cancelación de cierre) ---
+    ' --- FLUJO ALTERNATIVO (Cancelación de cierre - Rojo) ---
     DecisionUsuario -[#red]-> [*]
     note on link
         <b>Si el usuario cancela el cierre:</b>
         El caso de uso aborta, manteniendo la solicitud abierta.
     end note
     
-    ' --- FLUJO BÁSICO (Cerrar/Continuar) ---
-    DecisionUsuario --> MostrarListado
+    ' --- FLUJO BÁSICO (Cerrar/Continuar - Verde) ---
+    DecisionUsuario -[#green]-> MostrarListado
     
     state MostrarListado as " "
     note on link
@@ -54,9 +47,9 @@ state cerrarSolicitud {
         y presenta la interfaz de listado de dispensas.
     end note
     
-    MostrarListado --> [*]
+    MostrarListado -[#green]-> [*]
 }
 
-cerrarSolicitud --> endState
+cerrarSolicitud -[#green]-> endState
 
 @enduml

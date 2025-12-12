@@ -1,39 +1,31 @@
 @startuml
 title Cerrar Detalle Matrícula
 
-' --- CONFIGURACIÓN DE ESTILO (Idéntico a tus ejemplos) ---
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
-}
-
-hide empty description
+skinparam linetype polyline
 
 state startState as "MATRICULA_ABIERTA"
 state endState as "MATRICULAS_ABIERTO"
 
-startState --> cerrarDetalleMatricula
+startState -[#green]-> cerrarDetalleMatricula
 note on link
     <b>Usuario solicita</b>
     Cerrar Detalle Matrícula
 end note
 
-state cerrarDetalleMatricula {
+state cerrarDetalleMatricula as "cerrarDetalleMatricula()" {
     state MuestraListado as " "
 
     ' 1. Inicio: El sistema realiza la acción
-    [*] --> MuestraListado
+    [*] -[#green]-> MuestraListado
     note on link
         <b>Sistema presenta</b>
         la interfaz de listado general de matrículas.
     end note
 
     ' 2. Fin: El caso de uso interno finaliza
-    MuestraListado --> [*]
+    MuestraListado -[#green]-> [*]
 }
 
-cerrarDetalleMatricula --> endState
+cerrarDetalleMatricula -[#green]-> endState
 
 @enduml

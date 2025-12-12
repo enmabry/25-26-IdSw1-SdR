@@ -1,39 +1,33 @@
 @startuml
 title Importar Matrículas
 
-
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
-}
-
-hide empty description
+skinparam linetype polyline
 
 state startState as "MATRICULAS_ABIERTO"
 state endState1 as "MATRICULA_ABIERTA"
 state endState2 as "MATRICULAS_ABIERTO"
 
-startState --> importarMatriculas
+startState -[#green]-> importarMatriculas
 note on link
     <b>Usuario solicita</b>
     Importar Matrícula
 end note
 
-state importarMatriculas {
+state importarMatriculas as "importarMatriculas()" {
     state SolicitudArchivo as " "
     state ValidarFormato <<choice>>
+    state ImportarRegistros as " "
+    state MostrarInforme as " "
 
     ' 1. Inicio: Solicita el archivo
-    [*] --> SolicitudArchivo
+    [*] -[#green]-> SolicitudArchivo
     note on link
         <b>Sistema muestra interfaz</b>
         para adjuntar archivos a importar.
     end note
 
     ' 2. El usuario elige el archivo
-    SolicitudArchivo --> ValidarFormato
+    SolicitudArchivo -[#green]-> ValidarFormato
     note on link
         <b>Usuario elige el archivo</b>
         con la matrícula.
@@ -48,34 +42,34 @@ state importarMatriculas {
         Sistema informa error y vuelve a solicitar.
     end note
 
-    ' --- 4. FLUJO BÁSICO (Éxito) ---
-    ValidarFormato --> ImportarRegistros
+    ' --- 4. FLUJO BÁSICO (Éxito - Verde) ---
+    ValidarFormato -[#green]-> ImportarRegistros
     
-    state ImportarRegistros as " "
     note on link
         <b>Sistema importa los registros</b>
         de la matrícula.
     end note
     
-    ImportarRegistros --> MostrarInforme
+    ImportarRegistros -[#green]-> MostrarInforme
     
-    state MostrarInforme as " "
     note on link
         <b>Sistema muestra un informe</b>
         del registro importado.
     end note
     
-    MostrarInforme --> [*]
+    MostrarInforme -[#green]-> [*]
 }
 
 
-importarMatriculas --> endState1
+importarMatriculas -[#green]-> endState1
 note on link
     <b>verDetalleMatricula()</b>
-    
+    (Transición a ver el detalle de lo importado)
 end note
 
-importarMatriculas --> endState2
-
+importarMatriculas -[#green]-> endState2
+note on link
+    <b>Regreso a Matrículas Abierto</b>
+end note
 
 @enduml
