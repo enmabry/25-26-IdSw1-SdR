@@ -1,21 +1,12 @@
-@startuml Matricula
-title Diagrama de Estados: Matricula
+@startuml Matricula_Estado
+title Estado de Matricula en el CGU
 
-[*] --> Borrador
+[*] --> No_disponible
 
-Borrador  --> Enviada     : Alumno envía matrícula
-Enviada   --> EnRevision  : Secretaría Académica recibe y toma en revisión
+No_disponible --> Disponible : importarMatriculas()
+Disponible     --> No_disponible : dejarDeImportarMatricula()
 
-EnRevision --> Aprobada   : Secretaría Académica aprueba matrícula
-EnRevision --> Rechazada  : Secretaría Académica rechaza matrícula 
-
-Rechazada --> EnRevision  : Alumno corrige y Secretaría vuelve a revisar
-Rechazada --> [*]         : Alumno no corrige o vence el plazo
-
-Aprobada  --> Anulada     : Alumno solicita baja y Secretaría registra anulación
-Aprobada  --> Cerrada     : Fin de curso, matrícula se cierra
-
-Anulada   --> [*]
-Cerrada   --> [*]
+Disponible     --> [*]
+No_disponible  --> [*]
 
 @enduml

@@ -34,8 +34,6 @@
 
 ## Listas
 
-![Abrir Lista](./abrirLista.svg)
-📄 [SVG](./abrirLista.svg) | 📋 [PUML](./abrirLista.puml)
+![Consultar Lista Alumnos](./consultarListaAlumno.svg)
+📄 [SVG](./consultarListaAlumno.svg) | 📋 [PUML](./consultarListaAlumnos.puml)
 
-![Exportar Listado Alumnos Por Curso](./exportarListadoAlumnosPorCurso.svg)
-📄 [SVG](./exportarListadoAlumnosPorCurso.svg) | 📋 [PUML](./exportarListadoAlumnosPorCurso.puml)

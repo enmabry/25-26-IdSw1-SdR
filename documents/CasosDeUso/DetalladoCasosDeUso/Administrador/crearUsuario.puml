@@ -16,7 +16,8 @@ state crearUsuario as "crearUsuario()" {
     [*] -[#green]-> FormularioDatos
     note on link
     <b>Administrador</b> solicita registrar
-    un nuevo usuario en el sistema
+    un nuevo usuario en el sistema end note
+
     end note
 
     FormularioDatos -[#green]-> UsuarioRegistrado
@@ -35,11 +36,6 @@ state crearUsuario as "crearUsuario()" {
     <b>Sistema</b> confirma la creación
 
     <b>Sistema</b> cambia el contexto a USUARIO_ABIERTO
-
-    <b>Sistema</b> permite solicitar:
-    • asignarRolUsuario()
-    • guardarUsuario()
-    • desactivarUsuario()
     end note
 
 }
