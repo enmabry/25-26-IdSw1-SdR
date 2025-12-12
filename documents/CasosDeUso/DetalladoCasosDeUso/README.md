@@ -1,6 +1,6 @@
 <div align="right">
 
-| [![](https://img.shields.io/badge/-Inicio-FFF?style=flat&logo=Emlakjet&logoColor=black)](/README.md) [![](https://img.shields.io/badge/-Modelo_del_Dominio-FFF?style=flat&logo=LiveChat&logoColor=black)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/-Actores-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/-Casos_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/-Detallado_Casos_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/-Prototipos-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/Prototipos/) [![](https://img.shields.io/badge/-Reuniones-FFF?style=flat&logo=Proton&logoColor=black)](/documents/Reuniones/) [![](https://img.shields.io/badge/-Priorización-FFF?style=flat&logo=Proton&logoColor=black)](/documents/CasosDeUso/PRIORIZACION_CASOS_DE_USO.md) |
+| [![](https://img.shields.io/badge/-Inicio-0D47A1?style=flat&logo=Emlakjet&logoColor=white)](/README.md) [![](https://img.shields.io/badge/-Modelo_del_Dominio-0D47A1?style=flat&logo=LiveChat&logoColor=white)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/-Actores-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/-Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/-Detallado_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/-Prototipos-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/Prototipos/) [![](https://img.shields.io/badge/-Reuniones-0D47A1?style=flat&logo=Proton&logoColor=white)](/documents/Reuniones/) [![](https://img.shields.io/badge/-Priorización-0D47A1?style=flat&logo=Proton&logoColor=white)](/documents/CasosDeUso/PRIORIZACION_CASOS_DE_USO.md) |
 | ---- |
 
 </div>
@@ -9,7 +9,7 @@
 
 # Detallado de Casos de Uso
 
-[![](https://img.shields.io/badge/-Alumno-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Alumno) [![](https://img.shields.io/badge/-Profesor-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Profesor) [![](https://img.shields.io/badge/-Administrador-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Administrador) [![](https://img.shields.io/badge/-Secretaria-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Secretaria) [![](https://img.shields.io/badge/-Director_de_Grado-FFF?style=flat&logo=openstreetmap&logoColor=black)](#DirectorGrado)
+[![](https://img.shields.io/badge/-Alumno-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Alumno) [![](https://img.shields.io/badge/-Profesor-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Profesor) [![](https://img.shields.io/badge/-Administrador-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Administrador) [![](https://img.shields.io/badge/-Secretaria-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Secretaria) [![](https://img.shields.io/badge/-Director_de_Grado-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#DirectorGrado)
 
 ---
 
@@ -25,7 +25,7 @@
   <img src="./Alumno/crearSolicitudDispensa.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Alumno/DdCdU.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Alumno/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Alumno/crearSolicitudDispensa.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Alumno/DdCdU.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Alumno/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Alumno/crearSolicitudDispensa.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoEditarSolicitudDispensa"></a>
 
@@ -35,7 +35,7 @@
   <img src="./Alumno/editarSolicitudDispensa.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Alumno/DdCdU.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Alumno/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Alumno/editarSolicitudDispensa.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Alumno/DdCdU.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Alumno/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Alumno/editarSolicitudDispensa.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoGuardarSolicitudDispensa"></a>
 
@@ -45,7 +45,7 @@
   <img src="./Alumno/guardarSolicitudDispensa.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Alumno/DdCdU.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Alumno/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Alumno/guardarSolicitudDispensa.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Alumno/DdCdU.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Alumno/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Alumno/guardarSolicitudDispensa.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoCerrarSolicitudDispensa"></a>
 
@@ -55,7 +55,7 @@
   <img src="./Alumno/cerrarSolicitudDispensa.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Alumno/DdCdU.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Alumno/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Alumno/cerrarSolicitudDispensa.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Alumno/DdCdU.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Alumno/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Alumno/cerrarSolicitudDispensa.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoVerEstadoDispensa"></a>
 
@@ -65,7 +65,7 @@
   <img src="./Alumno/verEstadoDispensa.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Alumno/DdCdU.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Alumno/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Alumno/verEstadoDispensa.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Alumno/DdCdU.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Alumno/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Alumno/verEstadoDispensa.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
@@ -81,7 +81,7 @@
   <img src="./Profesor/crearSesionClase.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/crearSesionClase.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/crearSesionClase.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoCerrarSesionClase"></a>
 
@@ -91,7 +91,7 @@
   <img src="./Profesor/cerrarSesionClase.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/cerrarSesionClase.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/cerrarSesionClase.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoRegistrarTomaAsistencia"></a>
 
@@ -101,7 +101,7 @@
   <img src="./Profesor/registrarTomaAsistencia.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/registrarTomaAsistencia.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/registrarTomaAsistencia.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoConsultarListaAlumnos"></a>
 
@@ -111,7 +111,7 @@
   <img src="./Profesor/consultarListaAlumnos.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/consultarListaAlumnos.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/consultarListaAlumnos.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoConsultarSolicitudDispensa"></a>
 
@@ -121,7 +121,7 @@
   <img src="./Profesor/consultarSolicitudDispensa.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/consultarSolicitudDispensa.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/consultarSolicitudDispensa.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoExportarHistorialAsistencias"></a>
 
@@ -131,7 +131,7 @@
   <img src="./Profesor/exportarHistorialAsistencias.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/exportarHistorialAsistencias.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/exportarHistorialAsistencias.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoImportarAlumnos"></a>
 
@@ -141,7 +141,7 @@
   <img src="./Profesor/importarAlumnos.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/importarAlumnos.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/importarAlumnos.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoVerDetalleAlumno"></a>
 
@@ -151,7 +151,7 @@
   <img src="./Profesor/verDetalleAlumno.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Profesor/verDetalleAlumno.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/verDetalleAlumno.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
@@ -167,7 +167,7 @@
   <img src="./Administrador/crearUsuario.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Administrador/crearUsuario.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/crearUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoEditarUsuario"></a>
 
@@ -177,7 +177,7 @@
   <img src="./Administrador/editarUsuario.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Administrador/editarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/editarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoGuardarUsuario"></a>
 
@@ -187,7 +187,7 @@
   <img src="./Administrador/guardarUsuario.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Administrador/guardarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/guardarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoConsultarUsuario"></a>
 
@@ -197,7 +197,7 @@
   <img src="./Administrador/consultarUsuario.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Administrador/consultarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/consultarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoCerrarUsuario"></a>
 
@@ -207,7 +207,7 @@
   <img src="./Administrador/cerrarUsuario.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Administrador/cerrarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/cerrarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
@@ -223,7 +223,7 @@
   <img src="./Secretaria/crearSolicitudDispensa.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/crearSolicitudDispensa.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/crearSolicitudDispensa.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoConsultarListaAlumnosSecretaria"></a>
 
@@ -233,7 +233,7 @@
   <img src="./Secretaria/consultarListaAlumno.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/consultarListaAlumnos.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/consultarListaAlumnos.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoAdjuntarDocumentacionDispensa"></a>
 
@@ -243,7 +243,7 @@
   <img src="./Secretaria/adjuntarDocumentacionDispensa.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/adjuntarDocumentacionDispensa.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/adjuntarDocumentacionDispensa.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoVerEstadoDispensaSecretaria"></a>
 
@@ -253,7 +253,7 @@
   <img src="./Secretaria/verEstadoDispensa.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/verEstadoDispensa.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/verEstadoDispensa.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoActualizarDatosAlumnos"></a>
 
@@ -263,7 +263,7 @@
   <img src="./Secretaria/actualizarDatosAlumno.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/actualizarDatosAlumnos.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/actualizarDatosAlumnos.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoEliminarAlumno"></a>
 
@@ -273,7 +273,7 @@
   <img src="./Secretaria/eliminarAlumno.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/eliminarAlumno.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/eliminarAlumno.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoGenerarInformeDispensas"></a>
 
@@ -283,7 +283,7 @@
   <img src="./Secretaria/generarInformeDispensas.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/generarInformeDispensas.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/generarInformeDispensas.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoGenerarListadoAlumnosPorCurso"></a>
 
@@ -293,7 +293,7 @@
   <img src="./Secretaria/generarListadoAlumnosPorCurso.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Secretaria/generarListadoAlumnosPorCurso.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/generarListadoAlumnosPorCurso.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
@@ -309,7 +309,7 @@
   <img src="./DirectorDeGrado/ConsultarSolicitudesDispensas.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DirectorDeGrado/ConsultarSolicitudesDispensas.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/ConsultarSolicitudesDispensas.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoEditarSolicitud"></a>
 
@@ -319,7 +319,7 @@
   <img src="./DirectorDeGrado/EditarSolicitud.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DirectorDeGrado/EditarSolicitud.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/EditarSolicitud.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoGuardarSolicitud"></a>
 
@@ -329,7 +329,7 @@
   <img src="./DirectorDeGrado/GuardarSolicitud.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DirectorDeGrado/GuardarSolicitud.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/GuardarSolicitud.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="DetalladoCerrarSolicitud"></a>
 
@@ -339,9 +339,11 @@
   <img src="./DirectorDeGrado/CerrarSolicitud.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DirectorDeGrado/CerrarSolicitud.puml) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/CerrarSolicitud.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
-| [![](https://img.shields.io/badge/-Inicio-FFF?style=flat&logo=Emlakjet&logoColor=black)](/README.md) [![](https://img.shields.io/badge/-Modelo_del_Dominio-FFF?style=flat&logo=LiveChat&logoColor=black)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/-Actores-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/-Casos_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/-Detallado_Casos_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/-Prototipos-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/Prototipos/) [![](https://img.shields.io/badge/-Reuniones-FFF?style=flat&logo=Proton&logoColor=black)](/documents/Reuniones/) [![](https://img.shields.io/badge/-Priorización-FFF?style=flat&logo=Proton&logoColor=black)](/documents/CasosDeUso/PRIORIZACION_CASOS_DE_USO.md) |
+| [![](https://img.shields.io/badge/-Inicio-0D47A1?style=flat&logo=Emlakjet&logoColor=white)](/README.md) [![](https://img.shields.io/badge/-Modelo_del_Dominio-0D47A1?style=flat&logo=LiveChat&logoColor=white)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/-Actores-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/-Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/-Detallado_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/-Prototipos-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/Prototipos/) [![](https://img.shields.io/badge/-Reuniones-0D47A1?style=flat&logo=Proton&logoColor=white)](/documents/Reuniones/) [![](https://img.shields.io/badge/-Priorización-0D47A1?style=flat&logo=Proton&logoColor=white)](/documents/CasosDeUso/PRIORIZACION_CASOS_DE_USO.md) |
 | ---- |
+
+

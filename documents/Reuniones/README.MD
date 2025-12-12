@@ -2,7 +2,7 @@
 
 <div align="right">
 
-| [![](https://img.shields.io/badge/-Inicio-FFF?style=flat&logo=Emlakjet&logoColor=black)](/README.md) [![](https://img.shields.io/badge/-Modelo_del_Dominio-FFF?style=flat&logo=LiveChat&logoColor=black)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/-Actores-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/-Casos_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/-Detallado_Casos_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/-Prototipos-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/Prototipos/) [![](https://img.shields.io/badge/-Reuniones-FFF?style=flat&logo=Proton&logoColor=black)](/documents/Reuniones/) [![](https://img.shields.io/badge/-Priorización-FFF?style=flat&logo=Proton&logoColor=black)](/documents/CasosDeUso/PRIORIZACION_CASOS_DE_USO.md) |
+| [![](https://img.shields.io/badge/-Inicio-0D47A1?style=flat&logo=Emlakjet&logoColor=white)](/README.md) [![](https://img.shields.io/badge/-Modelo_del_Dominio-0D47A1?style=flat&logo=LiveChat&logoColor=white)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/-Actores-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/-Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/-Detallado_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/-Prototipos-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/Prototipos/) [![](https://img.shields.io/badge/-Reuniones-0D47A1?style=flat&logo=Proton&logoColor=white)](/documents/Reuniones/) [![](https://img.shields.io/badge/-Priorización-0D47A1?style=flat&logo=Proton&logoColor=white)](/documents/CasosDeUso/PRIORIZACION_CASOS_DE_USO.md) |
 | ---- |
 
 </div>
@@ -15,8 +15,9 @@ Registro de sesiones de requisitado y especificaciones del proyecto.
 
 | Reunión | Fecha | Archivo |
 |---------|-------|---------|
-| Reunión 1 | 06-11-2025 | [![](https://img.shields.io/badge/-Ver_MD-FFF?style=flat&logo=openstreetmap&logoColor=black)](./06-11-2025_Reunion-1.md) |
-| Reunión 2 | 14-11-2025 | [![](https://img.shields.io/badge/-Ver_MD-FFF?style=flat&logo=openstreetmap&logoColor=black)](./14-11-2025_Reunion-2.md) |
-| Reunión Secretaría | - | [![](https://img.shields.io/badge/-Ver_PDF-FFF?style=flat&logo=openstreetmap&logoColor=black)](./Reunión%20Secretaría%20.pdf) |
+| Reunión 1 | 06-11-2025 | [![](https://img.shields.io/badge/-Ver_MD-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./06-11-2025_Reunion-1.md) |
+| Reunión 2 | 14-11-2025 | [![](https://img.shields.io/badge/-Ver_MD-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./14-11-2025_Reunion-2.md) |
+| Reunión Secretaría | - | [![](https://img.shields.io/badge/-Ver_PDF-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Reunión%20Secretaría%20.pdf) |
 
 ---
+
