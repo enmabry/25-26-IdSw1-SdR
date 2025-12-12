@@ -15,7 +15,7 @@ Descripción de las funcionalidades del sistema por rol de usuario.
 
 ## Enlaces Rápidos
 
-[![](https://img.shields.io/badge/-Alumno-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Alumno) [![](https://img.shields.io/badge/-Profesor-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Profesor) [![](https://img.shields.io/badge/-Administrador-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Administrador) [![](https://img.shields.io/badge/-Secretaria-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Secretaria) [![](https://img.shields.io/badge/-Director_de_Grado-FFF?style=flat&logo=openstreetmap&logoColor=black)](#DirectorGrado)
+[![](https://img.shields.io/badge/-Alumno-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Alumno) [![](https://img.shields.io/badge/-Profesor-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Profesor) [![](https://img.shields.io/badge/-Administrador-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Administrador) [![](https://img.shields.io/badge/-Secretaria-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Secretaria) [![](https://img.shields.io/badge/-Director_de_Grado-FFF?style=flat&logo=openstreetmap&logoColor=black)](#DirectorGrado) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-FFF?style=flat&logo=openstreetmap&logoColor=black)](#DiagramaDeContexto)
 
 ---
 
@@ -27,7 +27,7 @@ Descripción de las funcionalidades del sistema por rol de usuario.
   <img src="./CasoDeUso/Alumno/DdCdU.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Detallado-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/Alumno/)
+[![](https://img.shields.io/badge/-Ver_Detallado-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md#Alumno)
 [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/Alumno/)
 [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/Alumno/DdCdU.puml)
 [![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/Alumno/DdCdU.svg)
@@ -43,7 +43,7 @@ Descripción de las funcionalidades del sistema por rol de usuario.
   <img src="./CasoDeUso/Profesor/Profesor.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Detallado-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/Profesor/)
+[![](https://img.shields.io/badge/-Ver_Detallado-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md#Profesor)
 [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/Profesor/)
 [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/Profesor/Profesor.puml)
 [![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/Profesor/Profesor.svg)
@@ -59,7 +59,7 @@ Descripción de las funcionalidades del sistema por rol de usuario.
   <img src="./CasoDeUso/Administrador/Administrador.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Detallado-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/Administrador/)
+[![](https://img.shields.io/badge/-Ver_Detallado-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md#Administrador)
 [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/Administrador/)
 [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/Administrador/Administrador.puml)
 [![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/Administrador/Administrador.svg)
@@ -75,7 +75,7 @@ Descripción de las funcionalidades del sistema por rol de usuario.
   <img src="./CasoDeUso/Secretaria/CasoDeUsosCompleto.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Detallado-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/Secretaria/)
+[![](https://img.shields.io/badge/-Ver_Detallado-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md#Secretaria)
 [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/Secretaria/)
 [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/Secretaria/DiagramaCompletoCasoDeUso.puml)
 [![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/Secretaria/CasoDeUsosCompleto.svg)
@@ -91,11 +91,24 @@ Descripción de las funcionalidades del sistema por rol de usuario.
   <img src="./CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Detallado-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/DirectorDeGrado/)
+[![](https://img.shields.io/badge/-Ver_Detallado-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md#DirectorGrado)
 [![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/DirectorDeGrado/)
 [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/DirectorDeGrado/DirectorDeGrado.puml)
 [![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg)
 [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
 
 ---
+
+<a name="DiagramaDeContexto"></a>
+
+## Diagrama de Contexto
+
+<p align="center">
+  <img src="./DiagramaDeContexto/DiagramaDeContexto.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramaDeContexto/)
+[![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramaDeContexto/DiagramaDeContexto.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramaDeContexto/DiagramaDeContexto.svg)
+[![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
 

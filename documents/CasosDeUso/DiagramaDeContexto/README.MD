@@ -1,24 +1,22 @@
-# 🌐 Diagrama de Contexto — Centro de Gestión Universitaria
+# Diagrama de Contexto
 
-<div align="center">
+<div align="right">
 
-| [![](https://img.shields.io/badge/🏠_INICIO-1565C0?style=for-the-badge&labelColor=0D47A1)](/README.md) [![](https://img.shields.io/badge/📘_MODELO_DEL_DOMINIO-1E88E5?style=for-the-badge&labelColor=1565C0)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/🧍‍♂️_ACTORES-1E88E5?style=for-the-badge&labelColor=1565C0)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/📄_CASOS_DE_USO-1E88E5?style=for-the-badge&labelColor=1565C0)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/🔍_DETALLADO_CASOS_DE_USO-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/🌐_DIAGRAMA_DE_CONTEXTO-1E88E5?style=for-the-badge&labelColor=1565C0)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/🧩_PROTOTIPOS-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/CasosDeUso/Prototipos) [![](https://img.shields.io/badge/👥_REUNIONES-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/Reuniones/) [![](https://img.shields.io/badge/🖼️_RECURSOS_ADICIONALES-555555?style=for-the-badge&labelColor=2b2b2b)](/documents/images/) |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![](https://img.shields.io/badge/-Inicio-FFF?style=flat&logo=Emlakjet&logoColor=black)](/README.md) [![](https://img.shields.io/badge/-Modelo_del_Dominio-FFF?style=flat&logo=LiveChat&logoColor=black)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/-Actores-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/-Casos_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/-Detallado_Casos_de_Uso-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/-Prototipos-FFF?style=flat&logo=openstreetmap&logoColor=black)](/documents/CasosDeUso/Prototipos/) [![](https://img.shields.io/badge/-Reuniones-FFF?style=flat&logo=Proton&logoColor=black)](/documents/Reuniones/) [![](https://img.shields.io/badge/-Priorización-FFF?style=flat&logo=Proton&logoColor=black)](/documents/CasosDeUso/PRIORIZACION_CASOS_DE_USO.md) |
+| ---- |
 
 </div>
 
----
+<a name="Navbar"></a>
 
-## 🌐 Diagrama de Contexto del Sistema
-
-El Diagrama de Contexto muestra el sistema CGU en relación con su entorno, identificando los actores externos, sistemas relacionados y los límites del sistema.
-
-### Contexto General
-
-![Diagrama de Contexto](./DiagramaDeContexto.svg)
-
-📁 [Carpeta](.) | 📄 [SVG](./DiagramaDeContexto.svg) | 📋 [PUML](./DiagramaDeContexto.puml)
+Visión general del sistema en relación con su entorno, actores externos y límites del sistema.
 
 ---
 
-> ✨ *El diagrama de contexto proporciona una visión general del sistema, mostrando cómo interactúa con los actores externos y otros sistemas, estableciendo los límites claros del alcance del proyecto.*
+<p align="center">
+  <img src="./DiagramaDeContexto.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Carpeta-FFF?style=flat&logo=openstreetmap&logoColor=black)](./) [![](https://img.shields.io/badge/-Ver_PUML-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramaDeContexto.puml) [![](https://img.shields.io/badge/-Ver_SVG-FFF?style=flat&logo=openstreetmap&logoColor=black)](./DiagramaDeContexto.svg) [![](https://img.shields.io/badge/-Navbar-FFF?style=flat&logo=openstreetmap&logoColor=black)](#Navbar)
+
+---
