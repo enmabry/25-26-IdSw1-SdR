@@ -2,47 +2,76 @@
 title Editar solicitud de dispensa
 skinparam linetype polyline
 
-state SOLICITUD_DISPENSA_ABIERTA_INICIAL as "SOLICITUD_DISPENSA_ABIERTA"
-state SOLICITUD_DISPENSA_ABIERTA_FINAL   as "SOLICITUD_DISPENSA_ABIERTA"
+state DISPENSAS_ABIERTO           as "DISPENSAS_ABIERTO"
+state SOLICITUD_DISPENSA_ABIERTA  as "SOLICITUD_DISPENSA_ABIERTA"
 
+[*] -[#green]-> DISPENSAS_ABIERTO
 
-SOLICITUD_DISPENSA_ABIERTA_INICIAL -[#green]-> editarSolicitudDispensa
+' LLEGADA A SOLICITUD_DISPENSA_ABIERTA
 
-state editarSolicitudDispensa as "editarSolicitudDispensa()" {
+DISPENSAS_ABIERTO -[#green]-> SOLICITUD_DISPENSA_ABIERTA : crearSolicitudDispensa()
+note on link
+<b>Alumno</b> está en DISPENSAS_ABIERTO (listado de sus solicitudes)
+y selecciona "Crear nueva solicitud de dispensa()".
 
-    state " " as PasoEdicion
-    state " " as DecidirAccion
+<b>Sistema</b> pide datos mínimos (asignatura, periodo/horario)
+y crea la solicitud, pasando a SOLICITUD_DISPENSA_ABIERTA
+para completar la información.
+end note
+
+DISPENSAS_ABIERTO -[#green]-> SOLICITUD_DISPENSA_ABIERTA : consultarSolicitudDispensa()
+note on link
+<b>Alumno</b> está en DISPENSAS_ABIERTO y selecciona
+una solicitud existente para consultarla.
+
+<b>Sistema</b> muestra su estado (aprobada/rechazada/pendiente),
+comentarios y datos actuales en SOLICITUD_DISPENSA_ABIERTA,
+desde donde se podrá editar (por ejemplo, para apelar).
+end note
+
+' COMPORTAMIENTO INTERNO AL EDITAR LA SOLICITUD
+
+state SOLICITUD_DISPENSA_ABIERTA {
+
+    state PasoEdicion
+    state DecidirAccion
 
     [*] -[#green]-> PasoEdicion
     note on link
-    <b>Alumno</b> se encuentra en SOLICITUD_DISPENSA_ABIERTA
-    viendo el detalle de una solicitud de dispensa
-    y selecciona la opción "Editar solicitud".
+    <b>Sistema</b> muestra el formulario de la solicitud
+    con los datos actuales.
+
+    <b>Alumno</b> puede:
+    • completar datos faltantes (si viene de crearSolicitudDispensa()), o
+    • modificar/añadir información (si viene de consultarSolicitudDispensa()),
+      por ejemplo para apelar una dispensa rechazada:
+      - ampliar motivo
+      - adjuntar nueva documentación
+      - aclarar periodos afectados
     end note
 
     PasoEdicion -[#green]-> DecidirAccion
     note on link
-    <b>Sistema</b> mantiene el formulario de la solicitud
-    con los datos actuales.
-
-    <b>Alumno</b> modifica los campos permitidos:
-    • Motivo de la dispensa
-    • Periodo / sesiones afectadas
-    • (Opcional) documentación adjunta
-
-    Al finalizar, el Alumno puede:
-    • guardarSolicitud(), o
-    • cerrarSolicitud() sin seguir editando.
+    Al finalizar la edición, el Alumno decide:
+    • guardarSolicitudDispensa(), o
+    • cerrarSolicitudDispensa() para salir descartando cambios.
     end note
 
     DecidirAccion -[#green]-> [*]
-    note on link
-    <b>Sistema</b> ejecuta la acción elegida
-    (guardarSolicitud() o cerrarSolicitud()).
-    end note
 }
 
-' Si el alumno guarda, sigue en la solicitud abierta (ya actualizada)
-editarSolicitudDispensa -[#green]-> SOLICITUD_DISPENSA_ABIERTA_FINAL : guardarSolicitud() / cerrarSolicitud()
+' SALIDA DE LA SOLICITUD DE VUELTA AL LISTADO
 
+SOLICITUD_DISPENSA_ABIERTA -[#green]-> DISPENSAS_ABIERTO : guardarSolicitudDispensa()
+note on link
+<b>Sistema</b> guarda los cambios realizados en la solicitud
+(y, si aplica, podrá pasar a estado PendienteRevision para nueva revisión)
+y vuelve a DISPENSAS_ABIERTO.
+end note
+
+SOLICITUD_DISPENSA_ABIERTA -[#red]-> DISPENSAS_ABIERTO : cerrarSolicitudDispensa()
+note on link
+<b>Sistema</b> descarta los cambios de edición
+y vuelve a DISPENSAS_ABIERTO, manteniendo la solicitud como estaba.
+end note
 @enduml

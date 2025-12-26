@@ -1,12 +1,7 @@
-@startuml Alumno_Estado
-title Estado de Alumno en el CGU
+@startuml EstadoAlumno
+title Estado de Alumno
 
-[*] --> No_disponible
-
-No_disponible --> Disponible : importarAlumnos()
-Disponible --> No_disponible : dejarDeImportarAlumno()
+[*] --> Disponible : importarAlumnos()
 
 Disponible --> [*]
-No_disponible --> [*]
-
 @enduml

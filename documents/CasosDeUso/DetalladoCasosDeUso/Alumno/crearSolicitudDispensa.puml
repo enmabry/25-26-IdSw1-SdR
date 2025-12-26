@@ -2,45 +2,64 @@
 title Crear solicitud de dispensa
 skinparam linetype polyline
 
-state DISPENSAS_ABIERTO_INICIAL  as "DISPENSAS_ABIERTO"
-state SOLICITUD_DISPENSA_ABIERTA_FINAL as "SOLICITUD_DISPENSA_ABIERTA"
+state DISPENSAS_ABIERTO_INICIAL          as "DISPENSAS_ABIERTO"
+state SOLICITUD_DISPENSA_ABIERTA_INICIAL as "SOLICITUD_DISPENSA_ABIERTA"
 
-DISPENSAS_ABIERTO_INICIAL -[#green]-> crearSolicitudDispensa
+[*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
 
-state crearSolicitudDispensa as "crearSolicitudDispensa()" {
+' Desde el listado de dispensas, el alumno crea una nueva
+DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA_INICIAL : crearSolicitudDispensa()
+note on link
+<b>Alumno</b> se encuentra en DISPENSAS_ABIERTO
+(listado de sus solicitudes) y selecciona
+"Crear nueva solicitud de dispensa()".
 
-    state " " as FormularioDatos
-    state " " as DecidirAccion
+<b>Sistema</b> solicita los datos mínimos:
+• Asignatura / periodo
+• Horario
 
-    [*] -[#green]-> FormularioDatos
+Tras confirmar, se crea la nueva solicitud
+y se pasa a SOLICITUD_DISPENSA_ABIERTA.
+end note
+
+' Comportamiento interno de la solicitud abierta
+state SOLICITUD_DISPENSA_ABIERTA_INICIAL as "SOLICITUD_DISPENSA_ABIERTA" {
+
+    state FormularioEdicion
+    state DecidirAccion
+
+    [*] -[#green]-> FormularioEdicion
     note on link
-    <b>Alumno</b> se encuentra en DISPENSAS_ABIERTO
-    (listado de sus solicitudes) y selecciona
-    "Nueva solicitud de dispensa".
+    <b>Sistema</b> muestra la solicitud de dispensa recién creada
+    en estado editable (SOLICITUD_DISPENSA_ABIERTA).
+
+    <b>Alumno</b> puede completar o modificar:
+    • Motivo de la dispensa
+    • Documentación adjunta
+    • Otros datos opcionales
     end note
 
-    FormularioDatos -[#green]-> DecidirAccion
+    FormularioEdicion -[#green]-> DecidirAccion
     note on link
-    <b>Sistema</b> presenta un formulario en blanco.
-
-    <b>Alumno</b> introduce los datos requeridos:
-    • Asignatura / periodo
-    • Motivo de la dispensa
-    • (Opcional) documentación adjunta
-
-    Al finalizar, el Alumno puede:
-    • guardarSolicitud(), o
-    • cerrarSolicitud() sin guardar cambios.
+    Al terminar, el Alumno decide:
+    • guardarSolicitudDispensa(), o
+    • cerrarSolicitudDispensa() (descartar la solicitud).
     end note
 
     DecidirAccion -[#green]-> [*]
-    note on link
-    <b>Sistema</b> ejecuta la acción elegida
-    (guardarSolicitud() o cerrarSolicitud()).
-    end note
 }
 
-' Si el alumno guarda, se crea y queda abierta
-crearSolicitudDispensa -[#green]-> SOLICITUD_DISPENSA_ABIERTA_FINAL : guardarSolicitud() / cerrarSolicitud()
+' Vuelta al listado según la acción elegida
+SOLICITUD_DISPENSA_ABIERTA_INICIAL -[#green]-> DISPENSAS_ABIERTO_INICIAL : guardarSolicitudDispensa()
+note on link
+<b>Sistema</b> guarda la nueva solicitud de dispensa
+y vuelve a DISPENSAS_ABIERTO (listado actualizado).
+end note
+
+SOLICITUD_DISPENSA_ABIERTA_INICIAL -[#red]-> DISPENSAS_ABIERTO_INICIAL : cerrarSolicitudDispensa()
+note on link
+<b>Sistema</b> descarta la solicitud no guardada
+y vuelve a DISPENSAS_ABIERTO sin cambios.
+end note
 
 @enduml
