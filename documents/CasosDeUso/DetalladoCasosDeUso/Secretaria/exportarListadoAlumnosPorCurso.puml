@@ -1,0 +1,77 @@
+@startuml
+title Exportar Listado Alumnos Por Curso
+
+skinparam linetype polyline
+
+state startState as "LISTAS_ABIERTO"
+state endState1 as "LISTA_ABIERTA"
+state endState2 as "LISTAS_ABIERTO"
+
+startState -[#green]-> exportarListadoAlumnosPorCurso
+note on link
+    <b>Usuario solicita</b>
+    Exportar Listado Alumnos Por Curso
+end note
+
+state exportarListadoAlumnosPorCurso as "exportarListadoAlumnosPorCurso()" {
+    state SolicitudFiltros as " "
+    state ValidarFiltros <<choice>>
+    state SeleccionFormato as " "
+    state Descarga as " "
+    
+    ' 1. Inicio: Solicita los filtros
+    [*] -[#green]-> SolicitudFiltros
+    note on link
+        <b>Sistema muestra opciones</b>
+        de filtro y botón de exportación.
+    end note
+
+    ' 2. El usuario selecciona los filtros
+    SolicitudFiltros -[#green]-> ValidarFiltros
+    note on link
+        <b>Usuario selecciona criterios:</b>
+        * Curso, Asignatura
+    end note
+
+    ' --- 3. FLUJO ALTERNATIVO (Error de filtros - Camino Rojo) ---
+    ValidarFiltros -[#red]-> SolicitudFiltros
+    note on link
+        <b>Sistema valida filtros.</b>
+        <b>Si hay error:</b>
+        Sistema informa error y vuelve a solicitar filtros.
+    end note
+
+    ' --- 4. FLUJO BÁSICO (Éxito - Verde) ---
+    ValidarFiltros -[#green]-> SeleccionFormato
+    
+    note on link
+        <b>Sistema solicita al usuario</b>
+        el formato de salida (PDF, CSV, etc.) y nombre.
+    end note
+    
+    SeleccionFormato -[#green]-> Descarga
+    
+    note on link
+        <b>El usuario solicita la descarga.</b>
+        Sistema descarga.
+    end note
+    
+    Descarga -[#green]-> [*]
+    note on link
+        <b>Sistema muestra confirmación.</b>
+    end note
+}
+
+
+exportarListadoAlumnosPorCurso -[#green]-> endState1
+note on link
+    <b>abrirLista()</b>
+end note
+
+exportarListadoAlumnosPorCurso -[#green]-> endState2
+note on link
+    <b>Regreso a Listas Abierto</b>
+    (Opción de transición sin acción en el link)
+end note
+
+@enduml
