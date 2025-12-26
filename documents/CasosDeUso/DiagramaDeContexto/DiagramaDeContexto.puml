@@ -1,5 +1,5 @@
 @startuml DiagramaDeContexto
-title Vista global del sistema
+title Diagrama de contexto: perspectiva del Administrador
 left to right direction
 skinparam linetype polyline
 
@@ -9,16 +9,16 @@ SESION_CERRADA --> SISTEMA_DISPONIBLE : iniciarSesion()
 SISTEMA_DISPONIBLE --> SESION_CERRADA : cerrarSesion() / sesionInactiva()
 
 '==========================================
-'  MÓDULO LISTAS DE ALUMNOS
+'  MÓDULO LISTAS DE ALUMNOS (solo importar + consulta)
 '==========================================
 SISTEMA_DISPONIBLE --> LISTAS_ABIERTO : abrirListasAlumnos()
 LISTAS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionListas()
 
-LISTAS_ABIERTO --> LISTA_ABIERTA : abrirLista()
-LISTAS_ABIERTO --> LISTAS_ABIERTO : exportarListadoAlumnosPorCurso()
+' Importar todas las listas desde el sistema externo
+LISTAS_ABIERTO --> LISTAS_ABIERTO : importarListasAlumnos()
 
-LISTA_ABIERTA --> LISTA_ABIERTA  : editarListaAlumnos()
-LISTA_ABIERTA --> LISTAS_ABIERTO : guardarLista()
+' Consultar el detalle de una lista (solo lectura)
+LISTAS_ABIERTO --> LISTA_ABIERTA : consultarListaAlumnos()
 LISTA_ABIERTA --> LISTAS_ABIERTO : cerrarLista()
 
 '==========================================
@@ -80,4 +80,5 @@ USUARIOS_ABIERTO --> USUARIO_ABIERTO : consultarUsuario()
 USUARIO_ABIERTO --> USUARIO_ABIERTO   : editarUsuario()
 USUARIO_ABIERTO --> USUARIOS_ABIERTO  : guardarUsuario()
 USUARIO_ABIERTO --> USUARIOS_ABIERTO  : cerrarUsuario()
+
 @enduml

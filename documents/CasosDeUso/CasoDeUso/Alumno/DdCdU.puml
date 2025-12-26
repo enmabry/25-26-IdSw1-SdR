@@ -1,24 +1,22 @@
-@startuml Alumno_Dispensas
+@startuml DiagramaDeCasosDeUsoAlumno
 left to right direction
 skinparam packageStyle rectangle
 
 actor Alumno
 
-rectangle "Sistema de Gestión Universitaria (CGU)" {
-
     package "Dispensas" {
-        usecase "crearSolicitudDispensa()"  as CrearSolicitudDispensa
-        usecase "verEstadoDispensa()"       as VerEstadoDispensa
-        usecase "editarSolicitudDispensa()" as EditarSolicitudDispensa
-        usecase "guardarSolicitud()"        as GuardarSolicitud
-        usecase "cerrarSolicitud()"         as CerrarSolicitud
+        usecase "crearSolicitudDispensa()"   as CrearSolicitudDispensa
+        usecase "consultarEstadoDispensa()"        as ConsultarEstadoDispensa
+        usecase "editarSolicitudDispensa()"  as EditarSolicitudDispensa
+        usecase "cerrarSolicitudDispensa()"  as CerrarSolicitudDispensa
+        usecase "guardarSolicitudDispensa()"  as GuardarSolicitudDispensa
     }
 
-}
+
 
 Alumno --> CrearSolicitudDispensa
-Alumno --> VerEstadoDispensa
+Alumno --> ConsultarEstadoDispensa
 Alumno --> EditarSolicitudDispensa
-Alumno --> GuardarSolicitud
-Alumno --> CerrarSolicitud
+Alumno --> CerrarSolicitudDispensa
+Alumno --> GuardarSolicitudDispensa
 @enduml
