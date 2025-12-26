@@ -1,12 +1,7 @@
-@startuml Matricula_Estado
-title Estado de Matricula en el CGU
+@startuml EstadoMatricula
+title Estado de Matrícula
 
-[*] --> No_disponible
+[*] --> Disponible : importarMatriculas()
 
-No_disponible --> Disponible : importarMatriculas()
-Disponible     --> No_disponible : dejarDeImportarMatricula()
-
-Disponible     --> [*]
-No_disponible  --> [*]
-
+Disponible --> [*]
 @enduml
