@@ -1,43 +1,47 @@
 @startuml
 title Consultar Usuario
-
 skinparam linetype polyline
 
 state USUARIOS_ABIERTO_INICIAL as "USUARIOS_ABIERTO"
-state USUARIO_ABIERTO_FINAL as "USUARIO_ABIERTO"
+state USUARIO_ABIERTO_COMP     as "USUARIO_ABIERTO"
 
-USUARIOS_ABIERTO_INICIAL -[#green]-> consultarUsuario
+[*] -[#green]-> USUARIOS_ABIERTO_INICIAL
 
-state consultarUsuario as "consultarUsuario()" {
+USUARIOS_ABIERTO_INICIAL -[#green]-> USUARIO_ABIERTO_COMP : consultarUsuario()
+note on link
+<b>Administrador</b> se encuentra en USUARIOS_ABIERTO
+y solicita ver el detalle de un usuario específico.
 
-    state " " as Busqueda
-    state " " as Seleccion
-    state " " as CargaDatos
+<b>Sistema</b> cambia el contexto a USUARIO_ABIERTO.
+end note
 
-    [*] -[#green]-> Busqueda
+state USUARIO_ABIERTO_COMP as "USUARIO_ABIERTO" {
+
+    state VisualizacionDatos
+    state DecisionGestion
+
+    [*] -[#green]-> VisualizacionDatos
     note on link
-        <b>Administrador</b> utiliza los filtros de búsqueda
+    <b>Sistema</b> muestra la ficha completa del usuario:
+    • Datos personales y Credenciales
+    • Roles asignados y Permisos
     end note
 
-    Busqueda -[#green]-> Seleccion
+    VisualizacionDatos -[#green]-> DecisionGestion
     note on link
-        <b>Sistema</b> muestra listado de coincidencias
-        
-        <b>Administrador</b> selecciona el usuario deseado
+    <b>Administrador</b> revisa la información mostrada.
+
+    <b>Administrador</b> solicita realizar una acción
+    (editar o cerrar).
     end note
 
-    Seleccion -[#green]-> CargaDatos
-    note on link
-        <b>Sistema</b> recupera el perfil completo
-    end note
-
-    CargaDatos -[#green]-> [*]
-    note on link
-        <b>Sistema</b> despliega la ficha del usuario
-    end note
-
+    DecisionGestion -[#green]-> [*]
 }
 
-consultarUsuario -[#green]-> USUARIO_ABIERTO_FINAL
+USUARIO_ABIERTO_COMP -[#red]-> USUARIOS_ABIERTO_INICIAL : cerrarUsuario()
+note on link
+<b>Sistema</b> cierra la ficha del usuario
+y muestra nuevamente el listado en USUARIOS_ABIERTO.
+end note
 
 @enduml
