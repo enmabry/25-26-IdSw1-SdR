@@ -1,0 +1,59 @@
+@startuml
+title Crear Sesión Clase
+skinparam linetype polyline
+
+state ASISTENCIAS_ABIERTO_INICIAL as "ASISTENCIAS_ABIERTO"
+state SESION_NUEVA_COMP           as "SESION_ASISTENCIA_ABIERTA"
+state SESION_ACTIVA_FINAL         as "SESION_ASISTENCIA_ABIERTA"
+
+[*] -[#green]-> ASISTENCIAS_ABIERTO_INICIAL
+
+ASISTENCIAS_ABIERTO_INICIAL -[#green]-> SESION_NUEVA_COMP : crearSesionClase()
+note on link
+<b>Profesor</b> se encuentra en ASISTENCIAS_ABIERTO
+y solicita crear una nueva sesión de clase.
+
+<b>Sistema</b> muestra el formulario de configuración
+y cambia el contexto a SESION_ASISTENCIA_ABIERTA.
+end note
+
+state SESION_NUEVA_COMP {
+
+    state ConfiguracionDatos
+    state ConfirmacionApertura
+
+    [*] -[#green]-> ConfiguracionDatos
+    note on link
+    <b>Sistema</b> permite introducir los datos de la sesión.
+
+    <b>Profesor</b> introduce la información requerida:
+    • Asignatura, Grupo y Aula
+    • Fecha, Hora y Tema
+    end note
+
+    ConfiguracionDatos -[#green]-> ConfirmacionApertura
+    note on link
+    <b>Sistema</b> valida disponibilidad (aula/horario)
+    y muestra el resumen de la nueva clase.
+
+    <b>Profesor</b> solicita iniciar la sesión.
+    end note
+
+    ConfirmacionApertura -[#green]-> [*]
+}
+
+' CAMINO ÉXITO: Se queda en la sesión para empezar a pasar lista
+SESION_NUEVA_COMP -[#green]-> SESION_ACTIVA_FINAL : iniciarSesion()
+note on link
+<b>Sistema</b> registra la sesión, habilita la toma de asistencia
+y mantiene el contexto en SESION_ASISTENCIA_ABIERTA.
+end note
+
+' CAMINO CANCELAR: Vuelve a la lista
+SESION_NUEVA_COMP -[#red]-> ASISTENCIAS_ABIERTO_INICIAL : cancelarCreacion()
+note on link
+<b>Sistema</b> descarta la configuración
+y muestra nuevamente el listado en ASISTENCIAS_ABIERTO.
+end note
+
+@enduml

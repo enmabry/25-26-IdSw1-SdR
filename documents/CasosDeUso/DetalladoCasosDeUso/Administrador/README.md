@@ -1,29 +1,55 @@
-# Detallado Casos De Uso Administrador
+# Detallado Casos de Uso Administrador
 
-## Gestión de Usuarios
+<a name="Usuarios"></a>
 
-![Crear Usuario](./crearUsuario.svg)
-📄 [SVG](./crearUsuario.svg) | 📋 [PUML](./crearUsuario.puml)
+## Usuarios
 
-![Consultar Usuario](./consultarUsuario.svg)
-📄 [SVG](./consultarUsuario.svg) | 📋 [PUML](./consultarUsuario.puml)
+<a name="DetalladoCrearUsuario"></a>
 
-![Editar Usuario](./editarUsuario.svg)
-📄 [SVG](./editarUsuario.svg) | 📋 [PUML](./editarUsuario.puml)
+### Crear Usuario
 
-![Guardar Usuario](./guardarUsuario.svg)
-📄 [SVG](./guardarUsuario.svg) | 📋 [PUML](./guardarUsuario.puml)
+<p align="center">
+  <img src="./crearUsuario.svg">
+</p>
 
-![Cerrar Usuario](./cerrarUsuario.svg)
-📄 [SVG](./cerrarUsuario.svg) | 📋 [PUML](./cerrarUsuario.puml)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./crearUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
-## Gestión de Matrículas
+<a name="DetalladoConsultarUsuario"></a>
 
-![Importar Matrículas](./importarMatriculas.svg)
-📄 [SVG](./importarMatriculas.svg) | 📋 [PUML](./importarMatriculas.puml)
+### Consultar Usuario
 
-![Ver Detalle Matrícula](./verDetalleMatricula.svg)
-📄 [SVG](./verDetalleMatricula.svg) | 📋 [PUML](./verDetalleMatricula.puml)
+<p align="center">
+  <img src="./consultarUsuario.svg">
+</p>
 
-![Cerrar Detalle Matrícula](./cerrarDetalleMatricula.svg)
-📄 [SVG](./cerrarDetalleMatricula.svg) | 📋 [PUML](./cerrarDetalleMatricula.puml)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./consultarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="DetalladoEditarUsuario"></a>
+
+### Editar Usuario
+
+<p align="center">
+  <img src="./editarUsuario.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./editarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="DetalladoGuardarUsuario"></a>
+
+### Guardar Usuario
+
+<p align="center">
+  <img src="./guardarUsuario.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./guardarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="DetalladoCerrarUsuario"></a>
+
+### Cerrar Usuario
+
+<p align="center">
+  <img src="./cerrarUsuario.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./cerrarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)

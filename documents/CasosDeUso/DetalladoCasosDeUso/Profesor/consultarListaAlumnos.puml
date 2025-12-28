@@ -1,0 +1,46 @@
+@startuml
+title Consultar Lista Alumnos
+skinparam linetype polyline
+
+state LISTAS_ABIERTO_INICIAL as "LISTAS_ABIERTO"
+state LISTA_ABIERTA_COMP     as "LISTA_ABIERTA"
+
+
+USUARIOS_ABIERTO_INICIAL -[#green]-> LISTA_ABIERTA_COMP : consultarListaAlumnos()
+note on link
+<b>Profesor</b> se encuentra en LISTAS_ABIERTO
+y solicita ver el listado de un curso específico.
+
+<b>Sistema</b> recupera la información
+y cambia el contexto a LISTA_ABIERTA.
+end note
+
+state LISTA_ABIERTA_COMP as "LISTA_ABIERTA" {
+
+    state VisualizacionListado
+    state DecisionNavegacion
+
+    [*] -[#green]-> VisualizacionListado
+    note on link
+    <b>Sistema</b> muestra la lista de alumnos matriculados:
+    • Nombres, Apellidos e Identificadores
+    • Estado de la matrícula
+    end note
+
+    VisualizacionListado -[#green]-> DecisionNavegacion
+    note on link
+    <b>Profesor</b> revisa la información mostrada.
+
+    <b>Profesor</b> solicita realizar una acción.
+    end note
+
+    DecisionNavegacion -[#green]-> [*]
+}
+
+LISTA_ABIERTA_COMP -[#red]-> LISTAS_ABIERTO_INICIAL : cerrarLista()
+note on link
+<b>Sistema</b> cierra la vista de la lista actual
+y muestra nuevamente el menú general en LISTAS_ABIERTO.
+end note
+
+@enduml
