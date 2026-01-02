@@ -31,8 +31,7 @@ state USUARIO_ABIERTO_COMP as "USUARIO_ABIERTO" {
     note on link
     <b>Administrador</b> revisa la información mostrada.
 
-    <b>Administrador</b> solicita realizar una acción
-    (editar o cerrar).
+    <b>Administrador</b> decide la siguiente acción.
     end note
 
     DecisionGestion -[#green]-> [*]
