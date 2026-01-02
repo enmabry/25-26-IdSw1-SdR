@@ -30,8 +30,7 @@ state SOLICITUD_DISPENSA_ABIERTA_COMP as "SOLICITUD_DISPENSA_ABIERTA" {
 
     VisualizacionDetalle -[#green]-> DecisionGestion
     note on link
-    <b>Profesor</b> solicita realizar una acción
-    (cerrar la vista).
+    <b>Profesor</b> solicita realizar una acción.
     end note
 
     DecisionGestion -[#green]-> [*]

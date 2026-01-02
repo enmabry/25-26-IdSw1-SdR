@@ -32,8 +32,7 @@ state ALUMNO_ABIERTO_COMP as "ALUMNO_ABIERTO" {
     note on link
     <b>Profesor</b> revisa la información mostrada.
 
-    <b>Profesor</b> solicita realizar una acción
-    (cerrar la vista).
+    <b>Profesor</b> solicita realizar una acción.
     end note
 
     DecisionNavegacion -[#green]-> [*]

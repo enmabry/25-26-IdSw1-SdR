@@ -15,16 +15,9 @@ end note
 
 state PROCESO_CIERRE_COMP {
 
-    state VerificacionEstado
     state CierreRegistro
 
-    [*] -[#green]-> VerificacionEstado
-    note on link
-    <b>Sistema</b> verifica que la toma de asistencia
-    se haya guardado correctamente.
-    end note
-
-    VerificacionEstado -[#green]-> CierreRegistro
+    [*] -[#green]-> CierreRegistro
     note on link
     <b>Sistema</b> registra la hora de finalización
     y marca la sesión como concluida.

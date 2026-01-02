@@ -2,11 +2,11 @@
 title Consultar Lista Alumnos
 skinparam linetype polyline
 
-state LISTAS_ABIERTO_INICIAL as "LISTAS_ABIERTO"
-state LISTA_ABIERTA_COMP     as "LISTA_ABIERTA"
+state LISTAS_ABIERTO as "LISTAS_ABIERTO"
+state LISTA_ABIERTA as "LISTA_ABIERTA"
 
 
-USUARIOS_ABIERTO_INICIAL -[#green]-> LISTA_ABIERTA_COMP : consultarListaAlumnos()
+LISTAS_ABIERTO -[#green]-> LISTA_ABIERTA : consultarListaAlumnos()
 note on link
 <b>Profesor</b> se encuentra en LISTAS_ABIERTO
 y solicita ver el listado de un curso específico.
@@ -15,7 +15,7 @@ y solicita ver el listado de un curso específico.
 y cambia el contexto a LISTA_ABIERTA.
 end note
 
-state LISTA_ABIERTA_COMP as "LISTA_ABIERTA" {
+state LISTA_ABIERTA as "LISTA_ABIERTA" {
 
     state VisualizacionListado
     state DecisionNavegacion
@@ -37,7 +37,7 @@ state LISTA_ABIERTA_COMP as "LISTA_ABIERTA" {
     DecisionNavegacion -[#green]-> [*]
 }
 
-LISTA_ABIERTA_COMP -[#red]-> LISTAS_ABIERTO_INICIAL : cerrarLista()
+LISTA_ABIERTA -[#red]-> LISTAS_ABIERTO : cerrarLista()
 note on link
 <b>Sistema</b> cierra la vista de la lista actual
 y muestra nuevamente el menú general en LISTAS_ABIERTO.
