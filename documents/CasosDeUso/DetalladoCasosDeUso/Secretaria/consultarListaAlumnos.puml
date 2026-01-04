@@ -1,5 +1,5 @@
 @startuml
-title Abrir Lista
+title Consultar Lista Alumnos
 
 skinparam linetype polyline
 
@@ -10,10 +10,10 @@ state endState2 as "LISTAS_ABIERTO"
 startState -[#green]-> abrirLista
 note on link
     <b>Usuario solicita</b>
-    Abrir Lista
+    Consultar Lista Alumnos
 end note
 
-state abrirLista as "abrirLista()" {
+state abrirLista as "consultarListaAlumnos()" {
     state MostrarLista as " "
 
     ' 1. Inicio: El sistema muestra la lista
@@ -28,13 +28,11 @@ state abrirLista as "abrirLista()" {
 }
 
 abrirLista -[#green]-> endState1
-note on link
-    <b>editarListaAlumnos()</b>
-end note
+
 
 abrirLista -[#green]-> endState2
 note on link
-    <b>Guardar/Cerrar Lista()</b>
+    <b>cerrarLista()</b>
 end note
 
 @enduml

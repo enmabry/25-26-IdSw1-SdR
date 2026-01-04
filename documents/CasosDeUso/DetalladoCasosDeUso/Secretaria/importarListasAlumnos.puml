@@ -1,5 +1,5 @@
 @startuml
-title Exportar Listado Alumnos Por Curso
+title Importar Listas Alumnos
 
 skinparam linetype polyline
 
@@ -10,7 +10,7 @@ state endState2 as "LISTAS_ABIERTO"
 startState -[#green]-> exportarListadoAlumnosPorCurso
 note on link
     <b>Usuario solicita</b>
-    Exportar Listado Alumnos Por Curso
+    Exportar Importar Listo Alumnos
 end note
 
 state exportarListadoAlumnosPorCurso as "exportarListadoAlumnosPorCurso()" {
@@ -29,7 +29,7 @@ state exportarListadoAlumnosPorCurso as "exportarListadoAlumnosPorCurso()" {
     ' 2. El usuario selecciona los filtros
     SolicitudFiltros -[#green]-> ValidarFiltros
     note on link
-        <b>Usuario selecciona criterios:</b>
+        <b>Usuario introduce criterios:</b>
         * Curso, Asignatura
     end note
 
@@ -65,13 +65,10 @@ state exportarListadoAlumnosPorCurso as "exportarListadoAlumnosPorCurso()" {
 
 exportarListadoAlumnosPorCurso -[#green]-> endState1
 note on link
-    <b>abrirLista()</b>
+    <b>ConsultarListaAlumnos()</b>
 end note
 
 exportarListadoAlumnosPorCurso -[#green]-> endState2
-note on link
-    <b>Regreso a Listas Abierto</b>
-    (Opción de transición sin acción en el link)
-end note
+
 
 @enduml
