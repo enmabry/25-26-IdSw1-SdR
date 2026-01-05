@@ -1,0 +1,48 @@
+@startuml
+title Editar Sesión Clase
+skinparam linetype polyline
+
+state SESION_ACTUAL_INICIAL as "SESION_ASISTENCIA_ABIERTA"
+state PROCESO_EDICION_COMP  as "SESION_ASISTENCIA_ABIERTA"
+state SESION_ACTUAL_FINAL   as "SESION_ASISTENCIA_ABIERTA"
+
+[*] -[#green]-> SESION_ACTUAL_INICIAL
+
+SESION_ACTUAL_INICIAL -[#green]-> PROCESO_EDICION_COMP : editarSesionClase()
+note on link
+<b>Profesor</b> se encuentra en una sesión activa
+y solicita modificar los detalles de la clase.
+
+<b>Sistema</b> habilita los campos informativos para edición.
+end note
+
+state PROCESO_EDICION_COMP {
+
+    state ModificacionDatos
+    state ValidacionCambios
+
+    [*] -[#green]-> ModificacionDatos
+    note on link
+    <b>Sistema</b> permite introducir los nuevos datos.
+
+    <b>Profesor</b> introduce la información necesaria.
+    end note
+
+    ModificacionDatos -[#green]-> ValidacionCambios
+    note on link
+    <b>Sistema</b> valida los formatos de texto
+    y visualiza los cambios para confirmación.
+    
+    <b>Profesor</b> solicita guardar los cambios.
+    end note
+
+    ValidacionCambios -[#green]-> [*]
+}
+
+PROCESO_EDICION_COMP -[#green]-> SESION_ACTUAL_FINAL
+note on link
+<b>Sistema</b> actualiza la información de la sesión
+y muestra nuevamente la vista de la clase con los cambios aplicados.
+end note
+
+@enduml
