@@ -1,36 +1,33 @@
 @startuml
 title Cerrar Usuario
-
 skinparam linetype polyline
 
-state USUARIO_ABIERTO_INICIAL as "USUARIO_ABIERTO"
-state USUARIOS_ABIERTO_FINAL as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO_INICIAL  as "USUARIO_ABIERTO"
+state PROCESO_CIERRE_COMP      as "CERRANDO_VISTA"
+state USUARIOS_ABIERTO_FINAL   as "USUARIOS_ABIERTO"
 
-USUARIO_ABIERTO_INICIAL -[#green]-> cerrarUsuario
+[*] -[#green]-> USUARIO_ABIERTO_INICIAL
 
-state cerrarUsuario as "cerrarUsuario()" {
+USUARIO_ABIERTO_INICIAL -[#green]-> PROCESO_CIERRE_COMP : cerrarUsuario()
+note on link 
+<b>Administrador</b> solicita volver atrás.
+end note
 
-    state " " as VerificacionEstado
-    state " " as LimpiezaVista
+state PROCESO_CIERRE_COMP {
 
-    [*] -[#green]-> VerificacionEstado
+    state DescarteCambios
+
+    DescarteCambios -[#green]-> [*]
     note on link
-        <b>Administrador</b> decide volver al listado
-        o cancelar la operación actual
-    end note
-
-    VerificacionEstado -[#green]-> LimpiezaVista
-    note on link
-        <b>Sistema</b> descarta cualquier cambio no guardado
-    end note
-
-    LimpiezaVista -[#green]-> [*]
-    note on link
-        <b>Sistema</b> redirige al panel de gestión de usuarios
+    <b>Sistema</b> libera la vista del detalle del usuario.
     end note
 
 }
 
-cerrarUsuario -[#green]-> USUARIOS_ABIERTO_FINAL
+PROCESO_CIERRE_COMP -[#red]-> USUARIOS_ABIERTO_FINAL
+note on link
+<b>Sistema</b> muestra nuevamente el listado en USUARIOS_ABIERTO
+sin aplicar cambios.
+end note
 
 @enduml

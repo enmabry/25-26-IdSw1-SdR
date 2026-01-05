@@ -72,7 +72,7 @@ Descripción de las funcionalidades del sistema por rol de usuario.
 ## Secretaria
 
 <p align="center">
-  <img src="./CasoDeUso/Secretaria/SecretariaCasoDeUso.svg">
+  <img src="./CasoDeUso/Secretaria/CasoDeUsosCompleto.svg">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Detallado-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md#Secretaria)

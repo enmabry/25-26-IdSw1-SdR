@@ -1,49 +1,45 @@
 @startuml
 title Exportar Historial Asistencias
-
 skinparam linetype polyline
 
 state ASISTENCIAS_ABIERTO_INICIAL as "ASISTENCIAS_ABIERTO"
-state ASISTENCIAS_ABIERTO_FINAL as "ASISTENCIAS_ABIERTO"
+state PROCESO_EXPORTACION_COMP    as "EXPORTANDO_HISTORIAL"
+state ASISTENCIAS_ABIERTO_FINAL   as "ASISTENCIAS_ABIERTO"
 
-ASISTENCIAS_ABIERTO_INICIAL -[#green]-> exportarHistorialAsistencias
+[*] -[#green]-> ASISTENCIAS_ABIERTO_INICIAL
 
-state exportarHistorialAsistencias as "exportarHistorialAsistencias()" {
+ASISTENCIAS_ABIERTO_INICIAL -[#green]-> PROCESO_EXPORTACION_COMP : exportarHistorialAsistencias()
+note on link
+<b>Profesor</b> se encuentra en ASISTENCIAS_ABIERTO
+y solicita descargar el registro de asistencias.
+end note
 
-    state " " as ConfiguracionExportacion
-    state " " as GenerandoArchivo
-    state " " as DescargaLista
+state PROCESO_EXPORTACION_COMP {
 
-    [*] -[#green]-> ConfiguracionExportacion
+    state SeleccionParametros
+    state GeneracionDocumento
+
+    [*] -[#green]-> SeleccionParametros
     note on link
-    <b>Profesor</b> selecciona la opción de
-    exportar historial
+    <b>Sistema</b> permite seleccionar el formato de salida
+    (Excel, PDF) y el rango de fechas.
+
+    <b>Profesor</b> introduce sus preferencias.
     end note
 
-    ConfiguracionExportacion -[#green]-> GenerandoArchivo
+    SeleccionParametros -[#green]-> GeneracionDocumento
     note on link
-    <b>Sistema</b> solicita parámetros:
-    • Rango de fechas
-    • Formato (PDF / Excel)
-
-    <b>Profesor</b> confirma la exportación
+    <b>Sistema</b> recopila los datos de asistencia
+    y genera el archivo para descarga.
     end note
 
-    GenerandoArchivo -[#green]-> DescargaLista
-    note on link
-    <b>Sistema</b> procesa la solicitud:
-    • Recopila registros de asistencia
-    • Calcula porcentajes de asistencia
-    • Genera el documento físico
-    end note
-
-    DescargaLista -[#green]-> [*]
-    note on link
-    <b>Sistema</b> inicia la descarga del archivo
-    end note
-
+    GeneracionDocumento -[#green]-> [*]
 }
 
-exportarHistorialAsistencias -[#green]-> ASISTENCIAS_ABIERTO_FINAL
+PROCESO_EXPORTACION_COMP -[#green]-> ASISTENCIAS_ABIERTO_FINAL
+note on link
+<b>Sistema</b> permite descargar el archivo generado
+y muestra nuevamente el listado en ASISTENCIAS_ABIERTO.
+end note
 
 @enduml

@@ -1,43 +1,59 @@
 @startuml
-title Crear Sesion Clase
-
+title Crear Sesión Clase
 skinparam linetype polyline
 
 state ASISTENCIAS_ABIERTO_INICIAL as "ASISTENCIAS_ABIERTO"
-state SESION_ASISTENCIA_ABIERTA_FINAL as "SESION_ASISTENCIA_ABIERTA"
+state SESION_NUEVA_COMP           as "SESION_ASISTENCIA_ABIERTA"
+state SESION_ACTIVA_FINAL         as "SESION_ASISTENCIA_ABIERTA"
 
-ASISTENCIAS_ABIERTO_INICIAL -[#green]-> crearSesionClase
+[*] -[#green]-> ASISTENCIAS_ABIERTO_INICIAL
 
-state crearSesionClase as "crearSesionClase()" {
+ASISTENCIAS_ABIERTO_INICIAL -[#green]-> SESION_NUEVA_COMP : crearSesionClase()
+note on link
+<b>Profesor</b> se encuentra en ASISTENCIAS_ABIERTO
+y solicita crear una nueva sesión de clase.
 
-    state " " as ConfigurandoSesion
-    state " " as SesionInicializada
+<b>Sistema</b> muestra el formulario de configuración
+y cambia el contexto a SESION_ASISTENCIA_ABIERTA.
+end note
 
-    [*] -[#green]-> ConfigurandoSesion
+state SESION_NUEVA_COMP {
+
+    state ConfiguracionDatos
+    state ConfirmacionApertura
+
+    [*] -[#green]-> ConfiguracionDatos
     note on link
-    <b>Profesor</b> solicita iniciar una
-    nueva toma de asistencia
+    <b>Sistema</b> permite introducir los datos de la sesión.
+
+    <b>Profesor</b> introduce la información requerida:
+    • Asignatura, Grupo y Aula
+    • Fecha, Hora y Tema
     end note
 
-    ConfigurandoSesion -[#green]-> SesionInicializada
+    ConfiguracionDatos -[#green]-> ConfirmacionApertura
     note on link
-    <b>Sistema</b> solicita datos de la sesión:
-    • Fecha, Hora, Curso, Asignatura
+    <b>Sistema</b> valida disponibilidad (aula/horario)
+    y muestra el resumen de la nueva clase.
 
-    <b>Profesor</b> introduce/confirma datos
-
-    <b>Sistema</b> genera planilla vacía:
-    • Carga lista de alumnos del curso
-    • Establece estado inicial
+    <b>Profesor</b> solicita iniciar la sesión.
     end note
 
-    SesionInicializada -[#green]-> [*]
-    note on link
-    <b>Sistema</b> abre la interfaz de toma de asistencia
-    end note
-
+    ConfirmacionApertura -[#green]-> [*]
 }
 
-crearSesionClase -[#green]-> SESION_ASISTENCIA_ABIERTA_FINAL
+' CAMINO ÉXITO: Se queda en la sesión para empezar a pasar lista
+SESION_NUEVA_COMP -[#green]-> SESION_ACTIVA_FINAL : iniciarSesion()
+note on link
+<b>Sistema</b> registra la sesión, habilita la toma de asistencia
+y mantiene el contexto en SESION_ASISTENCIA_ABIERTA.
+end note
+
+' CAMINO CANCELAR: Vuelve a la lista
+SESION_NUEVA_COMP -[#red]-> ASISTENCIAS_ABIERTO_INICIAL : cancelarCreacion()
+note on link
+<b>Sistema</b> descarta la configuración
+y muestra nuevamente el listado en ASISTENCIAS_ABIERTO.
+end note
 
 @enduml
