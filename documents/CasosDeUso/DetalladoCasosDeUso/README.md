@@ -341,16 +341,6 @@
 
 [![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/GuardarSolicitud.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
-<a name="DetalladoCerrarSolicitud"></a>
-
-### Cerrar Solicitud
-
-<p align="center">
-  <img src="./DirectorDeGrado/CerrarSolicitud.svg">
-</p>
-
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/CerrarSolicitud.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
-
 ---
 
 | [![](https://img.shields.io/badge/-Inicio-0D47A1?style=flat&logo=Emlakjet&logoColor=white)](/README.md) [![](https://img.shields.io/badge/-Modelo_del_Dominio-0D47A1?style=flat&logo=LiveChat&logoColor=white)](/documents/ModeloDelDominio/) [![](https://img.shields.io/badge/-Actores-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/Actores/) [![](https://img.shields.io/badge/-Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/) [![](https://img.shields.io/badge/-Detallado_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DiagramaDeContexto/) [![](https://img.shields.io/badge/-Prototipos-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/Prototipos/) [![](https://img.shields.io/badge/-Reuniones-0D47A1?style=flat&logo=Proton&logoColor=white)](/documents/Reuniones/) [![](https://img.shields.io/badge/-Priorización-0D47A1?style=flat&logo=Proton&logoColor=white)](/documents/CasosDeUso/PRIORIZACION_CASOS_DE_USO.md) |
