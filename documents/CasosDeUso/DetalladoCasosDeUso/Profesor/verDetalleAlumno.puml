@@ -1,43 +1,47 @@
 @startuml
 title Ver Detalle Alumno
-
 skinparam linetype polyline
 
 state ALUMNOS_ABIERTO_INICIAL as "ALUMNOS_ABIERTO"
-state ALUMNO_ABIERTO_FINAL as "ALUMNO_ABIERTO"
+state ALUMNO_ABIERTO_COMP     as "ALUMNO_ABIERTO"
 
-ALUMNOS_ABIERTO_INICIAL -[#green]-> verDetalleAlumno
+[*] -[#green]-> ALUMNOS_ABIERTO_INICIAL
 
-state verDetalleAlumno as "verDetalleAlumno()" {
+ALUMNOS_ABIERTO_INICIAL -[#green]-> ALUMNO_ABIERTO_COMP : verDetalleAlumno()
+note on link
+<b>Profesor</b> se encuentra en ALUMNOS_ABIERTO
+y solicita ver el detalle de un alumno específico.
 
-    state " " as SeleccionEnLista
-    state " " as DetalleCargado
+<b>Sistema</b> recupera la información académica
+y cambia el contexto a ALUMNO_ABIERTO.
+end note
 
-    [*] -[#green]-> SeleccionEnLista
+state ALUMNO_ABIERTO_COMP as "ALUMNO_ABIERTO" {
+
+    state VisualizacionFicha
+    state DecisionNavegacion
+
+    [*] -[#green]-> VisualizacionFicha
     note on link
-    <b>Profesor</b> busca un alumno específico
-    en el listado general
+    <b>Sistema</b> muestra la ficha completa del alumno:
+    • Datos personales y Foto
+    • Resumen de asistencias y faltas
     end note
 
-    SeleccionEnLista -[#green]-> DetalleCargado
+    VisualizacionFicha -[#green]-> DecisionNavegacion
     note on link
-    <b>Profesor</b> selecciona al alumno
+    <b>Profesor</b> revisa la información mostrada.
 
-    <b>Sistema</b> recupera ficha completa:
-    • Datos personales
-    • Informacion sobre dispensas y asistencias
-    • Otros datos
+    <b>Profesor</b> solicita realizar una acción.
     end note
 
-    DetalleCargado -[#green]-> [*]
-    note on link
-    <b>Sistema</b> presenta la ficha del alumno
-
-    <b>Sistema</b> cambia contexto a ALUMNO_ABIERTO
-    end note
-
+    DecisionNavegacion -[#green]-> [*]
 }
 
-verDetalleAlumno -[#green]-> ALUMNO_ABIERTO_FINAL
+ALUMNO_ABIERTO_COMP -[#red]-> ALUMNOS_ABIERTO_INICIAL : cerrarDetalleAlumno()
+note on link
+<b>Sistema</b> cierra la ficha del alumno
+y muestra nuevamente el listado en ALUMNOS_ABIERTO.
+end note
 
 @enduml

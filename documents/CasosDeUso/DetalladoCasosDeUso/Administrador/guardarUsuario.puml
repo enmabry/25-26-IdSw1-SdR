@@ -1,36 +1,42 @@
 @startuml
 title Guardar Usuario
-
 skinparam linetype polyline
 
-state USUARIO_ABIERTO_INICIAL as "USUARIO_ABIERTO"
-state USUARIOS_ABIERTO_FINAL as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO_INICIAL  as "USUARIO_ABIERTO"
+state PROCESO_GUARDADO_COMP    as "PROCESANDO_GUARDADO"
+state USUARIOS_ABIERTO_FINAL   as "USUARIOS_ABIERTO"
 
-USUARIO_ABIERTO_INICIAL -[#green]-> guardarUsuario
+[*] -[#green]-> USUARIO_ABIERTO_INICIAL
 
-state guardarUsuario as "guardarUsuario()" {
+USUARIO_ABIERTO_INICIAL -[#green]-> PROCESO_GUARDADO_COMP : guardarUsuario()
+note on link
+<b>Administrador</b> solicita guardar los cambios.
+end note
 
-    state " " as ValidacionFinal
-    state " " as Persistencia
+state PROCESO_GUARDADO_COMP {
 
-    [*] -[#green]-> ValidacionFinal
+    state ValidacionDatos
+    state PersistenciaDatos
+
+    [*] -[#green]-> ValidacionDatos
     note on link
-        <b>Administrador</b> confirma la operación
+    <b>Sistema</b> verifica la integridad de la información
+    (campos obligatorios, formato de email, etc.).
     end note
 
-    ValidacionFinal -[#green]-> Persistencia
+    ValidacionDatos -[#green]-> PersistenciaDatos
     note on link
-        <b>Sistema</b> registra los cambios
+    <b>Sistema</b> guarda los datos.
     end note
 
-    Persistencia -[#green]-> [*]
-    note on link
-        <b>Sistema</b> notifica éxito de la operación
-        y cierra la ficha del usuario
-    end note
-
+    PersistenciaDatos -[#green]-> [*]
 }
 
-guardarUsuario -[#green]-> USUARIOS_ABIERTO_FINAL
+PROCESO_GUARDADO_COMP -[#green]-> USUARIOS_ABIERTO_FINAL
+note on link
+<b>Sistema</b> confirma el éxito de la operación
+y muestra nuevamente el listado en USUARIOS_ABIERTO
+con la información actualizada.
+end note
 
 @enduml
