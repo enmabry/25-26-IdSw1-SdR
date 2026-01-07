@@ -49,9 +49,51 @@
 
 ---
 
+## Director De Grado
+
+#### Consultar Solicitudes Dispensas 
+
+<p align="center">
+  <img src="./consultarSolicitudesDispensasDirector.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#DirectorDeGrado) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+#### Editar Solicitud Dispensas 
+
+<p align="center">
+  <img src="./editarSolicitudDispensaDirector.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#DirectorDeGrado) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+#### Guardar Solicitud Dispensa
+
+<p align="center">
+  <img src="./guardarSolicitudDispensaDirector.png">
+</p>
+
+<p align="center">
+  <img src="./confirmacionGuardarSolicitudDispensaDirector.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#DirectorDeGrado) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+---
+
 <a name="Profesor"></a>
 
 ## Profesor
+
+<a name="PrototipoConsultarListasAlumnos"></a>
+
+#### Consultar Listas de Alumnos
+
+<p align="center">
+  <img src="./consultarListasAlumnos.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ### Asistencias
 
@@ -71,6 +113,16 @@
 
 <p align="center">
   <img src="./crearSesionClase.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="PrototipoEditarSesionClase"></a>
+
+#### Editar Sesión de Clase
+
+<p align="center">
+  <img src="./editarSesionClase.png">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
