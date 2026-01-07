@@ -22,18 +22,18 @@
 ### Consultar Solicitud de Dispensa
 
 <p align="center">
-  <img src="./Alumno/consultarSolicitudDispensaAlumno1.png">
+  <img src="./Alumno/consultarSolicitudDispensaAlumno2.png">
 </p>
 
 <p align="center">
-  <img src="./Alumno/consultarSolicitudDispensaAlumno2.png">
+  <img src="./Alumno/consultarSolicitudDispensaAlumno1.png">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Alumno) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 <a name="PrototipoEditarSolicitudDispensa"></a>
 
-### Editar Solicitud de Dispensa
+### Crear / Editar Solicitud de Dispensa
 
 <p align="center">
   <img src="./Alumno/editarSolicitudDispensaAlumno.png">
@@ -133,24 +133,67 @@
 
 ## Profesor
 
+### Listas   
+
 <a name="PrototipoConsultarListasAlumnos"></a>
 
 #### Consultar Listas de Alumnos
 
 <p align="center">
-  <img src="./Profesor/consultarListasAlumnos.png">
+  <img src="./Profesor/consultarListaAlumnos.png">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
-### Asistencias
+### Alumnos
 
-<a name="PrototipoAbrirAsistencias"></a>
+<a name="PrototipoVerDetalleAlumno"></a>
 
-#### Abrir Asistencias / Registrar Toma de Asistencia
+#### Ver Detalle de Alumno
 
 <p align="center">
-  <img src="./Profesor/abrirAsistencias.png">
+  <img src="./Profesor/verDetalleAlumno1.png">
+</p>
+
+<p align="center">
+  <img src="./Profesor/verDetalleAlumno2.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="PrototipoGuardarListasAlumnos"></a>
+
+#### Guardar Listas de Alumnos
+
+<p align="center">
+  <img src="./Profesor/guardarListasAlumnos.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+---
+
+<a name="Administrador"></a>
+
+
+### Asistencias
+
+<a name="PrototipoExportarHistorialAsistencias"></a>
+
+#### Exportar Historial de Asistencias
+
+<p align="center">
+  <img src="./Profesor/exportarHistorialAsistencias.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="PrototipoCerrarSesionClase"></a>
+
+#### Cerrar Sesión de Clase
+
+<p align="center">
+  <img src="./Profesor/cerrarSesionClase.png">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
@@ -160,7 +203,47 @@
 #### Crear Sesión de Clase
 
 <p align="center">
-  <img src="./Profesor/crearSesionClase.png">
+  <img src="./Profesor/crearSesionClase1.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="PrototipoRegistrarTomaAsistencia"></a>
+
+#### Crear Sesión de Clase -> Registrar Toma de Asistencia
+
+<p align="center">
+  <img src="./Profesor/crearSesionClase2.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="PrototipoEditarSesionClase"></a>
+
+#### Editar Sesión de Clase
+
+<p align="center">
+  <img src="./Profesor/editarSesionClase.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="PrototipoConsultarSolicitudDispensa"></a>
+
+#### Consultar Solicitud de Dispensa
+
+<p align="center">
+  <img src="./Profesor/consultarSolicitudDispensaProfesor1.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="PrototipoAbrirAsistencias"></a>
+
+#### Abrir Asistencias / Registrar Toma de Asistencia
+
+<p align="center">
+  <img src="./Profesor/abrirAsistencias.png">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
@@ -185,41 +268,6 @@
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
-### Alumnos
-
-<a name="PrototipoAbrirListasAlumnos"></a>
-
-#### Abrir Listas de Alumnos
-
-<p align="center">
-  <img src="./Profesor/abrirListasAlumnos.png">
-</p>
-
-[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
-
-<a name="PrototipoCerrarListasAlumnos"></a>
-
-#### Cerrar Listas de Alumnos
-
-<p align="center">
-  <img src="./Profesor/cerrarListasAlumnos.png">
-</p>
-
-[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
-
-<a name="PrototipoGuardarListasAlumnos"></a>
-
-#### Guardar Listas de Alumnos
-
-<p align="center">
-  <img src="./Profesor/guardarListasAlumnos.png">
-</p>
-
-[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Profesor) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
-
----
-
-<a name="Administrador"></a>
 
 ## Administrador
 
