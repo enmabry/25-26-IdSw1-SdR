@@ -1,47 +1,61 @@
-@startuml
+@startuml consultarUsuario
 title Consultar Usuario
-skinparam linetype polyline
+
+' --- CONFIGURACIÓN DE ESTILO ---
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
 
 state USUARIOS_ABIERTO_INICIAL as "USUARIOS_ABIERTO"
-state USUARIOS_ABIERTO_FINAL as "USUARIOS_ABIERTO"
-state USUARIO_ABIERTO_COMP     as "USUARIO_ABIERTO"
+state USUARIO_ABIERTO_COMP    as "USUARIO_ABIERTO"
+state USUARIOS_ABIERTO_FINAL   as "USUARIOS_ABIERTO"
 
 [*] -[#green]-> USUARIOS_ABIERTO_INICIAL
 
+' Entrada al detalle del usuario
 USUARIOS_ABIERTO_INICIAL -[#green]-> USUARIO_ABIERTO_COMP : consultarUsuario()
-note on link
-<b>Administrador</b> se encuentra en USUARIOS_ABIERTO
-y solicita consultar el detalle de un usuario específico.
-
-<b>Sistema</b> cambia el contexto a USUARIO_ABIERTO.
+note left on link
+    <b>Administrador solicita</b> ver el detalle de un usuario.
+    <b>Sistema permite</b> el acceso a la ficha 
+    completa (Datos, Roles y Permisos).
 end note
 
-state USUARIO_ABIERTO_COMP as "USUARIO_ABIERTO" {
-
-    state VisualizacionDatos
-    state DecisionGestion
-
+' Comportamiento interno del estado compuesto
+state USUARIO_ABIERTO_COMP {
+    state VisualizacionDatos as "Visualización de Usuario"
+    
+    ' Actividad interna para mantener coherencia técnica
+    VisualizacionDatos :
+    
     [*] -[#green]-> VisualizacionDatos
-    note on link
-    <b>Sistema</b> muestra la ficha completa del usuario:
-    • Datos personales y Credenciales
-    • Roles asignados y Permisos
+    
+    note right of VisualizacionDatos
+        <b>Sistema permite</b> la visualización de credenciales.
+        <b>Administrador solicita</b> gestionar cambios mediante
+        **editarUsuario()**.
     end note
-
-    VisualizacionDatos -[#green]-> DecisionGestion
-    note on link
-    <b>Administrador</b> revisa la información mostrada.
-
-    <b>Administrador</b> decide la siguiente acción.
-    end note
-
-    DecisionGestion -[#green]-> [*]
+    
+    ' Flujo simplificado hacia la salida
+    VisualizacionDatos -[#green]-> [*]
 }
 
-USUARIO_ABIERTO_COMP -[#red]-> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
-note on link
-<b>Sistema</b> cierra la ficha del usuario
-y muestra nuevamente el listado en USUARIOS_ABIERTO.
+' Salidas definitivas
+USUARIO_ABIERTO_COMP -[#green]---> USUARIOS_ABIERTO_FINAL : guardarUsuario()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Administrador solicita</b> registrar cambios.
+    <b>Sistema permite</b> persistir la información 
+    actualizada del usuario.
 end note
 
+USUARIO_ABIERTO_COMP -[#red]---> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
+note right on link
+    <b>CERRAR:</b>
+    <b>Administrador solicita</b> salir de la ficha.
+    <b>Sistema permite</b> volver al listado 
+    general sin aplicar cambios.
+end note
+
+USUARIOS_ABIERTO_FINAL -[#blue]-> [*]
 @enduml

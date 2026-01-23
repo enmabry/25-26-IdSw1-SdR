@@ -1,65 +1,64 @@
-@startuml CrearSolicitudDispensa
+@startuml crearSolicitudDispensa
 title Crear solicitud de dispensa
-skinparam linetype polyline
 
+' --- CONFIGURACIÓN DE ESTILO ---
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
+
+' Definición de Estados Macro
 state DISPENSAS_ABIERTO_INICIAL          as "DISPENSAS_ABIERTO"
-state SOLICITUD_DISPENSA_ABIERTA_INICIAL as "SOLICITUD_DISPENSA_ABIERTA"
+state SOLICITUD_DISPENSA_ABIERTA_COMP    as "SOLICITUD_DISPENSA_ABIERTA"
+state DISPENSAS_ABIERTO_FINAL            as "DISPENSAS_ABIERTO"
 
 [*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
 
-' Desde el listado de dispensas, el alumno crea una nueva
-DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA_INICIAL : crearSolicitudDispensa()
-note on link
-<b>Alumno</b> se encuentra en DISPENSAS_ABIERTO
-(listado de sus solicitudes) y selecciona
-"Crear nueva solicitud de dispensa()".
-
-<b>Sistema</b> solicita los datos mínimos:
-• Asignatura / periodo
-• Horario
-
-Tras confirmar, se crea la nueva solicitud
-y se pasa a SOLICITUD_DISPENSA_ABIERTA.
+' Disparador del caso de uso (Transición inicial)
+DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA_COMP : crearSolicitudDispensa()
+note left on link
+    <b>Alumno solicita</b> crear una dispensa.
+    <b>Sistema permite</b> el ingreso de datos 
+    iniciales (Asignatura, periodo, horario).
 end note
 
-' Comportamiento interno de la solicitud abierta
-state SOLICITUD_DISPENSA_ABIERTA_INICIAL as "SOLICITUD_DISPENSA_ABIERTA" {
-
-    state FormularioEdicion
-    state DecidirAccion
-
+' Comportamiento interno: Se usa "Edición de Dispensa" por reutilización de UI
+state SOLICITUD_DISPENSA_ABIERTA_COMP {
+    state FormularioEdicion as "Edición de Dispensa"
+    
+    ' Agregamos la acción interna para que el método sea visible
+    FormularioEdicion : 
+    
     [*] -[#green]-> FormularioEdicion
-    note on link
-    <b>Sistema</b> muestra la solicitud de dispensa recién creada
-    en estado editable (SOLICITUD_DISPENSA_ABIERTA).
-
-    <b>Alumno</b> puede completar o modificar:
-    • Motivo de la dispensa
-    • Documentación adjunta
-    • Otros datos opcionales
+    
+    note right of FormularioEdicion
+        <b>Alumno solicita</b> completar el registro:
+        • Motivo de la dispensa.
+        • Adjunta documentación.
+        <b>Sistema permite</b> la edición mediante 
+        **editarSolicitudDispensa()**.
     end note
-
-    FormularioEdicion -[#green]-> DecidirAccion
-    note on link
-    Al terminar, el Alumno decide:
-    • guardarSolicitudDispensa(), o
-    • cerrarSolicitudDispensa() (descartar la solicitud).
-    end note
-
-    DecidirAccion -[#green]-> [*]
+    
+    ' El flujo interno finaliza al estar listo para la persistencia
+    FormularioEdicion -[#green]-> [*]
 }
 
-' Vuelta al listado según la acción elegida
-SOLICITUD_DISPENSA_ABIERTA_INICIAL -[#green]-> DISPENSAS_ABIERTO_INICIAL : guardarSolicitudDispensa()
-note on link
-<b>Sistema</b> guarda la nueva solicitud de dispensa
-y vuelve a DISPENSAS_ABIERTO (listado actualizado).
+' Salidas definitivas del estado compuesto
+SOLICITUD_DISPENSA_ABIERTA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : guardarSolicitudDispensa()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Alumno solicita</b> registrar cambios.
+    <b>Sistema permite</b> guardar la nueva
+    solicitud definitivamente.
 end note
 
-SOLICITUD_DISPENSA_ABIERTA_INICIAL -[#red]-> DISPENSAS_ABIERTO_INICIAL : cerrarSolicitudDispensa()
-note on link
-<b>Sistema</b> descarta la solicitud no guardada
-y vuelve a DISPENSAS_ABIERTO sin cambios.
+SOLICITUD_DISPENSA_ABIERTA_COMP -[#red]---> DISPENSAS_ABIERTO_FINAL : cerrarSolicitudDispensa()
+note right on link
+    <b>CERRAR:</b>
+    <b>Alumno solicita</b> salir del formulario.
+    <b>Sistema permite</b> descartar cambios extra,
+    pero no evita la creación inicial.
 end note
 
+DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
 @enduml

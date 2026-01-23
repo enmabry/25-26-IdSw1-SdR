@@ -1,60 +1,55 @@
 @startuml ConsultarSolicitudDispensa
 title Consultar solicitud de dispensa
-skinparam linetype polyline
+' --- CONFIGURACIÓN DE ESTILO ---
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
 
 state DISPENSAS_ABIERTO_INICIAL          as "DISPENSAS_ABIERTO"
 state SOLICITUD_DISPENSA_ABIERTA_COMP    as "SOLICITUD_DISPENSA_ABIERTA"
+state DISPENSAS_ABIERTO_FINAL            as "DISPENSAS_ABIERTO"
 
 [*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
 
-' Desde el listado de dispensas, el alumno consulta una existente
+' Entrada al estado
 DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA_COMP : consultarSolicitudDispensa()
-note on link
-<b>Alumno</b> se encuentra en DISPENSAS_ABIERTO
-(listado de sus solicitudes) y selecciona una solicitud para consultar.
-
-<b>Sistema</b> muestra su estado actual
-(aprobada / rechazada / pendiente) y comentarios,
-y abre la solicitud en detalle (SOLICITUD_DISPENSA_ABIERTA).
+note left on link
+    <b>Alumno solicita</b> seleccionar una solicitud.
+    <b>Sistema permite</b> abrir el detalle de la misma.
 end note
 
-' Comportamiento interno de la solicitud abierta
-state SOLICITUD_DISPENSA_ABIERTA_COMP as "SOLICITUD_DISPENSA_ABIERTA" {
-
-    state ConsultarEditarSolicitud
-    state DecidirAccion
-
-    [*] -[#green]-> ConsultarEditarSolicitud
-    note on link
-    <b>Sistema</b> muestra todos los datos de la solicitud seleccionada:
-    • Estado (aprobada, rechazada, pendiente)
-    • Comentarios del Director / Secretaría
-    • Datos de asignatura, motivo, documentación, etc.
-
-    <b>Alumno</b> puede simplemente consultar la información
-    o modificar los datos permitidos (editarSolicitudDispensa()).
+state SOLICITUD_DISPENSA_ABIERTA_COMP {
+    state SolicitarEditarSolicitud as "Visualización y Edición"
+    
+    ' Metodo interno para consistencia técnica
+    SolicitarEditarSolicitud :
+    
+    [*] -[#green]-> SolicitarEditarSolicitud
+    
+    note right of SolicitarEditarSolicitud
+        <b>Sistema permite</b> visualizar los datos.
+        <b>Alumno solicita</b> modificar campos mediante
+        **editarSolicitudDispensa()**.
     end note
-
-    ConsultarEditarSolicitud -[#green]-> DecidirAccion
-    note on link
-    Al finalizar, el Alumno decide:
-    • guardarSolicitudDispensa(), o
-    • cerrarSolicitudDispensa() (salir descartando cambios).
-    end note
-
-    DecidirAccion -[#green]-> [*]
+    
+    SolicitarEditarSolicitud -[#green]-> [*]
 }
 
-' Vuelta al listado según la acción elegida
-SOLICITUD_DISPENSA_ABIERTA_COMP -[#green]-> DISPENSAS_ABIERTO_INICIAL : guardarSolicitudDispensa()
-note on link
-<b>Sistema</b> guarda los cambios de la solicitud
-y vuelve a DISPENSAS_ABIERTO (listado actualizado).
+' Salidas con lenguaje RUP reforzado
+SOLICITUD_DISPENSA_ABIERTA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : guardarSolicitudDispensa()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Alumno solicita</b> registrar cambios.
+    <b>Sistema permite</b> persistir la información.
 end note
 
-SOLICITUD_DISPENSA_ABIERTA_COMP -[#red]-> DISPENSAS_ABIERTO_INICIAL : cerrarSolicitudDispensa()
-note on link
-<b>Sistema</b> descarta los cambios realizados
-y vuelve a DISPENSAS_ABIERTO manteniendo la solicitud como estaba.
+SOLICITUD_DISPENSA_ABIERTA_COMP -[#red]---> DISPENSAS_ABIERTO_FINAL : cerrarSolicitudDispensa()
+note right on link
+    <b>CERRAR:</b>
+    <b>Alumno solicita</b> salir del detalle.
+    <b>Sistema permite</b> descartar cambios.
 end note
+
+DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
 @enduml
