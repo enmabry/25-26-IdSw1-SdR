@@ -3,6 +3,7 @@ title Crear Usuario
 skinparam linetype polyline
 
 state USUARIOS_ABIERTO_INICIAL  as "USUARIOS_ABIERTO"
+state USUARIOS_ABIERTO_FINAL  as "USUARIOS_ABIERTO"
 state USUARIO_ABIERTO_COMP      as "USUARIO_ABIERTO"
 
 [*] -[#green]-> USUARIOS_ABIERTO_INICIAL
@@ -42,13 +43,13 @@ state USUARIO_ABIERTO_COMP as "USUARIO_ABIERTO" {
     DecisionFinal -[#green]-> [*]
 }
 
-USUARIO_ABIERTO_COMP -[#green]-> USUARIOS_ABIERTO_INICIAL : guardarUsuario()
+USUARIO_ABIERTO_COMP -[#green]-> USUARIOS_ABIERTO_FINAL : guardarUsuario()
 note on link
 <b>Sistema</b> muestra los datos, registra el nuevo usuario
 y muestra nuevamente el listado en USUARIOS_ABIERTO.
 end note
 
-USUARIO_ABIERTO_COMP -[#red]-> USUARIOS_ABIERTO_INICIAL : cerrarUsuario()
+USUARIO_ABIERTO_COMP -[#red]-> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
 note on link
 <b>Sistema</b> descarta los datos introducidos
 y muestra nuevamente el listado en USUARIOS_ABIERTO sin cambios.

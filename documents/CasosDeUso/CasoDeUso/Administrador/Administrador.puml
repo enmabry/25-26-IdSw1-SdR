@@ -1,4 +1,4 @@
-@startuml DiagramaDeCasosDeUsoAdministrador
+@startuml
 left to right direction
 skinparam packageStyle rectangle
 
@@ -18,14 +18,10 @@ SecretariaAcademica <|-- Administrador
         usecase "crearUsuario()"     as UsuariosCrear
         usecase "consultarUsuario()" as UsuariosConsultar
         usecase "editarUsuario()"    as UsuariosEditar
-        usecase "guardarUsuario()"   as UsuariosGuardar
-        usecase "cerrarUsuario()"    as UsuariosCerrar
     }
 
     Administrador --> UsuariosCrear
     Administrador --> UsuariosConsultar
     Administrador --> UsuariosEditar
-    Administrador --> UsuariosGuardar
-    Administrador --> UsuariosCerrar
 
 @enduml
