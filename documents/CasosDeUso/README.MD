@@ -24,13 +24,13 @@ Descripción de las funcionalidades del sistema por rol de usuario.
 ## Alumno
 
 <p align="center">
-  <img src="./CasoDeUso/Alumno/DdCdU.svg">
+  <img src="./CasoDeUso/Alumno/Alumno.svg">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Detallado-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md#Alumno)
 [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Alumno/)
-[![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Alumno/DdCdU.puml)
-[![](https://img.shields.io/badge/-Ver_SVG-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Alumno/DdCdU.svg)
+[![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Alumno/Alumno.puml)
+[![](https://img.shields.io/badge/-Ver_SVG-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./CasoDeUso/Alumno/Alumno.svg)
 [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
