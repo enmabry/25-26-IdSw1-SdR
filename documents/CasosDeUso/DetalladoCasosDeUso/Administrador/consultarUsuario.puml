@@ -3,6 +3,7 @@ title Consultar Usuario
 skinparam linetype polyline
 
 state USUARIOS_ABIERTO_INICIAL as "USUARIOS_ABIERTO"
+state USUARIOS_ABIERTO_FINAL as "USUARIOS_ABIERTO"
 state USUARIO_ABIERTO_COMP     as "USUARIO_ABIERTO"
 
 [*] -[#green]-> USUARIOS_ABIERTO_INICIAL
@@ -10,7 +11,7 @@ state USUARIO_ABIERTO_COMP     as "USUARIO_ABIERTO"
 USUARIOS_ABIERTO_INICIAL -[#green]-> USUARIO_ABIERTO_COMP : consultarUsuario()
 note on link
 <b>Administrador</b> se encuentra en USUARIOS_ABIERTO
-y solicita ver el detalle de un usuario específico.
+y solicita consultar el detalle de un usuario específico.
 
 <b>Sistema</b> cambia el contexto a USUARIO_ABIERTO.
 end note
@@ -37,7 +38,7 @@ state USUARIO_ABIERTO_COMP as "USUARIO_ABIERTO" {
     DecisionGestion -[#green]-> [*]
 }
 
-USUARIO_ABIERTO_COMP -[#red]-> USUARIOS_ABIERTO_INICIAL : cerrarUsuario()
+USUARIO_ABIERTO_COMP -[#red]-> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
 note on link
 <b>Sistema</b> cierra la ficha del usuario
 y muestra nuevamente el listado en USUARIOS_ABIERTO.

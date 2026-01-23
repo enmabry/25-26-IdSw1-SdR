@@ -3,6 +3,7 @@ title Crear Sesión Clase
 skinparam linetype polyline
 
 state ASISTENCIAS_ABIERTO_INICIAL as "ASISTENCIAS_ABIERTO"
+state ASISTENCIAS_ABIERTO_FINAL as "ASISTENCIAS_ABIERTO"
 state SESION_NUEVA_COMP           as "SESION_ASISTENCIA_ABIERTA"
 state SESION_ACTIVA_FINAL         as "SESION_ASISTENCIA_ABIERTA"
 
@@ -50,7 +51,7 @@ y mantiene el contexto en SESION_ASISTENCIA_ABIERTA.
 end note
 
 ' CAMINO CANCELAR: Vuelve a la lista
-SESION_NUEVA_COMP -[#red]-> ASISTENCIAS_ABIERTO_INICIAL : cancelarCreacion()
+SESION_NUEVA_COMP -[#red]-> ASISTENCIAS_ABIERTO_FINAL : cancelarCreacion()
 note on link
 <b>Sistema</b> descarta la configuración
 y muestra nuevamente el listado en ASISTENCIAS_ABIERTO.

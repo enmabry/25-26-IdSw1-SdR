@@ -1,16 +1,17 @@
 @startuml
-title Ver Detalle Alumno
+title Consultar Detalle Alumno
 skinparam linetype polyline
 
 state ALUMNOS_ABIERTO_INICIAL as "ALUMNOS_ABIERTO"
+state ALUMNOS_ABIERTO_FINAL as "ALUMNOS_ABIERTO"
 state ALUMNO_ABIERTO_COMP     as "ALUMNO_ABIERTO"
 
 [*] -[#green]-> ALUMNOS_ABIERTO_INICIAL
 
-ALUMNOS_ABIERTO_INICIAL -[#green]-> ALUMNO_ABIERTO_COMP : verDetalleAlumno()
+ALUMNOS_ABIERTO_INICIAL -[#green]-> ALUMNO_ABIERTO_COMP : consultarDetalleAlumno()
 note on link
 <b>Profesor</b> se encuentra en ALUMNOS_ABIERTO
-y solicita ver el detalle de un alumno específico.
+y solicita consultar el detalle de un alumno específico.
 
 <b>Sistema</b> recupera la información académica
 y cambia el contexto a ALUMNO_ABIERTO.
@@ -38,7 +39,7 @@ state ALUMNO_ABIERTO_COMP as "ALUMNO_ABIERTO" {
     DecisionNavegacion -[#green]-> [*]
 }
 
-ALUMNO_ABIERTO_COMP -[#red]-> ALUMNOS_ABIERTO_INICIAL : cerrarDetalleAlumno()
+ALUMNO_ABIERTO_COMP -[#red]-> ALUMNOS_ABIERTO_FINAL : cerrarDetalleAlumno()
 note on link
 <b>Sistema</b> cierra la ficha del alumno
 y muestra nuevamente el listado en ALUMNOS_ABIERTO.
