@@ -1,81 +1,81 @@
 @startuml
-title Editar Solicitud
+title Editar Solicitud de Dispensa (Perspectiva RUP Final)
 
 skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
+    StateBackgroundColor white
+    StateBorderColor black
+    NoteBackgroundColor lightyellow
+    NoteBorderColor black
+    ArrowColor green
+    linetype ortho
 }
 
 hide empty description
 
-state startState as "SOLICITUD_DISPENSA_ABIERTA"
-state endState as "DISPENSAS_ABIERTO"
+state "SOLICITUD_DISPENSA_ABIERTA" as startState <<sdlreceive>>
+state "SOLICITUD_DISPENSA_ABIERTA" as endState <<sdlreceive>>
 
-startState --> EditarSolicitud
+[*] -[#green]-> startState
+
+startState -[#green]-> EDITAR_SOLICITUD_DISPENSA
 note on link
-    <b>Director de Grado selecciona</b>
-    la opción "Editar solicitud"
-    sobre una solicitud pendiente.
+    editarSolicitudDispensa()
 end note
 
-state EditarSolicitud {
-    state RevisarSolicitud as " "
-    state ModificarEstadoYDatos as " "
-    state FinalizarOpciones <<choice>>
-
-    [*] --> RevisarSolicitud
-    note on link
-        <b>Sistema muestra</b>
-        los datos completos de la solicitud:
-        * Alumno
-        * Asignatura / actividad
-        * Motivo de la dispensa
-        * Documentación adjunta
-        * Estado actual
+state EDITAR_SOLICITUD_DISPENSA {
+    [*] -[#green]-> RevisarSolicitud
+    
+    state "Revisión de Solicitud" as RevisarSolicitud <<sdlreceive>>
+    note left of RevisarSolicitud
+        Director de Grado <b>solicita</b> editar solicitud.
+        Sistema <b>permite</b> el acceso y <b>muestra</b> datos.
     end note
-
-    RevisarSolicitud --> ModificarEstadoYDatos
+    
+    RevisarSolicitud -[#green]-> ModificarEstadoYDatos
     note on link
-        <b>Director modifica</b>
-        * Estado (Aprobar/Rechazar)
-        * Observaciones o motivo
-        * Otros campos editables
+        modificarDatosSolicitud()
     end note
-
-    ModificarEstadoYDatos --> FinalizarOpciones
-    note on link
-        <b>Sistema valida los cambios</b>
-        Director selecciona una opción:
-        * Guardar cambios
-        * Cancelar operación
+    
+    state "Modificación de Estado y Datos" as ModificarEstadoYDatos <<sdlreceive>>
+    note right of ModificarEstadoYDatos
+        Director de Grado <b>solicita</b> modificar:
+        • Estado (Aprobar/Rechazar)
+        • Observaciones o motivo
+        • Otros campos editables
+        Sistema <b>permite</b> la edición y
+        <b>valida</b> los cambios introducidos.
     end note
-
-    FinalizarOpciones -[#red]-> [*]
-    note on link
-        <b>Si selecciona Cancelar:</b>
-        Se aborta la operación sin guardar
-        y la solicitud permanece sin cambios.
+    
+    ModificarEstadoYDatos -[#green]-> GuardarCambios
+    
+    state "Guardar Cambios" as GuardarCambios <<sdlreceive>>
+    note left of GuardarCambios
+        GUARDAR:
+        Director de Grado <b>solicita</b> guardar cambios.
+        Sistema <b>permite</b> registrar y guardar.
+        
+        guardarSolicitudDispensa()
     end note
-
-    FinalizarOpciones --> GuardarCambios
-
-    state GuardarCambios as " "
+    
+    GuardarCambios -[#green]-> [*]
     note on link
-        <b>Sistema actualiza</b>
-        el estado y datos de la solicitud,
-        registra fecha y responsable,
-        y notifica al alumno.
+        Sistema <b>actualiza</b> el estado y datos,
+        <b>registra</b> fecha y responsable, y
+        <b>notifica</b> al alumno.
     end note
-
-    GuardarCambios --> [*]
+    
+    ModificarEstadoYDatos -[#red]-> [*]
     note on link
-        <b>Sistema confirma</b>
-        que la solicitud ha sido actualizada.
+        CANCELAR:
+        Director de Grado <b>solicita</b> salir.
+        Sistema <b>permite</b> descartar cambios.
+        
+        cerrarSolicitudDispensa()
     end note
 }
 
-EditarSolicitud --> endState
+EDITAR_SOLICITUD_DISPENSA -[#green]-> endState
+
+endState -[#green]-> [*]
 
 @enduml
