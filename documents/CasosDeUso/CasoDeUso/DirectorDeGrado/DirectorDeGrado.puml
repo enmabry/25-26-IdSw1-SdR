@@ -7,17 +7,13 @@ actor DirectorDeGrado
 rectangle "Sistema de Gestión Universitaria (CGU)" {
 
     package "Dispensas" {
-        usecase "EditarSolicitud()" as DispensasEditarSolicitudes
-        usecase "CerrarSolicitud()" as DispensasCerrarSolicitudes
-        usecase "GuardarSolicitud()" as DispensasGuardarSolicitudes
-        usecase "ConsultarSolicitudesDispensa()" as DispensasConsultarSolicitudes
+        usecase "EditarSolicitud()" as DispensasEditarSolicitud
+        usecase "ConsultarSolicitudDispensa()" as DispensasConsultarSolicitud
 
     }
 
-    DirectorDeGrado --> DispensasConsultarSolicitudes
-    DirectorDeGrado --> DispensasEditarSolicitudes
-    DirectorDeGrado --> DispensasCerrarSolicitudes
-    DirectorDeGrado --> DispensasGuardarSolicitudes
+    DirectorDeGrado --> DispensasConsultarSolicitud
+    DirectorDeGrado --> DispensasEditarSolicitud
 }
 
 @enduml
