@@ -11,45 +11,40 @@ state USUARIOS_ABIERTO_FINAL   as "USUARIOS_ABIERTO"
 USUARIO_ABIERTO_INICIAL -[#green]-> USUARIO_ABIERTO_COMP : editarUsuario()
 note on link
 <b>Administrador</b> se encuentra en USUARIO_ABIERTO
-y solicita editar la información.
+y <b>solicita</b> editar la información.
 
-<b>Sistema</b> habilita los campos para su modificación
-y mantiene el contexto en USUARIO_ABIERTO.
+<b>Sistema permite introducir</b> las modificaciones <b>visualizando</b> USUARIO_ABIERTO
 end note
 
 state USUARIO_ABIERTO_COMP as "USUARIO_ABIERTO" {
 
     state ModificacionDatos
-    state DecisionGuardar
 
     [*] -[#green]-> ModificacionDatos
     note on link
-    <b>Sistema</b> permite introducir los nuevos datos.
+    <b>Sistema permite introducir</b> los nuevos datos.
 
-    <b>Administrador</b> modifica la información requerida:
+    <b>Administrador introduce</b> la información requerida:
     • Credenciales, Datos personales, Roles, etc.
     end note
 
-    ModificacionDatos -[#green]-> DecisionGuardar
+    ModificacionDatos -[#green]-> [*]
     note on link
-    <b>Sistema</b> muestra los cambios realizados para revisión.
+    <b>Sistema muestra</b> los cambios realizados para revisión.
 
-    <b>Administrador</b> solicita finalizar la operación.
+    <b>Administrador solicita</b> finalizar la operación.
     end note
-
-    DecisionGuardar -[#green]-> [*]
 }
 
 USUARIO_ABIERTO_COMP -[#green]-> USUARIOS_ABIERTO_FINAL : guardarUsuario()
 note on link
-<b>Sistema</b> valida y guarda los cambios
-y muestra nuevamente el listado en USUARIOS_ABIERTO.
+<b>Sistema muestra</b> los datos,
+y <b>visualiza</b> nuevamente el listado en USUARIOS_ABIERTO.
 end note
 
 USUARIO_ABIERTO_COMP -[#red]-> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
 note on link
-<b>Sistema</b> descarta las modificaciones realizadas
-y muestra nuevamente el listado en USUARIOS_ABIERTO sin cambios.
+<b>Sistema muestra</b> nuevamente el listado en USUARIOS_ABIERTO sin cambios.
 end note
 
 @enduml

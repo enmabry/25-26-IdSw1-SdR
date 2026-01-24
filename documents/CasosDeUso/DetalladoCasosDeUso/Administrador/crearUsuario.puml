@@ -11,48 +11,43 @@ state USUARIO_ABIERTO_COMP      as "USUARIO_ABIERTO"
 USUARIOS_ABIERTO_INICIAL -[#green]-> USUARIO_ABIERTO_COMP : crearUsuario()
 note on link
 <b>Administrador</b> se encuentra en USUARIOS_ABIERTO
-y solicita crear un nuevo usuario.
+y <b>solicita</b> crear un nuevo usuario.
 
-<b>Sistema</b> muestra un formulario de registro vacío
-y cambia el contexto a USUARIO_ABIERTO.
+<b>Sistema muestra</b> un formulario de registro vacío,<b>presentando</b> USUARIO_ABIERTO.
 end note
 
 state USUARIO_ABIERTO_COMP as "USUARIO_ABIERTO" {
 
     state IntroduccionDatos
-    state DecisionFinal
 
     [*] -[#green]-> IntroduccionDatos
     note on link
-    <b>Sistema</b> permite introducir la información del usuario.
+    <b>Sistema permite introducir</b> la información del usuario.
 
-    <b>Administrador</b> introduce los datos requeridos:
+    <b>Administrador introduce</b> los datos requeridos:
     • Credenciales (Usuario, Contraseña)
     • Datos personales (Nombre, DNI)
     • Roles (Profesor, Alumno, etc.)
     end note
 
-    IntroduccionDatos -[#green]-> DecisionFinal
+    IntroduccionDatos -[#green]-> [*]
     note on link
-    <b>Sistema</b> muestra los datos introducidos para revisión.
+    <b>Sistema muestra</b> los datos introducidos para revisión.
 
-    <b>Administrador</b> solicita finalizar la operación
+    <b>Administrador solicita</b> finalizar la operación
     (guardar o cancelar).
     end note
-
-    DecisionFinal -[#green]-> [*]
 }
 
 USUARIO_ABIERTO_COMP -[#green]-> USUARIOS_ABIERTO_FINAL : guardarUsuario()
 note on link
-<b>Sistema</b> muestra los datos, registra el nuevo usuario
-y muestra nuevamente el listado en USUARIOS_ABIERTO.
+<b>Sistema muestra</b> los datos,
+y <b>visualiza</b> nuevamente el listado en USUARIOS_ABIERTO.
 end note
 
 USUARIO_ABIERTO_COMP -[#red]-> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
 note on link
-<b>Sistema</b> descarta los datos introducidos
-y muestra nuevamente el listado en USUARIOS_ABIERTO sin cambios.
+<b>Sistema muestra</b> nuevamente el listado en USUARIOS_ABIERTO sin cambios.
 end note
 
 @enduml

@@ -11,15 +11,15 @@ state SESION_ACTUAL_FINAL   as "SESION_ASISTENCIA_ABIERTA"
 SESION_ACTUAL_INICIAL -[#green]-> PROCESO_EDICION_COMP : editarSesionClase()
 note on link
 <b>Profesor</b> se encuentra en una sesión activa
-y solicita modificar los detalles de la clase.
+y <b>solicita</b> modificar los detalles de la clase.
 
-<b>Sistema</b> habilita los campos informativos para edición.
+<b>Sistema permite introducir</b> las modificaciones
+en los campos informativos.
 end note
 
 state PROCESO_EDICION_COMP {
 
     state ModificacionDatos
-    state ValidacionCambios
 
     [*] -[#green]-> ModificacionDatos
     note on link
@@ -28,21 +28,19 @@ state PROCESO_EDICION_COMP {
     <b>Profesor</b> introduce la información necesaria.
     end note
 
-    ModificacionDatos -[#green]-> ValidacionCambios
+    ModificacionDatos -[#green]-> [*]
     note on link
-    <b>Sistema</b> valida los formatos de texto
-    y visualiza los cambios para confirmación.
+    <b>Sistema visualiza</b> los cambios para confirmación.
     
-    <b>Profesor</b> solicita guardar los cambios.
+    <b>Profesor solicita</b> guardar los cambios.
     end note
 
-    ValidacionCambios -[#green]-> [*]
 }
 
 PROCESO_EDICION_COMP -[#green]-> SESION_ACTUAL_FINAL
 note on link
-<b>Sistema</b> actualiza la información de la sesión
-y muestra nuevamente la vista de la clase con los cambios aplicados.
+<b>Sistema muestra</b> nuevamente la vista de la clase
+con los cambios aplicados.
 end note
 
 @enduml
