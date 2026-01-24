@@ -52,6 +52,22 @@ state SOLICITUD_DISPENSA_ABIERTA {
         • Historial de cambios
     end note
     
+    VisualizarDetalle -[#green]-> EditarSolicitud
+    
+    state "Edición de Solicitud" as EditarSolicitud <<sdlreceive>>
+    note left of EditarSolicitud
+        EDITAR:
+        Director de Grado <b>solicita</b> editar.
+        Sistema <b>permite</b> la edición.
+        
+        editarSolicitudDispensa()
+    end note
+    
+    EditarSolicitud -[#green]-> VisualizarDetalle
+    note on link
+        guardarSolicitudDispensa()
+    end note
+    
     VisualizarDetalle -[#red]-> [*]
     note on link
         CERRAR:
