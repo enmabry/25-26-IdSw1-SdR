@@ -17,68 +17,46 @@ state "DISPENSAS_ABIERTO" as endState <<sdlreceive>>
 
 [*] -[#green]-> startState
 
+note left of startState
+    Director de Grado <b>solicita</b> seleccionar una solicitud.
+    Sistema <b>permite</b> abrir el detalle de la misma.
+end note
+
 startState -[#green]-> SOLICITUD_DISPENSA_ABIERTA
 note on link
     consultarSolicitudDispensa()
 end note
 
 state SOLICITUD_DISPENSA_ABIERTA {
-    [*] -[#green]-> SeleccionarSolicitud
+    [*] -[#green]-> VisualizacionYEdicion
     
-    state "Selección de Solicitud" as SeleccionarSolicitud <<sdlreceive>>
-    note left of SeleccionarSolicitud
-        Director de Grado <b>solicita</b> consultar
-        una solicitud específica.
-        Sistema <b>permite</b> el acceso al
-        listado de solicitudes.
+    state "Visualización y Edición" as VisualizacionYEdicion <<sdlreceive>>
+    note right of VisualizacionYEdicion
+        Sistema <b>permite</b> visualizar los datos.
+        Director de Grado <b>solicita</b> modificar campos mediante
+        editarSolicitudDispensa().
     end note
     
-    SeleccionarSolicitud -[#green]-> VisualizarDetalle
-    note on link
-        seleccionarSolicitudDispensa()
-    end note
-    
-    state "Visualización de Detalle" as VisualizarDetalle <<sdlreceive>>
-    note right of VisualizarDetalle
-        Director de Grado <b>solicita</b> ver el detalle.
-        Sistema <b>permite</b> la visualización y
-        <b>ejecuta</b> visualizarDetalleSolicitudDispensa().
-        
-        Muestra:
-        • Datos del alumno
-        • Asignatura solicitada
-        • Motivos y documentación
-        • Estado actual
-        • Historial de cambios
-    end note
-    
-    VisualizarDetalle -[#green]-> EditarSolicitud
-    
-    state "Edición de Solicitud" as EditarSolicitud <<sdlreceive>>
-    note left of EditarSolicitud
-        EDITAR:
-        Director de Grado <b>solicita</b> editar.
-        Sistema <b>permite</b> la edición.
-        
-        editarSolicitudDispensa()
-    end note
-    
-    EditarSolicitud -[#green]-> VisualizarDetalle
-    note on link
-        guardarSolicitudDispensa()
-    end note
-    
-    VisualizarDetalle -[#red]-> [*]
-    note on link
-        CERRAR:
-        Director de Grado <b>solicita</b> salir.
-        Sistema <b>permite</b> cerrar la consulta.
-        
-        cerrarConsultaSolicitudDispensa()
-    end note
+    VisualizacionYEdicion -[#green]-> [*]
 }
 
-SOLICITUD_DISPENSA_ABIERTA -[#green]-> endState
+SOLICITUD_DISPENSA_ABIERTA -[#green]down-> endState
+note left of endState
+    GUARDAR:
+    Director de Grado <b>solicita</b> registrar cambios.
+    Sistema <b>permite</b> persistir la información.
+    
+    guardarSolicitudDispensa()
+end note
+
+SOLICITUD_DISPENSA_ABIERTA -[#red]down-> endState
+note right of endState
+    CERRAR:
+    Director de Grado <b>solicita</b> salir del detalle.
+    Sistema <b>permite</b> descartar cambios.
+    
+    cerrarSolicitudDispensa()
+end note
 
 endState -[#green]-> [*]
 
