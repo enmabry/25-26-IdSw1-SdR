@@ -302,32 +302,36 @@
 
 ## Secretaria
 
-<a name="PrototipoAbrirDispensas"></a>
+<a name="PrototipoAbrirListaAlumnos"></a>
 
-### Abrir Dispensas
+### Abrir Lista de Alumnos
 
 <p align="center">
-  <img src="./Secretaria/abrirDispensas.png">
+  <img src="./Secretaria/abrirListaAlumnosSecretaria.png">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Secretaria) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
-<a name="PrototipoConsultarSolicitudDispensa"></a>
+<a name="PrototipoConsultarDispensas"></a>
 
-### Consultar Solicitud de Dispensa
+### Consultar Dispensas
 
 <p align="center">
-  <img src="./Secretaria/consultarSolicitudDispensa.png">
+  <img src="./Secretaria/consultarSolicitudDispensaSecretaria1.png">
+</p>
+<p align="center">
+  <img src="./Secretaria/consultarSolicitudDispensaSecretaria2.png">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Secretaria) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
+<a name="PrototipoEditarSolicitudDispensas"></a>
 <a name="PrototipoCrearSolicitudDispensas"></a>
 
-### Crear Solicitud de Dispensas
+### Editar/Crear Solicitud de Dispensas
 
 <p align="center">
-  <img src="./Secretaria/crearSolicitudDispensas.png">
+  <img src="./Secretaria/editarSolicitudDispensaSecretaria.png">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Secretaria) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
@@ -337,7 +341,7 @@
 ### Guardar Dispensa
 
 <p align="center">
-  <img src="./Secretaria/guardarDispensa.png">
+  <img src="./Secretaria/guardarSolicitudDispensaSecretaria.png">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Secretaria) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
@@ -347,7 +351,7 @@
 ### Cerrar Solicitud
 
 <p align="center">
-  <img src="./Secretaria/cerrarSolicitud.png">
+  <img src="./Secretaria/cerrarSolicitudDispensaSecretaria.png">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Secretaria) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
@@ -357,7 +361,17 @@
 ### Exportar Historial de Dispensas
 
 <p align="center">
-  <img src="./Secretaria/exportarHistorialDispensas.png">
+  <img src="./Secretaria/exportarSolicitudesDispensa.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Secretaria) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="PrototipoExportarListadoDeAlumnosPorCurso"></a>
+
+### Exportar Listado de Alumnos por Curso
+
+<p align="center">
+  <img src="./Secretaria/exportarListadoAlumnosPorCurso.png">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Secretaria) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
