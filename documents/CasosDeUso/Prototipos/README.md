@@ -376,22 +376,28 @@
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Secretaria) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
-<a name="PrototipoAbrirMatriculas"></a>
-
-### Abrir Matrículas
-
-<p align="center">
-  <img src="./Secretaria/abrirMatriculas.png">
-</p>
-
-[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Secretaria) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
-
 <a name="PrototipoImportarMatriculas"></a>
 
 ### Importar Matrículas
 
 <p align="center">
-  <img src="./Secretaria/importarMatriculas.png">
+  <img src="./Secretaria/importarMatriculas1.png">
+</p>
+<p align="center">
+  <img src="./Secretaria/importarMatriculas2.png">
+</p>
+<p align="center">
+  <img src="./Secretaria/importarMatriculas3.png">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Secretaria) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="PrototipoConsultarDetalleMatricula">
+
+### Consultar Detalle de Matrícula
+
+<p align="center">
+  <img src="./Secretaria/consultarDetalleMatricula.png">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/README.MD#Secretaria) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](.) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
