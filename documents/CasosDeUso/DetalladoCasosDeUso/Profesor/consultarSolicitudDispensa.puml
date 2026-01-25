@@ -11,16 +11,14 @@ state SOLICITUD_DISPENSA_ABIERTA_COMP as "SOLICITUD_DISPENSA_ABIERTA"
 DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA_COMP : consultarSolicitudDispensa()
 note on link
 <b>Profesor</b> se encuentra en DISPENSAS_ABIERTO
-y solicita consultar el detalle de una solicitud específica.
+y <b>solicita</b> consultar el detalle de una solicitud específica.
 
-<b>Sistema</b> recupera la información
-y cambia el contexto a SOLICITUD_DISPENSA_ABIERTA.
+<b>Sistema muestra</b> SOLICITUD_DISPENSA_ABIERTA.
 end note
 
 state SOLICITUD_DISPENSA_ABIERTA_COMP as "SOLICITUD_DISPENSA_ABIERTA" {
 
     state VisualizacionDetalle
-    state DecisionGestion
 
     [*] -[#green]-> VisualizacionDetalle
     note on link
@@ -29,18 +27,15 @@ state SOLICITUD_DISPENSA_ABIERTA_COMP as "SOLICITUD_DISPENSA_ABIERTA" {
     • Estado actual y Documentación adjunta
     end note
 
-    VisualizacionDetalle -[#green]-> DecisionGestion
+    VisualizacionDetalle -[#green]-> [*]
     note on link
-    <b>Profesor</b> solicita realizar una acción.
+    <b>Profesor solicita</b> realizar una acción.
     end note
-
-    DecisionGestion -[#green]-> [*]
 }
 
 SOLICITUD_DISPENSA_ABIERTA_COMP -[#red]-> DISPENSAS_ABIERTO_FINAL : cerrarSolicitud()
 note on link
-<b>Sistema</b> cierra la ficha de la dispensa
-y muestra nuevamente el listado en DISPENSAS_ABIERTO.
+<b>Sistema muestra</b> nuevamente el listado en DISPENSAS_ABIERTO.
 end note
 
 @enduml

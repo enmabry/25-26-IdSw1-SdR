@@ -11,38 +11,33 @@ state ALUMNO_ABIERTO_COMP     as "ALUMNO_ABIERTO"
 ALUMNOS_ABIERTO_INICIAL -[#green]-> ALUMNO_ABIERTO_COMP : consultarDetalleAlumno()
 note on link
 <b>Profesor</b> se encuentra en ALUMNOS_ABIERTO
-y solicita consultar el detalle de un alumno específico.
+y <b>solicita</b> consultar el detalle de un alumno específico.
 
-<b>Sistema</b> recupera la información académica
-y cambia el contexto a ALUMNO_ABIERTO.
+<b>Sistema muestra</b> la información académica,
+<b>presentando</b> ALUMNO_ABIERTO.
 end note
 
 state ALUMNO_ABIERTO_COMP as "ALUMNO_ABIERTO" {
 
     state VisualizacionFicha
-    state DecisionNavegacion
 
     [*] -[#green]-> VisualizacionFicha
     note on link
-    <b>Sistema</b> muestra la ficha completa del alumno:
+    <b>Sistema muestra</b> la ficha completa del alumno:
     • Datos personales y Foto
     • Resumen de asistencias y faltas
     end note
 
-    VisualizacionFicha -[#green]-> DecisionNavegacion
+    VisualizacionFicha -[#green]-> [*]
     note on link
-    <b>Profesor</b> revisa la información mostrada.
-
-    <b>Profesor</b> solicita realizar una acción.
+    <b>Profesor solicita</b> realizar una acción.
     end note
 
-    DecisionNavegacion -[#green]-> [*]
 }
 
 ALUMNO_ABIERTO_COMP -[#red]-> ALUMNOS_ABIERTO_FINAL : cerrarDetalleAlumno()
 note on link
-<b>Sistema</b> cierra la ficha del alumno
-y muestra nuevamente el listado en ALUMNOS_ABIERTO.
+<b>Sistema muestra</b> nuevamente el listado en ALUMNOS_ABIERTO.
 end note
 
 @enduml

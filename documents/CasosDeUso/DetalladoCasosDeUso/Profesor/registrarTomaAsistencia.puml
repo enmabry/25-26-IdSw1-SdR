@@ -11,37 +11,33 @@ state SESION_ACTUAL_FINAL   as "SESION_ASISTENCIA_ABIERTA"
 SESION_ACTUAL_INICIAL -[#green]-> PROCESO_TOMA_COMP : registrarTomaAsistencia()
 note on link
 <b>Profesor</b> se encuentra en una clase activa
-y solicita pasar lista a los alumnos.
+y <b>solicita</b> pasar lista a los alumnos.
 
-<b>Sistema</b> habilita el modo de edición de asistencia.
+<b>Sistema presenta</b> el listado para su edición.
 end note
 
 state PROCESO_TOMA_COMP {
 
     state VisualizacionListado
-    state AsignacionEstados
 
     [*] -[#green]-> VisualizacionListado
     note on link
     <b>Sistema</b> muestra el listado de alumnos matriculados.
     end note
 
-    VisualizacionListado -[#green]-> AsignacionEstados
+    VisualizacionListado -[#green]-> [*]
     note on link
-    <b>Sistema</b> permite modificar el estado de cada alumno.
+    <b>Sistema permite introducir</b> el estado de cada alumno.
 
-    <b>Profesor</b> introduce los cambios necesarios:
+    <b>Profesor introduce</b> los cambios necesarios:
     • Presente / Ausente / Tarde
     • Justificación (si aplica)
     end note
-
-    AsignacionEstados -[#green]-> [*]
 }
 
 PROCESO_TOMA_COMP -[#green]-> SESION_ACTUAL_FINAL
 note on link
-<b>Sistema</b> registra los datos de asistencia en la sesión
-y muestra nuevamente la vista de la clase actualizada.
+<b>Sistema muestra</b> nuevamente la vista de la clase actualizada.
 end note
 
 @enduml
