@@ -1,50 +1,60 @@
-@startuml
-title Editar Usuario
-skinparam linetype polyline
+@startuml  editarUsuario
+title Editar Usuario 
 
-state USUARIO_ABIERTO_INICIAL  as "USUARIO_ABIERTO"
-state USUARIO_ABIERTO_COMP     as "USUARIO_ABIERTO"
-state USUARIOS_ABIERTO_FINAL   as "USUARIOS_ABIERTO"
+' --- CONFIGURACIÓN DE ESTILO ---
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
 
-[*] -[#green]-> USUARIO_ABIERTO_INICIAL
+' Definición de Estados
+state USUARIOS_ABIERTO_LISTADO    as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO_COMP        as "USUARIO_ABIERTO"
+state USUARIOS_ABIERTO_FINAL      as "USUARIOS_ABIERTO"
 
-USUARIO_ABIERTO_INICIAL -[#green]-> USUARIO_ABIERTO_COMP : editarUsuario()
-note on link
-<b>Administrador</b> se encuentra en USUARIO_ABIERTO
-y <b>solicita</b> editar la información.
+[*] -[#green]-> USUARIOS_ABIERTO_LISTADO
 
-<b>Sistema permite introducir</b> las modificaciones <b>visualizando</b> USUARIO_ABIERTO
+' Transición de entrada unificada (como en tu imagen de contexto)
+USUARIOS_ABIERTO_LISTADO -[#green]-> USUARIO_ABIERTO_COMP : crearUsuario() / consultarUsuario()
+note left on link
+    <b>Administrador solicita</b> gestionar un usuario.
+    <b>Sistema permite</b> el acceso a la ficha 
+    (Contexto: USUARIO_ABIERTO).
 end note
 
-state USUARIO_ABIERTO_COMP as "USUARIO_ABIERTO" {
-
-    state ModificacionDatos
-
+' Comportamiento interno
+state USUARIO_ABIERTO_COMP {
+    state ModificacionDatos as "Edición de Usuario"
+    
+    ' Actividad interna (el auto-llamado de tu imagen)
+    ModificacionDatos : editarUsuario()
+    
     [*] -[#green]-> ModificacionDatos
-    note on link
-    <b>Sistema permite introducir</b> los nuevos datos.
-
-    <b>Administrador introduce</b> la información requerida:
-    • Credenciales, Datos personales, Roles, etc.
+    
+    note right of ModificacionDatos
+        <b>Administrador solicita</b> modificar la información.
+        <b>Sistema permite</b> la carga de datos mediante
+        **editarUsuario()**.
     end note
-
+    
     ModificacionDatos -[#green]-> [*]
-    note on link
-    <b>Sistema muestra</b> los cambios realizados para revisión.
-
-    <b>Administrador solicita</b> finalizar la operación.
-    end note
 }
 
-USUARIO_ABIERTO_COMP -[#green]-> USUARIOS_ABIERTO_FINAL : guardarUsuario()
-note on link
-<b>Sistema muestra</b> los datos,
-y <b>visualiza</b> nuevamente el listado en USUARIOS_ABIERTO.
+' Salidas definitivas hacia el listado
+USUARIO_ABIERTO_COMP -[#green]---> USUARIOS_ABIERTO_FINAL : guardarUsuario()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Administrador solicita</b> salvar cambios.
+    <b>Sistema permite</b> validar y persistir.
 end note
 
-USUARIO_ABIERTO_COMP -[#red]-> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
-note on link
-<b>Sistema muestra</b> nuevamente el listado en USUARIOS_ABIERTO sin cambios.
+USUARIO_ABIERTO_COMP -[#red]---> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
+note right on link
+    <b>CERRAR:</b>
+    <b>Administrador solicita</b> salir de la ficha.
+    <b>Sistema permite</b> descartar cambios extra
+    sin evitar la creación inicial.
 end note
 
+USUARIOS_ABIERTO_FINAL -[#blue]-> [*]
 @enduml

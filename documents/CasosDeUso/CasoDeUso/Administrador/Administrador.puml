@@ -1,4 +1,5 @@
-@startuml
+@startuml CasosDeUsoAdministrador
+Title Casos de uso del Administrador
 left to right direction
 skinparam packageStyle rectangle
 
@@ -23,5 +24,4 @@ SecretariaAcademica <|-- Administrador
     Administrador --> UsuariosCrear
     Administrador --> UsuariosConsultar
     Administrador --> UsuariosEditar
-
 @enduml
