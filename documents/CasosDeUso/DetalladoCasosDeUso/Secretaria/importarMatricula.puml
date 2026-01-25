@@ -63,8 +63,8 @@ state importarMatriculas as "importarMatriculas()" {
 
 importarMatriculas -[#green]-> endState1
 note on link
-    <b>verDetalleMatricula()</b>
-    (Transición a ver el detalle de lo importado)
+    <b>consultarDetalleMatricula()</b>
+    (Transición a consultar el detalle de lo importado)
 end note
 
 importarMatriculas -[#green]-> endState2

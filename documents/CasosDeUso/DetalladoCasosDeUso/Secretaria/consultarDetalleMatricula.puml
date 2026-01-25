@@ -1,5 +1,5 @@
 @startuml
-title Ver Detalle Matrícula
+title Consultar Detalle Matrícula
 
 skinparam linetype polyline
 
@@ -7,13 +7,13 @@ state startState as "MATRICULAS_ABIERTO"
 state endState1 as "MATRICULA_ABIERTA"
 state endState2 as "MATRICULAS_ABIERTO"
 
-startState -[#green]-> verDetalleMatricula
+startState -[#green]-> consultarDetalleMatricula
 note on link
     <b>Usuario solicita</b>
-    Ver Detalle Matrícula
+    Consultar Detalle Matrícula
 end note
 
-state verDetalleMatricula as "verDetalleMatricula()" {
+state consultarDetalleMatricula as "consultarDetalleMatricula()" {
     state MostrarDetalle as " "
 
     ' 1. Inicio: El sistema consulta y presenta el detalle
@@ -28,11 +28,11 @@ state verDetalleMatricula as "verDetalleMatricula()" {
 }
 
 
-verDetalleMatricula -[#green]-> endState1
+consultarDetalleMatricula -[#green]-> endState1
 
 
 ' 2. Camino de cierre/retorno (cerrarDetalleMatricula())
-verDetalleMatricula -[#green]-> endState2
+consultarDetalleMatricula -[#green]-> endState2
 note on link
     <b>cerrarDetalleMatricula()</b>
 end note
