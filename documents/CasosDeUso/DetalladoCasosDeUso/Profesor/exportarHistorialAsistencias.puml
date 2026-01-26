@@ -11,35 +11,32 @@ state ASISTENCIAS_ABIERTO_FINAL   as "ASISTENCIAS_ABIERTO"
 ASISTENCIAS_ABIERTO_INICIAL -[#green]-> PROCESO_EXPORTACION_COMP : exportarHistorialAsistencias()
 note on link
 <b>Profesor</b> se encuentra en ASISTENCIAS_ABIERTO
-y solicita descargar el registro de asistencias.
+y <b>solicita</b> descargar el registro de asistencias.
 end note
 
 state PROCESO_EXPORTACION_COMP {
 
     state SeleccionParametros
-    state GeneracionDocumento
 
     [*] -[#green]-> SeleccionParametros
     note on link
-    <b>Sistema</b> permite seleccionar el formato de salida
+    <b>Sistema permite introducir</b> el formato de salida
     (Excel, PDF) y el rango de fechas.
 
-    <b>Profesor</b> introduce sus preferencias.
+    <b>Profesor introduce</b> sus preferencias.
     end note
 
-    SeleccionParametros -[#green]-> GeneracionDocumento
+    SeleccionParametros -[#green]-> [*]
     note on link
-    <b>Sistema</b> recopila los datos de asistencia
-    y genera el archivo para descarga.
+    <b>Sistema presenta</b> el archivo listo para su descarga.
+    
+    <b>Profesor solicita</b> descargar el archivo.
     end note
-
-    GeneracionDocumento -[#green]-> [*]
 }
 
 PROCESO_EXPORTACION_COMP -[#green]-> ASISTENCIAS_ABIERTO_FINAL
 note on link
-<b>Sistema</b> permite descargar el archivo generado
-y muestra nuevamente el listado en ASISTENCIAS_ABIERTO.
+<b>Sistema muestra</b> nuevamente el listado en ASISTENCIAS_ABIERTO.
 end note
 
 @enduml
