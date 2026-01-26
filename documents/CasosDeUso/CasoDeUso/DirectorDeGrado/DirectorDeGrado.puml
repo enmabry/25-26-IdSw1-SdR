@@ -10,6 +10,16 @@ Profesor <|-- DirectorDeGrado
 
 
     package "Dispensas" {
+<<<<<<< HEAD
+        usecase "EditarSolicitud()" as DispensasEditarSolicitud
+        usecase "ConsultarSolicitudDispensa()" as DispensasConsultarSolicitud
+
+    }
+
+    DirectorDeGrado --> DispensasConsultarSolicitud
+    DirectorDeGrado --> DispensasEditarSolicitud
+}
+=======
         usecase "consultarSolicitudesDispensa()" as ConsultarSolicitudesDispensa
         usecase "editarSolicitudDispensa()"     as EditarSolicitudDispensa
         usecase "guardarSolicitudDispensa()"    as GuardarSolicitudDispensa
@@ -18,5 +28,6 @@ Profesor <|-- DirectorDeGrado
     DirectorDeGrado --> ConsultarSolicitudesDispensa
     DirectorDeGrado --> EditarSolicitudDispensa
     DirectorDeGrado --> GuardarSolicitudDispensa
+>>>>>>> 47499373fcfe80f79a24d3ba5d5f2db9e3026545
 
 @enduml
