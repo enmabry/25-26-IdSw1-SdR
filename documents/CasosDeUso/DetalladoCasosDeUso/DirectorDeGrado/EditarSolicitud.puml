@@ -1,5 +1,4 @@
 @startuml
-<<<<<<< HEAD
 title Editar Solicitud de Dispensa (Perspectiva RUP Final)
 
 skinparam {
@@ -10,16 +9,10 @@ skinparam {
     ArrowColor green
     linetype ortho
 }
-=======
-title Editar solicitud de dispensa (Director de Grado)
-
-skinparam linetype polyline
->>>>>>> 47499373fcfe80f79a24d3ba5d5f2db9e3026545
 
 state SOLICITUD_DISPENSA_ABIERTA_INICIAL as "SOLICITUD_DISPENSA_ABIERTA"
 state DISPENSAS_ABIERTO_FINAL            as "DISPENSAS_ABIERTO"
 
-<<<<<<< HEAD
 state "SOLICITUD_DISPENSA_ABIERTA" as startState <<sdlreceive>>
 state "SOLICITUD_DISPENSA_ABIERTA" as endState <<sdlreceive>>
 
@@ -85,60 +78,5 @@ state EDITAR_SOLICITUD_DISPENSA {
 EDITAR_SOLICITUD_DISPENSA -[#green]-> endState
 
 endState -[#green]-> [*]
-=======
-SOLICITUD_DISPENSA_ABIERTA_INICIAL -[#green]-> editarSolicitudDispensa
-
-state editarSolicitudDispensa as "editarSolicitudDispensa()" {
-
-    state " " as RevisarSolicitud
-    state " " as ModificarEstadoYDatos
-    state " " as GuardarOCancelar
-
-    [*] -[#green]-> RevisarSolicitud
-    note on link
-      <b>Director de Grado</b> abre una solicitud
-      de dispensa pendiente para editarla.
-
-      <b>Sistema</b> muestra los datos completos
-      de la solicitud:
-      • Alumno
-      • Asignatura / actividad
-      • Motivo de la dispensa
-      • Documentación adjunta
-      • Estado actual
-    end note
-
-    RevisarSolicitud -[#green]-> ModificarEstadoYDatos
-    note on link
-      <b>Director de Grado</b> modifica la solicitud:
-      • cambia el estado (Aprobada / Rechazada)
-      • añade o edita observaciones
-      • actualiza otros campos editables.
-    end note
-
-    ModificarEstadoYDatos -[#green]-> GuardarOCancelar
-    note on link
-      <b>Sistema</b> valida los cambios realizados.
-      El Director puede:
-      • guardar cambios, o
-      • cancelar la operación.
-    end note
-
-    GuardarOCancelar -[#green]-> [*]
-    note on link
-      <b>Si guarda cambios:</b>
-      • el Sistema actualiza el estado y los datos
-        de la solicitud,
-      • registra fecha y responsable,
-      • y puede notificar al alumno.
-
-      <b>Si cancela:</b>
-      • el Sistema descarta los cambios
-        y la solicitud permanece sin modificaciones.
-    end note
-}
-
-editarSolicitudDispensa -[#green]-> DISPENSAS_ABIERTO_FINAL
->>>>>>> 47499373fcfe80f79a24d3ba5d5f2db9e3026545
 
 @enduml
