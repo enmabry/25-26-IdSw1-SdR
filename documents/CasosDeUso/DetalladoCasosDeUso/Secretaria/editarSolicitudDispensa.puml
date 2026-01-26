@@ -1,65 +1,94 @@
-@startuml
-title Editar Solicitud Dispensa
+@startuml EditarSolicitudDispensa
 
-skinparam linetype polyline
+title Editar solicitud de dispensa
 
-' Estados inicial y final globales basados en el Diagrama de Contexto
-state startState as "SOLICITUD_DISPENSA_ABIERTA" 
-state endState1 as "DISPENSA_ABIERTO" 
-state endState2 as "SOLICITUD_DISPENSA_ABIERTA" 
+' --- CONFIGURACIÓN DE ESTILO ---
 
-startState -[#green]-> editarSolicitudDispensa
-note on link
-    <b>Usuario solicita</b>
-    Editar Solicitud Dispensa
+skinparam nodesep 120
+skinparam ranksep 120
+skinparam linetype ortho
+skinparam Padding 10
+
+state SOLICITUD_DISPENSA_ABIERTA_INICIAL as "SOLICITUD_DISPENSA_ABIERTA"
+state EDICION_SOLICITUD_COMP             as "EDICION_SOLICITUD_DISPENSA"
+state DISPENSAS_ABIERTO_FINAL            as "DISPENSAS_ABIERTO"
+state SOLICITUD_DISPENSA_ABIERTA_FINAL   as "SOLICITUD_DISPENSA_ABIERTA"
+
+[*] -[#green]-> SOLICITUD_DISPENSA_ABIERTA_INICIAL
+
+' Entrada al caso de uso
+SOLICITUD_DISPENSA_ABIERTA_INICIAL -[#green]-> EDICION_SOLICITUD_COMP : editarSolicitudDispensa()
+
+note left of EDICION_SOLICITUD_COMP
+    <b>Alumno solicita</b> editar una
+    solicitud de dispensa existente.
+    <b>Sistema permite</b> habilitar
+    la edición de la información.
 end note
 
-state editarSolicitudDispensa as "editarSolicitudDispensa()" {
-    state PermitirModificacion as " "
-    state ValidarModificaciones <<choice>>
 
-    ' 1. Inicio: Habilita la edición
+state EDICION_SOLICITUD_COMP {
+
+    state PermitirModificacion as "Edición de Datos"
+    state ValidarModificaciones as "Validación de Cambios"
+
     [*] -[#green]-> PermitirModificacion
-    note on link
-        <b>Sistema permite modificar</b>
+
+    note right of PermitirModificacion
+        <b>Sistema permite</b> modificar
         los datos de la solicitud.
     end note
 
-    ' 2. El usuario realiza las modificaciones
     PermitirModificacion -[#green]-> ValidarModificaciones
-    note on link
-        <b>Usuario realiza las modificaciones</b>
-        y el sistema valida en tiempo real.
+
+    note left of ValidarModificaciones
+        <b>Alumno solicita</b> registrar
+        las modificaciones realizadas.
     end note
 
-    ' --- FLUJO ALTERNATIVO (Error de validación de datos - Camino Rojo) ---
+    ' Flujo alternativo: error de validación
     ValidarModificaciones -[#red]-> PermitirModificacion
-    note on link
-        <b>Sistema verifica la modificación</b>
-        por tipo de dato .
+
+    note right of ValidarModificaciones
+        <b>Sistema valida</b> los cambios
+        realizados.
         <b>Si hay error:</b>
-        Sistema muestra error y permite corregir.
+        informa inconsistencias y
+        permite corrección.
     end note
 
-    ' --- 4. FLUJO BÁSICO (Éxito - Verde) ---
+    ' Flujo básico: cambios válidos
     ValidarModificaciones -[#green]-> [*]
-    note on link
-        <b>Sistema marca los datos</b>
-        listos para ser guardados.
+
+    note left of ValidarModificaciones
+        <b>Sistema confirma</b> que los
+        datos están listos para
+        ser guardados.
     end note
 }
 
-' --- TRANSICIONES DE SALIDA (Según tu dibujo) ---
+' --- SALIDAS DEL CASO DE USO ---
 
-editarSolicitudDispensa -[#green]-> endState1
-note on link
-    <b>Guardar/Cerrar Solicitud()</b>
+EDICION_SOLICITUD_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : guardarSolicitudDispensa()
+
+note left of DISPENSAS_ABIERTO_FINAL
+    <b>GUARDAR:</b>
+    <b>Alumno solicita</b> registrar
+    los cambios realizados.
+    <b>Sistema permite</b> persistir
+    la información.
 end note
 
-editarSolicitudDispensa -[#green]-> endState2
-note on link
-    <b>Mantiene la solicitud abierta</b>
-    (Opción de transición sin acción en el link)
+
+EDICION_SOLICITUD_COMP -[#green]---> SOLICITUD_DISPENSA_ABIERTA_FINAL 
+
+note right of SOLICITUD_DISPENSA_ABIERTA_FINAL
+    <b>Alumno solicita</b> mantener
+    la solicitud abierta sin
+    salir del detalle.
 end note
+
+
+DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
 
 @enduml

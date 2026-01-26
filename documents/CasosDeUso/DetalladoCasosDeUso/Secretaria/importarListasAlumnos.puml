@@ -1,6 +1,6 @@
-@startuml ExportarDispensas
+@startuml ExportarListasAlumnos
 
-title Exportar dispensas
+title Exportar listado de alumnos
 
 ' --- CONFIGURACIÓN DE ESTILO ---
 
@@ -9,46 +9,44 @@ skinparam ranksep 120
 skinparam linetype ortho
 skinparam Padding 10
 
-state DISPENSAS_ABIERTO_INICIAL      as "DISPENSAS_ABIERTO"
-state EXPORTAR_DISPENSAS_COMP        as "EXPORTAR_DISPENSAS"
-state DISPENSAS_ABIERTO_FINAL        as "DISPENSAS_ABIERTO"
-state SOLICITUD_DISPENSA_ABIERTA_FINAL as "SOLICITUD_DISPENSA_ABIERTA"
+state LISTAS_ABIERTO_INICIAL   as "LISTAS_ABIERTO"
+state EXPORTAR_LISTADO_COMP   as "EXPORTAR_LISTADO_ALUMNOS"
+state LISTA_ABIERTA_FINAL     as "LISTA_ABIERTA"
+state LISTAS_ABIERTO_FINAL    as "LISTAS_ABIERTO"
 
-[*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
+[*] -[#green]-> LISTAS_ABIERTO_INICIAL
 
 ' Entrada al caso de uso
-DISPENSAS_ABIERTO_INICIAL -[#green]-> EXPORTAR_DISPENSAS_COMP : exportarDispensas()
+LISTAS_ABIERTO_INICIAL -[#green]-> EXPORTAR_LISTADO_COMP : exportarListaAlumnos()
 
-note left of EXPORTAR_DISPENSAS_COMP
+note left of EXPORTAR_LISTADO_COMP
     <b>Alumno solicita</b> exportar
-    las dispensas registradas.
+    un listado de alumnos por curso.
     <b>Sistema permite</b> definir
-    criterios de exportación.
+    filtros y formato de salida.
 end note
 
 
-state EXPORTAR_DISPENSAS_COMP {
+state EXPORTAR_LISTADO_COMP {
 
     state SolicitudFiltros   as "Selección de Filtros"
     state ValidarFiltros     as "Validación de Filtros"
-    state SolicitudFormato   as "Selección de Formato"
+    state SeleccionFormato   as "Selección de Formato"
     state Descarga           as "Descarga de Archivo"
 
     [*] -[#green]-> SolicitudFiltros
 
     note right of SolicitudFiltros
         <b>Sistema muestra</b> opciones
-        de filtrado y botón
-        de exportación.
+        de filtrado por curso
+        y asignatura.
     end note
 
     SolicitudFiltros -[#green]-> ValidarFiltros
 
     note left of ValidarFiltros
         <b>Alumno solicita</b> aplicar
-        criterios de búsqueda:
-        curso, asignatura,
-        nombre e identificador.
+        los criterios seleccionados.
     end note
 
     ' Flujo alternativo: error en filtros
@@ -62,15 +60,15 @@ state EXPORTAR_DISPENSAS_COMP {
     end note
 
     ' Flujo básico: filtros válidos
-    ValidarFiltros -[#green]-> SolicitudFormato
+    ValidarFiltros -[#green]-> SeleccionFormato
 
-    note left of SolicitudFormato
+    note left of SeleccionFormato
         <b>Sistema solicita</b> el formato
         de salida (PDF, CSV, etc.)
         y el nombre del archivo.
     end note
 
-    SolicitudFormato -[#green]-> Descarga
+    SeleccionFormato -[#green]-> Descarga
 
     note right of Descarga
         <b>Alumno solicita</b> la descarga.
@@ -82,29 +80,28 @@ state EXPORTAR_DISPENSAS_COMP {
 
     note left of Descarga
         <b>Sistema confirma</b> la descarga
-        del archivo generado.
+        del listado generado.
     end note
 }
 
 ' --- SALIDAS DEL CASO DE USO ---
 
-EXPORTAR_DISPENSAS_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL
+EXPORTAR_LISTADO_COMP -[#green]---> LISTA_ABIERTA_FINAL : consultarListaAlumnos()
 
-note left of DISPENSAS_ABIERTO_FINAL
-    <b>Alumno solicita</b> regresar
-    al listado de dispensas.
-end note
-
-
-EXPORTAR_DISPENSAS_COMP -[#green]---> SOLICITUD_DISPENSA_ABIERTA_FINAL : consultarSolicitudDispensa()
-
-note right of SOLICITUD_DISPENSA_ABIERTA_FINAL
+note left of LISTA_ABIERTA_FINAL
     <b>Alumno solicita</b> consultar
-    el detalle de una solicitud
-    específica.
+    el listado de alumnos exportado.
 end note
 
 
-DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
+EXPORTAR_LISTADO_COMP -[#green]---> LISTAS_ABIERTO_FINAL
+
+note right of LISTAS_ABIERTO_FINAL
+    <b>Alumno solicita</b> regresar
+    al módulo de listas.
+end note
+
+
+LISTAS_ABIERTO_FINAL -[#blue]-> [*]
 
 @enduml

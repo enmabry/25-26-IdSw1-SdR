@@ -1,41 +1,66 @@
-@startuml
+@startuml ConsultarSolicitudDispensa
 title Consultar Solicitud Dispensa
 
-skinparam linetype polyline
+' --- CONFIGURACIÓN DE ESTILO ---
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
 
-state startState as "DISPENSA_ABIERTO" 
-state endState1 as "SOLICITUD_DISPENSA_ABIERTA" 
-state endState2 as "DISPENSAS_ABIERTO" 
+' --- DEFINICIÓN DE ESTADOS ---
+state DISPENSA_ABIERTO_INICIAL  as "DISPENSA_ABIERTO"
+state CONSULTAR_DISPENSA_COMP   as "consultarSolicitudDispensa()"
+state SOLICITUD_DISPENSA_EDITAR as "SOLICITUD_DISPENSA_ABIERTA"
+state DISPENSAS_ABIERTO_FINAL   as "DISPENSAS_ABIERTO"
 
-startState -[#green]-> consultarSolicitudDispensa
-note on link
+' Inicio
+[*] -[#green]-> DISPENSA_ABIERTO_INICIAL
+
+' Entrada: Usuario solicita consultar
+DISPENSA_ABIERTO_INICIAL -[#green]-> CONSULTAR_DISPENSA_COMP : consultarSolicitudDispensa()
+note left on link
     <b>Usuario solicita</b>
-    Consultar Solicitud Dispensa
+    Consultar una solicitud específica.
+    <b>Sistema permite</b> abrir el detalle.
 end note
 
-state consultarSolicitudDispensa as "consultarSolicitudDispensa()" {
-    state MostrarSolicitud as " "
-
-    ' 1. Inicio: El sistema consulta y presenta la solicitud en modo lectura
+' Estado Compuesto: Visualización en Modo Lectura
+state CONSULTAR_DISPENSA_COMP {
+    state MostrarSolicitud as "Visualización (Modo Lectura)"
+    
+    ' Inicio interno
     [*] -[#green]-> MostrarSolicitud
-    note on link
+    
+    ' Nota interna
+    note right of MostrarSolicitud
         <b>Sistema presenta</b>
-        la solicitud de la dispensa en modo Lectura.
+        la solicitud de la dispensa
+        exclusivamente en modo Lectura.
     end note
-
-    ' 2. Fin: El caso de uso interno finaliza
+    
+    ' Fin interno
     MostrarSolicitud -[#green]-> [*]
 }
 
-
-consultarSolicitudDispensa -[#green]-> endState1
-note on link
-    <b>editarSolicitudDispensa()</b>
+' SALIDA 1: Transición a Edición (Avance)
+CONSULTAR_DISPENSA_COMP -[#green]---> SOLICITUD_DISPENSA_EDITAR : editarSolicitudDispensa()
+note left on link
+    <b>EDITAR:</b>
+    <b>Usuario solicita</b> modificar la solicitud.
+    <b>Sistema permite</b> el modo edición.
 end note
 
-consultarSolicitudDispensa -[#green]-> endState2
-note on link
-    <b>Guardar/Cerrar solicitud()</b>
+' SALIDA 2: Guardar/Cerrar (Retorno)
+' Usamos rojo para indicar la acción de cerrar/salir de la vista actual
+CONSULTAR_DISPENSA_COMP -[#red]---> DISPENSAS_ABIERTO_FINAL : Guardar/Cerrar solicitud()
+note right on link
+    <b>FINALIZAR:</b>
+    <b>Usuario solicita</b> salir del detalle.
+    <b>Sistema permite</b> volver al listado.
 end note
 
-@endumal
+' Fin del flujo
+SOLICITUD_DISPENSA_EDITAR -[#blue]-> [*]
+DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
+
+@enduml
