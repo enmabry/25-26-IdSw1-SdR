@@ -27,7 +27,7 @@ actor SecretariaAcademica
     '=========================
     package "Matrículas" {
         usecase "importarMatriculas()"   as MatriculasImportar
-        usecase "verDetalleMatricula()"  as MatriculasVerDetalle
+        usecase "consultarDetalleMatricula()"  as MatriculasVerDetalle
     }
 
     '=========================

@@ -39,7 +39,7 @@ SISTEMA_DISPONIBLE --> MATRICULAS_ABIERTO : abrirMatriculas()
 MATRICULAS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionMatriculas()
 
 MATRICULAS_ABIERTO --> MATRICULAS_ABIERTO : importarMatriculas()
-MATRICULAS_ABIERTO --> MATRICULA_ABIERTA : verDetalleMatricula()
+MATRICULAS_ABIERTO --> MATRICULA_ABIERTA : consultarDetalleMatricula()
 
 MATRICULA_ABIERTA --> MATRICULAS_ABIERTO : cerrarDetalleMatricula()
 
@@ -74,8 +74,7 @@ SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO         : cerrarSolicitud()
 SISTEMA_DISPONIBLE --> USUARIOS_ABIERTO : abrirUsuarios()
 USUARIOS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionUsuarios()
 
-USUARIOS_ABIERTO --> USUARIO_ABIERTO : crearUsuario()
-USUARIOS_ABIERTO --> USUARIO_ABIERTO : consultarUsuario()
+USUARIOS_ABIERTO --> USUARIO_ABIERTO : crearUsuario() / consultarUsuario()
 
 USUARIO_ABIERTO --> USUARIO_ABIERTO   : editarUsuario()
 USUARIO_ABIERTO --> USUARIOS_ABIERTO  : guardarUsuario()
