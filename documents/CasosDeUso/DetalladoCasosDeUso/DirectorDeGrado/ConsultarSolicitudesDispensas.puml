@@ -1,78 +1,63 @@
 @startuml
-title Consultar solicitudes de dispensa
-skinparam linetype polyline
+title Consultar Solicitud de Dispensa (Perspectiva RUP Final)
 
-state DISPENSAS_ABIERTO_INICIAL as "DISPENSAS_ABIERTO"
-state DISPENSAS_ABIERTO_FINAL   as "DISPENSAS_ABIERTO"
+skinparam {
+    StateBackgroundColor white
+    StateBorderColor black
+    NoteBackgroundColor lightyellow
+    NoteBorderColor black
+    ArrowColor green
+    linetype ortho
+}
 
 DISPENSAS_ABIERTO_INICIAL -[#green]-> consultarSolicitudesDispensas
 
-state consultarSolicitudesDispensas as "consultarSolicitudesDispensas()" {
+state "DISPENSAS_ABIERTO" as startState <<sdlreceive>>
+state "DISPENSAS_ABIERTO" as endState <<sdlreceive>>
 
-    state " " as DefinirFiltros
-    state " " as MostrarListado
-    state " " as RevisarOpciones
-    state " " as RefrescarResultados
+[*] -[#green]-> startState
 
-    [*] -[#green]-> DefinirFiltros
-    note on link
-      <b>Director de Grado</b> se encuentra en DISPENSAS_ABIERTO
-      y selecciona "Consultar solicitudes de dispensa".
+note left of startState
+    Director de Grado <b>solicita</b> seleccionar una solicitud.
+    Sistema <b>permite</b> abrir el detalle de la misma.
+end note
 
-      <b>Sistema</b> muestra un formulario
-      para definir criterios de búsqueda.
+startState -[#green]-> SOLICITUD_DISPENSA_ABIERTA
+note on link
+    consultarSolicitudDispensa()
+end note
+
+state SOLICITUD_DISPENSA_ABIERTA {
+    [*] -[#green]-> VisualizacionYEdicion
+    
+    state "Visualización y Edición" as VisualizacionYEdicion <<sdlreceive>>
+    note right of VisualizacionYEdicion
+        Sistema <b>permite</b> visualizar los datos.
+        Director de Grado <b>solicita</b> modificar campos mediante
+        editarSolicitudDispensa().
     end note
-
-    DefinirFiltros -[#green]-> MostrarListado
-    note on link
-      <b>Director de Grado</b> define filtros como:
-      • Estado (Pendiente, Aprobada, Rechazada)
-      • Alumno
-      • Asignatura
-      • Rango de fechas
-
-      <b>Sistema</b> ejecuta la búsqueda y presenta
-      el listado de solicitudes que cumplen
-      los criterios indicados.
-    end note
-
-    MostrarListado -[#green]-> RevisarOpciones
-    note on link
-      <b>Director de Grado</b> revisa el listado
-      y decide si:
-      • cerrar la consulta,
-      • modificar los filtros,
-      • o refrescar los resultados.
-    end note
-
-    RevisarOpciones -[#green]-> DefinirFiltros
-    note on link
-      <b>Si modifica filtros:</b>
-      el Sistema vuelve a la pantalla
-      de criterios de búsqueda para lanzar
-      una nueva consulta.
-    end note
-
-    RevisarOpciones -[#green]-> RefrescarResultados
-    note on link
-      <b>Si refresca resultados:</b>
-      el Sistema vuelve a consultar la información
-      usando los mismos filtros actuales.
-    end note
-
-    RefrescarResultados -[#green]-> MostrarListado
-    note on link
-      <b>Sistema</b> actualiza el listado con la
-      información más reciente disponible.
-    end note
-
-    RevisarOpciones -[#green]-> [*]
-    note on link
-      <b>Si cierra la consulta:</b>
-      el Sistema sale de la pantalla de búsqueda
-      y finaliza el caso de uso.
-    end note
+    
+    VisualizacionYEdicion -[#green]-> [*]
 }
 
-consultarSolicitudesDispensas -[#green]-> DISPENSAS_ABIERTO_FINAL
+SOLICITUD_DISPENSA_ABIERTA -[#green]down-> endState
+note left of endState
+    GUARDAR:
+    Director de Grado <b>solicita</b> registrar cambios.
+    Sistema <b>permite</b> persistir la información.
+    
+    guardarSolicitudDispensa()
+end note
+
+SOLICITUD_DISPENSA_ABIERTA -[#red]down-> endState
+note right of endState
+    CERRAR:
+    Director de Grado <b>solicita</b> salir del detalle.
+    Sistema <b>permite</b> descartar cambios.
+    
+    cerrarSolicitudDispensa()
+end note
+
+endState -[#green]-> [*]
+
 @enduml

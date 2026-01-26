@@ -128,10 +128,10 @@
 ### Consultar Detalle de Alumno
 
 <p align="center">
-  <img src="./Profesor/verDetalleAlumno.svg">
+  <img src="./Profesor/consultarDetalleAlumno.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/verDetalleAlumno.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Profesor/Profesor.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Profesor/consultarDetalleAlumno.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
@@ -275,15 +275,15 @@
 
 [![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/importarMatricula.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
-<a name="DetalladoVerDetalleMatricula"></a>
+<a name="DetalladoConsultarDetalleMatricula"></a>
 
-### Ver Detalle de Matrícula
+### Consultar Detalle de Matrícula
 
 <p align="center">
-  <img src="./Secretaria/verDetalleMatricula.svg">
+  <img src="./Secretaria/consultarDetalleMatricula.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/verDetalleMatricula.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Secretaria/CasoDeUsosCompleto.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Secretaria/consultarDetalleMatricula.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
@@ -296,30 +296,20 @@
 ### Consultar Solicitudes de Dispensas
 
 <p align="center">
-  <img src="./DirectorDeGrado/ConsultarSolicitudesDispensas.svg">
+  <img src="./DirectorDeGrado/ConsultarSolicitudDispensa.svg">
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/ConsultarSolicitudesDispensas.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
-<a name="DetalladoEditarSolicitud"></a>
+<a name="DetalladoEditarSolicitudesDispensas"></a>
 
-### Editar Solicitud
-
-<p align="center">
-  <img src="./DirectorDeGrado/EditarSolicitud.svg">
-</p>
-
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/EditarSolicitud.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
-
-<a name="DetalladoGuardarSolicitud"></a>
-
-### Guardar Solicitud
+### Editar Solicitudes de Dispensas
 
 <p align="center">
-  <img src="./DirectorDeGrado/GuardarSolicitud.svg">
+  <img src="./DirectorDeGrado/EditarSolicitudDispensa.svg">
 </p>
 
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/GuardarSolicitud.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/EditarSolicituds.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
