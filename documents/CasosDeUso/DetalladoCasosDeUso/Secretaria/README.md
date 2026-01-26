@@ -14,16 +14,11 @@
 ![Exportar Dispensas](./exportarDispensas.svg)
 📄 [SVG](./exportarDispensas.svg) | 📋 [PUML](./exportarDispensas.puml)
 
-![Guardar Solicitud](./guardarSolicitud.svg)
-📄 [SVG](./guardarSolicitud.svg) | 📋 [PUML](./guardarSolicitud.puml)
-
-![Cerrar Solicitud](./cerrarSolicitud.svg)
-📄 [SVG](./cerrarSolicitud.svg) | 📋 [PUML](./cerrarSolicitud.puml)
 
 ## Matriculas
 
-![Ver Detalle Matricula](./verDetalleMatricula.svg)
-📄 [SVG](./verDetalleMatricula.svg) | 📋 [PUML](./verDetalleMatricula.puml)
+![Consultar Detalle Matricula](./consultarDetalleMatricula.svg)
+📄 [SVG](./consultarDetalleMatricula.svg) | 📋 [PUML](./consultarDetalleMatricula.puml)
 
 ![Importar Matriculas](./importarMatriculas.svg)
 📄 [SVG](./importarMatriculas.svg) | 📋 [PUML](./importarMatricula.puml)
@@ -34,6 +29,6 @@
 
 ## Listas
 
-![Consultar Lista Alumnos](./abrirListasAlumnos.svg)
-📄 [SVG](./abrirListasAlumnos.svg) | 📋 [PUML](./abrirListasAlumnos.puml)
+![Consultar Lista Alumnos](./consultarListaAlumnos.svg)
+📄 [SVG](./consultarListaAlumnos.svg) | 📋 [PUML](./consultarListaAlumnos.puml)
 

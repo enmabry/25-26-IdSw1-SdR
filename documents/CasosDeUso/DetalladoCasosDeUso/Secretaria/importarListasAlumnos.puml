@@ -1,74 +1,107 @@
-@startuml
-title Importar Listas Alumnos
+@startuml ExportarListasAlumnos
 
-skinparam linetype polyline
+title Exportar listado de alumnos
 
-state startState as "LISTAS_ABIERTO"
-state endState1 as "LISTA_ABIERTA"
-state endState2 as "LISTAS_ABIERTO"
+' --- CONFIGURACIÓN DE ESTILO ---
 
-startState -[#green]-> exportarListadoAlumnosPorCurso
-note on link
-    <b>Usuario solicita</b>
-    Exportar Importar Listo Alumnos
+skinparam nodesep 120
+skinparam ranksep 120
+skinparam linetype ortho
+skinparam Padding 10
+
+state LISTAS_ABIERTO_INICIAL   as "LISTAS_ABIERTO"
+state EXPORTAR_LISTADO_COMP   as "EXPORTAR_LISTADO_ALUMNOS"
+state LISTA_ABIERTA_FINAL     as "LISTA_ABIERTA"
+state LISTAS_ABIERTO_FINAL    as "LISTAS_ABIERTO"
+
+[*] -[#green]-> LISTAS_ABIERTO_INICIAL
+
+' Entrada al caso de uso
+LISTAS_ABIERTO_INICIAL -[#green]-> EXPORTAR_LISTADO_COMP : exportarListaAlumnos()
+
+note left of EXPORTAR_LISTADO_COMP
+    <b>Alumno solicita</b> exportar
+    un listado de alumnos por curso.
+    <b>Sistema permite</b> definir
+    filtros y formato de salida.
 end note
 
-state exportarListadoAlumnosPorCurso as "exportarListadoAlumnosPorCurso()" {
-    state SolicitudFiltros as " "
-    state ValidarFiltros <<choice>>
-    state SeleccionFormato as " "
-    state Descarga as " "
-    
-    ' 1. Inicio: Solicita los filtros
+
+state EXPORTAR_LISTADO_COMP {
+
+    state SolicitudFiltros   as "Selección de Filtros"
+    state ValidarFiltros     as "Validación de Filtros"
+    state SeleccionFormato   as "Selección de Formato"
+    state Descarga           as "Descarga de Archivo"
+
     [*] -[#green]-> SolicitudFiltros
-    note on link
-        <b>Sistema muestra opciones</b>
-        de filtro y botón de exportación.
+
+    note right of SolicitudFiltros
+        <b>Sistema muestra</b> opciones
+        de filtrado por curso
+        y asignatura.
     end note
 
-    ' 2. El usuario selecciona los filtros
     SolicitudFiltros -[#green]-> ValidarFiltros
-    note on link
-        <b>Usuario introduce criterios:</b>
-        * Curso, Asignatura
+
+    note left of ValidarFiltros
+        <b>Alumno solicita</b> aplicar
+        los criterios seleccionados.
     end note
 
-    ' --- 3. FLUJO ALTERNATIVO (Error de filtros - Camino Rojo) ---
+    ' Flujo alternativo: error en filtros
     ValidarFiltros -[#red]-> SolicitudFiltros
-    note on link
-        <b>Sistema valida filtros.</b>
+
+    note right of ValidarFiltros
+        <b>Sistema valida</b> los filtros.
         <b>Si hay error:</b>
-        Sistema informa error y vuelve a solicitar filtros.
+        informa inconsistencias y
+        solicita corrección.
     end note
 
-    ' --- 4. FLUJO BÁSICO (Éxito - Verde) ---
+    ' Flujo básico: filtros válidos
     ValidarFiltros -[#green]-> SeleccionFormato
-    
-    note on link
-        <b>Sistema solicita al usuario</b>
-        el formato de salida (PDF, CSV, etc.) y nombre.
+
+    note left of SeleccionFormato
+        <b>Sistema solicita</b> el formato
+        de salida (PDF, CSV, etc.)
+        y el nombre del archivo.
     end note
-    
+
     SeleccionFormato -[#green]-> Descarga
-    
-    note on link
-        <b>El usuario solicita la descarga.</b>
-        Sistema descarga.
+
+    note right of Descarga
+        <b>Alumno solicita</b> la descarga.
+        <b>Sistema permite</b> generar
+        el archivo correspondiente.
     end note
-    
+
     Descarga -[#green]-> [*]
-    note on link
-        <b>Sistema muestra confirmación.</b>
+
+    note left of Descarga
+        <b>Sistema confirma</b> la descarga
+        del listado generado.
     end note
 }
 
+' --- SALIDAS DEL CASO DE USO ---
 
-exportarListadoAlumnosPorCurso -[#green]-> endState1
-note on link
-    <b>ConsultarListaAlumnos()</b>
+EXPORTAR_LISTADO_COMP -[#green]---> LISTA_ABIERTA_FINAL : consultarListaAlumnos()
+
+note left of LISTA_ABIERTA_FINAL
+    <b>Alumno solicita</b> consultar
+    el listado de alumnos exportado.
 end note
 
-exportarListadoAlumnosPorCurso -[#green]-> endState2
 
+EXPORTAR_LISTADO_COMP -[#green]---> LISTAS_ABIERTO_FINAL
+
+note right of LISTAS_ABIERTO_FINAL
+    <b>Alumno solicita</b> regresar
+    al módulo de listas.
+end note
+
+
+LISTAS_ABIERTO_FINAL -[#blue]-> [*]
 
 @enduml
