@@ -1,0 +1,108 @@
+@startuml ImportarMatriculas
+
+title Importar matrículas
+
+' --- CONFIGURACIÓN DE ESTILO ---
+
+skinparam nodesep 120
+skinparam ranksep 120
+skinparam linetype ortho
+skinparam Padding 10
+
+state MATRICULAS_ABIERTO_INICIAL   as "MATRICULAS_ABIERTO"
+state IMPORTAR_MATRICULAS_COMP    as "IMPORTAR_MATRICULAS"
+state MATRICULA_ABIERTA_FINAL     as "MATRICULA_ABIERTA"
+state MATRICULAS_ABIERTO_FINAL    as "MATRICULAS_ABIERTO"
+
+[*] -[#green]-> MATRICULAS_ABIERTO_INICIAL
+
+' Entrada al caso de uso
+MATRICULAS_ABIERTO_INICIAL -[#green]-> IMPORTAR_MATRICULAS_COMP : importarMatriculas()
+
+note left of IMPORTAR_MATRICULAS_COMP
+    <b>Alumno solicita</b> importar
+    información de matrículas.
+    <b>Sistema permite</b> adjuntar
+    un archivo para su procesamiento.
+end note
+
+
+state IMPORTAR_MATRICULAS_COMP {
+
+    state SolicitudArchivo   as "Selección de Archivo"
+    state ValidarFormato     as "Validación de Formato"
+    state ImportarRegistros  as "Importación de Registros"
+    state MostrarInforme     as "Informe de Importación"
+
+    [*] -[#green]-> SolicitudArchivo
+
+    note right of SolicitudArchivo
+        <b>Sistema muestra</b> la interfaz
+        para adjuntar el archivo
+        de matrículas.
+    end note
+
+    SolicitudArchivo -[#green]-> ValidarFormato
+
+    note left of ValidarFormato
+        <b>Alumno solicita</b> procesar
+        el archivo seleccionado.
+    end note
+
+    ' Flujo alternativo: error de formato
+    ValidarFormato -[#red]-> SolicitudArchivo
+
+    note right of ValidarFormato
+        <b>Sistema valida</b> el formato
+        y la estructura de los datos.
+        <b>Si hay error:</b>
+        informa inconsistencias y
+        solicita un nuevo archivo.
+    end note
+
+    ' Flujo básico: formato válido
+    ValidarFormato -[#green]-> ImportarRegistros
+
+    note left of ImportarRegistros
+        <b>Sistema importa</b> los registros
+        de matrícula contenidos
+        en el archivo.
+    end note
+
+    ImportarRegistros -[#green]-> MostrarInforme
+
+    note right of MostrarInforme
+        <b>Sistema presenta</b> un informe
+        del proceso de importación,
+        indicando registros válidos
+        y errores detectados.
+    end note
+
+    MostrarInforme -[#green]-> [*]
+}
+
+' --- SALIDAS DEL CASO DE USO ---
+
+IMPORTAR_MATRICULAS_COMP -[#green]---> MATRICULA_ABIERTA_FINAL : verDetalleMatricula()
+
+note left of MATRICULA_ABIERTA_FINAL
+    <b>Alumno solicita</b> consultar
+    el detalle de la matrícula
+    importada.
+end note
+
+
+IMPORTAR_MATRICULAS_COMP -[#green]---> MATRICULAS_ABIERTO_FINAL
+
+note right of MATRICULAS_ABIERTO_FINAL
+    <b>Alumno solicita</b> regresar
+    al módulo de matrículas.
+end note
+
+
+MATRICULAS_ABIERTO_FINAL -[#blue]-> [*]
+
+@enduml
+
+
+

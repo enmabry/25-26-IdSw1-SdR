@@ -1,0 +1,55 @@
+@startuml ConsultarSolicitudDispensa
+title Consultar solicitud de dispensa
+' --- CONFIGURACIÓN DE ESTILO ---
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
+
+state DISPENSAS_ABIERTO_INICIAL          as "DISPENSAS_ABIERTO"
+state SOLICITUD_DISPENSA_ABIERTA_COMP    as "SOLICITUD_DISPENSA_ABIERTA"
+state DISPENSAS_ABIERTO_FINAL            as "DISPENSAS_ABIERTO"
+
+[*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
+
+' Entrada al estado
+DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA_COMP : consultarSolicitudDispensa()
+note left on link
+    <b>Alumno solicita</b> seleccionar una solicitud.
+    <b>Sistema permite</b> abrir el detalle de la misma.
+end note
+
+state SOLICITUD_DISPENSA_ABIERTA_COMP {
+    state SolicitarEditarSolicitud as "Visualización y Edición"
+    
+    ' Metodo interno para consistencia técnica
+    SolicitarEditarSolicitud :
+    
+    [*] -[#green]-> SolicitarEditarSolicitud
+    
+    note right of SolicitarEditarSolicitud
+        <b>Sistema permite</b> visualizar los datos.
+        <b>Alumno solicita</b> modificar campos mediante
+        **editarSolicitudDispensa()**.
+    end note
+    
+    SolicitarEditarSolicitud -[#green]-> [*]
+}
+
+' Salidas con lenguaje RUP reforzado
+SOLICITUD_DISPENSA_ABIERTA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : guardarSolicitudDispensa()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Alumno solicita</b> registrar cambios.
+    <b>Sistema permite</b> persistir la información.
+end note
+
+SOLICITUD_DISPENSA_ABIERTA_COMP -[#red]---> DISPENSAS_ABIERTO_FINAL : cerrarSolicitudDispensa()
+note right on link
+    <b>CERRAR:</b>
+    <b>Alumno solicita</b> salir del detalle.
+    <b>Sistema permite</b> descartar cambios.
+end note
+
+DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
+@enduml

@@ -1,40 +1,43 @@
 @startuml
 title Registrar Toma Asistencia
-
 skinparam linetype polyline
 
-state SESION_ASISTENCIA_ABIERTA_INICIAL as "SESION_ASISTENCIA_ABIERTA"
-state SESION_ASISTENCIA_ABIERTA_FINAL as "SESION_ASISTENCIA_ABIERTA"
+state SESION_ACTUAL_INICIAL as "SESION_ASISTENCIA_ABIERTA"
+state PROCESO_TOMA_COMP     as "SESION_ASISTENCIA_ABIERTA"
+state SESION_ACTUAL_FINAL   as "SESION_ASISTENCIA_ABIERTA"
 
-SESION_ASISTENCIA_ABIERTA_INICIAL -[#green]-> registrarTomaAsistencia
+[*] -[#green]-> SESION_ACTUAL_INICIAL
 
-state registrarTomaAsistencia as "registrarTomaAsistencia()" {
+SESION_ACTUAL_INICIAL -[#green]-> PROCESO_TOMA_COMP : registrarTomaAsistencia()
+note on link
+<b>Profesor</b> se encuentra en una clase activa
+y <b>solicita</b> pasar lista a los alumnos.
 
-    state " " as VerificandoEstado
-    state " " as GuardadoConfirmado
+<b>Sistema presenta</b> el listado para su edición.
+end note
 
-    [*] -[#green]-> VerificandoEstado
+state PROCESO_TOMA_COMP {
+
+    state VisualizacionListado
+
+    [*] -[#green]-> VisualizacionListado
     note on link
-    <b>Profesor</b> ha marcado las asistencias
-    y solicita finalizar la toma de asistencias
+    <b>Sistema</b> muestra el listado de alumnos matriculados.
     end note
 
-    VerificandoEstado -[#green]-> GuardadoConfirmado
+    VisualizacionListado -[#green]-> [*]
     note on link
-    <b>Sistema</b> valida los datos ingresados
-    
-    <b>Sistema</b> registra la asistencia:
-    • Guarda estados (Presente, Ausente, Tarde)
-    • Asocia la sesión al historial del curso
-    end note
+    <b>Sistema permite introducir</b> el estado de cada alumno.
 
-    GuardadoConfirmado -[#green]-> [*]
-    note on link
-    <b>Sistema</b> confirma el guardado exitoso
+    <b>Profesor introduce</b> los cambios necesarios:
+    • Presente / Ausente / Tarde
+    • Justificación (si aplica)
     end note
-
 }
 
-registrarTomaAsistencia -[#green]-> SESION_ASISTENCIA_ABIERTA_FINAL
+PROCESO_TOMA_COMP -[#green]-> SESION_ACTUAL_FINAL
+note on link
+<b>Sistema muestra</b> nuevamente la vista de la clase actualizada.
+end note
 
 @enduml

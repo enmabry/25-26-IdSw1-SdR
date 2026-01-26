@@ -1,0 +1,49 @@
+@startuml CerrarDetalleMatricula
+title Cerrar Detalle Matrícula
+
+' --- CONFIGURACIÓN DE ESTILO (Estándar del Ejemplo) ---
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
+
+' --- DEFINICIÓN DE ESTADOS ---
+state MATRICULA_ABIERTA_INICIAL as "MATRICULA_ABIERTA"
+state CERRAR_DETALLE_COMP       as "cerrarDetalleMatricula()"
+state MATRICULAS_ABIERTO_FINAL  as "MATRICULAS_ABIERTO"
+
+' Inicio
+[*] -[#green]-> MATRICULA_ABIERTA_INICIAL
+
+' 1. Transición de Entrada (Usuario solicita)
+MATRICULA_ABIERTA_INICIAL -[#green]-> CERRAR_DETALLE_COMP
+note left on link
+    <b>Usuario solicita</b>
+    Cerrar Detalle Matrícula.
+end note
+
+' 2. Estado Compuesto (El proceso del Caso de Uso)
+state CERRAR_DETALLE_COMP {
+    ' Definimos el estado interno como en tu código
+    state MuestraListado as "Presentar Listado"
+
+    ' Flujo interno
+    [*] -[#green]-> MuestraListado
+
+    ' Nota interna (Sistema realiza)
+    note right of MuestraListado
+        <b>Sistema presenta</b>
+        la interfaz de listado general de matrículas.
+    end note
+
+    ' Fin interno
+    MuestraListado -[#green]-> [*]
+}
+
+' 3. Salida al estado final
+CERRAR_DETALLE_COMP -[#green]-> MATRICULAS_ABIERTO_FINAL
+
+' Fin del diagrama
+MATRICULAS_ABIERTO_FINAL -[#blue]-> [*]
+
+@enduml

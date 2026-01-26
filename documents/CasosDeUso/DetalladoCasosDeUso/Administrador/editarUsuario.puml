@@ -1,0 +1,60 @@
+@startuml  editarUsuario
+title Editar Usuario 
+
+' --- CONFIGURACIÓN DE ESTILO ---
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
+
+' Definición de Estados
+state USUARIOS_ABIERTO_LISTADO    as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO_COMP        as "USUARIO_ABIERTO"
+state USUARIOS_ABIERTO_FINAL      as "USUARIOS_ABIERTO"
+
+[*] -[#green]-> USUARIOS_ABIERTO_LISTADO
+
+' Transición de entrada unificada (como en tu imagen de contexto)
+USUARIOS_ABIERTO_LISTADO -[#green]-> USUARIO_ABIERTO_COMP : crearUsuario() / consultarUsuario()
+note left on link
+    <b>Administrador solicita</b> gestionar un usuario.
+    <b>Sistema permite</b> el acceso a la ficha 
+    (Contexto: USUARIO_ABIERTO).
+end note
+
+' Comportamiento interno
+state USUARIO_ABIERTO_COMP {
+    state ModificacionDatos as "Edición de Usuario"
+    
+    ' Actividad interna (el auto-llamado de tu imagen)
+    ModificacionDatos : editarUsuario()
+    
+    [*] -[#green]-> ModificacionDatos
+    
+    note right of ModificacionDatos
+        <b>Administrador solicita</b> modificar la información.
+        <b>Sistema permite</b> la carga de datos mediante
+        **editarUsuario()**.
+    end note
+    
+    ModificacionDatos -[#green]-> [*]
+}
+
+' Salidas definitivas hacia el listado
+USUARIO_ABIERTO_COMP -[#green]---> USUARIOS_ABIERTO_FINAL : guardarUsuario()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Administrador solicita</b> salvar cambios.
+    <b>Sistema permite</b> validar y persistir.
+end note
+
+USUARIO_ABIERTO_COMP -[#red]---> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
+note right on link
+    <b>CERRAR:</b>
+    <b>Administrador solicita</b> salir de la ficha.
+    <b>Sistema permite</b> descartar cambios extra
+    sin evitar la creación inicial.
+end note
+
+USUARIOS_ABIERTO_FINAL -[#blue]-> [*]
+@enduml

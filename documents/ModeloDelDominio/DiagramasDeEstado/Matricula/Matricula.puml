@@ -1,21 +1,7 @@
-@startuml Matricula
-title Diagrama de Estados: Matricula
+@startuml EstadoMatricula
+title Estado de Matrícula
 
-[*] --> Borrador
+[*] --> Disponible : importarMatriculas()
 
-Borrador  --> Enviada     : Alumno envía matrícula
-Enviada   --> EnRevision  : Secretaría Académica recibe y toma en revisión
-
-EnRevision --> Aprobada   : Secretaría Académica aprueba matrícula
-EnRevision --> Rechazada  : Secretaría Académica rechaza matrícula 
-
-Rechazada --> EnRevision  : Alumno corrige y Secretaría vuelve a revisar
-Rechazada --> [*]         : Alumno no corrige o vence el plazo
-
-Aprobada  --> Anulada     : Alumno solicita baja y Secretaría registra anulación
-Aprobada  --> Cerrada     : Fin de curso, matrícula se cierra
-
-Anulada   --> [*]
-Cerrada   --> [*]
-
+Disponible --> [*]
 @enduml

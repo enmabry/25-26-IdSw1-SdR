@@ -1,19 +1,35 @@
-# Detallado Casos De Uso Administrador
+# Detallado Casos de Uso Administrador
 
-## Gestión de usuarios y roles
+<a name="Usuarios"></a>
 
-![Consultar Usuarios](./consultarUsuarios.svg)
-📄 [SVG](./consultarUsuarios.svg) | 📋 [PUML](./consultarUsuarios.puml)
+## Usuarios
 
-![Asignar Rol Usuario](./asignarRolUsuario.svg)
-📄 [SVG](./asignarRolUsuario.svg) | 📋 [PUML](./asignarRolUsuario.puml)
+<a name="DetalladoConsultarUsuario"></a>
 
-![Desactivar Usuario](./desactivarUsuario.svg)
-📄 [SVG](./desactivarUsuario.svg) | 📋 [PUML](./desactivarUsuario.puml)
+### Consultar Usuario
 
-![Modificar Usuario](./modificarUsuario.svg)
-📄 [SVG](./modificarUsuario.svg) | 📋 [PUML](./modificarUsuario.puml)
+<p align="center">
+  <img src="./consultarUsuario.svg">
+</p>
 
-![Crear Usuario](./crearUsuario.svg)
-📄 [SVG](./crearUsuario.svg) | 📋 [PUML](./crearUsuario.puml)
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./consultarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
+<a name="DetalladoCrearUsuario"></a>
+
+### Crear Usuario
+
+<p align="center">
+  <img src="./crearUsuario.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./crearUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
+
+<a name="DetalladoEditarUsuario"></a>
+
+### Editar Usuario
+
+<p align="center">
+  <img src="./editarUsuario.svg">
+</p>
+
+[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./editarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)

@@ -1,62 +1,94 @@
-@startuml
-title Crear/Registrar Solicitud de Dispensa
+@startuml CrearSolicitudDispensa
 
+title Crear solicitud de dispensa
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-    ArrowColor #green
-    NoteBorderColor #green
-    linetype polyline
-}
+' --- CONFIGURACIÓN DE ESTILO ---
 
-hide empty description
+skinparam nodesep 120
+skinparam ranksep 120
+skinparam linetype ortho
+skinparam Padding 10
 
-state startState as "DISPENSAS_ABIERTO"
-state endState as "SOLICITUD_DISPENSA_ABIERTA"
+state DISPENSAS_ABIERTO_INICIAL      as "DISPENSAS_ABIERTO"
+state SOLICITUD_DISPENSA_NUEVA_COMP  as "SOLICITUD_DISPENSA_NUEVA"
+state DISPENSAS_ABIERTO_FINAL        as "DISPENSAS_ABIERTO"
 
-startState --> crearSolicitudDispensa
-note on link
-    <b>Usuario selecciona</b>
-    Crear/Registrar Solicitud de Dispensa
+[*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
+
+DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_NUEVA_COMP : crearSolicitudDispensa()
+
+note left of SOLICITUD_DISPENSA_NUEVA_COMP
+    <b>Alumno solicita</b> crear una nueva
+    solicitud de dispensa.
+    <b>Sistema permite</b> acceder al
+    formulario de registro.
 end note
 
-state crearSolicitudDispensa {
-    state SolicitudDatos as " "
-    state ValidarDatos <<choice>>
 
-    [*] --> SolicitudDatos
-    note on link
-        <b>Sistema muestra un formulario</b>
-        para la solicitud
+state SOLICITUD_DISPENSA_NUEVA_COMP {
+
+    state CapturaDatos    as "Captura de Datos"
+    state ValidarDatos    as "Validación de Datos"
+    state CreacionExitosa as "Solicitud Creada"
+
+    [*] -[#green]-> CapturaDatos
+
+    note right of CapturaDatos
+        <b>Sistema permite</b> ingresar los
+        datos de la solicitud:
+        Nombre/ID, asignatura,
+        motivo, documentos y fechas.
     end note
 
-    SolicitudDatos --> ValidarDatos
-    note on link
-        <b>Usuario introduce datos</b>
-        * Nombre
-        * ID
-        * Asignatura
-        * Motivo
-        * Documentos
-        * Fechas
+    CapturaDatos -[#green]-> ValidarDatos
+
+    note left of ValidarDatos
+        <b>Alumno solicita</b> registrar
+        la información ingresada.
     end note
 
-    ' --- FLUJO ALTERNATIVO (Error de validación de datos) ---
-    ValidarDatos -[#red]-> SolicitudDatos
-    note on link
-        <b>Sistema valida campos requeridos</b>
+    ValidarDatos -[#red]-> CapturaDatos
+
+    note right of ValidarDatos
+        <b>Sistema valida</b> la información.
         <b>Si hay error:</b>
-        Sistema informa error y vuelve a solicitar
+        informa inconsistencias y
+        solicita corrección.
     end note
 
-    ' --- FLUJO BÁSICO (Éxito) ---
-    ValidarDatos --> [*]
-    note on link
-        <b>Sistema confirma y muestra</b>
-        la nueva solicitud registrada
+    ValidarDatos -[#green]-> CreacionExitosa
+
+    note left of CreacionExitosa
+        <b>Sistema valida</b> correctamente
+        los datos y crea la solicitud
+        de dispensa.
+    end note
+
+    CreacionExitosa -[#green]-> [*]
+
+    note right of CreacionExitosa
+        <b>Sistema confirma</b> la creación
+        y muestra el detalle registrado.
     end note
 }
 
-crearSolicitudDispensa --> endState
+SOLICITUD_DISPENSA_NUEVA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : editarSolicitudDispensa()
+
+note left of DISPENSAS_ABIERTO_FINAL
+    <b>Alumno solicita</b> continuar
+    con la edición de la solicitud.
+end note
+
+
+SOLICITUD_DISPENSA_NUEVA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : cerrarSolicitudDispensa()
+
+note right of DISPENSAS_ABIERTO_FINAL
+    <b>Alumno solicita</b> salir del registro.
+    <b>Sistema permite</b> finalizar
+    el proceso.
+end note
+
+
+DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
 
 @enduml

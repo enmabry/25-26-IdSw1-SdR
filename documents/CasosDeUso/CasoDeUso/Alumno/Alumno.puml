@@ -1,0 +1,19 @@
+@startuml CasosDeUsoAlumno
+Title Casos de uso del Alumno
+left to right direction
+skinparam packageStyle rectangle
+
+actor Alumno
+
+    package "Dispensas" {
+        usecase "crearSolicitudDispensa()"   as CrearSolicitudDispensa
+        usecase "consultarEstadoDispensa()"        as ConsultarEstadoDispensa
+        usecase "editarSolicitudDispensa()"  as EditarSolicitudDispensa
+    }
+
+
+
+Alumno --> CrearSolicitudDispensa
+Alumno --> ConsultarEstadoDispensa
+Alumno --> EditarSolicitudDispensa
+@enduml

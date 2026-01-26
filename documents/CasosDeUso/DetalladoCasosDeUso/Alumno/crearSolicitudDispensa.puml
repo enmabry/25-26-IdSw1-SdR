@@ -1,0 +1,64 @@
+@startuml crearSolicitudDispensa
+title Crear solicitud de dispensa
+
+' --- CONFIGURACIÓN DE ESTILO ---
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
+
+' Definición de Estados Macro
+state DISPENSAS_ABIERTO_INICIAL          as "DISPENSAS_ABIERTO"
+state SOLICITUD_DISPENSA_ABIERTA_COMP    as "SOLICITUD_DISPENSA_ABIERTA"
+state DISPENSAS_ABIERTO_FINAL            as "DISPENSAS_ABIERTO"
+
+[*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
+
+' Disparador del caso de uso (Transición inicial)
+DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA_COMP : crearSolicitudDispensa()
+note left on link
+    <b>Alumno solicita</b> crear una dispensa.
+    <b>Sistema permite</b> el ingreso de datos 
+    iniciales (Asignatura, periodo, horario).
+end note
+
+' Comportamiento interno: Se usa "Edición de Dispensa" por reutilización de UI
+state SOLICITUD_DISPENSA_ABIERTA_COMP {
+    state FormularioEdicion as "Edición de Dispensa"
+    
+    ' Agregamos la acción interna para que el método sea visible
+    FormularioEdicion : 
+    
+    [*] -[#green]-> FormularioEdicion
+    
+    note right of FormularioEdicion
+        <b>Alumno solicita</b> completar el registro:
+        • Motivo de la dispensa.
+        • Adjunta documentación.
+        <b>Sistema permite</b> la edición mediante 
+        **editarSolicitudDispensa()**.
+    end note
+    
+    ' El flujo interno finaliza al estar listo para la persistencia
+    FormularioEdicion -[#green]-> [*]
+}
+
+' Salidas definitivas del estado compuesto
+SOLICITUD_DISPENSA_ABIERTA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : guardarSolicitudDispensa()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Alumno solicita</b> registrar cambios.
+    <b>Sistema permite</b> guardar la nueva
+    solicitud definitivamente.
+end note
+
+SOLICITUD_DISPENSA_ABIERTA_COMP -[#red]---> DISPENSAS_ABIERTO_FINAL : cerrarSolicitudDispensa()
+note right on link
+    <b>CERRAR:</b>
+    <b>Alumno solicita</b> salir del formulario.
+    <b>Sistema permite</b> descartar cambios extra,
+    pero no evita la creación inicial.
+end note
+
+DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
+@enduml

@@ -1,41 +1,59 @@
-@startuml
+@startuml DiagramaDeCasosDeUsoSecretaria
 left to right direction
 skinparam packageStyle rectangle
-skinparam usecase {
-  BackgroundColor #F0F0F0
-  BorderColor #333
-  ArrowColor #333
-}
 
-actor Secretaria
-
-rectangle "GestiónListasAlumnos()" {
-  usecase "consultarlistadealumnos()" as CU01
-  usecase "eliminarAlumno()" as CU02
-  usecase "registrarNuevoAlumno()" as CU03
-  usecase "actualizarDatosAlumno()" as CU04
-  usecase "generarListadoAlumnos\nporcurso/programa()" as CU05
-}
+actor SecretariaAcademica
 
 
-rectangle "Gestión de Dispensas Académicas" {
-  usecase "CrearSolicitudDispensa()" as CU11
-  usecase "adjuntarDocumentaciónDispensa()" as CU12
-  usecase "verEstadoDispensa()" as CU13
-  usecase "actualizarDispensaAcadémica()" as CU14
-  usecase "generarInformeDispensas()" as CU15
-}
 
-Secretaria --> CU01
-Secretaria --> CU02
-Secretaria --> CU03
-Secretaria --> CU04
-Secretaria --> CU05
+    '=========================
+    ' MÓDULO LISTAS
+    '=========================
+    package "Listas de alumnos" {
+        usecase "importarListasAlumnos()" as ListasImportarListas
+        usecase "consultarListaAlumnos()" as ListasConsultarLista
+    }
 
-Secretaria --> CU11
-Secretaria --> CU12
-Secretaria --> CU13
-Secretaria --> CU14
-Secretaria --> CU15
+    '=========================
+    ' MÓDULO ALUMNOS
+    '=========================
+    package "Alumnos" {
+        usecase "importarAlumnos()"      as AlumnosImportar
+        usecase "verDetalleAlumno()"     as AlumnosVerDetalle
+    }
+
+    '=========================
+    ' MÓDULO MATRÍCULAS
+    '=========================
+    package "Matrículas" {
+        usecase "importarMatriculas()"   as MatriculasImportar
+        usecase "verDetalleMatricula()"  as MatriculasVerDetalle
+    }
+
+    '=========================
+    ' MÓDULO DISPENSAS
+    '=========================
+    package "Dispensas" {
+        usecase "crearSolicitudDispensa()"        as DispensasCrear
+        usecase "consultarSolicitudDispensa()"    as DispensasConsultar
+        usecase "editarSolicitudDispensa()"       as DispensasEditar
+        usecase "guardarSolicitudDispensa()"      as DispensasGuardar
+        usecase "cerrarSolicitudDispensa()"       as DispensasCerrar
+    }
+
+    SecretariaAcademica --> ListasImportarListas
+    SecretariaAcademica --> ListasConsultarLista
+
+    SecretariaAcademica --> AlumnosImportar
+    SecretariaAcademica --> AlumnosVerDetalle
+
+    SecretariaAcademica --> MatriculasImportar
+    SecretariaAcademica --> MatriculasVerDetalle
+
+    SecretariaAcademica --> DispensasCrear
+    SecretariaAcademica --> DispensasConsultar
+    SecretariaAcademica --> DispensasEditar
+    SecretariaAcademica --> DispensasGuardar
+    SecretariaAcademica --> DispensasCerrar
 
 @enduml

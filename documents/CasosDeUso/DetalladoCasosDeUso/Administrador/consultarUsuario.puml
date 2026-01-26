@@ -1,0 +1,61 @@
+@startuml consultarUsuario
+title Consultar Usuario
+
+' --- CONFIGURACIÓN DE ESTILO ---
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
+
+state USUARIOS_ABIERTO_INICIAL as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO_COMP    as "USUARIO_ABIERTO"
+state USUARIOS_ABIERTO_FINAL   as "USUARIOS_ABIERTO"
+
+[*] -[#green]-> USUARIOS_ABIERTO_INICIAL
+
+' Entrada al detalle del usuario
+USUARIOS_ABIERTO_INICIAL -[#green]-> USUARIO_ABIERTO_COMP : consultarUsuario()
+note left on link
+    <b>Administrador solicita</b> ver el detalle de un usuario.
+    <b>Sistema permite</b> el acceso a la ficha 
+    completa (Datos, Roles y Permisos).
+end note
+
+' Comportamiento interno del estado compuesto
+state USUARIO_ABIERTO_COMP {
+    state VisualizacionDatos as "Visualización de Usuario"
+    
+    ' Actividad interna para mantener coherencia técnica
+    VisualizacionDatos :
+    
+    [*] -[#green]-> VisualizacionDatos
+    
+    note right of VisualizacionDatos
+        <b>Sistema permite</b> la visualización de credenciales.
+        <b>Administrador solicita</b> gestionar cambios mediante
+        **editarUsuario()**.
+    end note
+    
+    ' Flujo simplificado hacia la salida
+    VisualizacionDatos -[#green]-> [*]
+}
+
+' Salidas definitivas
+USUARIO_ABIERTO_COMP -[#green]---> USUARIOS_ABIERTO_FINAL : guardarUsuario()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Administrador solicita</b> registrar cambios.
+    <b>Sistema permite</b> persistir la información 
+    actualizada del usuario.
+end note
+
+USUARIO_ABIERTO_COMP -[#red]---> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
+note right on link
+    <b>CERRAR:</b>
+    <b>Administrador solicita</b> salir de la ficha.
+    <b>Sistema permite</b> volver al listado 
+    general sin aplicar cambios.
+end note
+
+USUARIOS_ABIERTO_FINAL -[#blue]-> [*]
+@enduml

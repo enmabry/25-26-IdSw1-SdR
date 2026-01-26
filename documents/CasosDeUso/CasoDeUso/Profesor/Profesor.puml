@@ -4,33 +4,37 @@ skinparam packageStyle rectangle
 
 actor Profesor
 
-rectangle "Sistema de Gestión Universitaria (CGU)" {
+    package "Listas" {
+        usecase "consultarListaAlumnos()" as ListasConsultarLista
+    }
 
     package "Alumnos" {
-        usecase "verDetalleAlumno()" as AlumnosVerDetalle
-        usecase "importarAlumnos()" as AlumnosImportar
+        usecase "consultarDetalleAlumno()"  as AlumnosConsultarDetalle
     }
 
     package "Asistencias" {
-        usecase "crearSesionClase()" as AsistenciasCrearSesion
-        usecase "cerrarSesionClase()" as AsistenciasCerrarSesion
-        usecase "registrarTomaAsistencia()" as AsistenciasRegistrarToma
+        usecase "crearSesionClase()"          as AsistenciasCrearSesion
+        usecase "editarSesionClase()"         as AsistenciasEditarSesion
+        usecase "registrarTomaAsistencia()"   as AsistenciasRegistrarToma
+        usecase "cerrarSesionClase()"         as AsistenciasCerrarSesion
         usecase "exportarHistorialAsistencias()" as AsistenciasExportarHistorial
     }
 
     package "Dispensas" {
-      usecase "consultarSolicitudDispensa()" as DispensasConsultar
+        usecase "consultarSolicitudDispensa()" as DispensasConsultar
     }
 
-    Profesor --> AlumnosVerDetalle
-    Profesor --> AlumnosImportar
-    
+    Profesor --> ListasConsultarLista
+
+    Profesor --> AlumnosConsultarDetalle
+
     Profesor --> AsistenciasCrearSesion
-    Profesor --> AsistenciasCerrarSesion
+    Profesor --> AsistenciasEditarSesion
     Profesor --> AsistenciasRegistrarToma
+    Profesor --> AsistenciasCerrarSesion
     Profesor --> AsistenciasExportarHistorial
-    
+
     Profesor --> DispensasConsultar
-}
+
 
 @enduml
