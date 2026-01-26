@@ -1,0 +1,41 @@
+@startuml
+title Consultar Solicitud Dispensa
+skinparam linetype polyline
+
+state DISPENSAS_ABIERTO_INICIAL       as "DISPENSAS_ABIERTO"
+state DISPENSAS_ABIERTO_FINAL       as "DISPENSAS_ABIERTO"
+state SOLICITUD_DISPENSA_ABIERTA_COMP as "SOLICITUD_DISPENSA_ABIERTA"
+
+[*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
+
+DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA_COMP : consultarSolicitudDispensa()
+note on link
+<b>Profesor</b> se encuentra en DISPENSAS_ABIERTO
+y <b>solicita</b> consultar el detalle de una solicitud específica.
+
+<b>Sistema muestra</b> SOLICITUD_DISPENSA_ABIERTA.
+end note
+
+state SOLICITUD_DISPENSA_ABIERTA_COMP as "SOLICITUD_DISPENSA_ABIERTA" {
+
+    state VisualizacionDetalle
+
+    [*] -[#green]-> VisualizacionDetalle
+    note on link
+    <b>Sistema</b> muestra todos los datos de la solicitud:
+    • Alumno solicitante y Motivo
+    • Estado actual y Documentación adjunta
+    end note
+
+    VisualizacionDetalle -[#green]-> [*]
+    note on link
+    <b>Profesor solicita</b> realizar una acción.
+    end note
+}
+
+SOLICITUD_DISPENSA_ABIERTA_COMP -[#red]-> DISPENSAS_ABIERTO_FINAL : cerrarSolicitud()
+note on link
+<b>Sistema muestra</b> nuevamente el listado en DISPENSAS_ABIERTO.
+end note
+
+@enduml

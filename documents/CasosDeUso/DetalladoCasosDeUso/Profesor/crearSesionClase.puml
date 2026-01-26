@@ -1,0 +1,54 @@
+@startuml
+title Crear Sesión Clase
+skinparam linetype polyline
+
+state ASISTENCIAS_ABIERTO_INICIAL as "ASISTENCIAS_ABIERTO"
+state ASISTENCIAS_ABIERTO_FINAL as "ASISTENCIAS_ABIERTO"
+state SESION_NUEVA_COMP           as "SESION_ASISTENCIA_ABIERTA"
+state SESION_ACTIVA_FINAL         as "SESION_ASISTENCIA_ABIERTA"
+
+[*] -[#green]-> ASISTENCIAS_ABIERTO_INICIAL
+
+ASISTENCIAS_ABIERTO_INICIAL -[#green]-> SESION_NUEVA_COMP : crearSesionClase()
+note on link
+<b>Profesor</b> se encuentra en ASISTENCIAS_ABIERTO
+y <b>solicita</b> crear una nueva sesión de clase.
+
+<b>Sistema muestra</b> SESION_ASISTENCIA_ABIERTA.
+end note
+
+state SESION_NUEVA_COMP {
+
+    state ConfiguracionDatos
+
+    [*] -[#green]-> ConfiguracionDatos
+    note on link
+    <b>Sistema permite</b> introducir los datos de la sesión.
+
+    <b>Profesor introduce</b> la información requerida:
+    • Asignatura, Grupo y Aula
+    • Fecha, Hora y Tema
+    end note
+
+    ConfiguracionDatos -[#green]-> [*]
+    note on link
+    <b>Sistema muestra</b> el resumen de la nueva clase.
+
+    <b>Profesor solicita</b> iniciar la sesión.
+    end note
+}
+
+SESION_NUEVA_COMP -[#green]-> SESION_ACTIVA_FINAL : iniciarSesion()
+note on link
+<b>Sistema visualiza</b> la sesión activa
+y <b>permite introducir</b> la asistencia
+en SESION_ASISTENCIA_ABIERTA.
+end note
+
+SESION_NUEVA_COMP -[#red]-> ASISTENCIAS_ABIERTO_FINAL : cancelarCreacion()
+note on link
+<b>Sistema muestra</b> nuevamente el listado
+en ASISTENCIAS_ABIERTO sin cambios.
+end note
+
+@enduml

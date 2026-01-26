@@ -1,0 +1,33 @@
+@startuml
+title Cerrar Sesión Clase
+skinparam linetype polyline
+
+state SESION_ACTUAL_INICIAL as "SESION_ASISTENCIA_ABIERTA"
+state PROCESO_CIERRE_COMP   as "FINALIZANDO_SESION"
+state ASISTENCIAS_FINAL     as "ASISTENCIAS_ABIERTO"
+
+[*] -[#green]-> SESION_ACTUAL_INICIAL
+
+SESION_ACTUAL_INICIAL -[#green]-> PROCESO_CIERRE_COMP : cerrarSesionClase()
+note on link
+<b>Profesor solicita</b> cerrar la sesión actual.
+end note
+
+state PROCESO_CIERRE_COMP {
+
+
+    [*] -[#green]-> [*]
+    note on link
+    <b>Sistema presenta</b> la hora de finalización
+    y <b>visualiza</b> la sesión como concluida.
+    end note
+
+}
+
+PROCESO_CIERRE_COMP -[#green]-> ASISTENCIAS_FINAL
+note on link
+<b>Sistema muestra</b> el listado de 
+ASISTENCIAS_ABIERTO actualizado.
+end note
+
+@enduml

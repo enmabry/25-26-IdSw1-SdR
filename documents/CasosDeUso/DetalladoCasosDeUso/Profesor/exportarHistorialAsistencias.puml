@@ -1,0 +1,42 @@
+@startuml
+title Exportar Historial Asistencias
+skinparam linetype polyline
+
+state ASISTENCIAS_ABIERTO_INICIAL as "ASISTENCIAS_ABIERTO"
+state PROCESO_EXPORTACION_COMP    as "EXPORTANDO_HISTORIAL"
+state ASISTENCIAS_ABIERTO_FINAL   as "ASISTENCIAS_ABIERTO"
+
+[*] -[#green]-> ASISTENCIAS_ABIERTO_INICIAL
+
+ASISTENCIAS_ABIERTO_INICIAL -[#green]-> PROCESO_EXPORTACION_COMP : exportarHistorialAsistencias()
+note on link
+<b>Profesor</b> se encuentra en ASISTENCIAS_ABIERTO
+y <b>solicita</b> descargar el registro de asistencias.
+end note
+
+state PROCESO_EXPORTACION_COMP {
+
+    state SeleccionParametros
+
+    [*] -[#green]-> SeleccionParametros
+    note on link
+    <b>Sistema permite introducir</b> el formato de salida
+    (Excel, PDF) y el rango de fechas.
+
+    <b>Profesor introduce</b> sus preferencias.
+    end note
+
+    SeleccionParametros -[#green]-> [*]
+    note on link
+    <b>Sistema presenta</b> el archivo listo para su descarga.
+    
+    <b>Profesor solicita</b> descargar el archivo.
+    end note
+}
+
+PROCESO_EXPORTACION_COMP -[#green]-> ASISTENCIAS_ABIERTO_FINAL
+note on link
+<b>Sistema muestra</b> nuevamente el listado en ASISTENCIAS_ABIERTO.
+end note
+
+@enduml

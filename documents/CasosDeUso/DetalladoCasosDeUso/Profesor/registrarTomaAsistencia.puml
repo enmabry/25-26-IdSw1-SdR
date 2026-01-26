@@ -1,0 +1,43 @@
+@startuml
+title Registrar Toma Asistencia
+skinparam linetype polyline
+
+state SESION_ACTUAL_INICIAL as "SESION_ASISTENCIA_ABIERTA"
+state PROCESO_TOMA_COMP     as "SESION_ASISTENCIA_ABIERTA"
+state SESION_ACTUAL_FINAL   as "SESION_ASISTENCIA_ABIERTA"
+
+[*] -[#green]-> SESION_ACTUAL_INICIAL
+
+SESION_ACTUAL_INICIAL -[#green]-> PROCESO_TOMA_COMP : registrarTomaAsistencia()
+note on link
+<b>Profesor</b> se encuentra en una clase activa
+y <b>solicita</b> pasar lista a los alumnos.
+
+<b>Sistema presenta</b> el listado para su edición.
+end note
+
+state PROCESO_TOMA_COMP {
+
+    state VisualizacionListado
+
+    [*] -[#green]-> VisualizacionListado
+    note on link
+    <b>Sistema</b> muestra el listado de alumnos matriculados.
+    end note
+
+    VisualizacionListado -[#green]-> [*]
+    note on link
+    <b>Sistema permite introducir</b> el estado de cada alumno.
+
+    <b>Profesor introduce</b> los cambios necesarios:
+    • Presente / Ausente / Tarde
+    • Justificación (si aplica)
+    end note
+}
+
+PROCESO_TOMA_COMP -[#green]-> SESION_ACTUAL_FINAL
+note on link
+<b>Sistema muestra</b> nuevamente la vista de la clase actualizada.
+end note
+
+@enduml

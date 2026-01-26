@@ -1,4 +1,5 @@
 @startuml
+<<<<<<< HEAD
 title Consultar Solicitud de Dispensa (Perspectiva RUP Final)
 
 skinparam {
@@ -9,9 +10,17 @@ skinparam {
     ArrowColor green
     linetype ortho
 }
+=======
+title Consultar solicitudes de dispensa
+skinparam linetype polyline
 
-hide empty description
+state DISPENSAS_ABIERTO_INICIAL as "DISPENSAS_ABIERTO"
+state DISPENSAS_ABIERTO_FINAL   as "DISPENSAS_ABIERTO"
+>>>>>>> 47499373fcfe80f79a24d3ba5d5f2db9e3026545
 
+DISPENSAS_ABIERTO_INICIAL -[#green]-> consultarSolicitudesDispensas
+
+<<<<<<< HEAD
 state "DISPENSAS_ABIERTO" as startState <<sdlreceive>>
 state "DISPENSAS_ABIERTO" as endState <<sdlreceive>>
 
@@ -82,4 +91,74 @@ SOLICITUD_DISPENSA_ABIERTA -[#green]-> endState
 
 endState -[#green]-> [*]
 
+=======
+state consultarSolicitudesDispensas as "consultarSolicitudesDispensas()" {
+
+    state " " as DefinirFiltros
+    state " " as MostrarListado
+    state " " as RevisarOpciones
+    state " " as RefrescarResultados
+
+    [*] -[#green]-> DefinirFiltros
+    note on link
+      <b>Director de Grado</b> se encuentra en DISPENSAS_ABIERTO
+      y selecciona "Consultar solicitudes de dispensa".
+
+      <b>Sistema</b> muestra un formulario
+      para definir criterios de búsqueda.
+    end note
+
+    DefinirFiltros -[#green]-> MostrarListado
+    note on link
+      <b>Director de Grado</b> define filtros como:
+      • Estado (Pendiente, Aprobada, Rechazada)
+      • Alumno
+      • Asignatura
+      • Rango de fechas
+
+      <b>Sistema</b> ejecuta la búsqueda y presenta
+      el listado de solicitudes que cumplen
+      los criterios indicados.
+    end note
+
+    MostrarListado -[#green]-> RevisarOpciones
+    note on link
+      <b>Director de Grado</b> revisa el listado
+      y decide si:
+      • cerrar la consulta,
+      • modificar los filtros,
+      • o refrescar los resultados.
+    end note
+
+    RevisarOpciones -[#green]-> DefinirFiltros
+    note on link
+      <b>Si modifica filtros:</b>
+      el Sistema vuelve a la pantalla
+      de criterios de búsqueda para lanzar
+      una nueva consulta.
+    end note
+
+    RevisarOpciones -[#green]-> RefrescarResultados
+    note on link
+      <b>Si refresca resultados:</b>
+      el Sistema vuelve a consultar la información
+      usando los mismos filtros actuales.
+    end note
+
+    RefrescarResultados -[#green]-> MostrarListado
+    note on link
+      <b>Sistema</b> actualiza el listado con la
+      información más reciente disponible.
+    end note
+
+    RevisarOpciones -[#green]-> [*]
+    note on link
+      <b>Si cierra la consulta:</b>
+      el Sistema sale de la pantalla de búsqueda
+      y finaliza el caso de uso.
+    end note
+}
+
+consultarSolicitudesDispensas -[#green]-> DISPENSAS_ABIERTO_FINAL
+>>>>>>> 47499373fcfe80f79a24d3ba5d5f2db9e3026545
 @enduml

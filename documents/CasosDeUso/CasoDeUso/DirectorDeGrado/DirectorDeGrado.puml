@@ -1,12 +1,16 @@
-@startuml
+@startuml DiagramaDeCasosDeUsoDirectorDeGrado
 left to right direction
 skinparam packageStyle rectangle
 
+actor Profesor
 actor DirectorDeGrado
 
-rectangle "Sistema de Gestión Universitaria (CGU)" {
+' Herencia: DirectorDeGrado es un tipo de Profesor
+Profesor <|-- DirectorDeGrado
+
 
     package "Dispensas" {
+<<<<<<< HEAD
         usecase "EditarSolicitud()" as DispensasEditarSolicitud
         usecase "ConsultarSolicitudDispensa()" as DispensasConsultarSolicitud
 
@@ -15,5 +19,15 @@ rectangle "Sistema de Gestión Universitaria (CGU)" {
     DirectorDeGrado --> DispensasConsultarSolicitud
     DirectorDeGrado --> DispensasEditarSolicitud
 }
+=======
+        usecase "consultarSolicitudesDispensa()" as ConsultarSolicitudesDispensa
+        usecase "editarSolicitudDispensa()"     as EditarSolicitudDispensa
+        usecase "guardarSolicitudDispensa()"    as GuardarSolicitudDispensa
+    }
+
+    DirectorDeGrado --> ConsultarSolicitudesDispensa
+    DirectorDeGrado --> EditarSolicitudDispensa
+    DirectorDeGrado --> GuardarSolicitudDispensa
+>>>>>>> 47499373fcfe80f79a24d3ba5d5f2db9e3026545
 
 @enduml

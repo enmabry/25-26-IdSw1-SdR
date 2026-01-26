@@ -6,7 +6,7 @@ class Alumno
 class Matricula
 class Asignatura
 class Dispensa
-class TomaDeAsistencia
+class Asistencia
 class ListaDeAlumnos
 class Profesor
 class Grado
@@ -23,8 +23,8 @@ Asignatura *-- ListaDeAlumnos : Tiene
 Asignatura *-- SesionDeClase : Tiene
 Asignatura --> Profesor : Impartida por
 ListaDeAlumnos o-- Alumno : Contiene
-SesionDeClase *-- TomaDeAsistencia : Registra
-TomaDeAsistencia --> Profesor : Realizada por
+SesionDeClase *-- Asistencia : Registra
+Asistencia --> Profesor : Realizada por
 Dispensa --> SesionDeClase : Exime de
 Dispensa --> DirectorDeGrado : Aprobada por
 Dispensa --> SecretariaAcademica : Gestionada por

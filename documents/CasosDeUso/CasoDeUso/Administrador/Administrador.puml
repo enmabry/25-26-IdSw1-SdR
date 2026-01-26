@@ -1,23 +1,27 @@
-@startuml Admin
-title Casos de uso del Administrador
+@startuml CasosDeUsoAdministrador
+Title Casos de uso del Administrador
 left to right direction
+skinparam packageStyle rectangle
 
-actor Administrador as Admin
+actor Alumno
+actor Profesor
+actor DirectorDeGrado
+actor SecretariaAcademica
+actor Administrador
 
-rectangle "Gestión de usuarios y roles" {
+' Herencia de roles: Administrador puede hacer todo lo de estos actores
+Alumno <|-- Administrador
+Profesor <|-- Administrador
+DirectorDeGrado <|-- Administrador
+SecretariaAcademica <|-- Administrador
 
-  usecase "crearUsuario()"            as UC_Crear
-  usecase "modificarUsuario()"        as UC_Modificar
-  usecase "desactivarUsuario()"       as UC_Desactivar
-  usecase "asignarRolUsuario()"       as UC_AsignarRol
-  usecase "consultarUsuarios()"       as UC_Consultar
+    package "Usuarios y roles" {
+        usecase "crearUsuario()"     as UsuariosCrear
+        usecase "consultarUsuario()" as UsuariosConsultar
+        usecase "editarUsuario()"    as UsuariosEditar
+    }
 
-}
-
-Admin --> UC_Crear
-Admin --> UC_Modificar
-Admin --> UC_Desactivar
-Admin --> UC_AsignarRol
-Admin --> UC_Consultar
-
+    Administrador --> UsuariosCrear
+    Administrador --> UsuariosConsultar
+    Administrador --> UsuariosEditar
 @enduml
