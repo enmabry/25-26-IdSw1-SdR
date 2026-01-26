@@ -22,8 +22,8 @@
 
 ## Matriculas
 
-![Ver Detalle Matricula](./verDetalleMatricula.svg)
-📄 [SVG](./verDetalleMatricula.svg) | 📋 [PUML](./verDetalleMatricula.puml)
+![Ver Detalle Matricula](./consultarDetalleMatricula.svg)
+📄 [SVG](./consultarDetalleMatricula.svg) | 📋 [PUML](./consultarDetalleMatricula.puml)
 
 ![Importar Matriculas](./importarMatriculas.svg)
 📄 [SVG](./importarMatriculas.svg) | 📋 [PUML](./importarMatricula.puml)
