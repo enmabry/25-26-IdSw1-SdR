@@ -8,7 +8,7 @@ Para la realización de este proyecto, se declara el uso de herramientas de Inte
 
 ### 1. Generación de Bases e Ideación
 * Se utilizaron modelos de lenguaje para el *brainstorming* inicial y la definición del **Contexto del Problema**.
-* La IA colaboró en la identificación de puntos críticos como las **listas dinámicas** y la gestión de **ingresos tardíos**.
+* La IA colaboró en la identificación de puntos críticos.
 
 ### 2. Apoyo en el Modelado y Diagramación
 * Se empleó IA para el refinamiento de la sintaxis en **PlantUML**, asegurando la legibilidad de los diagramas de estados y clases.
