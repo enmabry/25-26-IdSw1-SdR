@@ -159,16 +159,6 @@
 
 [![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/editarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
-<a name="DetalladoGuardarUsuario"></a>
-
-### Guardar Usuario
-
-<p align="center">
-  <img src="./Administrador/guardarUsuario.svg">
-</p>
-
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/guardarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
-
 <a name="DetalladoConsultarUsuario"></a>
 
 ### Consultar Usuario
@@ -178,16 +168,6 @@
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/consultarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
-
-<a name="DetalladoCerrarUsuario"></a>
-
-### Cerrar Usuario
-
-<p align="center">
-  <img src="./Administrador/cerrarUsuario.svg">
-</p>
-
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/Administrador/Administrador.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./Administrador/cerrarUsuario.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 
@@ -340,16 +320,6 @@
 </p>
 
 [![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/GuardarSolicitud.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
-
-<a name="DetalladoCerrarSolicitud"></a>
-
-### Cerrar Solicitud
-
-<p align="center">
-  <img src="./DirectorDeGrado/CerrarSolicitud.svg">
-</p>
-
-[![](https://img.shields.io/badge/-Ver_Caso_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/DirectorDeGrado/DirectorDeGrado.svg) [![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DirectorDeGrado/CerrarSolicitud.puml) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
 
 ---
 

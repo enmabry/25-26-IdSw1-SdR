@@ -1,4 +1,4 @@
-@startuml DiagramaDeCasosDeUsoProfesor
+@startuml
 left to right direction
 skinparam packageStyle rectangle
 
@@ -9,7 +9,7 @@ actor Profesor
     }
 
     package "Alumnos" {
-        usecase "verDetalleAlumno()"  as AlumnosVerDetalle
+        usecase "consultarDetalleAlumno()"  as AlumnosConsultarDetalle
     }
 
     package "Asistencias" {
@@ -26,7 +26,7 @@ actor Profesor
 
     Profesor --> ListasConsultarLista
 
-    Profesor --> AlumnosVerDetalle
+    Profesor --> AlumnosConsultarDetalle
 
     Profesor --> AsistenciasCrearSesion
     Profesor --> AsistenciasEditarSesion

@@ -1,45 +1,64 @@
-@startuml
+@startuml CrearUsuario
+title Crear Usuario 
 
-title Crear Usuario
-skinparam linetype polyline
+' --- CONFIGURACIÓN DE ESTILO ---
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
 
-state USUARIOS_ABIERTO_INICIAL as "USUARIOS_ABIERTO"
-state USUARIO_ABIERTO_FINAL as "USUARIO_ABIERTO"
+' Definición de Estados Macro
+state USUARIOS_ABIERTO_INICIAL  as "USUARIOS_ABIERTO"
+state USUARIOS_ABIERTO_FINAL  as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO_COMP      as "USUARIO_ABIERTO"
+state USUARIOS_ABIERTO_FINAL    as "USUARIOS_ABIERTO"
 
-USUARIOS_ABIERTO_INICIAL -[#green]-> crearUsuario
+[*] -[#green]-> USUARIOS_ABIERTO_INICIAL
 
-state crearUsuario as "crearUsuario()" {
+' Transición inicial
+USUARIOS_ABIERTO_INICIAL -[#green]-> USUARIO_ABIERTO_COMP : crearUsuario()
+note left on link
+    <b>Administrador solicita</b> crear un nuevo usuario.
+    <b>Sistema permite</b> el acceso al formulario de 
+    registro (Contexto: USUARIO_ABIERTO).
+end note
 
-    state " " as FormularioDatos
-    state " " as UsuarioRegistrado
-
-    [*] -[#green]-> FormularioDatos
-    note on link
-    <b>Administrador</b> solicita registrar
-    un nuevo usuario en el sistema end note
-
-    end note
-
-    FormularioDatos -[#green]-> UsuarioRegistrado
-    note on link
-    <b>Sistema</b> presenta formulario en blanco
+' Comportamiento interno (Reutilizando el concepto de Edición)
+state USUARIO_ABIERTO_COMP {
+    state FormularioRegistro as "Edición de Usuario"
     
-    <b>Administrador</b> introduce datos:
-    • Nombre de usuario y Contraseña
-    • Otros datos
-
-    <b>Sistema</b> valida y crea la cuenta
+    ' Actividad interna del método
+    FormularioRegistro :
+    
+    [*] -[#green]-> FormularioRegistro
+    
+    note right of FormularioRegistro
+        <b>Administrador solicita</b> introducir información:
+        • Credenciales (User/Pass).
+        • Datos Personales y Roles.
+        <b>Sistema permite</b> la carga mediante
+        **editarUsuario()**.
     end note
-
-    UsuarioRegistrado -[#green]-> [*]
-    note on link
-    <b>Sistema</b> confirma la creación
-
-    <b>Sistema</b> cambia el contexto a USUARIO_ABIERTO
-    end note
-
+    
+    FormularioRegistro -[#green]-> [*]
 }
 
-crearUsuario -[#green]-> USUARIO_ABIERTO_FINAL
+' Salidas definitivas
+USUARIO_ABIERTO_COMP -[#green]---> USUARIOS_ABIERTO_FINAL : guardarUsuario()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Administrador solicita</b> registrar el alta.
+    <b>Sistema permite</b> guardar el nuevo usuario
+    y actualiza el listado.
+end note
 
+USUARIO_ABIERTO_COMP -[#red]---> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
+note right on link
+    <b>CERRAR:</b>
+    <b>Administrador solicita</b> cerrar, pero no evita la creación.
+    <b>Sistema permite</b> descartar los datos
+    extra.
+end note
+
+USUARIOS_ABIERTO_FINAL -[#blue]-> [*]
 @enduml

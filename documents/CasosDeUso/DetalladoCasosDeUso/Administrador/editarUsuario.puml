@@ -1,46 +1,60 @@
-@startuml Editar_Usuario
-title Editar Usuario
-skinparam linetype polyline
+@startuml  editarUsuario
+title Editar Usuario 
 
-state USUARIO_ABIERTO_INICIAL as "USUARIO_ABIERTO"
-state USUARIO_ABIERTO_FINAL   as "USUARIO_ABIERTO"
+' --- CONFIGURACIÓN DE ESTILO ---
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
 
-USUARIO_ABIERTO_INICIAL -[#green]-> editarUsuario
+' Definición de Estados
+state USUARIOS_ABIERTO_LISTADO    as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO_COMP        as "USUARIO_ABIERTO"
+state USUARIOS_ABIERTO_FINAL      as "USUARIOS_ABIERTO"
 
-state editarUsuario as "editarUsuario()" {
+[*] -[#green]-> USUARIOS_ABIERTO_LISTADO
 
-    state " " as RecuperacionDatos
-    state " " as EdicionEnCurso
+' Transición de entrada unificada (como en tu imagen de contexto)
+USUARIOS_ABIERTO_LISTADO -[#green]-> USUARIO_ABIERTO_COMP : crearUsuario() / consultarUsuario()
+note left on link
+    <b>Administrador solicita</b> gestionar un usuario.
+    <b>Sistema permite</b> el acceso a la ficha 
+    (Contexto: USUARIO_ABIERTO).
+end note
 
-    [*] -[#green]-> RecuperacionDatos
-    note on link
-      <b>Administrador</b> decide modificar la información
-      de un usuario ya abierto en USUARIO_ABIERTO.
+' Comportamiento interno
+state USUARIO_ABIERTO_COMP {
+    state ModificacionDatos as "Edición de Usuario"
+    
+    ' Actividad interna (el auto-llamado de tu imagen)
+    ModificacionDatos : editarUsuario()
+    
+    [*] -[#green]-> ModificacionDatos
+    
+    note right of ModificacionDatos
+        <b>Administrador solicita</b> modificar la información.
+        <b>Sistema permite</b> la carga de datos mediante
+        **editarUsuario()**.
     end note
-
-    RecuperacionDatos -[#green]-> EdicionEnCurso
-    note on link
-      <b>Sistema</b> mantiene el formulario del usuario
-      con los datos actuales y habilita los campos
-      para su edición.
-
-      <b>Administrador</b> puede:
-      • actualizar datos básicos (nombre, email, etc.)
-      • asignar o cambiar roles del usuario
-      • marcar al usuario como activo / desactivado
-      (desactivarUsuario()).
-    end note
-
-    EdicionEnCurso -[#green]-> [*]
-    note on link
-      <b>Sistema</b> valida la información editada y
-      mantiene el contexto en USUARIO_ABIERTO.
-
-      A partir de aquí el Administrador podrá:
-      • guardarUsuario() para persistir los cambios
-      • cerrarUsuario() para salir sin seguir editando.
-    end note
+    
+    ModificacionDatos -[#green]-> [*]
 }
 
-editarUsuario -[#green]-> USUARIO_ABIERTO_FINAL
+' Salidas definitivas hacia el listado
+USUARIO_ABIERTO_COMP -[#green]---> USUARIOS_ABIERTO_FINAL : guardarUsuario()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Administrador solicita</b> salvar cambios.
+    <b>Sistema permite</b> validar y persistir.
+end note
+
+USUARIO_ABIERTO_COMP -[#red]---> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
+note right on link
+    <b>CERRAR:</b>
+    <b>Administrador solicita</b> salir de la ficha.
+    <b>Sistema permite</b> descartar cambios extra
+    sin evitar la creación inicial.
+end note
+
+USUARIOS_ABIERTO_FINAL -[#blue]-> [*]
 @enduml

@@ -1,35 +1,33 @@
 @startuml
-title Cerrar Sesion Clase
-
+title Cerrar Sesión Clase
 skinparam linetype polyline
 
-state SESION_ASISTENCIA_ABIERTA_INICIAL as "SESION_ASISTENCIA_ABIERTA"
-state ASISTENCIAS_ABIERTO_FINAL as "ASISTENCIAS_ABIERTO"
+state SESION_ACTUAL_INICIAL as "SESION_ASISTENCIA_ABIERTA"
+state PROCESO_CIERRE_COMP   as "FINALIZANDO_SESION"
+state ASISTENCIAS_FINAL     as "ASISTENCIAS_ABIERTO"
 
-SESION_ASISTENCIA_ABIERTA_INICIAL -[#green]-> cerrarSesionClase
+[*] -[#green]-> SESION_ACTUAL_INICIAL
 
-state cerrarSesionClase as "cerrarSesionClase()" {
+SESION_ACTUAL_INICIAL -[#green]-> PROCESO_CIERRE_COMP : cerrarSesionClase()
+note on link
+<b>Profesor solicita</b> cerrar la sesión actual.
+end note
 
-    state " " as ConfirmacionSalida
-    state " " as LimpiandoVista
+state PROCESO_CIERRE_COMP {
 
-    [*] -[#green]-> ConfirmacionSalida
+
+    [*] -[#green]-> [*]
     note on link
-    <b>Profesor</b> solicita salir de la toma de asistencia
-    end note
-
-    ConfirmacionSalida -[#green]-> LimpiandoVista
-    note on link
-    <b>Sistema</b> verifica que no haya cambios sin guardar
-    end note
-
-    LimpiandoVista -[#green]-> [*]
-    note on link
-    <b>Sistema</b> redirige al panel principal de asistencias
+    <b>Sistema presenta</b> la hora de finalización
+    y <b>visualiza</b> la sesión como concluida.
     end note
 
 }
 
-cerrarSesionClase -[#green]-> ASISTENCIAS_ABIERTO_FINAL
+PROCESO_CIERRE_COMP -[#green]-> ASISTENCIAS_FINAL
+note on link
+<b>Sistema muestra</b> el listado de 
+ASISTENCIAS_ABIERTO actualizado.
+end note
 
 @enduml
