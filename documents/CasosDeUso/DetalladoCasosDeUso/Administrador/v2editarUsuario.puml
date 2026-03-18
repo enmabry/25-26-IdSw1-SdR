@@ -1,0 +1,38 @@
+@startuml editarUsuario
+title Editar Usuario 
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
+state USUARIOS_ABIERTO_LISTADO    as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO        as "USUARIO_ABIERTO"
+state USUARIOS_ABIERTO_FINAL      as "USUARIOS_ABIERTO"
+[*] -[#green]-> USUARIOS_ABIERTO_LISTADO
+USUARIOS_ABIERTO_LISTADO -[#green]-> USUARIO_ABIERTO : crearUsuario() / consultarUsuario()
+note left on link
+    <b>Administrador solicita</b> gestionar un usuario.
+    <b>Sistema presenta</b> la ficha del usuario.
+end note
+state USUARIO_ABIERTO {
+    state ModificacionDatos as "Edición de Usuario"
+    [*] -[#green]-> ModificacionDatos
+note right of ModificacionDatos
+        <b>Administrador introduce</b> los cambios en la información.
+        <b>Sistema permite solicitar</b> editarUsuario().
+end note
+    ModificacionDatos -[#green]-> [*]
+}
+USUARIO_ABIERTO -[#green]---> USUARIOS_ABIERTO_FINAL : guardarUsuario()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Administrador solicita</b> salvar cambios.
+    <b>Sistema registra</b> los cambios del usuario.
+end note
+USUARIO_ABIERTO -[#red]---> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
+note right on link
+    <b>CERRAR:</b>
+    <b>Administrador solicita</b> salir de la ficha.
+    <b>Sistema descarta</b> los cambios introducidos.
+end note
+USUARIOS_ABIERTO_FINAL -[#blue]-> [*]
+@enduml

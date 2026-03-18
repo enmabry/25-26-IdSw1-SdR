@@ -1,0 +1,40 @@
+@startuml CrearUsuario
+title Crear Usuario 
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
+state USUARIOS_ABIERTO_INICIAL  as "USUARIOS_ABIERTO"
+state USUARIOS_ABIERTO_FINAL    as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO_COMP      as "USUARIO_ABIERTO"
+[*] -[#green]-> USUARIOS_ABIERTO_INICIAL
+USUARIOS_ABIERTO_INICIAL -[#green]-> USUARIO_ABIERTO_COMP : crearUsuario()
+note left on link
+    <b>Administrador solicita</b> crear un nuevo usuario.
+    <b>Sistema presenta</b> el formulario de registro de usuario.
+end note
+state USUARIO_ABIERTO_COMP {
+    state FormularioRegistro as "Edición de Usuario"
+    [*] -[#green]-> FormularioRegistro
+note right of FormularioRegistro
+        <b>Administrador introduce:</b>
+        • Credenciales (User/Pass).
+        • Datos Personales y Roles.
+        <b>Sistema permite solicitar</b> editarUsuario().
+end note
+    FormularioRegistro -[#green]-> [*]
+}
+USUARIO_ABIERTO_COMP -[#green]---> USUARIOS_ABIERTO_FINAL : guardarUsuario()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Administrador solicita</b> registrar el alta.
+    <b>Sistema registra</b> el nuevo usuario.
+end note
+USUARIO_ABIERTO_COMP -[#red]---> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
+note right on link
+    <b>CERRAR:</b>
+    <b>Administrador solicita</b> cerrar sin guardar.
+    <b>Sistema descarta</b> los datos introducidos.
+end note
+USUARIOS_ABIERTO_FINAL -[#blue]-> [*]
+@enduml

@@ -1,0 +1,40 @@
+@startuml consultarUsuario
+title Consultar Usuario
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
+state USUARIOS_ABIERTO_INICIAL as "USUARIOS_ABIERTO"
+state USUARIO_ABIERTO    as "USUARIO_ABIERTO"
+state USUARIOS_ABIERTO_FINAL   as "USUARIOS_ABIERTO"
+[*] -[#green]-> USUARIOS_ABIERTO_INICIAL
+USUARIOS_ABIERTO_INICIAL -[#green]-> USUARIO_ABIERTO : consultarUsuario()
+note left on link
+    <b>Administrador solicita</b> consultar el detalle de un usuario.
+    <b>Sistema presenta</b> la ficha completa
+    (Datos, Roles y Permisos).
+end note
+state USUARIO_ABIERTO {
+    state VisualizacionDatos as "Visualización de Usuario"
+    [*] -[#green]-> VisualizacionDatos
+note right of VisualizacionDatos
+        <b>Sistema muestra</b> las credenciales del usuario.
+        <b>Sistema permite solicitar</b> gestionar cambios mediante
+        editarUsuario().
+end note
+    VisualizacionDatos -[#green]-> [*]
+}
+USUARIO_ABIERTO -[#green]---> USUARIOS_ABIERTO_FINAL : guardarUsuario()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Administrador solicita</b> registrar cambios.
+    <b>Sistema registra</b> los cambios del usuario.
+end note
+USUARIO_ABIERTO -[#red]---> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
+note right on link
+    <b>CERRAR:</b>
+    <b>Administrador solicita</b> salir de la ficha.
+    <b>Sistema presenta</b> el listado general de usuarios.
+end note
+USUARIOS_ABIERTO_FINAL -[#blue]-> [*]
+@enduml
