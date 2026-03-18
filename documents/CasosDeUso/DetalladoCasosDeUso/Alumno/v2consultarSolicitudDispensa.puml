@@ -1,0 +1,38 @@
+@startuml ConsultarSolicitudDispensa
+title Consultar solicitud de dispensa
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
+state DISPENSAS_ABIERTO_INICIAL          as "DISPENSAS_ABIERTO"
+state SOLICITUD_DISPENSA_ABIERTA    as "SOLICITUD_DISPENSA_ABIERTA"
+state DISPENSAS_ABIERTO_FINAL            as "DISPENSAS_ABIERTO"
+[*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
+DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA : consultarSolicitudDispensa()
+note left on link
+    <b>Alumno solicita</b> seleccionar una solicitud.
+    <b>Sistema presenta</b> el detalle de la solicitud.
+end note
+state SOLICITUD_DISPENSA_ABIERTA {
+    state SolicitarEditarSolicitud as "Visualización y Edición"
+    [*] -[#green]-> SolicitarEditarSolicitud
+    note right of SolicitarEditarSolicitud
+        <b>Sistema muestra</b> los datos de la solicitud.
+        <b>Sistema permite solicitar</b> editarSolicitudDispensa().
+    end note
+    SolicitarEditarSolicitud -[#green]-> [*]
+}
+SOLICITUD_DISPENSA_ABIERTA -[#green]---> DISPENSAS_ABIERTO_FINAL : guardarSolicitudDispensa()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Alumno solicita</b> registrar cambios.
+    <b>Sistema registra</b> los cambios de la solicitud.
+end note
+SOLICITUD_DISPENSA_ABIERTA -[#red]---> DISPENSAS_ABIERTO_FINAL : cerrarSolicitudDispensa()
+note right on link
+    <b>CERRAR:</b>
+    <b>Alumno solicita</b> salir del detalle.
+    <b>Sistema descarta</b> los cambios introducidos.
+end note
+DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
+@enduml

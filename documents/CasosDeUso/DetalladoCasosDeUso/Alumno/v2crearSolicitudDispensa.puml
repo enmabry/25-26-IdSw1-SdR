@@ -1,0 +1,40 @@
+@startuml crearSolicitudDispensa
+title Crear solicitud de dispensa
+skinparam nodesep 100 
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
+state DISPENSAS_ABIERTO_INICIAL          as "DISPENSAS_ABIERTO"
+state SOLICITUD_DISPENSA_ABIERTA    as "SOLICITUD_DISPENSA_ABIERTA"
+state DISPENSAS_ABIERTO_FINAL            as "DISPENSAS_ABIERTO"
+[*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
+DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA : crearSolicitudDispensa()
+note left on link
+    <b>Alumno solicita</b> crear una dispensa.
+    <b>Sistema presenta</b> el formulario de creación de dispensa.
+end note
+state SOLICITUD_DISPENSA_ABIERTA {
+    state FormularioEdicion as "Edición de Dispensa"
+    [*] -[#green]-> FormularioEdicion
+note right of FormularioEdicion
+        <b>Alumno introduce:</b>
+        • Motivo de la dispensa.
+        • Documentación de soporte.
+        <b>Sistema permite solicitar</b> editarSolicitudDispensa().
+end note
+    FormularioEdicion -[#green]-> [*]
+}
+SOLICITUD_DISPENSA_ABIERTA -[#green]---> DISPENSAS_ABIERTO_FINAL : guardarSolicitudDispensa()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Alumno solicita</b> registrar cambios.
+    <b>Sistema registra</b> la nueva solicitud.
+end note
+SOLICITUD_DISPENSA_ABIERTA -[#red]---> DISPENSAS_ABIERTO_FINAL : cerrarSolicitudDispensa()
+note right on link
+    <b>CERRAR:</b>
+    <b>Alumno solicita</b> salir del formulario.
+    <b>Sistema descarta</b> los datos introducidos.
+end note
+DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
+@enduml
