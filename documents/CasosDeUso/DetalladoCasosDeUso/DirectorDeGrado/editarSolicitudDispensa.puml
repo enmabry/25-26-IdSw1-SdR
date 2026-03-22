@@ -13,15 +13,13 @@ skinparam {
 state "SOLICITUD_DISPENSA_ABIERTA" as startState <<sdlreceive>>
 state "SOLICITUD_DISPENSA_ABIERTA" as endState <<sdlreceive>>
 
-[*] -[#green]-> startState
-
-startState -[#green]-> EDITAR_SOLICITUD_DISPENSA
+DISPENSAS_ABIERTO -[#green]-> SOLICITUD_DISPENSA_ABIERTA
 note on link
-    editarSolicitudDispensa()
+    consultarSolicitudDispensa()
 end note
 
-state EDITAR_SOLICITUD_DISPENSA {
-    [*] -[#green]-> RevisarSolicitud
+state SOLICITUD_DISPENSA_ABIERTA {
+    [*] -[#green]-> VisualizacionSolicitud
     
     state "Revisión de Solicitud" as RevisarSolicitud <<sdlreceive>>
     note left of RevisarSolicitud
@@ -29,50 +27,29 @@ state EDITAR_SOLICITUD_DISPENSA {
         Sistema <b>permite</b> el acceso y retornar datos.
     end note
     
-    RevisarSolicitud -[#green]-> ModificarEstadoYDatos
+    VisualizacionSolicitud -[#green]-> EdicionSolicitud
     note on link
-        modificarDatosSolicitud()
+        editarSolicitudDispensa()
     end note
     
-    state "Modificación de Estado y Datos" as ModificarEstadoYDatos <<sdlreceive>>
-    note right of ModificarEstadoYDatos
+    state "Edición de Solicitud" as EdicionSolicitud
+    note right of EdicionSolicitud
         Director de Grado <b>solicita</b> modificar:
         • Estado (Aprobar/Rechazar)
         • Observaciones o motivo
         • Otros campos editables
-        Sistema <b>permite</b> la edición y
-        <b>valida</b> los cambios introducidos.
-    end note
-    
-    ModificarEstadoYDatos -[#green]-> GuardarCambios
-    
-    state "Guardar Cambios" as GuardarCambios <<sdlreceive>>
-    note left of GuardarCambios
-        GUARDAR:
-        Director de Grado <b>solicita</b> guardar cambios.
-        Sistema <b>permite</b> registrar y guardar.
-        
-        guardarSolicitudDispensa()
-    end note
-    
-    GuardarCambios -[#green]-> [*]
-    note on link
-        Sistema <b>actualiza</b> el estado y datos,
-        <b>registra</b> fecha y responsable, y
-        <b>notifica</b> al alumno.
-    end note
-    
-    ModificarEstadoYDatos -[#red]-> [*]
-    note on link
-        CANCELAR:
-        Director de Grado <b>solicita</b> salir.
-        Sistema <b>permite</b> descartar cambios.
-        
-        cerrarSolicitudDispensa()
+        Sistema <b>permite</b> la edición de campos.
     end note
 }
 
-EDITAR_SOLICITUD_DISPENSA -[#green]-> endState
+SOLICITUD_DISPENSA_ABIERTA -[#green]-> DISPENSAS_ABIERTO_FINAL
+note on link
+    GUARDAR:
+    Director de Grado <b>solicita</b> guardar cambios.
+    Sistema <b>permite</b> confirmar modificación.
+    
+    guardarSolicitudDispensa()
+end note
 
 endState -[#green]-> [*]
 @enduml
