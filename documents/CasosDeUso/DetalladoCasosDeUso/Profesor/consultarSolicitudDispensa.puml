@@ -1,41 +1,39 @@
-@startuml
+@startuml consultarSolicitudDispensa_profesor
 title Consultar Solicitud Dispensa
-skinparam linetype polyline
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
 
 state DISPENSAS_ABIERTO_INICIAL       as "DISPENSAS_ABIERTO"
-state DISPENSAS_ABIERTO_FINAL       as "DISPENSAS_ABIERTO"
+state DISPENSAS_ABIERTO_FINAL         as "DISPENSAS_ABIERTO"
 state SOLICITUD_DISPENSA_ABIERTA_COMP as "SOLICITUD_DISPENSA_ABIERTA"
 
 [*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
 
 DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA_COMP : consultarSolicitudDispensa()
-note on link
-<b>Profesor</b> se encuentra en DISPENSAS_ABIERTO
-y <b>solicita</b> consultar el detalle de una solicitud específica.
-
-<b>Sistema muestra</b> SOLICITUD_DISPENSA_ABIERTA.
+note left on link
+    <b>Profesor solicita</b> consultar el detalle de una solicitud.
+    <b>Sistema presenta</b> el detalle de la solicitud.
 end note
 
-state SOLICITUD_DISPENSA_ABIERTA_COMP as "SOLICITUD_DISPENSA_ABIERTA" {
-
-    state VisualizacionDetalle
-
+state SOLICITUD_DISPENSA_ABIERTA_COMP {
+    state VisualizacionDetalle as "Visualización de Detalle"
     [*] -[#green]-> VisualizacionDetalle
-    note on link
-    <b>Sistema</b> muestra todos los datos de la solicitud:
-    • Alumno solicitante y Motivo
-    • Estado actual y Documentación adjunta
+    note right of VisualizacionDetalle
+        <b>Sistema muestra</b> los datos de la solicitud:
+        • Alumno solicitante y motivo.
+        • Estado actual y documentación adjunta.
     end note
-
     VisualizacionDetalle -[#green]-> [*]
-    note on link
-    <b>Profesor solicita</b> realizar una acción.
-    end note
 }
 
 SOLICITUD_DISPENSA_ABIERTA_COMP -[#red]-> DISPENSAS_ABIERTO_FINAL : cerrarSolicitud()
-note on link
-<b>Sistema muestra</b> nuevamente el listado en DISPENSAS_ABIERTO.
+note left on link
+    <b>Profesor solicita</b> salir del detalle.
+    <b>Sistema muestra</b> el listado de dispensas.
 end note
+
+DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
 
 @enduml

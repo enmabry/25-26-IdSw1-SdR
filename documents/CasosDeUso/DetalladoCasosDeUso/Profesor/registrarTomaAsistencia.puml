@@ -1,43 +1,48 @@
-@startuml
+@startuml registrarTomaAsistencia
 title Registrar Toma Asistencia
-skinparam linetype polyline
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
 
-state SESION_ACTUAL_INICIAL as "SESION_ASISTENCIA_ABIERTA"
-state PROCESO_TOMA_COMP     as "SESION_ASISTENCIA_ABIERTA"
-state SESION_ACTUAL_FINAL   as "SESION_ASISTENCIA_ABIERTA"
+state SESION_ASISTENCIA_ABIERTA_INICIAL as "SESION_ASISTENCIA_ABIERTA"
+state TOMA_ASISTENCIA_COMP             as "SESION_ASISTENCIA_ABIERTA"
+state SESION_ASISTENCIA_ABIERTA_FINAL  as "SESION_ASISTENCIA_ABIERTA"
 
-[*] -[#green]-> SESION_ACTUAL_INICIAL
+[*] -[#green]-> SESION_ASISTENCIA_ABIERTA_INICIAL
 
-SESION_ACTUAL_INICIAL -[#green]-> PROCESO_TOMA_COMP : registrarTomaAsistencia()
-note on link
-<b>Profesor</b> se encuentra en una clase activa
-y <b>solicita</b> pasar lista a los alumnos.
-
-<b>Sistema presenta</b> el listado para su edición.
+SESION_ASISTENCIA_ABIERTA_INICIAL -[#green]-> TOMA_ASISTENCIA_COMP : registrarTomaAsistencia()
+note left on link
+    <b>Profesor solicita</b> registrar la toma de asistencia.
+    <b>Sistema presenta</b> el listado de alumnos.
 end note
 
-state PROCESO_TOMA_COMP {
-
-    state VisualizacionListado
-
+state TOMA_ASISTENCIA_COMP {
+    state VisualizacionListado as "Visualización de Listado"
     [*] -[#green]-> VisualizacionListado
-    note on link
-    <b>Sistema</b> muestra el listado de alumnos matriculados.
+    note right of VisualizacionListado
+        <b>Sistema muestra</b> el listado de alumnos matriculados.
+        <b>Profesor introduce</b> el estado de cada alumno:
+        • Presente / Ausente / Tarde.
+        • Justificación (si aplica).
     end note
-
     VisualizacionListado -[#green]-> [*]
-    note on link
-    <b>Sistema permite introducir</b> el estado de cada alumno.
-
-    <b>Profesor introduce</b> los cambios necesarios:
-    • Presente / Ausente / Tarde
-    • Justificación (si aplica)
-    end note
 }
 
-PROCESO_TOMA_COMP -[#green]-> SESION_ACTUAL_FINAL
-note on link
-<b>Sistema muestra</b> nuevamente la vista de la clase actualizada.
+TOMA_ASISTENCIA_COMP -[#green]---> SESION_ASISTENCIA_ABIERTA_FINAL : guardarAsistencia()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Profesor solicita</b> guardar la asistencia.
+    <b>Sistema registra</b> la asistencia de la sesión.
 end note
+
+TOMA_ASISTENCIA_COMP -[#red]---> SESION_ASISTENCIA_ABIERTA_FINAL : cancelarAsistencia()
+note right on link
+    <b>CANCELAR:</b>
+    <b>Profesor solicita</b> cancelar el registro.
+    <b>Sistema descarta</b> los cambios introducidos.
+end note
+
+SESION_ASISTENCIA_ABIERTA_FINAL -[#blue]-> [*]
 
 @enduml

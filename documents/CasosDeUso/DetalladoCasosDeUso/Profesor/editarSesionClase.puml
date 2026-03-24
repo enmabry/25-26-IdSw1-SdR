@@ -1,46 +1,48 @@
-@startuml
+@startuml editarSesionClase
 title Editar Sesión Clase
-skinparam linetype polyline
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
 
-state SESION_ACTUAL_INICIAL as "SESION_ASISTENCIA_ABIERTA"
-state PROCESO_EDICION_COMP  as "SESION_ASISTENCIA_ABIERTA"
-state SESION_ACTUAL_FINAL   as "SESION_ASISTENCIA_ABIERTA"
+state SESION_ASISTENCIA_ABIERTA_INICIAL as "SESION_ASISTENCIA_ABIERTA"
+state EDITAR_SESION_COMP               as "SESION_ASISTENCIA_ABIERTA"
+state SESION_ASISTENCIA_ABIERTA_FINAL  as "SESION_ASISTENCIA_ABIERTA"
 
-[*] -[#green]-> SESION_ACTUAL_INICIAL
+[*] -[#green]-> SESION_ASISTENCIA_ABIERTA_INICIAL
 
-SESION_ACTUAL_INICIAL -[#green]-> PROCESO_EDICION_COMP : editarSesionClase()
-note on link
-<b>Profesor</b> se encuentra en una sesión activa
-y <b>solicita</b> modificar los detalles de la clase.
-
-<b>Sistema permite introducir</b> las modificaciones
-en los campos informativos.
+SESION_ASISTENCIA_ABIERTA_INICIAL -[#green]-> EDITAR_SESION_COMP : editarSesionClase()
+note left on link
+    <b>Profesor solicita</b> editar la sesión de clase.
+    <b>Sistema presenta</b> los datos de la sesión.
 end note
 
-state PROCESO_EDICION_COMP {
-
-    state ModificacionDatos
-
+state EDITAR_SESION_COMP {
+    state ModificacionDatos as "Modificación de Datos"
     [*] -[#green]-> ModificacionDatos
-    note on link
-    <b>Sistema</b> permite introducir los nuevos datos.
-
-    <b>Profesor</b> introduce la información necesaria.
+    note right of ModificacionDatos
+        <b>Profesor introduce</b> la información actualizada:
+        • Asignatura, grupo y aula.
+        • Fecha, hora y tema.
+        <b>Sistema muestra</b> el resumen de los cambios.
     end note
-
     ModificacionDatos -[#green]-> [*]
-    note on link
-    <b>Sistema visualiza</b> los cambios para confirmación.
-    
-    <b>Profesor solicita</b> guardar los cambios.
-    end note
-
 }
 
-PROCESO_EDICION_COMP -[#green]-> SESION_ACTUAL_FINAL
-note on link
-<b>Sistema muestra</b> nuevamente la vista de la clase
-con los cambios aplicados.
+EDITAR_SESION_COMP -[#green]---> SESION_ASISTENCIA_ABIERTA_FINAL : guardarSesionClase()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Profesor solicita</b> guardar los cambios.
+    <b>Sistema registra</b> los cambios de la sesión.
 end note
+
+EDITAR_SESION_COMP -[#red]---> SESION_ASISTENCIA_ABIERTA_FINAL : cerrarEdicion()
+note right on link
+    <b>CANCELAR:</b>
+    <b>Profesor solicita</b> salir sin guardar.
+    <b>Sistema descarta</b> los cambios introducidos.
+end note
+
+SESION_ASISTENCIA_ABIERTA_FINAL -[#blue]-> [*]
 
 @enduml

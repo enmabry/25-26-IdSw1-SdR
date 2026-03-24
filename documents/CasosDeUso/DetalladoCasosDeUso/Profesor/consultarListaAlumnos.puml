@@ -1,41 +1,39 @@
-@startuml
+@startuml consultarListaAlumnos
 title Consultar Lista Alumnos
-skinparam linetype polyline
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
 
 state LISTAS_ABIERTO_INICIAL as "LISTAS_ABIERTO"
-state LISTAS_ABIERTO_FINAL as "LISTAS_ABIERTO"
-state LISTA_ABIERTA as "LISTA_ABIERTA"
+state LISTAS_ABIERTO_FINAL   as "LISTAS_ABIERTO"
+state LISTA_ABIERTA_COMP     as "LISTA_ABIERTA"
 
 [*] -[#green]-> LISTAS_ABIERTO_INICIAL
 
-LISTAS_ABIERTO_INICIAL -[#green]-> LISTA_ABIERTA : consultarListaAlumnos()
-note on link
-<b>Profesor</b> se encuentra en LISTAS_ABIERTO
-y <b>solicita</b> consultar el listado de un curso específico.
-
-<b>Sistema muestra</b> LISTA_ABIERTA.
+LISTAS_ABIERTO_INICIAL -[#green]-> LISTA_ABIERTA_COMP : consultarListaAlumnos()
+note left on link
+    <b>Profesor solicita</b> consultar la lista de alumnos de un curso.
+    <b>Sistema presenta</b> la lista de alumnos.
 end note
 
-state LISTA_ABIERTA as "LISTA_ABIERTA" {
-
-    state VisualizacionListado
-
+state LISTA_ABIERTA_COMP {
+    state VisualizacionListado as "Visualización de Listado"
     [*] -[#green]-> VisualizacionListado
-    note on link
-    <b>Sistema muestra</b> la lista de alumnos matriculados:
-    • Nombres, Apellidos e Identificadores
-    • Estado de la matrícula
+    note right of VisualizacionListado
+        <b>Sistema muestra</b> la lista de alumnos matriculados:
+        • Nombres, apellidos e identificadores.
+        • Estado de la matrícula.
     end note
-
     VisualizacionListado -[#green]-> [*]
-    note on link
-    <b>Profesor solicita</b> realizar una acción.
-    end note
 }
 
-LISTA_ABIERTA -[#red]-> LISTAS_ABIERTO_FINAL : cerrarLista()
-note on link
-<b>Sistema muestra</b> nuevamente el menú general en LISTAS_ABIERTO.
+LISTA_ABIERTA_COMP -[#red]-> LISTAS_ABIERTO_FINAL : cerrarLista()
+note left on link
+    <b>Profesor solicita</b> salir de la lista.
+    <b>Sistema muestra</b> el listado de listas de alumnos.
 end note
+
+LISTAS_ABIERTO_FINAL -[#blue]-> [*]
 
 @enduml

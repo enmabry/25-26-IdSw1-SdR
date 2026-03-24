@@ -1,42 +1,48 @@
-@startuml
+@startuml exportarHistorialAsistencias
 title Exportar Historial Asistencias
-skinparam linetype polyline
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
 
 state ASISTENCIAS_ABIERTO_INICIAL as "ASISTENCIAS_ABIERTO"
-state PROCESO_EXPORTACION_COMP    as "EXPORTANDO_HISTORIAL"
+state EXPORTACION_COMP            as "ASISTENCIAS_ABIERTO"
 state ASISTENCIAS_ABIERTO_FINAL   as "ASISTENCIAS_ABIERTO"
 
 [*] -[#green]-> ASISTENCIAS_ABIERTO_INICIAL
 
-ASISTENCIAS_ABIERTO_INICIAL -[#green]-> PROCESO_EXPORTACION_COMP : exportarHistorialAsistencias()
-note on link
-<b>Profesor</b> se encuentra en ASISTENCIAS_ABIERTO
-y <b>solicita</b> descargar el registro de asistencias.
+ASISTENCIAS_ABIERTO_INICIAL -[#green]-> EXPORTACION_COMP : exportarHistorialAsistencias()
+note left on link
+    <b>Profesor solicita</b> exportar el historial de asistencias.
+    <b>Sistema presenta</b> los parámetros de exportación.
 end note
 
-state PROCESO_EXPORTACION_COMP {
-
-    state SeleccionParametros
-
+state EXPORTACION_COMP {
+    state SeleccionParametros as "Selección de Parámetros"
     [*] -[#green]-> SeleccionParametros
-    note on link
-    <b>Sistema permite introducir</b> el formato de salida
-    (Excel, PDF) y el rango de fechas.
-
-    <b>Profesor introduce</b> sus preferencias.
+    note right of SeleccionParametros
+        <b>Profesor introduce</b> sus preferencias:
+        • Formato de salida (Excel, PDF).
+        • Rango de fechas.
+        <b>Sistema presenta</b> el archivo generado.
     end note
-
     SeleccionParametros -[#green]-> [*]
-    note on link
-    <b>Sistema presenta</b> el archivo listo para su descarga.
-    
-    <b>Profesor solicita</b> descargar el archivo.
-    end note
 }
 
-PROCESO_EXPORTACION_COMP -[#green]-> ASISTENCIAS_ABIERTO_FINAL
-note on link
-<b>Sistema muestra</b> nuevamente el listado en ASISTENCIAS_ABIERTO.
+EXPORTACION_COMP -[#green]---> ASISTENCIAS_ABIERTO_FINAL : exportarHistorialAsistencias()
+note left on link
+    <b>EXPORTAR:</b>
+    <b>Profesor solicita</b> descargar el archivo.
+    <b>Sistema muestra</b> el listado de asistencias.
 end note
+
+EXPORTACION_COMP -[#red]---> ASISTENCIAS_ABIERTO_FINAL : cancelarExportacion()
+note right on link
+    <b>CANCELAR:</b>
+    <b>Profesor solicita</b> cancelar la exportación.
+    <b>Sistema descarta</b> los parámetros introducidos.
+end note
+
+ASISTENCIAS_ABIERTO_FINAL -[#blue]-> [*]
 
 @enduml
