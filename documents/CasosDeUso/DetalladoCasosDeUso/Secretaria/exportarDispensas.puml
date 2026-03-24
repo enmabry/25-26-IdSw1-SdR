@@ -1,109 +1,47 @@
-@startuml ExportarDispensas
-
-title Exportar dispensas
-
-' --- CONFIGURACIÓN DE ESTILO ---
-
-skinparam nodesep 120
-skinparam ranksep 120
+@startuml exportarDispensas_secretaria
+title Exportar Dispensas
+skinparam nodesep 100
+skinparam ranksep 100
 skinparam linetype ortho
 skinparam Padding 10
 
-state DISPENSAS_ABIERTO_INICIAL      as "DISPENSAS_ABIERTO"
-state EXPORTAR_DISPENSAS_COMP        as "EXPORTAR_DISPENSAS"
-state DISPENSAS_ABIERTO_FINAL        as "DISPENSAS_ABIERTO"
-state SOLICITUD_DISPENSA_ABIERTA_FINAL as "SOLICITUD_DISPENSA_ABIERTA"
+state DISPENSAS_ABIERTO_INICIAL as "DISPENSAS_ABIERTO"
+state EXPORTACION_COMP          as "DISPENSAS_ABIERTO"
+state DISPENSAS_ABIERTO_FINAL   as "DISPENSAS_ABIERTO"
 
 [*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
 
-' Entrada al caso de uso
-DISPENSAS_ABIERTO_INICIAL -[#green]-> EXPORTAR_DISPENSAS_COMP : exportarDispensas()
-
-note left of EXPORTAR_DISPENSAS_COMP
-    <b>Alumno solicita</b> exportar
-    las dispensas registradas.
-    <b>Sistema permite</b> definir
-    criterios de exportación.
+DISPENSAS_ABIERTO_INICIAL -[#green]-> EXPORTACION_COMP : exportarDispensas()
+note left on link
+    <b>Secretaría solicita</b> exportar las dispensas.
+    <b>Sistema presenta</b> los parámetros de exportación.
 end note
 
-
-state EXPORTAR_DISPENSAS_COMP {
-
-    state SolicitudFiltros   as "Selección de Filtros"
-    state ValidarFiltros     as "Validación de Filtros"
-    state SolicitudFormato   as "Selección de Formato"
-    state Descarga           as "Descarga de Archivo"
-
-    [*] -[#green]-> SolicitudFiltros
-
-    note right of SolicitudFiltros
-        <b>Sistema muestra</b> opciones
-        de filtrado y botón
-        de exportación.
+state EXPORTACION_COMP {
+    state SeleccionParametros as "Selección de Parámetros"
+    [*] -[#green]-> SeleccionParametros
+    note right of SeleccionParametros
+        <b>Secretaría introduce</b> sus preferencias:
+        • Filtros (curso, asignatura, nombre, identificador).
+        • Formato de salida (PDF, CSV).
+        <b>Sistema presenta</b> el archivo generado.
     end note
-
-    SolicitudFiltros -[#green]-> ValidarFiltros
-
-    note left of ValidarFiltros
-        <b>Alumno solicita</b> aplicar
-        criterios de búsqueda:
-        curso, asignatura,
-        nombre e identificador.
-    end note
-
-    ' Flujo alternativo: error en filtros
-    ValidarFiltros -[#red]-> SolicitudFiltros
-
-    note right of ValidarFiltros
-        <b>Sistema valida</b> los filtros.
-        <b>Si hay error:</b>
-        informa inconsistencias y
-        solicita corrección.
-    end note
-
-    ' Flujo básico: filtros válidos
-    ValidarFiltros -[#green]-> SolicitudFormato
-
-    note left of SolicitudFormato
-        <b>Sistema solicita</b> el formato
-        de salida (PDF, CSV, etc.)
-        y el nombre del archivo.
-    end note
-
-    SolicitudFormato -[#green]-> Descarga
-
-    note right of Descarga
-        <b>Alumno solicita</b> la descarga.
-        <b>Sistema permite</b> generar
-        el archivo correspondiente.
-    end note
-
-    Descarga -[#green]-> [*]
-
-    note left of Descarga
-        <b>Sistema confirma</b> la descarga
-        del archivo generado.
-    end note
+    SeleccionParametros -[#green]-> [*]
 }
 
-' --- SALIDAS DEL CASO DE USO ---
-
-EXPORTAR_DISPENSAS_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL
-
-note left of DISPENSAS_ABIERTO_FINAL
-    <b>Alumno solicita</b> regresar
-    al listado de dispensas.
+EXPORTACION_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : exportarDispensas()
+note left on link
+    <b>EXPORTAR:</b>
+    <b>Secretaría solicita</b> descargar el archivo.
+    <b>Sistema muestra</b> el listado de dispensas.
 end note
 
-
-EXPORTAR_DISPENSAS_COMP -[#green]---> SOLICITUD_DISPENSA_ABIERTA_FINAL : consultarSolicitudDispensa()
-
-note right of SOLICITUD_DISPENSA_ABIERTA_FINAL
-    <b>Alumno solicita</b> consultar
-    el detalle de una solicitud
-    específica.
+EXPORTACION_COMP -[#red]---> DISPENSAS_ABIERTO_FINAL : cancelarExportacion()
+note right on link
+    <b>CANCELAR:</b>
+    <b>Secretaría solicita</b> cancelar la exportación.
+    <b>Sistema descarta</b> los parámetros introducidos.
 end note
-
 
 DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
 

@@ -1,93 +1,48 @@
-@startuml CrearSolicitudDispensa
-
-title Crear solicitud de dispensa
-
-' --- CONFIGURACIÓN DE ESTILO ---
-
-skinparam nodesep 120
-skinparam ranksep 120
+@startuml crearSolicitudDispensa_secretaria
+title Crear Solicitud de Dispensa
+skinparam nodesep 100
+skinparam ranksep 100
 skinparam linetype ortho
 skinparam Padding 10
 
 state DISPENSAS_ABIERTO_INICIAL      as "DISPENSAS_ABIERTO"
-state SOLICITUD_DISPENSA_NUEVA_COMP  as "SOLICITUD_DISPENSA_NUEVA"
+state SOLICITUD_DISPENSA_ABIERTA_COMP as "SOLICITUD_DISPENSA_ABIERTA"
 state DISPENSAS_ABIERTO_FINAL        as "DISPENSAS_ABIERTO"
 
 [*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
 
-DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_NUEVA_COMP : crearSolicitudDispensa()
-
-note left of SOLICITUD_DISPENSA_NUEVA_COMP
-    <b>Alumno solicita</b> crear una nueva
-    solicitud de dispensa.
-    <b>Sistema permite</b> acceder al
-    formulario de registro.
+DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA_COMP : crearSolicitudDispensa()
+note left on link
+    <b>Secretaría solicita</b> crear una solicitud de dispensa.
+    <b>Sistema presenta</b> el formulario de la solicitud.
 end note
 
-
-state SOLICITUD_DISPENSA_NUEVA_COMP {
-
-    state CapturaDatos    as "Captura de Datos"
-    state ValidarDatos    as "Validación de Datos"
-    state CreacionExitosa as "Solicitud Creada"
-
+state SOLICITUD_DISPENSA_ABIERTA_COMP {
+    state CapturaDatos as "Captura de Datos"
     [*] -[#green]-> CapturaDatos
-
     note right of CapturaDatos
-        <b>Sistema permite</b> ingresar los
-        datos de la solicitud:
-        Nombre/ID, asignatura,
-        motivo, documentos y fechas.
+        <b>Secretaría introduce</b> los datos de la solicitud:
+        • Nombre/ID, asignatura y motivo.
+        • Documentos y fechas.
+        <b>Sistema registra</b> la solicitud.
+        <b>Sistema presenta</b> el detalle de la solicitud creada.
     end note
-
-    CapturaDatos -[#green]-> ValidarDatos
-
-    note left of ValidarDatos
-        <b>Alumno solicita</b> registrar
-        la información ingresada.
-    end note
-
-    ValidarDatos -[#red]-> CapturaDatos
-
-    note right of ValidarDatos
-        <b>Sistema valida</b> la información.
-        <b>Si hay error:</b>
-        informa inconsistencias y
-        solicita corrección.
-    end note
-
-    ValidarDatos -[#green]-> CreacionExitosa
-
-    note left of CreacionExitosa
-        <b>Sistema valida</b> correctamente
-        los datos y crea la solicitud
-        de dispensa.
-    end note
-
-    CreacionExitosa -[#green]-> [*]
-
-    note right of CreacionExitosa
-        <b>Sistema confirma</b> la creación
-        y muestra el detalle registrado.
-    end note
+    CapturaDatos -[#green]-> [*]
 }
 
-SOLICITUD_DISPENSA_NUEVA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : editarSolicitudDispensa()
-
-note left of DISPENSAS_ABIERTO_FINAL
-    <b>Alumno solicita</b> continuar
-    con la edición de la solicitud.
+SOLICITUD_DISPENSA_ABIERTA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : guardarSolicitudDispensa()
+note left on link
+    <b>GUARDAR:</b>
+    <b>Secretaría solicita</b> guardar la solicitud.
+    <b>Sistema registra</b> la solicitud de dispensa.
 end note
 
-
-SOLICITUD_DISPENSA_NUEVA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : cerrarSolicitudDispensa()
-
-note right of DISPENSAS_ABIERTO_FINAL
-    <b>Alumno solicita</b> salir del registro.
-    <b>Sistema permite</b> finalizar
-    el proceso.
+SOLICITUD_DISPENSA_ABIERTA_COMP -[#red]---> DISPENSAS_ABIERTO_FINAL : cerrarSolicitudDispensa()
+note right on link
+    <b>CERRAR:</b>
+    <b>Secretaría solicita</b> salir del formulario.
+    <b>Sistema descarta</b> los datos introducidos.
 end note
-
 
 DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
 

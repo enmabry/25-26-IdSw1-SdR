@@ -1,65 +1,40 @@
-@startuml ConsultarListaAlumnos
+@startuml consultarListaAlumnos
 title Consultar Lista Alumnos
-
-' --- CONFIGURACIÓN DE ESTILO ---
 skinparam nodesep 100
 skinparam ranksep 100
 skinparam linetype ortho
 skinparam Padding 10
 
-' --- DEFINICIÓN DE ESTADOS ---
 state LISTAS_ABIERTO_INICIAL as "LISTAS_ABIERTO"
-state CONSULTAR_LISTA_COMP   as "consultarListaAlumnos()"
-state LISTA_ABIERTA_FINAL    as "LISTA_ABIERTA"
-state LISTAS_ABIERTO_RETORNO as "LISTAS_ABIERTO"
+state LISTA_ABIERTA_COMP     as "LISTA_ABIERTA"
+state LISTAS_ABIERTO_FINAL   as "LISTAS_ABIERTO"
 
-' Inicio
 [*] -[#green]-> LISTAS_ABIERTO_INICIAL
 
-' Entrada: Usuario solicita consultar
-LISTAS_ABIERTO_INICIAL -[#green]-> CONSULTAR_LISTA_COMP : abrirLista()
+LISTAS_ABIERTO_INICIAL -[#green]-> LISTA_ABIERTA_COMP : consultarListaAlumnos()
 note left on link
-    <b>Usuario solicita</b>
-    Consultar Lista Alumnos.
-    <b>Sistema permite</b> acceder a la lista.
+    <b>Secretaría solicita</b> consultar la lista de alumnos.
+    <b>Sistema presenta</b> la lista de alumnos.
 end note
 
-' Estado Compuesto: Visualización
-state CONSULTAR_LISTA_COMP {
-    state MostrarLista as "Visualización de Lista"
-    
-    ' Inicio interno
-    [*] -[#green]-> MostrarLista
-    
-    ' Nota interna
-    note right of MostrarLista
-        <b>Sistema muestra</b>
-        la lista solicitada por el usuario.
+state LISTA_ABIERTA_COMP {
+    state VisualizacionLista as "Visualización de Lista"
+    [*] -[#green]-> VisualizacionLista
+    note right of VisualizacionLista
+        <b>Sistema muestra</b> la lista de alumnos matriculados:
+        • Nombres, apellidos e identificadores.
+        • Estado de la matrícula.
     end note
-    
-    ' Fin interno
-    MostrarLista -[#green]-> [*]
+    VisualizacionLista -[#green]-> [*]
 }
 
-' SALIDA 1: Éxito/Continuación (Se queda en LISTA_ABIERTA)
-CONSULTAR_LISTA_COMP -[#green]---> LISTA_ABIERTA_FINAL
+LISTA_ABIERTA_COMP -[#red]---> LISTAS_ABIERTO_FINAL : cerrarLista()
 note left on link
-    <b>Sistema permite</b>
-    mantener la lista abierta para
-    operaciones detalladas.
-end note
-
-' SALIDA 2: Cierre/Retorno (cerrarLista)
-' Usamos rojo para indicar cierre/cancelación como en el ejemplo
-CONSULTAR_LISTA_COMP -[#red]---> LISTAS_ABIERTO_RETORNO : cerrarLista()
-note right on link
     <b>CERRAR:</b>
-    <b>Usuario solicita</b> salir de la lista.
-    <b>Sistema permite</b> volver al menú anterior.
+    <b>Secretaría solicita</b> salir de la lista.
+    <b>Sistema muestra</b> el listado de listas de alumnos.
 end note
 
-' Fin del flujo (desde ambos caminos posibles)
-LISTA_ABIERTA_FINAL -[#blue]-> [*]
-LISTAS_ABIERTO_RETORNO -[#blue]-> [*]
+LISTAS_ABIERTO_FINAL -[#blue]-> [*]
 
 @enduml

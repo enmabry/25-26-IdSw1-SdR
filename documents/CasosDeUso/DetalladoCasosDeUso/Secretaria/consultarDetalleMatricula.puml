@@ -1,55 +1,38 @@
-@startuml VerDetalleMatricula
-title Ver detalle de matrícula
-
-' --- CONFIGURACIÓN DE ESTILO (Idéntica al ejemplo) ---
+@startuml consultarDetalleMatricula
+title Consultar Detalle Matrícula
 skinparam nodesep 100
 skinparam ranksep 100
 skinparam linetype ortho
 skinparam Padding 10
 
-' --- DEFINICIÓN DE ESTADOS CON ALIAS ---
-state MATRICULAS_ABIERTO_INICIAL   as "MATRICULAS_ABIERTO"
-state MATRICULA_ABIERTA_COMP       as "MATRICULA_ABIERTA"
-state MATRICULAS_ABIERTO_FINAL     as "MATRICULAS_ABIERTO"
+state MATRICULAS_ABIERTO_INICIAL as "MATRICULAS_ABIERTO"
+state MATRICULA_ABIERTA_COMP     as "MATRICULA_ABIERTA"
+state MATRICULAS_ABIERTO_FINAL   as "MATRICULAS_ABIERTO"
 
-' Flujo inicial
 [*] -[#green]-> MATRICULAS_ABIERTO_INICIAL
 
-' Entrada al estado de detalle
-MATRICULAS_ABIERTO_INICIAL -[#green]-> MATRICULA_ABIERTA_COMP : verDetalleMatricula()
+MATRICULAS_ABIERTO_INICIAL -[#green]-> MATRICULA_ABIERTA_COMP : consultarDetalleMatricula()
 note left on link
-    <b>Usuario solicita</b> seleccionar una matrícula.
-    <b>Sistema permite</b> abrir la vista detallada de la misma.
+    <b>Secretaría solicita</b> consultar el detalle de una matrícula.
+    <b>Sistema presenta</b> el detalle de la matrícula.
 end note
 
-' Estado Compuesto: Visualización del detalle
 state MATRICULA_ABIERTA_COMP {
-    state VisualizacionDetalle as "Visualización del Detalle"
-   
-    ' Inicio interno
+    state VisualizacionDetalle as "Visualización de Detalle"
     [*] -[#green]-> VisualizacionDetalle
-   
-    ' Nota sobre la actividad interna (solo visualización en este caso)
     note right of VisualizacionDetalle
-        <b>Sistema presenta</b> todos los datos asociados
-        a la matrícula seleccionada para su consulta.
+        <b>Sistema muestra</b> los datos de la matrícula.
     end note
-   
-    ' Fin interno
     VisualizacionDetalle -[#green]-> [*]
 }
 
-' --- SALIDAS ---
-' En un caso de uso de "Ver Detalle", usualmente solo hay acción de "Cerrar" o "Volver".
-' Usamos la flecha roja (#red) para indicar retorno/cierre, consistente con el ejemplo.
-
 MATRICULA_ABIERTA_COMP -[#red]---> MATRICULAS_ABIERTO_FINAL : cerrarDetalleMatricula()
-note right on link
+note left on link
     <b>CERRAR:</b>
-    <b>Usuario solicita</b> salir de la vista detallada.
-    <b>Sistema permite</b> regresar al listado principal.
+    <b>Secretaría solicita</b> salir del detalle.
+    <b>Sistema muestra</b> el listado de matrículas.
 end note
 
-' Finalización del flujo
 MATRICULAS_ABIERTO_FINAL -[#blue]-> [*]
 
+@enduml
