@@ -1,14 +1,20 @@
 @startuml
-title Estados de Asistencia
+skinparam style strictuml
+title Diagrama de Estados: Asistencia
 
-[*] --> Pendiente
+[*] --> Programada : crearSesionClase()
 
-Pendiente --> TomandoAsistencia : iniciarTomaAsistencia()
-TomandoAsistencia --> AsistenciaRegistrada : registrandoTomaAsistencia()
+Programada --> Programada : editarSesionClase()
+Programada --> AsistenciaPendiente : iniciarSesionClase()
+Programada --> Cerrada : cerrarSesionClase()
 
-AsistenciaRegistrada --> Cerrada : finalizarRegistroSesionTomandoAsistencia()
-Pendiente --> Cerrada : finalizarRegistroSesionSinTomarAsistencia()
+
+AsistenciaPendiente --> AsistenciaRegistrada : registrarTomaAsistencia()
+AsistenciaRegistrada --> AsistenciaRegistrada : registrarTomaAsistencia()
+
+
+AsistenciaRegistrada --> Cerrada : cerrarSesionClase()
+Cerrada --> Cerrada : exportarHistorialAsistencias()
 
 Cerrada --> [*]
-
 @enduml

@@ -1,7 +1,14 @@
 @startuml EstadoMatricula
-title Estado de Matrícula
+skinparam style strictuml
+title Diagrama de Estados: Matrícula
 
-[*] --> Disponible : importarMatriculas()
+[*] --> Vigente : importarMatriculas()
 
-Disponible --> [*]
+
+Vigente --> Historica : cerrarCicloAcademico()
+
+Vigente --> Vigente : consultarDetalleMatricula()
+Historica --> Historica : consultarDetalleMatricula()
+
+Historica --> [*]
 @enduml

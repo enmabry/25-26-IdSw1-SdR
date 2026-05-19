@@ -1,24 +1,24 @@
 @startuml Dispensas_Estado
+skinparam style strictuml
 title Diagrama de Estados: Dispensa
 
-state Solicitada
-state Gestionada
-state Aprobada
-state Rechazada
-state Apelada
+[*] --> Solicitada : crearSolicitudDispensa()
 
-[*] --> Solicitada           : solicitarDispensa()
+Solicitada --> Solicitada : editarSolicitudDispensa()
+Solicitada --> Solicitada : consultarSolicitudDispensa()
 
-Solicitada --> Gestionada    : gestionarSolicitudDispensa()
-Gestionada --> Aprobada      : aprobarDispensa()
-Gestionada --> Rechazada     : rechazarDispensa()
+Solicitada --> Aprobada : guardarSolicitudDispensa()
+Solicitada --> Rechazada : guardarSolicitudDispensa()
 
-Rechazada --> Apelada        : apelarDispensa()
+Aprobada --> Aprobada : consultarSolicitudDispensa()
+Aprobada --> Cerrada : cerrarSolicitudDispensa()
 
-Apelada --> Aprobada         : aprobarApelacion()
-Apelada --> Rechazada        : rechazarApelacionDefinitiva()
+Rechazada --> Rechazada : consultarSolicitudDispensa()
+Rechazada --> Apelada : crearSolicitudDispensa()
+Rechazada --> Cerrada : cerrarSolicitudDispensa()
 
-Aprobada --> [*]             : cerrarDispensa()
-Rechazada --> [*]            : cerrarDispensa()
+Apelada --> Aprobada : guardarSolicitudDispensa()
+Apelada --> Rechazada : guardarSolicitudDispensa()
 
+Cerrada --> [*]
 @enduml

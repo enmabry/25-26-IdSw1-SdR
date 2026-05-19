@@ -1,7 +1,8 @@
 @startuml EstadoAlumno
-title Estado de Alumno
+skinparam style strictuml
+title Diagrama de Estados: Alumno
 
 [*] --> Disponible : importarAlumnos()
 
-Disponible --> [*]
+Disponible --> Disponible : consultarAlumno()
 @enduml

@@ -7,7 +7,6 @@ class Matricula
 class Asignatura
 class Dispensa
 class Asistencia
-class ListaDeAlumnos
 class Profesor
 class Grado
 class DirectorDeGrado
@@ -19,10 +18,9 @@ Alumno --> Dispensa : Solicita
 Matricula --> Grado : Pertenece a
 Matricula --> SecretariaAcademica : Gestionada por
 Asignatura --> Grado : Pertenece a
-Asignatura *-- ListaDeAlumnos : Tiene
+Asignatura *-- Alumno : Tiene
 Asignatura *-- SesionDeClase : Tiene
 Asignatura --> Profesor : Impartida por
-ListaDeAlumnos o-- Alumno : Contiene
 SesionDeClase *-- Asistencia : Registra
 Asistencia --> Profesor : Realizada por
 Dispensa --> SesionDeClase : Exime de
@@ -31,5 +29,4 @@ Dispensa --> SecretariaAcademica : Gestionada por
 Grado --> DirectorDeGrado : Dirigido por
 Grado --> SecretariaAcademica : Gestionado por
 DirectorDeGrado -u-|> Profesor : Es un
-
 @enduml
