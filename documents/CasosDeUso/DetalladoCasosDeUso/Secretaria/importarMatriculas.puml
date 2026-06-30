@@ -20,7 +20,7 @@ state MATRICULAS_ABIERTO_FINAL    as "MATRICULAS_ABIERTO"
 MATRICULAS_ABIERTO_INICIAL -[#green]-> IMPORTAR_MATRICULAS_COMP : importarMatriculas()
 
 note left of IMPORTAR_MATRICULAS_COMP
-    <b>Alumno solicita</b> importar
+    <b>Secretaria solicita</b> importar
     información de matrículas.
     <b>Sistema permite</b> adjuntar
     un archivo para su procesamiento.
@@ -32,12 +32,12 @@ state IMPORTAR_MATRICULAS_COMP {
     state SolicitudArchivo   as "Selección de Archivo"
     state ValidarFormato     as "Validación de Formato"
     state ImportarRegistros  as "Importación de Registros"
-    state MostrarInforme     as "Informe de Importación"
+    state RetornarInforme     as "Informe de Importación"
 
     [*] -[#green]-> SolicitudArchivo
 
     note right of SolicitudArchivo
-        <b>Sistema muestra</b> la interfaz
+        <b>Sistema permite</b> retornar el módulo
         para adjuntar el archivo
         de matrículas.
     end note
@@ -45,7 +45,7 @@ state IMPORTAR_MATRICULAS_COMP {
     SolicitudArchivo -[#green]-> ValidarFormato
 
     note left of ValidarFormato
-        <b>Alumno solicita</b> procesar
+        <b>Secretaria solicita</b> procesar
         el archivo seleccionado.
     end note
 
@@ -69,24 +69,24 @@ state IMPORTAR_MATRICULAS_COMP {
         en el archivo.
     end note
 
-    ImportarRegistros -[#green]-> MostrarInforme
+    ImportarRegistros -[#green]-> RetornarInforme
 
-    note right of MostrarInforme
-        <b>Sistema presenta</b> un informe
+    note right of RetornarInforme
+        <b>Sistema permite</b> retornar un informe
         del proceso de importación,
         indicando registros válidos
         y errores detectados.
     end note
 
-    MostrarInforme -[#green]-> [*]
+    RetornarInforme -[#green]-> [*]
 }
 
 ' --- SALIDAS DEL CASO DE USO ---
 
-IMPORTAR_MATRICULAS_COMP -[#green]---> MATRICULA_ABIERTA_FINAL : verDetalleMatricula()
+IMPORTAR_MATRICULAS_COMP -[#green]---> MATRICULA_ABIERTA_FINAL : consultarDetalleMatricula()
 
 note left of MATRICULA_ABIERTA_FINAL
-    <b>Alumno solicita</b> consultar
+    <b>Secretaria solicita</b> consultar
     el detalle de la matrícula
     importada.
 end note
@@ -95,7 +95,7 @@ end note
 IMPORTAR_MATRICULAS_COMP -[#green]---> MATRICULAS_ABIERTO_FINAL
 
 note right of MATRICULAS_ABIERTO_FINAL
-    <b>Alumno solicita</b> regresar
+    <b>Secretaria solicita</b> regresar
     al módulo de matrículas.
 end note
 

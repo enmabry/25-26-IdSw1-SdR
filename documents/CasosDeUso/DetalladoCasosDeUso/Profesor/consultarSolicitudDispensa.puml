@@ -13,21 +13,21 @@ note on link
 <b>Profesor</b> se encuentra en DISPENSAS_ABIERTO
 y <b>solicita</b> consultar el detalle de una solicitud específica.
 
-<b>Sistema muestra</b> SOLICITUD_DISPENSA_ABIERTA.
+<b>Sistema permite</b> retornar SOLICITUD_DISPENSA_ABIERTA.
 end note
 
 state SOLICITUD_DISPENSA_ABIERTA_COMP as "SOLICITUD_DISPENSA_ABIERTA" {
 
-    state VisualizacionDetalle
+    state ConsultaDetalle
 
-    [*] -[#green]-> VisualizacionDetalle
+    [*] -[#green]-> ConsultaDetalle
     note on link
-    <b>Sistema</b> muestra todos los datos de la solicitud:
+    <b>Sistema permite</b> retornar todos los datos de la solicitud:
     • Alumno solicitante y Motivo
     • Estado actual y Documentación adjunta
     end note
 
-    VisualizacionDetalle -[#green]-> [*]
+    ConsultaDetalle -[#green]-> [*]
     note on link
     <b>Profesor solicita</b> realizar una acción.
     end note
@@ -35,7 +35,7 @@ state SOLICITUD_DISPENSA_ABIERTA_COMP as "SOLICITUD_DISPENSA_ABIERTA" {
 
 SOLICITUD_DISPENSA_ABIERTA_COMP -[#red]-> DISPENSAS_ABIERTO_FINAL : cerrarSolicitud()
 note on link
-<b>Sistema muestra</b> nuevamente el listado en DISPENSAS_ABIERTO.
+<b>Sistema permite</b> retornar nuevamente el listado en DISPENSAS_ABIERTO.
 end note
 
 @enduml

@@ -1,5 +1,5 @@
 @startuml
-title Consultar Solicitud de Dispensa (Perspectiva RUP Final)
+title Consultar Solicitud de Dispensa 
 
 skinparam {
     StateBackgroundColor white
@@ -9,8 +9,6 @@ skinparam {
     ArrowColor green
     linetype ortho
 }
-
-DISPENSAS_ABIERTO_INICIAL -[#green]-> consultarSolicitudesDispensas
 
 state "DISPENSAS_ABIERTO" as startState <<sdlreceive>>
 state "DISPENSAS_ABIERTO" as endState <<sdlreceive>>
@@ -32,7 +30,7 @@ state SOLICITUD_DISPENSA_ABIERTA {
     
     state "Visualización y Edición" as VisualizacionYEdicion <<sdlreceive>>
     note right of VisualizacionYEdicion
-        Sistema <b>permite</b> visualizar los datos.
+        Sistema <b>permite</b> retornar los datos.
         Director de Grado <b>solicita</b> modificar campos mediante
         editarSolicitudDispensa().
     end note
@@ -59,5 +57,4 @@ note right of endState
 end note
 
 endState -[#green]-> [*]
-
 @enduml

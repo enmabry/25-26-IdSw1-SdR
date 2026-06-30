@@ -16,46 +16,46 @@ state DISPENSAS_ABIERTO_FINAL   as "DISPENSAS_ABIERTO"
 ' Inicio
 [*] -[#green]-> DISPENSA_ABIERTO_INICIAL
 
-' Entrada: Usuario solicita consultar
+' Entrada: Secretaria solicita consultar
 DISPENSA_ABIERTO_INICIAL -[#green]-> CONSULTAR_DISPENSA_COMP : consultarSolicitudDispensa()
 note left on link
-    <b>Usuario solicita</b>
+    <b>Secretaria solicita</b>
     Consultar una solicitud específica.
     <b>Sistema permite</b> abrir el detalle.
 end note
 
 ' Estado Compuesto: Visualización en Modo Lectura
 state CONSULTAR_DISPENSA_COMP {
-    state MostrarSolicitud as "Visualización (Modo Lectura)"
+    state ConsultarSolicitud as "Consulta (Modo Lectura)"
     
     ' Inicio interno
-    [*] -[#green]-> MostrarSolicitud
+    [*] -[#green]-> ConsultarSolicitud
     
     ' Nota interna
-    note right of MostrarSolicitud
-        <b>Sistema presenta</b>
+    note right of ConsultarSolicitud
+        <b>Sistema permite</b> retornar
         la solicitud de la dispensa
         exclusivamente en modo Lectura.
     end note
     
     ' Fin interno
-    MostrarSolicitud -[#green]-> [*]
+    ConsultarSolicitud -[#green]-> [*]
 }
 
 ' SALIDA 1: Transición a Edición (Avance)
 CONSULTAR_DISPENSA_COMP -[#green]---> SOLICITUD_DISPENSA_EDITAR : editarSolicitudDispensa()
 note left on link
     <b>EDITAR:</b>
-    <b>Usuario solicita</b> modificar la solicitud.
+    <b>Secretaria solicita</b> modificar la solicitud.
     <b>Sistema permite</b> el modo edición.
 end note
 
 ' SALIDA 2: Guardar/Cerrar (Retorno)
-' Usamos rojo para indicar la acción de cerrar/salir de la vista actual
+' Usamos rojo para indicar la acción de cerrar/salir del detalle actual
 CONSULTAR_DISPENSA_COMP -[#red]---> DISPENSAS_ABIERTO_FINAL : Guardar/Cerrar solicitud()
 note right on link
     <b>FINALIZAR:</b>
-    <b>Usuario solicita</b> salir del detalle.
+    <b>Secretaria solicita</b> salir del detalle.
     <b>Sistema permite</b> volver al listado.
 end note
 

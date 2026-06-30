@@ -16,28 +16,28 @@ state USUARIOS_ABIERTO_FINAL   as "USUARIOS_ABIERTO"
 ' Entrada al detalle del usuario
 USUARIOS_ABIERTO_INICIAL -[#green]-> USUARIO_ABIERTO_COMP : consultarUsuario()
 note left on link
-    <b>Administrador solicita</b> ver el detalle de un usuario.
+    <b>Administrador solicita</b> consultar el detalle de un usuario.
     <b>Sistema permite</b> el acceso a la ficha 
     completa (Datos, Roles y Permisos).
 end note
 
 ' Comportamiento interno del estado compuesto
 state USUARIO_ABIERTO_COMP {
-    state VisualizacionDatos as "Visualización de Usuario"
+    state ConsultaDatos as "Consulta de Usuario"
     
     ' Actividad interna para mantener coherencia técnica
-    VisualizacionDatos :
+    ConsultaDatos :
     
-    [*] -[#green]-> VisualizacionDatos
+    [*] -[#green]-> ConsultaDatos
     
-    note right of VisualizacionDatos
-        <b>Sistema permite</b> la visualización de credenciales.
+    note right of ConsultaDatos
+        <b>Sistema permite</b> retornar las credenciales.
         <b>Administrador solicita</b> gestionar cambios mediante
         **editarUsuario()**.
     end note
     
     ' Flujo simplificado hacia la salida
-    VisualizacionDatos -[#green]-> [*]
+    ConsultaDatos -[#green]-> [*]
 }
 
 ' Salidas definitivas

@@ -1,5 +1,5 @@
-@startuml VerDetalleMatricula
-title Ver detalle de matrícula
+@startuml ConsultarDetalleMatricula
+title Consultar detalle de matrícula
 
 ' --- CONFIGURACIÓN DE ESTILO (Idéntica al ejemplo) ---
 skinparam nodesep 100
@@ -16,37 +16,37 @@ state MATRICULAS_ABIERTO_FINAL     as "MATRICULAS_ABIERTO"
 [*] -[#green]-> MATRICULAS_ABIERTO_INICIAL
 
 ' Entrada al estado de detalle
-MATRICULAS_ABIERTO_INICIAL -[#green]-> MATRICULA_ABIERTA_COMP : verDetalleMatricula()
+MATRICULAS_ABIERTO_INICIAL -[#green]-> MATRICULA_ABIERTA_COMP : consultarDetalleMatricula()
 note left on link
-    <b>Usuario solicita</b> seleccionar una matrícula.
-    <b>Sistema permite</b> abrir la vista detallada de la misma.
+    <b>Secretaria solicita</b> seleccionar una matrícula.
+    <b>Sistema permite</b> abrir el detalle de la misma.
 end note
 
 ' Estado Compuesto: Visualización del detalle
 state MATRICULA_ABIERTA_COMP {
-    state VisualizacionDetalle as "Visualización del Detalle"
+    state ConsultaDetalle as "Consulta del Detalle"
    
     ' Inicio interno
-    [*] -[#green]-> VisualizacionDetalle
+    [*] -[#green]-> ConsultaDetalle
    
     ' Nota sobre la actividad interna (solo visualización en este caso)
-    note right of VisualizacionDetalle
-        <b>Sistema presenta</b> todos los datos asociados
+    note right of ConsultaDetalle
+        <b>Sistema permite</b> retornar todos los datos asociados
         a la matrícula seleccionada para su consulta.
     end note
    
     ' Fin interno
-    VisualizacionDetalle -[#green]-> [*]
+    ConsultaDetalle -[#green]-> [*]
 }
 
 ' --- SALIDAS ---
-' En un caso de uso de "Ver Detalle", usualmente solo hay acción de "Cerrar" o "Volver".
+' En un caso de uso de "Consultar Detalle", usualmente solo hay acción de "Cerrar" o "Volver".
 ' Usamos la flecha roja (#red) para indicar retorno/cierre, consistente con el ejemplo.
 
 MATRICULA_ABIERTA_COMP -[#red]---> MATRICULAS_ABIERTO_FINAL : cerrarDetalleMatricula()
 note right on link
     <b>CERRAR:</b>
-    <b>Usuario solicita</b> salir de la vista detallada.
+    <b>Secretaria solicita</b> salir del detalle.
     <b>Sistema permite</b> regresar al listado principal.
 end note
 

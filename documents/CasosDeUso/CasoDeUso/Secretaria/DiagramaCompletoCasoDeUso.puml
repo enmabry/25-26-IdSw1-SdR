@@ -20,7 +20,6 @@ package "Módulo Dispensas" {
     usecase "Crear solicitud de dispensa" as DispensasCrear
     usecase "Consultar solicitud de dispensa" as DispensasConsultar
     usecase "Editar solicitud de dispensa" as DispensasEditar
-    usecase "Cerrar solicitud de dispensa" as DispensasCerrar
 }
 
 SecretariaAcademica --> AlumnosImportar
@@ -33,5 +32,4 @@ SecretariaAcademica --> MatriculasCerrarCiclo
 SecretariaAcademica --> DispensasCrear
 SecretariaAcademica --> DispensasConsultar
 SecretariaAcademica --> DispensasEditar
-SecretariaAcademica --> DispensasCerrar
 @enduml

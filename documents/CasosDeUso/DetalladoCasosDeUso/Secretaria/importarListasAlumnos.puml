@@ -1,6 +1,6 @@
-@startuml ExportarListasAlumnos
+@startuml ImportarListasAlumnos
 
-title Exportar listado de alumnos
+title Importar listado de alumnos
 
 ' --- CONFIGURACIÓN DE ESTILO ---
 
@@ -9,99 +9,97 @@ skinparam ranksep 120
 skinparam linetype ortho
 skinparam Padding 10
 
-state LISTAS_ABIERTO_INICIAL   as "LISTAS_ABIERTO"
-state EXPORTAR_LISTADO_COMP   as "EXPORTAR_LISTADO_ALUMNOS"
-state LISTA_ABIERTA_FINAL     as "LISTA_ABIERTA"
-state LISTAS_ABIERTO_FINAL    as "LISTAS_ABIERTO"
+state ALUMNOS_ABIERTO_INICIAL   as "ALUMNOS_ABIERTO"
+state IMPORTAR_ALUMNOS_COMP     as "IMPORTAR_ALUMNOS"
+state ALUMNO_ABIERTO_FINAL      as "ALUMNO_ABIERTO"
+state ALUMNOS_ABIERTO_FINAL     as "ALUMNOS_ABIERTO"
 
-[*] -[#green]-> LISTAS_ABIERTO_INICIAL
+[*] -[#green]-> ALUMNOS_ABIERTO_INICIAL
 
 ' Entrada al caso de uso
-LISTAS_ABIERTO_INICIAL -[#green]-> EXPORTAR_LISTADO_COMP : exportarListaAlumnos()
+ALUMNOS_ABIERTO_INICIAL -[#green]-> IMPORTAR_ALUMNOS_COMP : importarAlumnos()
 
-note left of EXPORTAR_LISTADO_COMP
-    <b>Alumno solicita</b> exportar
-    un listado de alumnos por curso.
-    <b>Sistema permite</b> definir
-    filtros y formato de salida.
+note left of IMPORTAR_ALUMNOS_COMP
+    <b>Secretaria solicita</b> importar
+    información de alumnos.
+    <b>Sistema permite</b> adjuntar
+    un archivo para su procesamiento.
 end note
 
 
-state EXPORTAR_LISTADO_COMP {
+state IMPORTAR_ALUMNOS_COMP {
 
-    state SolicitudFiltros   as "Selección de Filtros"
-    state ValidarFiltros     as "Validación de Filtros"
-    state SeleccionFormato   as "Selección de Formato"
-    state Descarga           as "Descarga de Archivo"
+    state SolicitudArchivo   as "Selección de Archivo"
+    state ValidarFormato     as "Validación de Formato"
+    state ImportarRegistros  as "Importación de Registros"
+    state RetornarInforme    as "Informe de Importación"
 
-    [*] -[#green]-> SolicitudFiltros
+    [*] -[#green]-> SolicitudArchivo
 
-    note right of SolicitudFiltros
-        <b>Sistema muestra</b> opciones
-        de filtrado por curso
-        y asignatura.
+    note right of SolicitudArchivo
+        <b>Sistema permite</b> retornar el módulo
+        para adjuntar el archivo
+        con la lista de alumnos.
     end note
 
-    SolicitudFiltros -[#green]-> ValidarFiltros
+    SolicitudArchivo -[#green]-> ValidarFormato
 
-    note left of ValidarFiltros
-        <b>Alumno solicita</b> aplicar
-        los criterios seleccionados.
+    note left of ValidarFormato
+        <b>Secretaria solicita</b> procesar
+        el archivo seleccionado.
     end note
 
-    ' Flujo alternativo: error en filtros
-    ValidarFiltros -[#red]-> SolicitudFiltros
+    ' Flujo alternativo: error de formato
+    ValidarFormato -[#red]-> SolicitudArchivo
 
-    note right of ValidarFiltros
-        <b>Sistema valida</b> los filtros.
+    note right of ValidarFormato
+        <b>Sistema valida</b> el formato
+        y la estructura de los datos.
         <b>Si hay error:</b>
         informa inconsistencias y
-        solicita corrección.
+        solicita un nuevo archivo.
     end note
 
-    ' Flujo básico: filtros válidos
-    ValidarFiltros -[#green]-> SeleccionFormato
+    ' Flujo básico: formato válido
+    ValidarFormato -[#green]-> ImportarRegistros
 
-    note left of SeleccionFormato
-        <b>Sistema solicita</b> el formato
-        de salida (PDF, CSV, etc.)
-        y el nombre del archivo.
+    note left of ImportarRegistros
+        <b>Sistema importa</b> los registros
+        de alumnos contenidos
+        en el archivo.
     end note
 
-    SeleccionFormato -[#green]-> Descarga
+    ImportarRegistros -[#green]-> RetornarInforme
 
-    note right of Descarga
-        <b>Alumno solicita</b> la descarga.
-        <b>Sistema permite</b> generar
-        el archivo correspondiente.
+    note right of RetornarInforme
+        <b>Sistema permite</b> retornar un informe
+        del proceso de importación,
+        indicando registros válidos
+        y errores detectados.
     end note
 
-    Descarga -[#green]-> [*]
-
-    note left of Descarga
-        <b>Sistema confirma</b> la descarga
-        del listado generado.
-    end note
+    RetornarInforme -[#green]-> [*]
 }
 
 ' --- SALIDAS DEL CASO DE USO ---
 
-EXPORTAR_LISTADO_COMP -[#green]---> LISTA_ABIERTA_FINAL : consultarListaAlumnos()
+IMPORTAR_ALUMNOS_COMP -[#green]---> ALUMNO_ABIERTO_FINAL : consultarAlumno()
 
-note left of LISTA_ABIERTA_FINAL
-    <b>Alumno solicita</b> consultar
-    el listado de alumnos exportado.
+note left of ALUMNO_ABIERTO_FINAL
+    <b>Secretaria solicita</b> consultar
+    el detalle de un alumno
+    importado.
 end note
 
 
-EXPORTAR_LISTADO_COMP -[#green]---> LISTAS_ABIERTO_FINAL
+IMPORTAR_ALUMNOS_COMP -[#green]---> ALUMNOS_ABIERTO_FINAL
 
-note right of LISTAS_ABIERTO_FINAL
-    <b>Alumno solicita</b> regresar
-    al módulo de listas.
+note right of ALUMNOS_ABIERTO_FINAL
+    <b>Secretaria solicita</b> regresar
+    al módulo de alumnos.
 end note
 
 
-LISTAS_ABIERTO_FINAL -[#blue]-> [*]
+ALUMNOS_ABIERTO_FINAL -[#blue]-> [*]
 
 @enduml

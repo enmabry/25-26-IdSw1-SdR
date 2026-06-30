@@ -18,7 +18,7 @@ state DISPENSAS_ABIERTO_FINAL        as "DISPENSAS_ABIERTO"
 DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_NUEVA_COMP : crearSolicitudDispensa()
 
 note left of SOLICITUD_DISPENSA_NUEVA_COMP
-    <b>Alumno solicita</b> crear una nueva
+    <b>Secretaria solicita</b> crear una nueva
     solicitud de dispensa.
     <b>Sistema permite</b> acceder al
     formulario de registro.
@@ -43,7 +43,7 @@ state SOLICITUD_DISPENSA_NUEVA_COMP {
     CapturaDatos -[#green]-> ValidarDatos
 
     note left of ValidarDatos
-        <b>Alumno solicita</b> registrar
+        <b>Secretaria solicita</b> registrar
         la información ingresada.
     end note
 
@@ -68,14 +68,14 @@ state SOLICITUD_DISPENSA_NUEVA_COMP {
 
     note right of CreacionExitosa
         <b>Sistema confirma</b> la creación
-        y muestra el detalle registrado.
+        y permite retornar el detalle registrado.
     end note
 }
 
 SOLICITUD_DISPENSA_NUEVA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : editarSolicitudDispensa()
 
 note left of DISPENSAS_ABIERTO_FINAL
-    <b>Alumno solicita</b> continuar
+    <b>Secretaria solicita</b> continuar
     con la edición de la solicitud.
 end note
 
@@ -83,7 +83,7 @@ end note
 SOLICITUD_DISPENSA_NUEVA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : cerrarSolicitudDispensa()
 
 note right of DISPENSAS_ABIERTO_FINAL
-    <b>Alumno solicita</b> salir del registro.
+    <b>Secretaria solicita</b> salir del registro.
     <b>Sistema permite</b> finalizar
     el proceso.
 end note

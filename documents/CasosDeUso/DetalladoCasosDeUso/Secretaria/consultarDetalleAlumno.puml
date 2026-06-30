@@ -1,0 +1,55 @@
+@startuml ConsultarAlumno
+title Consultar alumno
+
+' --- CONFIGURACIÓN DE ESTILO ---
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam linetype ortho
+skinparam Padding 10
+
+' --- DEFINICIÓN DE ESTADOS CON ALIAS ---
+state ALUMNOS_ABIERTO_INICIAL   as "ALUMNOS_ABIERTO"
+state ALUMNO_ABIERTO_COMP       as "ALUMNO_ABIERTO"
+state ALUMNOS_ABIERTO_FINAL     as "ALUMNOS_ABIERTO"
+
+' Flujo inicial
+[*] -[#green]-> ALUMNOS_ABIERTO_INICIAL
+
+' Entrada al estado de detalle
+ALUMNOS_ABIERTO_INICIAL -[#green]-> ALUMNO_ABIERTO_COMP : consultarAlumno()
+note left on link
+    <b>Secretaria solicita</b> seleccionar un alumno.
+    <b>Sistema permite</b> abrir el detalle del mismo.
+end note
+
+' Estado Compuesto: Visualización del detalle
+state ALUMNO_ABIERTO_COMP {
+    state ConsultaDetalle as "Consulta del Detalle"
+   
+    ' Inicio interno
+    [*] -[#green]-> ConsultaDetalle
+   
+    ' Nota sobre la actividad interna
+    note right of ConsultaDetalle
+        <b>Sistema permite</b> retornar todos los datos asociados
+        al alumno seleccionado para su consulta.
+    end note
+   
+    ' Fin interno
+    ConsultaDetalle -[#green]-> [*]
+}
+
+' --- SALIDAS ---
+' En un caso de uso de "Consultar", usualmente solo hay acción de "Cerrar" o "Volver".
+
+ALUMNO_ABIERTO_COMP -[#red]---> ALUMNOS_ABIERTO_FINAL : cerrarAlumno()
+note right on link
+    <b>CERRAR:</b>
+    <b>Secretaria solicita</b> salir del detalle.
+    <b>Sistema permite</b> regresar al listado principal.
+end note
+
+' Finalización del flujo
+ALUMNOS_ABIERTO_FINAL -[#blue]-> [*]
+
+@enduml

@@ -20,7 +20,7 @@ state SOLICITUD_DISPENSA_ABIERTA_FINAL as "SOLICITUD_DISPENSA_ABIERTA"
 DISPENSAS_ABIERTO_INICIAL -[#green]-> EXPORTAR_DISPENSAS_COMP : exportarDispensas()
 
 note left of EXPORTAR_DISPENSAS_COMP
-    <b>Alumno solicita</b> exportar
+    <b>Secretaria solicita</b> exportar
     las dispensas registradas.
     <b>Sistema permite</b> definir
     criterios de exportación.
@@ -37,15 +37,15 @@ state EXPORTAR_DISPENSAS_COMP {
     [*] -[#green]-> SolicitudFiltros
 
     note right of SolicitudFiltros
-        <b>Sistema muestra</b> opciones
-        de filtrado y botón
+        <b>Sistema permite</b> retornar opciones
+        de filtrado y la opción
         de exportación.
     end note
 
     SolicitudFiltros -[#green]-> ValidarFiltros
 
     note left of ValidarFiltros
-        <b>Alumno solicita</b> aplicar
+        <b>Secretaria solicita</b> aplicar
         criterios de búsqueda:
         curso, asignatura,
         nombre e identificador.
@@ -73,7 +73,7 @@ state EXPORTAR_DISPENSAS_COMP {
     SolicitudFormato -[#green]-> Descarga
 
     note right of Descarga
-        <b>Alumno solicita</b> la descarga.
+        <b>Secretaria solicita</b> la descarga.
         <b>Sistema permite</b> generar
         el archivo correspondiente.
     end note
@@ -91,7 +91,7 @@ state EXPORTAR_DISPENSAS_COMP {
 EXPORTAR_DISPENSAS_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL
 
 note left of DISPENSAS_ABIERTO_FINAL
-    <b>Alumno solicita</b> regresar
+    <b>Secretaria solicita</b> regresar
     al listado de dispensas.
 end note
 
@@ -99,7 +99,7 @@ end note
 EXPORTAR_DISPENSAS_COMP -[#green]---> SOLICITUD_DISPENSA_ABIERTA_FINAL : consultarSolicitudDispensa()
 
 note right of SOLICITUD_DISPENSA_ABIERTA_FINAL
-    <b>Alumno solicita</b> consultar
+    <b>Secretaria solicita</b> consultar
     el detalle de una solicitud
     específica.
 end note

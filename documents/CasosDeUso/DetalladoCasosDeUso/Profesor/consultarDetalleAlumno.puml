@@ -13,22 +13,22 @@ note on link
 <b>Profesor</b> se encuentra en ALUMNOS_ABIERTO
 y <b>solicita</b> consultar el detalle de un alumno específico.
 
-<b>Sistema muestra</b> la información académica,
-<b>presentando</b> ALUMNO_ABIERTO.
+<b>Sistema permite</b> retornar la información académica,
+<b>retornando</b> ALUMNO_ABIERTO.
 end note
 
 state ALUMNO_ABIERTO_COMP as "ALUMNO_ABIERTO" {
 
-    state VisualizacionFicha
+    state ConsultaFicha
 
-    [*] -[#green]-> VisualizacionFicha
+    [*] -[#green]-> ConsultaFicha
     note on link
-    <b>Sistema muestra</b> la ficha completa del alumno:
+    <b>Sistema permite</b> retornar la ficha completa del alumno:
     • Datos personales y Foto
     • Resumen de asistencias y faltas
     end note
 
-    VisualizacionFicha -[#green]-> [*]
+    ConsultaFicha -[#green]-> [*]
     note on link
     <b>Profesor solicita</b> realizar una acción.
     end note
@@ -37,7 +37,7 @@ state ALUMNO_ABIERTO_COMP as "ALUMNO_ABIERTO" {
 
 ALUMNO_ABIERTO_COMP -[#red]-> ALUMNOS_ABIERTO_FINAL : cerrarDetalleAlumno()
 note on link
-<b>Sistema muestra</b> nuevamente el listado en ALUMNOS_ABIERTO.
+<b>Sistema permite</b> nuevamente retornar el listado en ALUMNOS_ABIERTO.
 end note
 
 @enduml

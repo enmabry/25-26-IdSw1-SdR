@@ -20,7 +20,7 @@ state SOLICITUD_DISPENSA_ABIERTA_FINAL   as "SOLICITUD_DISPENSA_ABIERTA"
 SOLICITUD_DISPENSA_ABIERTA_INICIAL -[#green]-> EDICION_SOLICITUD_COMP : editarSolicitudDispensa()
 
 note left of EDICION_SOLICITUD_COMP
-    <b>Alumno solicita</b> editar una
+    <b>Secretaria solicita</b> editar una
     solicitud de dispensa existente.
     <b>Sistema permite</b> habilitar
     la edición de la información.
@@ -42,7 +42,7 @@ state EDICION_SOLICITUD_COMP {
     PermitirModificacion -[#green]-> ValidarModificaciones
 
     note left of ValidarModificaciones
-        <b>Alumno solicita</b> registrar
+        <b>Secretaria solicita</b> registrar
         las modificaciones realizadas.
     end note
 
@@ -73,7 +73,7 @@ EDICION_SOLICITUD_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : guardarSolicitudD
 
 note left of DISPENSAS_ABIERTO_FINAL
     <b>GUARDAR:</b>
-    <b>Alumno solicita</b> registrar
+    <b>Secretaria solicita</b> registrar
     los cambios realizados.
     <b>Sistema permite</b> persistir
     la información.
@@ -83,7 +83,7 @@ end note
 EDICION_SOLICITUD_COMP -[#green]---> SOLICITUD_DISPENSA_ABIERTA_FINAL 
 
 note right of SOLICITUD_DISPENSA_ABIERTA_FINAL
-    <b>Alumno solicita</b> mantener
+    <b>Secretaria solicita</b> mantener
     la solicitud abierta sin
     salir del detalle.
 end note

@@ -36,7 +36,7 @@ state PROCESO_EXPORTACION_COMP {
 
 PROCESO_EXPORTACION_COMP -[#green]-> ASISTENCIAS_ABIERTO_FINAL
 note on link
-<b>Sistema permite</b> la descarga y <b>retorna</b>
+<b>Sistema permite</b> la descarga y retornar
 el control al estado ASISTENCIAS_ABIERTO.
 end note
 @enduml

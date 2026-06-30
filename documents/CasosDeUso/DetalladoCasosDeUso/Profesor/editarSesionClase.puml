@@ -30,7 +30,7 @@ state PROCESO_EDICION_COMP {
 
     ModificacionDatos -[#green]-> [*]
     note on link
-    <b>Sistema visualiza</b> los cambios para confirmación.
+    <b>Sistema permite</b> retornar los cambios para confirmación.
     
     <b>Profesor solicita</b> guardar los cambios.
     end note
@@ -39,7 +39,7 @@ state PROCESO_EDICION_COMP {
 
 PROCESO_EDICION_COMP -[#green]-> SESION_ACTUAL_FINAL
 note on link
-<b>Sistema muestra</b> nuevamente la vista de la clase
+<b>Sistema permite</b> retornar nuevamente el detalle de la clase
 con los cambios aplicados.
 end note
 

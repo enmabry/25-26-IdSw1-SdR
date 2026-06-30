@@ -20,7 +20,7 @@ note left on link
 end note
 
 state SOLICITUD_DISPENSA_ABIERTA_COMP {
-    state SolicitarEditarSolicitud as "Visualización y Edición"
+    state SolicitarEditarSolicitud as "Consulta y Edición"
     
     ' Metodo interno para consistencia técnica
     SolicitarEditarSolicitud :
@@ -28,7 +28,7 @@ state SOLICITUD_DISPENSA_ABIERTA_COMP {
     [*] -[#green]-> SolicitarEditarSolicitud
     
     note right of SolicitarEditarSolicitud
-        <b>Sistema permite</b> visualizar los datos.
+        <b>Sistema permite</b> retornar los datos.
         <b>Alumno solicita</b> modificar campos mediante
         **editarSolicitudDispensa()**.
     end note

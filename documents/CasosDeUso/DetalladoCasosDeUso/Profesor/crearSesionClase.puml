@@ -14,7 +14,7 @@ note on link
 <b>Profesor</b> se encuentra en ASISTENCIAS_ABIERTO
 y <b>solicita</b> crear una nueva sesión de clase.
 
-<b>Sistema muestra</b> SESION_ASISTENCIA_ABIERTA.
+<b>Sistema permite</b> retornar SESION_ASISTENCIA_ABIERTA.
 end note
 
 state SESION_NUEVA_COMP {
@@ -32,7 +32,7 @@ state SESION_NUEVA_COMP {
 
     ConfiguracionDatos -[#green]-> [*]
     note on link
-    <b>Sistema muestra</b> el resumen de la nueva clase.
+    <b>Sistema permite</b> retornar el resumen de la nueva clase.
 
     <b>Profesor solicita</b> iniciar la sesión.
     end note
@@ -40,14 +40,14 @@ state SESION_NUEVA_COMP {
 
 SESION_NUEVA_COMP -[#green]-> SESION_ACTIVA_FINAL : iniciarSesion()
 note on link
-<b>Sistema visualiza</b> la sesión activa
+<b>Sistema permite</b> retornar la sesión activa
 y <b>permite introducir</b> la asistencia
 en SESION_ASISTENCIA_ABIERTA.
 end note
 
 SESION_NUEVA_COMP -[#red]-> ASISTENCIAS_ABIERTO_FINAL : cancelarCreacion()
 note on link
-<b>Sistema muestra</b> nuevamente el listado
+<b>Sistema permite</b> retornar nuevamente el listado
 en ASISTENCIAS_ABIERTO sin cambios.
 end note
 

@@ -14,7 +14,7 @@ state DISPENSAS_ABIERTO_FINAL            as "DISPENSAS_ABIERTO"
 [*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
 
 ' --- ENTRADAS AL ESTADO DE EDICIÓN ---
-' Aquí los métodos SI son flechas porque disparan el cambio de pantalla
+' Aquí los métodos SI son flechas porque disparan el cambio de estado
 DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA_COMP : crearSolicitudDispensa() / consultarSolicitudDispensa()
 note left on link
     <b>Alumno solicita</b> gestionar una dispensa.
