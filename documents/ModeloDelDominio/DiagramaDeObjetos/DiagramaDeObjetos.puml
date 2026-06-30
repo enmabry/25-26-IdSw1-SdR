@@ -1,6 +1,6 @@
 @startuml
-
-title Diagrama de Objetos - Sistema de Gestión Académica
+title Diagrama de Objetos
+skinparam style strictuml
 
 ' --- INSTANCIACIÓN DE OBJETOS ---
 
@@ -11,7 +11,7 @@ object "alumno1:Alumno" as alumno1 {
 
 object "matricula1:Matricula" as matricula1 {
     fecha = "2024-09-01"
-    estado = "activa"
+    estado = "Vigente"
 }
 
 object "grado1:Grado" as grado1 {
@@ -25,25 +25,11 @@ object "asignatura1:Asignatura" as asignatura1 {
     creditos = 6
 }
 
-object "profesor1:Profesor" as profesor1 {
-    nombre = "Jose Breñosa"
-    departamento = "Informática"
-}
-
-object "directorGrado1:DirectorDeGrado" as directorGrado1 {
-    nombre = "Manuel Masías"
-    departamento = "Informática"
-}
-
-object "secretaria1:SecretariaAcademica" as secretaria1 {
-    nombre = "Rosa Fernández"
-    oficina = "B-201"
-}
-
 object "sesion1:SesionDeClase" as sesion1 {
     fecha = "2024-11-15"
     hora = "10:00"
     aula = "A-301"
+    estado = "Programada"
 }
 
 object "asistencia1:Asistencia" as asistencia1 {
@@ -54,30 +40,19 @@ object "asistencia1:Asistencia" as asistencia1 {
 object "dispensa1:Dispensa" as dispensa1 {
     motivo = "Clases Solapadas"
     fechaSolicitud = "2024-11-14"
-    estado = "aprobada"
+    estado = "Aprobada"
 }
 
 ' --- RELACIONES EN UN ESCENARIO CONCRETO ---
 
-alumno1 --> matricula1
-matricula1 --> grado1
-matricula1 --> secretaria1
+alumno1 --> matricula1 : Realiza
+alumno1 --> dispensa1 : Solicita
 
-asignatura1 --> grado1
-asignatura1 --> profesor1
+matricula1 --> grado1 : Pertenece a
 
-' Relación directa corregida: La asignatura contiene matriculado al alumno '
-asignatura1 o-- alumno1
+asignatura1 --> grado1 : Pertenece a
+asignatura1 *-- sesion1 : Tiene
 
-asignatura1 *-- sesion1
-sesion1 *-- asistencia1
-asistencia1 --> profesor1
-
-alumno1 --> dispensa1
-dispensa1 --> sesion1
-dispensa1 --> directorGrado1
-dispensa1 --> secretaria1
-
-grado1 --> directorGrado1
-grado1 --> secretaria1
+sesion1 *-- asistencia1 : Registra
+dispensa1 --> sesion1 : Exime de
 @enduml

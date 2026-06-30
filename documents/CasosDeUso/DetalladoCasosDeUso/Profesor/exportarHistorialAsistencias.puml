@@ -20,15 +20,15 @@ state PROCESO_EXPORTACION_COMP {
 
     [*] -[#green]-> SeleccionParametros
     note on link
-    <b>Sistema permite introducir</b> el formato de salida
+    <b>Sistema permite</b> configurar el formato de salida
     (Excel, PDF) y el rango de fechas.
 
-    <b>Profesor introduce</b> sus preferencias.
+    <b>Profesor solicita</b> la generación con sus preferencias.
     end note
 
     SeleccionParametros -[#green]-> [*]
     note on link
-    <b>Sistema presenta</b> el archivo listo para su descarga.
+    <b>Sistema procesa</b> los datos y genera el archivo.
     
     <b>Profesor solicita</b> descargar el archivo.
     end note
@@ -36,7 +36,7 @@ state PROCESO_EXPORTACION_COMP {
 
 PROCESO_EXPORTACION_COMP -[#green]-> ASISTENCIAS_ABIERTO_FINAL
 note on link
-<b>Sistema muestra</b> nuevamente el listado en ASISTENCIAS_ABIERTO.
+<b>Sistema permite</b> la descarga y <b>retorna</b>
+el control al estado ASISTENCIAS_ABIERTO.
 end note
-
 @enduml

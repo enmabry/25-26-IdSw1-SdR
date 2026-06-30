@@ -1,40 +1,33 @@
 @startuml
+Title Casos de Uso: Profesor
 left to right direction
-skinparam packageStyle rectangle
+skinparam style strictuml
 
 actor Profesor
 
-    package "Listas" {
-        usecase "consultarListaAlumnos()" as ListasConsultarLista
-    }
+package "Módulo Alumnos " {
+    usecase "Consultar alumno" as AlumnosConsultar
+}
 
-    package "Alumnos" {
-        usecase "consultarDetalleAlumno()"  as AlumnosConsultarDetalle
-    }
+package "Módulo Asistencias" {
+    usecase "Crear sesión de clase" as AsistenciasCrearSesion
+    usecase "Editar sesión de clase" as AsistenciasEditarSesion
+    usecase "Registrar toma de asistencia" as AsistenciasRegistrarToma
+    usecase "Cerrar sesión de clase" as AsistenciasCerrarSesion
+    usecase "Exportar historial de asistencias" as AsistenciasExportarHistorial
+}
 
-    package "Asistencias" {
-        usecase "crearSesionClase()"          as AsistenciasCrearSesion
-        usecase "editarSesionClase()"         as AsistenciasEditarSesion
-        usecase "registrarTomaAsistencia()"   as AsistenciasRegistrarToma
-        usecase "cerrarSesionClase()"         as AsistenciasCerrarSesion
-        usecase "exportarHistorialAsistencias()" as AsistenciasExportarHistorial
-    }
+package "Módulo Dispensas" {
+    usecase "Consultar solicitud de dispensa" as DispensasConsultar
+}
 
-    package "Dispensas" {
-        usecase "consultarSolicitudDispensa()" as DispensasConsultar
-    }
+Profesor --> AlumnosConsultar
 
-    Profesor --> ListasConsultarLista
+Profesor --> AsistenciasCrearSesion
+Profesor --> AsistenciasEditarSesion
+Profesor --> AsistenciasRegistrarToma
+Profesor --> AsistenciasCerrarSesion
+Profesor --> AsistenciasExportarHistorial
 
-    Profesor --> AlumnosConsultarDetalle
-
-    Profesor --> AsistenciasCrearSesion
-    Profesor --> AsistenciasEditarSesion
-    Profesor --> AsistenciasRegistrarToma
-    Profesor --> AsistenciasCerrarSesion
-    Profesor --> AsistenciasExportarHistorial
-
-    Profesor --> DispensasConsultar
-
-
+Profesor --> DispensasConsultar
 @enduml

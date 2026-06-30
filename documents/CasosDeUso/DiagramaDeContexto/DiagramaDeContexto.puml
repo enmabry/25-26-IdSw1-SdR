@@ -1,83 +1,73 @@
-@startuml DiagramaDeContexto
-title Diagrama de contexto: perspectiva del Administrador
+@startuml
+title Diagrama de Contexto
 left to right direction
+skinparam style strictuml
 skinparam linetype polyline
 
 [*] --> SESION_CERRADA
 
+' --- CONTROL DE ACCESO (PRECONDICIONES GENERALES) ---
 SESION_CERRADA --> SISTEMA_DISPONIBLE : iniciarSesion()
-SISTEMA_DISPONIBLE --> SESION_CERRADA : cerrarSesion() / sesionInactiva()
+SISTEMA_DISPONIBLE --> SESION_CERRADA : cerrarSesion()
+SISTEMA_DISPONIBLE --> SESION_CERRADA : sesionInactiva()
 
-'==========================================
-'  MÓDULO LISTAS DE ALUMNOS (solo importar + consulta)
-'==========================================
-SISTEMA_DISPONIBLE --> LISTAS_ABIERTO : abrirListasAlumnos()
-LISTAS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionListas()
-
-' Importar todas las listas desde el sistema externo
-LISTAS_ABIERTO --> LISTAS_ABIERTO : importarListasAlumnos()
-
-' Consultar el detalle de una lista (solo lectura)
-LISTAS_ABIERTO --> LISTA_ABIERTA : consultarListaAlumnos()
-LISTA_ABIERTA --> LISTAS_ABIERTO : cerrarLista()
-
-'==========================================
-'  MÓDULO ALUMNOS (solo importación y consulta)
-'==========================================
+' ==========================================
+'   MÓDULO ALUMNOS
+' ==========================================
 SISTEMA_DISPONIBLE --> ALUMNOS_ABIERTO : abrirAlumnos()
 ALUMNOS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionAlumnos()
 
 ALUMNOS_ABIERTO --> ALUMNOS_ABIERTO : importarAlumnos()
-ALUMNOS_ABIERTO --> ALUMNO_ABIERTO : verDetalleAlumno()
+ALUMNOS_ABIERTO --> ALUMNO_DETALLE_ABIERTO : consultarAlumno()
+ALUMNO_DETALLE_ABIERTO --> ALUMNOS_ABIERTO : cerrarDetalleAlumno()
 
-ALUMNO_ABIERTO --> ALUMNOS_ABIERTO : cerrarDetalleAlumno()
-
-'==========================================
-'  MÓDULO MATRÍCULAS (solo importación y consulta)
-'==========================================
+' ==========================================
+'   MÓDULO MATRÍCULAS
+' ==========================================
 SISTEMA_DISPONIBLE --> MATRICULAS_ABIERTO : abrirMatriculas()
 MATRICULAS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionMatriculas()
 
 MATRICULAS_ABIERTO --> MATRICULAS_ABIERTO : importarMatriculas()
-MATRICULAS_ABIERTO --> MATRICULA_ABIERTA : consultarDetalleMatricula()
+MATRICULAS_ABIERTO --> MATRICULAS_ABIERTO : cerrarCicloAcademico()
+MATRICULAS_ABIERTO --> MATRICULA_DETALLE_ABIERTA : consultarDetalleMatricula()
+MATRICULA_DETALLE_ABIERTA --> MATRICULAS_ABIERTO : cerrarDetalleMatricula()
 
-MATRICULA_ABIERTA --> MATRICULAS_ABIERTO : cerrarDetalleMatricula()
-
-'==========================================
-'  MÓDULO ASISTENCIAS
-'==========================================
+' ==========================================
+'   MÓDULO ASISTENCIAS (SESIONES DE CLASE)
+' ==========================================
 SISTEMA_DISPONIBLE --> ASISTENCIAS_ABIERTO : abrirAsistencias()
 ASISTENCIAS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionAsistencias()
 
-ASISTENCIAS_ABIERTO --> ASISTENCIAS_ABIERTO        : exportarHistorialAsistencias()
-ASISTENCIAS_ABIERTO --> SESION_ASISTENCIA_ABIERTA : crearSesionClase() / abrirSesionClase()
+ASISTENCIAS_ABIERTO --> ASISTENCIAS_ABIERTO : exportarHistorialAsistencias()
+ASISTENCIAS_ABIERTO --> SESION_CLASE_ABIERTA : crearSesionClase()
 
-SESION_ASISTENCIA_ABIERTA --> SESION_ASISTENCIA_ABIERTA : editarSesionClase() / registrarTomaAsistencia()
-SESION_ASISTENCIA_ABIERTA --> ASISTENCIAS_ABIERTO      : cerrarSesionClase()
+SESION_CLASE_ABIERTA --> SESION_CLASE_ABIERTA : editarSesionClase()
+SESION_CLASE_ABIERTA --> SESION_CLASE_ABIERTA : registrarTomaAsistencia()
+SESION_CLASE_ABIERTA --> ASISTENCIAS_ABIERTO : cerrarSesionClase()
 
-'==========================================
-'  MÓDULO DISPENSAS
-'==========================================
+' ==========================================
+'   MÓDULO DISPENSAS
+' ==========================================
 SISTEMA_DISPONIBLE --> DISPENSAS_ABIERTO : abrirDispensas()
 DISPENSAS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionDispensas()
 
-DISPENSAS_ABIERTO --> SOLICITUD_DISPENSA_ABIERTA : crearSolicitudDispensa() / consultarSolicitudDispensa()
-DISPENSAS_ABIERTO --> DISPENSAS_ABIERTO         : exportarDispensas()
+DISPENSAS_ABIERTO --> SOLICITUD_DISPENSA_ABIERTA : crearSolicitudDispensa()
+DISPENSAS_ABIERTO --> SOLICITUD_DISPENSA_ABIERTA : consultarSolicitudDispensa()
+DISPENSAS_ABIERTO --> SOLICITUD_DISPENSA_ABIERTA : consultarSolicitudesDispensa()
 
 SOLICITUD_DISPENSA_ABIERTA --> SOLICITUD_DISPENSA_ABIERTA : editarSolicitudDispensa()
-SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO         : guardarSolicitud()
-SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO         : cerrarSolicitud()
+SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO : guardarSolicitudDispensa()
+SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO : cerrarSolicitudDispensa()
 
-'==========================================
-'  MÓDULO USUARIOS Y ROLES (ADMINISTRADOR)
-'==========================================
+' ==========================================
+'   MÓDULO USUARIOS Y ROLES
+' ==========================================
 SISTEMA_DISPONIBLE --> USUARIOS_ABIERTO : abrirUsuarios()
 USUARIOS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionUsuarios()
 
-USUARIOS_ABIERTO --> USUARIO_ABIERTO : crearUsuario() / consultarUsuario()
+USUARIOS_ABIERTO --> USUARIO_DETALLE_ABIERTO : crearUsuario()
+USUARIOS_ABIERTO --> USUARIO_DETALLE_ABIERTO : consultarUsuario()
 
-USUARIO_ABIERTO --> USUARIO_ABIERTO   : editarUsuario()
-USUARIO_ABIERTO --> USUARIOS_ABIERTO  : guardarUsuario()
-USUARIO_ABIERTO --> USUARIOS_ABIERTO  : cerrarUsuario()
-
+USUARIO_DETALLE_ABIERTO --> USUARIO_DETALLE_ABIERTO : editarUsuario()
+USUARIO_DETALLE_ABIERTO --> USUARIOS_ABIERTO : cerrarUsuario()
 @enduml
