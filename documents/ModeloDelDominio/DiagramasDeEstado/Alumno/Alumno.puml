@@ -5,4 +5,6 @@ title Diagrama de Estados: Alumno
 [*] --> Disponible : importarAlumnos()
 
 Disponible --> Disponible : consultarAlumno()
+Disponible --> [*]
+
 @enduml
