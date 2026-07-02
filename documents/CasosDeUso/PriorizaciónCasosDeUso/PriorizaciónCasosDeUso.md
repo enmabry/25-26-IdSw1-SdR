@@ -1,30 +1,34 @@
+<div align="center">
 
+[![](https://img.shields.io/badge/-Inicio-0D47A1?style=flat&logo=Emlakjet&logoColor=white)](/README.md) [![](https://img.shields.io/badge/-Modelo_del_Dominio-0D47A1?style=flat&logo=LiveChat&logoColor=white)](/documents/ModeloDelDominio/README.MD) [![](https://img.shields.io/badge/-Actores-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/Actores/README.MD) [![](https://img.shields.io/badge/-Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/CasoDeUso/README.md) [![](https://img.shields.io/badge/-Detallado_Casos_de_Uso-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DetalladoCasosDeUso/README.md) [![](https://img.shields.io/badge/-Diagrama_de_Contexto-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/DiagramaDeContexto/README.MD) [![](https://img.shields.io/badge/-Prototipos-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](/documents/CasosDeUso/Prototipos/README.md) [![](https://img.shields.io/badge/-Reuniones-0D47A1?style=flat&logo=Proton&logoColor=white)](/documents/Reuniones/README.MD) [![](https://img.shields.io/badge/-Priorización-0D47A1?style=flat&logo=Proton&logoColor=white)](/documents/CasosDeUso/PriorizaciónCasosDeUso/PriorizaciónCasosDeUso.md) [![](https://img.shields.io/badge/-Declaración_de_IA-0D47A1?style=flat&logo=robot&logoColor=white)](/documents/DeclaraciónDeIA/Readme.md)
+
+</div>
 
 # Priorización de Casos de Uso
 
 | Orden de priorización de casos de uso |
 |---------|
-| 1. <a href="DetalladoCasosDeUso/Administrador/crearUsuario.puml"> crearUsuario() </a> [Administrador] |
-| 2. <a href="DetalladoCasosDeUso/Administrador/consultarUsuario.puml"> consultarUsuario() </a> [Administrador] |
-| 3. <a href="DetalladoCasosDeUso/Administrador/editarUsuario.puml"> editarUsuario() </a> [Administrador] |
-| 4. <a href="DetalladoCasosDeUso/Secretaria/importarListasAlumnos.puml"> importarListasAlumnos() </a> [Secretaria] |
-| 5. <a href="DetalladoCasosDeUso/Secretaria/importarMatriculas.puml"> importarMatriculas() </a> [Secretaria] |
-| 6. <a href="DetalladoCasosDeUso/Profesor/crearSesionClase.puml"> crearSesionClase() </a> [Profesor] |
-| 7. <a href="DetalladoCasosDeUso/Profesor/editarSesionClase.puml"> editarSesionClase() </a> [Profesor] |
-| 8. <a href="DetalladoCasosDeUso/Profesor/registrarTomaAsistencia.puml"> registrarTomaAsistencia() </a> [Profesor] |
-| 9. <a href="DetalladoCasosDeUso/Profesor/cerrarSesionClase.puml"> cerrarSesionClase() </a> [Profesor] |
-| 10. <a href="DetalladoCasosDeUso/Profesor/consultarDetalleAlumno.puml"> consultarDetalleAlumno() </a> [Profesor] |
-| 11. <a href="DetalladoCasosDeUso/Secretaria/consultarDetalleAlumno.puml"> consultarDetalleAlumno() </a> [Secretaria] |
-| 12. <a href="DetalladoCasosDeUso/Secretaria/consultarDetalleMatricula.puml"> consultarDetalleMatricula() </a> [Secretaria] |
-| 13. <a href="DetalladoCasosDeUso/Alumno/crearSolicitudDispensa.puml"> crearSolicitudDispensa() </a> [Alumno] |
-| 14. <a href="DetalladoCasosDeUso/Alumno/editarSolicitudDispensa.puml"> editarSolicitudDispensa() </a> [Alumno] |
-| 15. <a href="DetalladoCasosDeUso/Alumno/consultarSolicitudDispensa.puml"> consultarSolicitudDispensa() </a> [Alumno] |
-| 16. <a href="DetalladoCasosDeUso/Secretaria/crearSolicitudDispensa.puml"> crearSolicitudDispensa() </a> [Secretaria] |
-| 17. <a href="DetalladoCasosDeUso/Secretaria/editarSolicitudDispensa.puml"> editarSolicitudDispensa() </a> [Secretaria] |
-| 18. <a href="DetalladoCasosDeUso/Secretaria/consultarSolicitudDispensa.puml"> consultarSolicitudDispensa() </a> [Secretaria] |
-| 19. <a href="DetalladoCasosDeUso/DirectorDeGrado/editarSolicitudDispensa.puml"> editarSolicitudDispensa() </a> [Director de Grado] |
-| 20. <a href="DetalladoCasosDeUso/DirectorDeGrado/consultarSolicitudDispensa.puml"> consultarSolicitudDispensa() </a> [Director de Grado] |
-| 21. <a href="DetalladoCasosDeUso/Profesor/consultarSolicitudDispensa.puml"> consultarSolicitudDispensa() </a> [Profesor] |
-| 22. <a href="DetalladoCasosDeUso/Profesor/exportarHistorialAsistencias.puml"> exportarHistorialAsistencias() </a> [Profesor] |
-| 23. <a href="DetalladoCasosDeUso/Secretaria/exportarDispensas.puml"> exportarDispensas() </a> [Secretaria] |
-| 24. <a href="DetalladoCasosDeUso/Secretaria/cerrarCicloAcademico.puml"> cerrarCicloAcademico() </a> [Secretaria] |
+| 1. [crearUsuario()](../DetalladoCasosDeUso/Administrador/crearUsuario.puml) [Administrador] |
+| 2. [consultarUsuario()](../DetalladoCasosDeUso/Administrador/consultarUsuario.puml) [Administrador] |
+| 3. [editarUsuario()](../DetalladoCasosDeUso/Administrador/editarUsuario.puml) [Administrador] |
+| 4. [importarListasAlumnos()](../DetalladoCasosDeUso/Secretaria/importarListasAlumnos.puml) [Secretaria] |
+| 5. [importarMatriculas()](../DetalladoCasosDeUso/Secretaria/importarMatriculas.puml) [Secretaria] |
+| 6. [crearSesionClase()](../DetalladoCasosDeUso/Profesor/crearSesionClase.puml) [Profesor] |
+| 7. [editarSesionClase()](../DetalladoCasosDeUso/Profesor/editarSesionClase.puml) [Profesor] |
+| 8. [registrarTomaAsistencia()](../DetalladoCasosDeUso/Profesor/registrarTomaAsistencia.puml) [Profesor] |
+| 9. [cerrarSesionClase()](../DetalladoCasosDeUso/Profesor/cerrarSesionClase.puml) [Profesor] |
+| 10. [consultarDetalleAlumno()](../DetalladoCasosDeUso/Profesor/consultarDetalleAlumno.puml) [Profesor] |
+| 11. [consultarDetalleAlumno()](../DetalladoCasosDeUso/Secretaria/consultarDetalleAlumno.puml) [Secretaria] |
+| 12. [consultarDetalleMatricula()](../DetalladoCasosDeUso/Secretaria/consultarDetalleMatricula.puml) [Secretaria] |
+| 13. [crearSolicitudDispensa()](../DetalladoCasosDeUso/Alumno/crearSolicitudDispensa.puml) [Alumno] |
+| 14. [editarSolicitudDispensa()](../DetalladoCasosDeUso/Alumno/editarSolicitudDispensa.puml) [Alumno] |
+| 15. [consultarSolicitudDispensa()](../DetalladoCasosDeUso/Alumno/consultarSolicitudDispensa.puml) [Alumno] |
+| 16. [crearSolicitudDispensa()](../DetalladoCasosDeUso/Secretaria/crearSolicitudDispensa.puml) [Secretaria] |
+| 17. [editarSolicitudDispensa()](../DetalladoCasosDeUso/Secretaria/editarSolicitudDispensa.puml) [Secretaria] |
+| 18. [consultarSolicitudDispensa()](../DetalladoCasosDeUso/Secretaria/consultarSolicitudDispensa.puml) [Secretaria] |
+| 19. [editarSolicitudDispensa()](../DetalladoCasosDeUso/DirectorDeGrado/editarSolicitudDispensa.puml) [Director de Grado] |
+| 20. [consultarSolicitudDispensa()](../DetalladoCasosDeUso/DirectorDeGrado/consultarSolicitudDispensa.puml) [Director de Grado] |
+| 21. [consultarSolicitudDispensa()](../DetalladoCasosDeUso/Profesor/consultarSolicitudDispensa.puml) [Profesor] |
+| 22. [exportarHistorialAsistencias()](../DetalladoCasosDeUso/Profesor/exportarHistorialAsistencias.puml) [Profesor] |
+| 23. [exportarDispensas()](../DetalladoCasosDeUso/Secretaria/exportarDispensas.puml) [Secretaria] |
+| 24. [cerrarCicloAcademico()](../DetalladoCasosDeUso/Secretaria/cerrarCicloAcademico.puml) [Secretaria] |

@@ -6,17 +6,12 @@
 
 </div>
 
-<a name="Navbar"></a>
-
 Visión general del sistema en relación con su entorno, actores externos y límites del sistema.
 
 ---
 
-<p align="center">
-  <img src="./DiagramaDeContexto.svg">
-</p>
+## Diagrama de Contexto
 
-[![](https://img.shields.io/badge/-Carpeta-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./) [![](https://img.shields.io/badge/-Ver_PUML-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DiagramaDeContexto.puml) [![](https://img.shields.io/badge/-Ver_SVG-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](./DiagramaDeContexto.svg) [![](https://img.shields.io/badge/-Navbar-0D47A1?style=flat&logo=openstreetmap&logoColor=white)](#Navbar)
-
----
-
+| ![Diagrama de Contexto](DiagramaDeContexto.svg) |
+| :--- |
+| [Código UML](DiagramaDeContexto.puml) |
