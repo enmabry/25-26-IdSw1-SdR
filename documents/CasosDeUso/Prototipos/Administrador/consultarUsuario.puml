@@ -16,7 +16,7 @@
   }
   --
   {
-    [ <b>Editar Usuario</b> ] | [   Cerrar Detalles   ]
+    [   Cerrar Detalles   ]
   }
 }
 @endsalt

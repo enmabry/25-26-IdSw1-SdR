@@ -7,12 +7,15 @@
     <b>Estado Actual: | <b><color:orange>Solicitada</color>
   }
   --
-  <b>Modificar Información de la Ausencia
+  <b>Modificar Información de la Dispensa
   {
-    Asignatura afectada: | ^Ingeniería de Software II^
-    Fecha de la sesión:  | "15/05/2026       "
-    Motivo (Justificación): | "Cita médica programada. Reposo de 48h.              "
-    Documento adjunto:   | [ Reemplazar Archivo... ] nuevo_justificante.pdf
+    Asignatura de la dispensa: | ^Ingeniería de Software II^
+    Tipo/Motivo de dispensa:   | ^Solapamiento de horarios^
+    Día(s) de la semana:       | ^Miércoles^
+    Franja horaria afectada:   | "10:00 - 12:00    "
+    Asignatura solapada:       | ^Arquitectura de Software^
+    Justificación / Comentarios:| "Solapamiento debido a cambio de grupo.            "
+    Documento adjunto:         | [ Reemplazar Archivo... ] resguardo_matricula.pdf
   }
   --
   {

@@ -16,7 +16,7 @@
   }
   --
   {
-    [ <b>Modificar Matrícula</b> ] | [   Cerrar Detalles   ]
+    [   Cerrar Detalles   ]
   }
 }
 @endsalt

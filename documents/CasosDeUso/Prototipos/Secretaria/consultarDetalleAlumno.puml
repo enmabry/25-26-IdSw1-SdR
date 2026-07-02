@@ -16,7 +16,7 @@
   }
   --
   {
-    [ <b>Editar Datos</b> ] | [   Cerrar Detalles   ]
+    [   Cerrar Detalles   ]
   }
 }
 @endsalt

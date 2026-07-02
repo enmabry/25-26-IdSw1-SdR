@@ -10,13 +10,16 @@
   <b>Información de la Solicitud
   {
     Estado de la Dispensa: | <b><color:green>Aprobada por Dirección</color>
-    Asignatura afectada: | "Ingeniería de Software II"
-    Fecha de la sesión:  | "15/05/2026       "
-    Motivo (Justificación): | "Cita médica programada. Reposo de 24h.              "
+    Asignatura de la dispensa: | "Ingeniería de Software II"
+    Tipo/Motivo de dispensa:   | "Solapamiento de horarios"
+    Día(s) de la semana:       | "Miércoles"
+    Franja horaria afectada:   | "10:00 - 12:00    "
+    Asignatura solapada:       | "Arquitectura de Software"
+    Justificación / Comentarios:| "Solapamiento por cambio de grupo en matrícula.    "
   }
   --
   {
-    [ <b>Editar Dispensa</b> ] | [   Cerrar Detalles   ]
+    [   Cerrar Detalles   ]
   }
 }
 @endsalt

@@ -4,149 +4,149 @@
 
 </div>
 
-## Detallado de casos de uso
+## Prototipado de casos de uso
 
 ### Crear Usuario [Administrador]
 
-| ![Detallado de Crear Usuario](Administrador/crearUsuario.svg) |
+| ![Prototipo de Crear Usuario](Administrador/crearUsuario.svg) |
 | :--- |
 | [Código UML](Administrador/crearUsuario.puml) |
 
 ### Consultar Usuario [Administrador]
 
-| ![Detallado de Consultar Usuario](Administrador/consultarUsuario.svg) |
+| ![Prototipo de Consultar Usuario](Administrador/consultarUsuario.svg) |
 | :--- |
 | [Código UML](Administrador/consultarUsuario.puml) |
 
 ### Editar Usuario [Administrador]
 
-| ![Detallado de Editar Usuario](Administrador/editarUsuario.svg) |
+| ![Prototipo de Editar Usuario](Administrador/editarUsuario.svg) |
 | :--- |
 | [Código UML](Administrador/editarUsuario.puml) |
 
 ### Crear Solicitud Dispensa [Alumno]
 
-| ![Detallado de Crear Solicitud Dispensa](Alumno/crearSolicitudDispensa.svg) |
+| ![Prototipo de Crear Solicitud Dispensa](Alumno/crearSolicitudDispensa.svg) |
 | :--- |
 | [Código UML](Alumno/crearSolicitudDispensa.puml) |
 
 ### Editar Solicitud Dispensa [Alumno]
 
-| ![Detallado de Editar Solicitud Dispensa](Alumno/editarSolicitudDispensa.svg) |
+| ![Prototipo de Editar Solicitud Dispensa](Alumno/editarSolicitudDispensa.svg) |
 | :--- |
 | [Código UML](Alumno/editarSolicitudDispensa.puml) |
 
 ### Consultar Solicitud Dispensa [Alumno]
 
-| ![Detallado de Consultar Solicitud Dispensa](Alumno/consultarSolicitudDispensa.svg) |
+| ![Prototipo de Consultar Solicitud Dispensa](Alumno/consultarSolicitudDispensa.svg) |
 | :--- |
 | [Código UML](Alumno/consultarSolicitudDispensa.puml) |
 
 ### Consultar Solicitud Dispensa [Director de Grado]
 
-| ![Detallado de Consultar Solicitud Dispensa](DirectorDeGrado/consultarSolicitudDispensa.svg) |
+| ![Prototipo de Consultar Solicitud Dispensa](DirectorDeGrado/consultarSolicitudDispensa.svg) |
 | :--- |
 | [Código UML](DirectorDeGrado/consultarSolicitudDispensa.puml) |
 
 ### Editar Solicitud Dispensa [Director de Grado]
 
-| ![Detallado de Editar Solicitud Dispensa](DirectorDeGrado/editarSolicitudDispensa.svg) |
+| ![Prototipo de Editar Solicitud Dispensa](DirectorDeGrado/editarSolicitudDispensa.svg) |
 | :--- |
 | [Código UML](DirectorDeGrado/editarSolicitudDispensa.puml) |
 
 ### Crear Sesion Clase [Profesor]
 
-| ![Detallado de Crear Sesion Clase](Profesor/crearSesionClase.svg) |
+| ![Prototipo de Crear Sesion Clase](Profesor/crearSesionClase.svg) |
 | :--- |
 | [Código UML](Profesor/crearSesionClase.puml) |
 
 ### Editar Sesion Clase [Profesor]
 
-| ![Detallado de Editar Sesion Clase](Profesor/editarSesionClase.svg) |
+| ![Prototipo de Editar Sesion Clase](Profesor/editarSesionClase.svg) |
 | :--- |
 | [Código UML](Profesor/editarSesionClase.puml) |
 
 ### Registrar Toma Asistencia [Profesor]
 
-| ![Detallado de Registrar Toma Asistencia](Profesor/registrarTomaAsistencia.svg) |
+| ![Prototipo de Registrar Toma Asistencia](Profesor/registrarTomaAsistencia.svg) |
 | :--- |
 | [Código UML](Profesor/registrarTomaAsistencia.puml) |
 
 ### Cerrar Sesion Clase [Profesor]
 
-| ![Detallado de Cerrar Sesion Clase](Profesor/cerrarSesionClase.svg) |
+| ![Prototipo de Cerrar Sesion Clase](Profesor/cerrarSesionClase.svg) |
 | :--- |
 | [Código UML](Profesor/cerrarSesionClase.puml) |
 
 ### Consultar Detalle Alumno [Profesor]
 
-| ![Detallado de Consultar Detalle Alumno](Profesor/consultarDetalleAlumno.svg) |
+| ![Prototipo de Consultar Detalle Alumno](Profesor/consultarDetalleAlumno.svg) |
 | :--- |
 | [Código UML](Profesor/consultarDetalleAlumno.puml) |
 
 ### Consultar Solicitud Dispensa [Profesor]
 
-| ![Detallado de Consultar Solicitud Dispensa](Profesor/consultarSolicitudDispensa.svg) |
+| ![Prototipo de Consultar Solicitud Dispensa](Profesor/consultarSolicitudDispensa.svg) |
 | :--- |
 | [Código UML](Profesor/consultarSolicitudDispensa.puml) |
 
 ### Exportar Historial Asistencias [Profesor]
 
-| ![Detallado de Exportar Historial Asistencias](Profesor/exportarHistorialAsistencias.svg) |
+| ![Prototipo de Exportar Historial Asistencias](Profesor/exportarHistorialAsistencias.svg) |
 | :--- |
 | [Código UML](Profesor/exportarHistorialAsistencias.puml) |
 
 ### Importar Listas Alumnos [Secretaria]
 
-| ![Detallado de Importar Listas Alumnos](Secretaria/importarListasAlumnos.svg) |
+| ![Prototipo de Importar Listas Alumnos](Secretaria/importarListasAlumnos.svg) |
 | :--- |
 | [Código UML](Secretaria/importarListasAlumnos.puml) |
 
 ### Importar Matriculas [Secretaria]
 
-| ![Detallado de Importar Matriculas](Secretaria/importarMatriculas.svg) |
+| ![Prototipo de Importar Matriculas](Secretaria/importarMatriculas.svg) |
 | :--- |
 | [Código UML](Secretaria/importarMatriculas.puml) |
 
 ### Consultar Detalle Alumno [Secretaria]
 
-| ![Detallado de Consultar Detalle Alumno](Secretaria/consultarDetalleAlumno.svg) |
+| ![Prototipo de Consultar Detalle Alumno](Secretaria/consultarDetalleAlumno.svg) |
 | :--- |
 | [Código UML](Secretaria/consultarDetalleAlumno.puml) |
 
 ### Consultar Detalle Matricula [Secretaria]
 
-| ![Detallado de Consultar Detalle Matricula](Secretaria/consultarDetalleMatricula.svg) |
+| ![Prototipo de Consultar Detalle Matricula](Secretaria/consultarDetalleMatricula.svg) |
 | :--- |
 | [Código UML](Secretaria/consultarDetalleMatricula.puml) |
 
 ### Crear Solicitud Dispensa [Secretaria]
 
-| ![Detallado de Crear Solicitud Dispensa](Secretaria/crearSolicitudDispensa.svg) |
+| ![Prototipo de Crear Solicitud Dispensa](Secretaria/crearSolicitudDispensa.svg) |
 | :--- |
 | [Código UML](Secretaria/crearSolicitudDispensa.puml) |
 
 ### Editar Solicitud Dispensa [Secretaria]
 
-| ![Detallado de Editar Solicitud Dispensa](Secretaria/editarSolicitudDispensa.svg) |
+| ![Prototipo de Editar Solicitud Dispensa](Secretaria/editarSolicitudDispensa.svg) |
 | :--- |
 | [Código UML](Secretaria/editarSolicitudDispensa.puml) |
 
 ### Consultar Solicitud Dispensa [Secretaria]
 
-| ![Detallado de Consultar Solicitud Dispensa](Secretaria/consultarSolicitudDispensa.svg) |
+| ![Prototipo de Consultar Solicitud Dispensa](Secretaria/consultarSolicitudDispensa.svg) |
 | :--- |
 | [Código UML](Secretaria/consultarSolicitudDispensa.puml) |
 
 ### Exportar Dispensas [Secretaria]
 
-| ![Detallado de Exportar Dispensas](Secretaria/exportarDispensas.svg) |
+| ![Prototipo de Exportar Dispensas](Secretaria/exportarDispensas.svg) |
 | :--- |
 | [Código UML](Secretaria/exportarDispensas.puml) |
 
 ### Cerrar Ciclo Academico [Secretaria]
 
-| ![Detallado de Cerrar Ciclo Academico](Secretaria/cerrarCicloAcademico.svg) |
+| ![Prototipo de Cerrar Ciclo Academico](Secretaria/cerrarCicloAcademico.svg) |
 | :--- |
 | [Código UML](Secretaria/cerrarCicloAcademico.puml) |
 

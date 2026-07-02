@@ -2,14 +2,16 @@
 {+
   <b>Portal del Alumno | Nueva Solicitud de Dispensa
   ==
-  <b>Registro de Ausencia
+  <b>Información de la Dispensa
   --
-  <b>Información de la Ausencia
   {
-    Asignatura afectada: | ^Seleccione Asignatura...^
-    Fecha de la sesión:  | "DD/MM/YYYY       "
-    Motivo (Justificación): | "                                                  "
-    Documento adjunto:   | [ Seleccionar Archivo... ] Ningún archivo seleccionado
+    Asignatura de la dispensa: | ^Seleccione Asignatura...^
+    Tipo/Motivo de dispensa:   | ^Solapamiento de horarios^
+    Día(s) de la semana:       | ^Miércoles^
+    Franja horaria afectada:   | "10:00 - 12:00    "
+    Asignatura solapada:       | ^Seleccione Asignatura...^
+    Justificación / Comentarios:| "                                                  "
+    Documento adjunto:         | [ Seleccionar Archivo... ] Ningún archivo seleccionado
   }
   --
   {

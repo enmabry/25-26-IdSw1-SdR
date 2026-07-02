@@ -10,14 +10,17 @@
   <b>Información de la Solicitud
   {
     Alumno Solicitante: | "Carlos Mendoza           "
-    Asignatura afectada: | "Ingeniería de Software II"
-    Fecha de la sesión:  | "15/05/2026       "
-    Motivo (Justificación): | "Cita médica programada. Reposo de 24h.              "
-    Documento adjunto:   | [ Descargar y Ver ] justificante_medico.pdf
+    Asignatura de la dispensa: | "Ingeniería de Software II"
+    Tipo/Motivo de dispensa:   | "Solapamiento de horarios"
+    Día(s) de la semana:       | "Miércoles"
+    Franja horaria afectada:   | "10:00 - 12:00    "
+    Asignatura solapada:       | "Arquitectura de Software"
+    Justificación / Comentarios:| "Solapamiento con otra asignatura de igual crédito. "
+    Documento adjunto:         | [ Descargar y Ver ] resguardo_matricula.pdf
   }
   --
   {
-    [ <b>Evaluar Solicitud</b> ] | [   Cerrar Detalles   ]
+    [   Cerrar Detalles   ]
   }
 }
 @endsalt
