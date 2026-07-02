@@ -1,0 +1,23 @@
+@startsalt
+{+
+  <b>Portal de la Secretaría | Cerrar Ciclo Académico
+  ==
+  <b>Configuración de Cierre
+  --
+  {
+    <b>Ciclo Actual: | 2025-2026 Segundo Semestre
+    <b>Estado General: | <b><color:orange>En Curso</color>
+  }
+  --
+  <b>Verificación de Requisitos Previos
+  {
+    [X] Todas las actas de asistencia cerradas
+    [X] Todas las dispensas procesadas y resueltas
+    [X] Copia de seguridad generada automáticamente
+  }
+  --
+  {
+    [ <b>Confirmar Cierre de Ciclo</b> ] | [   Cancelar   ]
+  }
+}
+@endsalt

@@ -1,0 +1,22 @@
+@startsalt
+{+
+  <b>Portal de la Secretaría | Consultar Detalle de Matrícula
+  ==
+  {
+    <b>ID Matrícula: | MAT-2026-980
+    <b>Alumno: | Carlos Mendoza
+  }
+  --
+  <b>Materias Matriculadas
+  {
+    # | Asignatura | Paralelo | Estado
+    1 | Ingeniería de Software II | A | () Aprobada () Reprobada (X) Cursando
+    2 | Bases de Datos Avanzadas | B | () Aprobada () Reprobada (X) Cursando
+    3 | Sistemas Operativos | A | () Aprobada () Reprobada (X) Cursando
+  }
+  --
+  {
+    [ <b>Modificar Matrícula</b> ] | [   Cerrar Detalles   ]
+  }
+}
+@endsalt

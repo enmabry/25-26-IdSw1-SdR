@@ -1,0 +1,22 @@
+@startsalt
+{+
+  <b>Portal de la Secretaría | Consultar Detalle de Alumno
+  ==
+  {
+    <b>ID Alumno: | ALM-2023-045
+    <b>Estado: | <b><color:green>Matriculado</color>
+  }
+  --
+  <b>Información Administrativa
+  {
+    Nombres Completos: | "Carlos Mendoza           "
+    DNI / Pasaporte: | "1712345678              "
+    Correo Institucional: | "cmendoza@estudiantes.edu.ec"
+    Carrera: | "Ingeniería en Software  "
+  }
+  --
+  {
+    [ <b>Editar Datos</b> ] | [   Cerrar Detalles   ]
+  }
+}
+@endsalt

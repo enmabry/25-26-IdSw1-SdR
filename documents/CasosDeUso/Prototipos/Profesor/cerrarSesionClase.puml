@@ -1,0 +1,22 @@
+@startsalt
+{+
+  <b>Portal del Profesor | Cerrar Sesión de Clase
+  ==
+  {
+    <b>ID Sesión: | SES-102
+    <b>Asignatura: | Ingeniería de Software II
+  }
+  --
+  <b>Confirmación de Cierre
+  {
+    Estado Actual: | <b><color:green>Abierta (Asistencia en curso)</color>
+    
+    ¿Está seguro de que desea cerrar la sesión? 
+    Ya no se permitirán modificaciones en la asistencia.
+  }
+  --
+  {
+    [ <b>Confirmar Cierre Definitivo</b> ] | [   Cancelar   ]
+  }
+}
+@endsalt

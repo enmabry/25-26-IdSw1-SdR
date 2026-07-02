@@ -1,0 +1,20 @@
+@startsalt
+{+
+  <b>Portal de la Secretaría | Importar Matrículas
+  ==
+  <b>Carga Masiva de Matrículas (Asignaciones)
+  --
+  <b>Selección de Archivo
+  {
+    Formato Aceptado: | Excel (.xls, .xlsx) o CSV (.csv)
+    Archivo de Origen: | [ Seleccionar Archivo... ] matriculas_2026_S2.xlsx
+    
+    <b>Advertencia:</b> 
+    Los alumnos y asignaturas deben estar registrados previamente en el sistema.
+  }
+  --
+  {
+    [ <b>Ejecutar Importación de Matrículas</b> ] | [   Cancelar   ]
+  }
+}
+@endsalt

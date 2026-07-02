@@ -1,0 +1,22 @@
+@startsalt
+{+
+  <b>Portal del Profesor | Toma de Asistencia
+  ==
+  {
+    <b>ID Sesión: | SES-102
+    <b>Asignatura: | Ingeniería de Software II (18/05/2026)
+  }
+  --
+  <b>Lista de Alumnos
+  {
+    # | Alumno | Asistencia
+    1 | Mendoza, Carlos | () Presente () Ausente (X) Retraso
+    2 | López, María    | (X) Presente () Ausente () Retraso
+    3 | Silva, Pedro    | () Presente (X) Ausente () Retraso
+  }
+  --
+  {
+    [ <b>Guardar Registro Parcial</b> ] | [ <b>Finalizar y Cerrar Sesión</b> ]
+  }
+}
+@endsalt

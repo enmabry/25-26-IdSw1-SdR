@@ -1,0 +1,20 @@
+@startsalt
+{+
+  <b>Portal de la Secretaría | Ingresar Solicitud de Dispensa
+  ==
+  <b>Registro de Ausencia (Modo Secretaría)
+  --
+  <b>Información del Alumno y Ausencia
+  {
+    Alumno Solicitante: | ^Buscar por DNI o Nombre...^
+    Asignatura afectada: | ^Seleccione Asignatura...^
+    Fecha de la sesión:  | "DD/MM/YYYY       "
+    Motivo (Justificación): | "                                                  "
+    Documento adjunto:   | [ Seleccionar Archivo... ] Ningún archivo seleccionado
+  }
+  --
+  {
+    [ <b>Registrar Solicitud en el Sistema</b> ] | [   Cancelar   ]
+  }
+}
+@endsalt

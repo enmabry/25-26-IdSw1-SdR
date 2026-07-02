@@ -1,0 +1,20 @@
+@startsalt
+{+
+  <b>Portal del Profesor | Crear Sesión de Clase
+  ==
+  <b>Configuración de Nueva Sesión
+  --
+  <b>Detalles de la Clase
+  {
+    Asignatura: | ^Ingeniería de Software II^
+    Fecha de Sesión: | "18/05/2026       "
+    Hora de Inicio: | "10:00           "
+    Hora de Fin: | "12:00           "
+    Tipo de Sesión: | ^Teoría^
+  }
+  --
+  {
+    [ <b>Crear e Iniciar Toma de Asistencia</b> ] | [   Cancelar   ]
+  }
+}
+@endsalt

@@ -1,0 +1,22 @@
+@startsalt
+{+
+  <b>Portal del Alumno | Editar Solicitud de Dispensa
+  ==
+  {
+    <b>ID Trámite: | DSP-2026-089
+    <b>Estado Actual: | <b><color:orange>Solicitada</color>
+  }
+  --
+  <b>Modificar Información de la Ausencia
+  {
+    Asignatura afectada: | ^Ingeniería de Software II^
+    Fecha de la sesión:  | "15/05/2026       "
+    Motivo (Justificación): | "Cita médica programada. Reposo de 48h.              "
+    Documento adjunto:   | [ Reemplazar Archivo... ] nuevo_justificante.pdf
+  }
+  --
+  {
+    [ <b>Guardar Cambios</b> ] | [   Descartar Cambios   ]
+  }
+}
+@endsalt

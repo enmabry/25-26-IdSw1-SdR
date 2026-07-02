@@ -1,0 +1,21 @@
+@startsalt
+{+
+  <b>Portal del Profesor | Consultar Dispensa (Solo Lectura)
+  ==
+  {
+    <b>ID Trámite: | DSP-2026-089
+    <b>Alumno: | Carlos Mendoza
+  }
+  --
+  <b>Información de la Solicitud
+  {
+    Estado de la Dispensa: | <b><color:green>Aprobada por Dirección</color>
+    Fecha de la sesión:  | "15/05/2026       "
+    Motivo (Justificación): | "Cita médica programada. Reposo de 24h.              "
+  }
+  --
+  {
+    [   Cerrar Detalles   ]
+  }
+}
+@endsalt

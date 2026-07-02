@@ -1,0 +1,22 @@
+@startsalt
+{+
+  <b>Portal del Administrador | Editar Usuario
+  ==
+  {
+    <b>ID Usuario: | USR-7845
+    <b>Estado Actual: | ^Activo^
+  }
+  --
+  <b>Edición de Información
+  {
+    Nombres Completos: | "Juan Pérez               "
+    Correo Institucional: | "jperez@institucion.edu.ec"
+    Restablecer Contraseña: | [ Generar Nueva Contraseña ]
+    Rol de Sistema: | ^Profesor^
+  }
+  --
+  {
+    [ <b>Guardar Cambios</b> ] | [   Cancelar Edición   ]
+  }
+}
+@endsalt

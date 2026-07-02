@@ -1,0 +1,17 @@
+@startsalt
+{+
+  <b>Portal del Profesor | Exportar Historial de Asistencias
+  ==
+  <b>Parámetros de Exportación
+  --
+  {
+    Asignatura: | ^Ingeniería de Software II^
+    Rango de Fechas: | "Desde: 01/05/2026 Hasta: 31/05/2026"
+    Formato de Archivo: | ^Excel (.xlsx)^
+  }
+  --
+  {
+    [ <b>Generar Reporte</b> ] | [   Cancelar   ]
+  }
+}
+@endsalt

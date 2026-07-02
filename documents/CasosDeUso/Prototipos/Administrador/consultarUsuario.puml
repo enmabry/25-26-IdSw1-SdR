@@ -1,0 +1,22 @@
+@startsalt
+{+
+  <b>Portal del Administrador | Consultar Usuario
+  ==
+  {
+    <b>ID Usuario: | USR-7845
+    <b>Estado Actual: | <b><color:green>Activo</color>
+  }
+  --
+  <b>Información del Usuario
+  {
+    Nombres: | "Juan Pérez               "
+    Correo Institucional: | "jperez@institucion.edu.ec"
+    Rol de Sistema: | ^Profesor^
+    Último Acceso: | "12/05/2026 14:30       "
+  }
+  --
+  {
+    [ <b>Editar Usuario</b> ] | [   Cerrar Detalles   ]
+  }
+}
+@endsalt

@@ -1,0 +1,23 @@
+@startsalt
+{+
+  <b>Portal del Profesor | Editar Sesión de Clase
+  ==
+  {
+    <b>ID Sesión: | SES-102
+    <b>Estado Actual: | <b><color:green>Abierta</color>
+  }
+  --
+  <b>Modificar Detalles de la Clase
+  {
+    Asignatura: | ^Ingeniería de Software II^
+    Fecha de Sesión: | "18/05/2026       "
+    Hora de Inicio: | "10:15           "
+    Hora de Fin: | "12:00           "
+    Tipo de Sesión: | ^Teoría^
+  }
+  --
+  {
+    [ <b>Guardar Cambios</b> ] | [   Descartar Cambios   ]
+  }
+}
+@endsalt

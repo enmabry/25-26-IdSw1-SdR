@@ -1,0 +1,17 @@
+@startsalt
+{+
+  <b>Portal de la Secretaría | Importar Listas de Alumnos
+  ==
+  <b>Carga Masiva de Alumnos (Padrón)
+  --
+  <b>Selección de Archivo
+  {
+    Formato Aceptado: | Excel (.xls, .xlsx) o CSV (.csv)
+    Archivo de Origen: | [ Seleccionar Archivo... ] alumnos_2026_S2.csv
+  }
+  --
+  {
+    [ <b>Validar e Importar</b> ] | [   Descargar Plantilla Base   ]
+  }
+}
+@endsalt

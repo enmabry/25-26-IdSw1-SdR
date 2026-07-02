@@ -1,0 +1,23 @@
+@startsalt
+{+
+  <b>Portal del Profesor | Consultar Detalle de Alumno
+  ==
+  {
+    <b>ID Alumno: | ALM-2023-045
+    <b>Estado: | <b><color:green>Matriculado</color>
+  }
+  --
+  <b>Información Académica General
+  {
+    Nombres Completos: | "Carlos Mendoza           "
+    Asignatura Actual: | "Ingeniería de Software II"
+    Porcentaje de Asistencia: | "85%"
+    Faltas Injustificadas: | "2"
+    Faltas Justificadas (Dispensas): | "1"
+  }
+  --
+  {
+    [   Cerrar Detalles   ]
+  }
+}
+@endsalt

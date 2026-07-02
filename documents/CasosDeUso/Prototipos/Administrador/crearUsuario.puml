@@ -1,0 +1,19 @@
+@startsalt
+{+
+  <b>Portal del Administrador | Crear Usuario
+  ==
+  <b>Registro de Nuevo Usuario
+  --
+  <b>Información del Usuario
+  {
+    Nombres Completos: | "                              "
+    Correo Institucional: | "                              "
+    Contraseña Temporal: | "                              "
+    Rol de Sistema: | ^Seleccione Rol...^
+  }
+  --
+  {
+    [ <b>Guardar Usuario</b> ] | [   Cancelar   ]
+  }
+}
+@endsalt

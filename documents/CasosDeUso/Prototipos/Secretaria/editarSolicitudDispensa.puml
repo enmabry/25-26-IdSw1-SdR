@@ -1,0 +1,22 @@
+@startsalt
+{+
+  <b>Portal de la Secretaría | Editar Solicitud de Dispensa
+  ==
+  {
+    <b>ID Trámite: | DSP-2026-089
+    <b>Estado Actual: | <b><color:green>Aprobada por Dirección</color>
+  }
+  --
+  <b>Modificar Datos Administrativos
+  {
+    Alumno Solicitante: | "Carlos Mendoza           "
+    Asignatura afectada: | ^Ingeniería de Software II^
+    Fecha de la sesión:  | "15/05/2026       "
+    Observaciones Internas (Sec.): | "Documentación original archivada en expediente."
+  }
+  --
+  {
+    [ <b>Guardar Cambios Administrativos</b> ] | [   Descartar Cambios   ]
+  }
+}
+@endsalt

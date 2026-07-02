@@ -1,0 +1,19 @@
+@startsalt
+{+
+  <b>Portal del Alumno | Nueva Solicitud de Dispensa
+  ==
+  <b>Registro de Ausencia
+  --
+  <b>Información de la Ausencia
+  {
+    Asignatura afectada: | ^Seleccione Asignatura...^
+    Fecha de la sesión:  | "DD/MM/YYYY       "
+    Motivo (Justificación): | "                                                  "
+    Documento adjunto:   | [ Seleccionar Archivo... ] Ningún archivo seleccionado
+  }
+  --
+  {
+    [ <b>Enviar Solicitud</b> ] | [   Cancelar   ]
+  }
+}
+@endsalt

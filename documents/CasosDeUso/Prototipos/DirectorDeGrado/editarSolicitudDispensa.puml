@@ -1,0 +1,20 @@
+@startsalt
+{+
+  <b>Portal del Director de Grado | Evaluar Solicitud de Dispensa
+  ==
+  {
+    <b>ID Trámite: | DSP-2026-089
+    <b>Alumno: | Carlos Mendoza
+  }
+  --
+  <b>Resolución de la Solicitud
+  {
+    Estado de la Dispensa: | ^Aprobada^
+    Observaciones del Director: | "El justificante médico es válido y cubre la sesión."
+  }
+  --
+  {
+    [ <b>Guardar Resolución</b> ] | [   Cancelar Evaluación   ]
+  }
+}
+@endsalt

@@ -1,0 +1,23 @@
+@startsalt
+{+
+  <b>Portal del Director de Grado | Consultar Dispensa
+  ==
+  {
+    <b>ID Trámite: | DSP-2026-089
+    <b>Estado Actual: | <b><color:orange>Pendiente de Revisión</color>
+  }
+  --
+  <b>Información de la Solicitud
+  {
+    Alumno Solicitante: | "Carlos Mendoza           "
+    Asignatura afectada: | "Ingeniería de Software II"
+    Fecha de la sesión:  | "15/05/2026       "
+    Motivo (Justificación): | "Cita médica programada. Reposo de 24h.              "
+    Documento adjunto:   | [ Descargar y Ver ] justificante_medico.pdf
+  }
+  --
+  {
+    [ <b>Evaluar Solicitud</b> ] | [   Cerrar Detalles   ]
+  }
+}
+@endsalt
