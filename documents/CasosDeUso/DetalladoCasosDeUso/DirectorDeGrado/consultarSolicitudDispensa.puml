@@ -1,74 +1,44 @@
 @startuml
-title Consultar Solicitud de Dispensa 
+title Caso de Uso: Consultar Solicitud de Dispensa 
 
-skinparam {
-    StateBackgroundColor white
-    StateBorderColor black
-    NoteBackgroundColor lightyellow
-    NoteBorderColor black
-    ArrowColor green
-    linetype ortho
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
+
+state "consultarSolicitudDispensa()" as consultarSolicitud {
+
+    state " " as Paso1
+
+    [*] -[#green]-> Paso1 
+    note on link
+      <b>Director de Grado</b> solicita consultar una dispensa específica
+      <b>Sistema</b> muestra la información detallada de la solicitud
+    end note    
+    
+    Paso1 -[#green]-> [*]
+    note on link
+      <b>Director de Grado</b> revisa los detalles de la solicitud
+      <b>Sistema</b> mantiene la información en pantalla
+      • Permite solicitar editar la solicitud
+      • Permite cerrar y volver al módulo
+    end note
 }
 
-<<<<<<< HEAD:documents/CasosDeUso/DetalladoCasosDeUso/DirectorDeGrado/consultarSolicitudDispensa.puml
-state "DISPENSAS_ABIERTO" as startState <<sdlreceive>>
-state "DISPENSAS_ABIERTO" as endState <<sdlreceive>>
-=======
-
+state "SOLICITUD_DISPENSA_ABIERTA" as SOLICITUD_DISPENSA_ABIERTA
 state "DISPENSAS_ABIERTO" as DISPENSAS_ABIERTO
+
+consultarSolicitud -[#green]---> SOLICITUD_DISPENSA_ABIERTA
+note right on link
+  editarSolicitudDispensa()
 end note
 
-state CONSULTAR_SOLICITUDES_DISPENSA {
-    [*] -[#green]-> ListaSolicitudes
-    
-<<<<<<< HEAD:documents/CasosDeUso/DetalladoCasosDeUso/DirectorDeGrado/consultarSolicitudDispensa.puml
-    state "Visualización y Edición" as VisualizacionYEdicion <<sdlreceive>>
-    note right of VisualizacionYEdicion
-        Sistema <b>permite</b> retornar los datos.
-        Director de Grado <b>solicita</b> modificar campos mediante
-        editarSolicitudDispensa().
-=======
-    state "Lista de Solicitudes" as ListaSolicitudes
-    note left of ListaSolicitudes
-        Director de Grado <b>solicita</b> ver solicitudes.
-        Sistema <b>muestra</b> lista de dispensas pendientes.
->>>>>>> b8a2529 (Refactor diagramas de casos de uso para unificar nombres y mejorar la claridad):documents/CasosDeUso/DetalladoCasosDeUso/DirectorDeGrado/ConsultarSolicitudesDispensas.puml
-    end note
-    
-    ListaSolicitudes -[#green]-> DetalleSolicitud
-    note on link
-        consultarSolicitudDispensa()
-    end note
-    
-    state "Detalle de Solicitud" as DetalleSolicitud
-    note right of DetalleSolicitud
-        Director de Grado <b>solicita</b> ver detalles.
-        Sistema <b>muestra</b> información completa de la dispensa.
-    end note
-    
-    DetalleSolicitud -[#red]-> ListaSolicitudes
-    note on link
-        CERRAR:
-        Director de Grado <b>solicita</b> volver a la lista.
-        Sistema <b>permite</b> regresar.
-        
-        cerrarSolicitudDispensa()
-    end note
-}
-
-CONSULTAR_SOLICITUDES_DISPENSA -[#green]-> DISPENSAS_ABIERTO_FINAL
-note on link
-    COMPLETAR:
-    Director de Grado <b>solicita</b> finalizar consulta.
-    Sistema <b>permite</b> salir del módulo.
+consultarSolicitud -[#green]---> DISPENSAS_ABIERTO
+note right on link
+  abrirDispensas()
 end note
 
-state "DISPENSAS_ABIERTO" as DISPENSAS_ABIERTO_FINAL
-
-<<<<<<< HEAD:documents/CasosDeUso/DetalladoCasosDeUso/DirectorDeGrado/consultarSolicitudDispensa.puml
-endState -[#green]-> [*]
-=======
-DISPENSAS_ABIERTO_FINAL -[#green]-> [*]
-
->>>>>>> b8a2529 (Refactor diagramas de casos de uso para unificar nombres y mejorar la claridad):documents/CasosDeUso/DetalladoCasosDeUso/DirectorDeGrado/ConsultarSolicitudesDispensas.puml
 @enduml
