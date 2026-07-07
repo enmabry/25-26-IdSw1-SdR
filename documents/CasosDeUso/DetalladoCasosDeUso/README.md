@@ -144,12 +144,6 @@
 | :--- |
 | [Código UML](Secretaria/consultarSolicitudDispensa.puml) |
 
-### Exportar Dispensas [Secretaria]
-
-| ![Detallado de Exportar Dispensas](Secretaria/exportarDispensas.svg) |
-| :--- |
-| [Código UML](Secretaria/exportarDispensas.puml) |
-
 ### Cerrar Ciclo Academico [Secretaria]
 
 | ![Detallado de Cerrar Ciclo Academico](Secretaria/cerrarCicloAcademico.svg) |
