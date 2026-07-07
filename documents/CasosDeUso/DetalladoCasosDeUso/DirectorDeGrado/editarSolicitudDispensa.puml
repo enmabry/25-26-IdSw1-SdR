@@ -1,55 +1,35 @@
 @startuml
-title Editar Solicitud de Dispensa
+title Caso de Uso: Editar Solicitud de Dispensa
 
-skinparam {
-    StateBackgroundColor white
-    StateBorderColor black
-    NoteBackgroundColor lightyellow
-    NoteBorderColor black
-    ArrowColor green
-    linetype ortho
-}
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-state "SOLICITUD_DISPENSA_ABIERTA" as startState <<sdlreceive>>
-state "SOLICITUD_DISPENSA_ABIERTA" as endState <<sdlreceive>>
+state "editarSolicitudDispensa()" as editarSolicitud {
 
-DISPENSAS_ABIERTO -[#green]-> SOLICITUD_DISPENSA_ABIERTA
-note on link
-    consultarSolicitudDispensa()
-end note
+    state " " as Paso1
 
-state SOLICITUD_DISPENSA_ABIERTA {
-    [*] -[#green]-> VisualizacionSolicitud
-    
-    state "Revisión de Solicitud" as RevisarSolicitud <<sdlreceive>>
-    note left of RevisarSolicitud
-        Director de Grado <b>solicita</b> editar solicitud.
-        Sistema <b>permite</b> el acceso y retornar datos.
-    end note
-    
-    VisualizacionSolicitud -[#green]-> EdicionSolicitud
+    [*] -[#green]-> Paso1 
     note on link
-        editarSolicitudDispensa()
-    end note
+      <b>Director de Grado</b> solicita editar la dispensa
+      <b>Sistema</b> habilita el formulario con los datos actuales
+    end note    
     
-    state "Edición de Solicitud" as EdicionSolicitud
-    note right of EdicionSolicitud
-        Director de Grado <b>solicita</b> modificar:
-        • Estado (Aprobar/Rechazar)
-        • Observaciones o motivo
-        • Otros campos editables
-        Sistema <b>permite</b> la edición de campos.
+    Paso1 -[#green]-> [*]
+    note on link
+      <b>Director de Grado</b> modifica el estado u observaciones y guarda
+      <b>Sistema</b> valida, registra los cambios y muestra confirmación
     end note
 }
 
-SOLICITUD_DISPENSA_ABIERTA -[#green]-> DISPENSAS_ABIERTO_FINAL
-note on link
-    GUARDAR:
-    Director de Grado <b>solicita</b> guardar cambios.
-    Sistema <b>permite</b> confirmar modificación.
-    
-    guardarSolicitudDispensa()
-end note
+state "DISPENSAS_ABIERTO" as DISPENSAS_ABIERTO
 
-endState -[#green]-> [*]
+editarSolicitud -[#green]---> DISPENSAS_ABIERTO
+note right on link
+  abrirDispensas()
+end note
 @enduml
