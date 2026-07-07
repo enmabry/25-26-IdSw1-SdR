@@ -1,61 +1,48 @@
-@startuml consultarUsuario
-title Consultar Usuario
+@startuml
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-' --- CONFIGURACIÓN DE ESTILO ---
-skinparam nodesep 100 
-skinparam ranksep 100
-skinparam linetype ortho
-skinparam Padding 10
-
-state USUARIOS_ABIERTO_INICIAL as "USUARIOS_ABIERTO"
-state USUARIO_ABIERTO_COMP    as "USUARIO_ABIERTO"
-state USUARIOS_ABIERTO_FINAL   as "USUARIOS_ABIERTO"
-
-[*] -[#green]-> USUARIOS_ABIERTO_INICIAL
-
-' Entrada al detalle del usuario
-USUARIOS_ABIERTO_INICIAL -[#green]-> USUARIO_ABIERTO_COMP : consultarUsuario()
-note left on link
-    <b>Administrador solicita</b> consultar el detalle de un usuario.
-    <b>Sistema permite</b> el acceso a la ficha 
-    completa (Datos, Roles y Permisos).
-end note
-
-' Comportamiento interno del estado compuesto
-state USUARIO_ABIERTO_COMP {
-    state ConsultaDatos as "Consulta de Usuario"
-    
-    ' Actividad interna para mantener coherencia técnica
-    ConsultaDatos :
-    
-    [*] -[#green]-> ConsultaDatos
-    
-    note right of ConsultaDatos
-        <b>Sistema permite</b> retornar las credenciales.
-        <b>Administrador solicita</b> gestionar cambios mediante
-        **editarUsuario()**.
+state "consultarUsuario()" as consultarUsuario {
+   
+    ' Estados anónimos vacíos para simular los pasos
+    state " " as Paso1
+    state " " as Paso2
+   
+    [*] -[#green]-> Paso1
+    note on link
+      <b>Administrador</b> solicita mostrar usuario
     end note
-    
-    ' Flujo simplificado hacia la salida
-    ConsultaDatos -[#green]-> [*]
+   
+    Paso1 -[#green]-> Paso2
+    note on link
+      <b>Sistema</b> permite mostrar credenciales y datos del usuario
+    end note
+   
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Administrador</b> revisa la información del usuario
+      <b>Sistema</b> permite mantener los datos en pantalla
+      • Permite solicitar editar usuario
+      • Permite solicitar cerrar usuario
+    end note
 }
 
-' Salidas definitivas
-USUARIO_ABIERTO_COMP -[#green]---> USUARIOS_ABIERTO_FINAL : guardarUsuario()
-note left on link
-    <b>GUARDAR:</b>
-    <b>Administrador solicita</b> registrar cambios.
-    <b>Sistema permite</b> persistir la información 
-    actualizada del usuario.
-end note
 
-USUARIO_ABIERTO_COMP -[#red]---> USUARIOS_ABIERTO_FINAL : cerrarUsuario()
+state "USUARIO_ABIERTO" as USUARIO_ABIERTO
+state "USUARIOS_ABIERTO" as USUARIOS_ABIERTO
+
+consultarUsuario -[#green]---> USUARIO_ABIERTO
 note right on link
-    <b>CERRAR:</b>
-    <b>Administrador solicita</b> salir de la ficha.
-    <b>Sistema permite</b> volver al listado 
-    general sin aplicar cambios.
+  editarUsuario()
 end note
 
-USUARIOS_ABIERTO_FINAL -[#blue]-> [*]
+consultarUsuario -[#blue]---> USUARIOS_ABIERTO
+note right on link
+  cerrarUsuario()
+end note
 @enduml
