@@ -10,6 +10,14 @@
 
 ## Usuarios
 
+<a name="DetalladoAbrirUsuarios"></a>
+
+### Abrir Usuarios
+
+| ![Abrir Usuarios](abrirUsuarios.svg) |
+| :--- |
+| [Código UML](abrirUsuarios.puml) |
+
 <a name="DetalladoConsultarUsuario"></a>
 
 ### Consultar Usuario

@@ -1,0 +1,58 @@
+@startuml
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
+
+state "abrirUsuarios()" as abrirUsuarios {
+
+    state " " as Paso1
+    state " " as Paso2
+
+    [*] -[#green]-> Paso1 
+    note on link
+      <b>Administrador</b> solicita abrir usuarios
+    end note    
+    
+    Paso1 -[#green]-> Paso2
+    note on link
+      <b>Sistema</b> permite mostrar lista de usuarios
+      • Nombre, apellidos, rol y estado de cada usuario
+    end note
+    
+    Paso2 -[#green]-> Paso2
+    note on link
+      <b>Administrador</b> solicita filtrar lista
+      <b>Sistema</b> permite mostrar lista filtrada
+    end note
+    
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Administrador</b> revisa la lista de usuarios
+      <b>Sistema</b> permite mantener la lista en pantalla
+      • Permite solicitar crear usuario
+      • Permite solicitar consultar usuario
+      • Permite solicitar editar usuario
+    end note
+}
+
+state "USUARIO_ABIERTO" as USUARIO_ABIERTO
+
+abrirUsuarios -[#green]---> USUARIO_ABIERTO
+note right on link
+  crearUsuario()
+end note
+
+abrirUsuarios -[#green]---> USUARIO_ABIERTO
+note right on link
+  consultarUsuario()
+end note
+
+abrirUsuarios -[#green]---> USUARIO_ABIERTO
+note right on link
+  editarUsuario()
+end note
+@enduml

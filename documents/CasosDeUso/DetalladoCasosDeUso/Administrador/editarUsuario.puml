@@ -37,7 +37,7 @@ state "USUARIOS_ABIERTO" as USUARIOS_ABIERTO
 
 editarUsuario -[#green]---> USUARIOS_ABIERTO
 note right on link
-  guardar edición
+  abrirUsuarios()
 end note
 
 editarUsuario -[#blue]---> USUARIOS_ABIERTO

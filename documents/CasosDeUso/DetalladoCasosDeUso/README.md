@@ -6,6 +6,12 @@
 
 ## Detallado de casos de uso
 
+### Abrir Usuarios [Administrador]
+
+| ![Detallado de Abrir Usuarios](Administrador/abrirUsuarios.svg) |
+| :--- |
+| [Código UML](Administrador/abrirUsuarios.puml) |
+
 ### Crear Usuario [Administrador]
 
 | ![Detallado de Crear Usuario](Administrador/crearUsuario.svg) |
