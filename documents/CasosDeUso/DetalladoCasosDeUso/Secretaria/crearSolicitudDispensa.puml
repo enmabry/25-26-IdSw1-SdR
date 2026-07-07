@@ -1,94 +1,46 @@
-@startuml CrearSolicitudDispensa
+@startuml
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-title Crear solicitud de dispensa
-
-' --- CONFIGURACIÓN DE ESTILO ---
-
-skinparam nodesep 120
-skinparam ranksep 120
-skinparam linetype ortho
-skinparam Padding 10
-
-state DISPENSAS_ABIERTO_INICIAL      as "DISPENSAS_ABIERTO"
-state SOLICITUD_DISPENSA_NUEVA_COMP  as "SOLICITUD_DISPENSA_NUEVA"
-state DISPENSAS_ABIERTO_FINAL        as "DISPENSAS_ABIERTO"
-
-[*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
-
-DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_NUEVA_COMP : crearSolicitudDispensa()
-
-note left of SOLICITUD_DISPENSA_NUEVA_COMP
-    <b>Secretaria solicita</b> crear una nueva
-    solicitud de dispensa.
-    <b>Sistema permite</b> acceder al
-    formulario de registro.
-end note
-
-
-state SOLICITUD_DISPENSA_NUEVA_COMP {
-
-    state CapturaDatos    as "Captura de Datos"
-    state ValidarDatos    as "Validación de Datos"
-    state CreacionExitosa as "Solicitud Creada"
-
-    [*] -[#green]-> CapturaDatos
-
-    note right of CapturaDatos
-        <b>Sistema permite</b> ingresar los
-        datos de la solicitud:
-        Nombre/ID, asignatura,
-        motivo, documentos y fechas.
+state "crearSolicitudDispensa()" as crearSolicitudDispensa {
+   
+    state " " as Paso1
+    state " " as Paso2
+   
+    [*] -[#green]-> Paso1
+    note on link
+      <b>Secretaría</b> solicita crear solicitud de dispensa
     end note
-
-    CapturaDatos -[#green]-> ValidarDatos
-
-    note left of ValidarDatos
-        <b>Secretaria solicita</b> registrar
-        la información ingresada.
+   
+    Paso1 -[#green]-> Paso2
+    note on link
+      <b>Sistema</b> permite introducir datos de la solicitud
     end note
-
-    ValidarDatos -[#red]-> CapturaDatos
-
-    note right of ValidarDatos
-        <b>Sistema valida</b> la información.
-        <b>Si hay error:</b>
-        informa inconsistencias y
-        solicita corrección.
-    end note
-
-    ValidarDatos -[#green]-> CreacionExitosa
-
-    note left of CreacionExitosa
-        <b>Sistema valida</b> correctamente
-        los datos y crea la solicitud
-        de dispensa.
-    end note
-
-    CreacionExitosa -[#green]-> [*]
-
-    note right of CreacionExitosa
-        <b>Sistema confirma</b> la creación
-        y permite retornar el detalle registrado.
+   
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Secretaría</b> introduce datos de la solicitud
+      <b>Sistema</b> permite crear solicitud
+      • Permite solicitar confirmar creación
+      • Permite solicitar cancelar operación
     end note
 }
 
-SOLICITUD_DISPENSA_NUEVA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : editarSolicitudDispensa()
+state "SOLICITUD_DISPENSA_ABIERTA" as SOLICITUD_DISPENSA_ABIERTA
+state "DISPENSAS_ABIERTO" as DISPENSAS_ABIERTO
 
-note left of DISPENSAS_ABIERTO_FINAL
-    <b>Secretaria solicita</b> continuar
-    con la edición de la solicitud.
+crearSolicitudDispensa -[#green]---> SOLICITUD_DISPENSA_ABIERTA
+note right on link
+  editarSolicitudDispensa()
 end note
 
-
-SOLICITUD_DISPENSA_NUEVA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : cerrarSolicitudDispensa()
-
-note right of DISPENSAS_ABIERTO_FINAL
-    <b>Secretaria solicita</b> salir del registro.
-    <b>Sistema permite</b> finalizar
-    el proceso.
+crearSolicitudDispensa -[#blue]---> DISPENSAS_ABIERTO
+note right on link
+  cancelar operación
 end note
-
-
-DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
-
 @enduml

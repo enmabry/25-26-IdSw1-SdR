@@ -1,61 +1,45 @@
-@startuml CerrarCicloAcademico
-title Cerrar ciclo académico
+@startuml
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-' --- CONFIGURACIÓN DE ESTILO ---
-skinparam nodesep 100
-skinparam ranksep 100
-skinparam linetype ortho
-skinparam Padding 10
-
-' --- DEFINICIÓN DE ESTADOS CON ALIAS ---
-state MATRICULAS_ABIERTO_INICIAL   as "MATRICULAS_ABIERTO"
-state PROCESO_CIERRE_COMP          as "FINALIZANDO_CICLO"
-state MATRICULAS_ABIERTO_FINAL     as "MATRICULAS_ABIERTO"
-
-' Flujo inicial
-[*] -[#green]-> MATRICULAS_ABIERTO_INICIAL
-
-' Entrada al estado
-MATRICULAS_ABIERTO_INICIAL -[#green]-> PROCESO_CIERRE_COMP : cerrarCicloAcademico()
-note left on link
-    <b>Secretaria solicita</b> cerrar el ciclo académico actual.
-    <b>Sistema permite</b> acceder al módulo de cierre.
-end note
-
-' Estado Compuesto
-state PROCESO_CIERRE_COMP {
-    state ConfirmacionCierre as "Confirmación de Cierre"
+state "cerrarCicloAcademico()" as cerrarCicloAcademico {
    
-    ' Inicio interno
-    [*] -[#green]-> ConfirmacionCierre
+    state " " as Paso1
+    state " " as Paso2
    
-    ' Nota sobre la actividad interna
-    note right of ConfirmacionCierre
-        <b>Sistema permite</b> retornar información resumida
-        del ciclo para confirmación.
-        <b>Secretaria solicita</b> ejecutar el cierre.
+    [*] -[#green]-> Paso1
+    note on link
+      <b>Secretaría</b> solicita cerrar el ciclo académico actual
     end note
    
-    ' Fin interno
-    ConfirmacionCierre -[#green]-> [*]
+    Paso1 -[#green]-> Paso2
+    note on link
+      <b>Sistema</b> permite acceder al módulo de cierre
+      • Muestra información del ciclo para confirmación
+    end note
+   
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Secretaría</b> revisa la información
+      • Permite solicitar confirmar cierre
+      • Permite solicitar cancelar operación
+    end note
 }
 
-' --- SALIDAS ---
-PROCESO_CIERRE_COMP -[#green]---> MATRICULAS_ABIERTO_FINAL : confirmarCierre()
+state "MATRICULAS_ABIERTO" as MATRICULAS_ABIERTO
+
+cerrarCicloAcademico -[#green]---> MATRICULAS_ABIERTO
 note right on link
-    <b>CONFIRMAR:</b>
-    <b>Sistema permite</b> procesar el cierre del ciclo
-    y retornar al listado de matrículas del nuevo ciclo.
+  confirmar cierre
 end note
 
-PROCESO_CIERRE_COMP -[#red]---> MATRICULAS_ABIERTO_FINAL : cancelarCierre()
-note left on link
-    <b>CANCELAR:</b>
-    <b>Secretaria solicita</b> cancelar la operación.
-    <b>Sistema permite</b> regresar al listado principal.
+cerrarCicloAcademico -[#blue]---> MATRICULAS_ABIERTO
+note right on link
+  cancelar operación
 end note
-
-' Finalización del flujo
-MATRICULAS_ABIERTO_FINAL -[#blue]-> [*]
-
 @enduml

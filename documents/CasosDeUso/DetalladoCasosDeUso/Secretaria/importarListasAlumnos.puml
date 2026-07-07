@@ -1,105 +1,46 @@
-@startuml ImportarListasAlumnos
+@startuml
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-title Importar listado de alumnos
-
-' --- CONFIGURACIÓN DE ESTILO ---
-
-skinparam nodesep 120
-skinparam ranksep 120
-skinparam linetype ortho
-skinparam Padding 10
-
-state ALUMNOS_ABIERTO_INICIAL   as "ALUMNOS_ABIERTO"
-state IMPORTAR_ALUMNOS_COMP     as "IMPORTAR_ALUMNOS"
-state ALUMNO_ABIERTO_FINAL      as "ALUMNO_ABIERTO"
-state ALUMNOS_ABIERTO_FINAL     as "ALUMNOS_ABIERTO"
-
-[*] -[#green]-> ALUMNOS_ABIERTO_INICIAL
-
-' Entrada al caso de uso
-ALUMNOS_ABIERTO_INICIAL -[#green]-> IMPORTAR_ALUMNOS_COMP : importarAlumnos()
-
-note left of IMPORTAR_ALUMNOS_COMP
-    <b>Secretaria solicita</b> importar
-    información de alumnos.
-    <b>Sistema permite</b> adjuntar
-    un archivo para su procesamiento.
-end note
-
-
-state IMPORTAR_ALUMNOS_COMP {
-
-    state SolicitudArchivo   as "Selección de Archivo"
-    state ValidarFormato     as "Validación de Formato"
-    state ImportarRegistros  as "Importación de Registros"
-    state RetornarInforme    as "Informe de Importación"
-
-    [*] -[#green]-> SolicitudArchivo
-
-    note right of SolicitudArchivo
-        <b>Sistema permite</b> retornar el módulo
-        para adjuntar el archivo
-        con la lista de alumnos.
+state "importarAlumnos()" as importarAlumnos {
+   
+    state " " as Paso1
+    state " " as Paso2
+   
+    [*] -[#green]-> Paso1
+    note on link
+      <b>Secretaría</b> solicita importar listado de alumnos
     end note
-
-    SolicitudArchivo -[#green]-> ValidarFormato
-
-    note left of ValidarFormato
-        <b>Secretaria solicita</b> procesar
-        el archivo seleccionado.
+   
+    Paso1 -[#green]-> Paso2
+    note on link
+      <b>Sistema</b> permite adjuntar un archivo de alumnos
     end note
-
-    ' Flujo alternativo: error de formato
-    ValidarFormato -[#red]-> SolicitudArchivo
-
-    note right of ValidarFormato
-        <b>Sistema valida</b> el formato
-        y la estructura de los datos.
-        <b>Si hay error:</b>
-        informa inconsistencias y
-        solicita un nuevo archivo.
+   
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Secretaría</b> adjunta el archivo
+      <b>Sistema</b> procesa el archivo y muestra un informe de importación
+      • Permite solicitar consultar detalle de alumno
+      • Permite solicitar regresar al listado
     end note
-
-    ' Flujo básico: formato válido
-    ValidarFormato -[#green]-> ImportarRegistros
-
-    note left of ImportarRegistros
-        <b>Sistema importa</b> los registros
-        de alumnos contenidos
-        en el archivo.
-    end note
-
-    ImportarRegistros -[#green]-> RetornarInforme
-
-    note right of RetornarInforme
-        <b>Sistema permite</b> retornar un informe
-        del proceso de importación,
-        indicando registros válidos
-        y errores detectados.
-    end note
-
-    RetornarInforme -[#green]-> [*]
 }
 
-' --- SALIDAS DEL CASO DE USO ---
+state "ALUMNOS_ABIERTO" as ALUMNOS_ABIERTO
+state "ALUMNO_DETALLE_ABIERTO" as ALUMNO_DETALLE_ABIERTO
 
-IMPORTAR_ALUMNOS_COMP -[#green]---> ALUMNO_ABIERTO_FINAL : consultarAlumno()
-
-note left of ALUMNO_ABIERTO_FINAL
-    <b>Secretaria solicita</b> consultar
-    el detalle de un alumno
-    importado.
+importarAlumnos -[#green]---> ALUMNO_DETALLE_ABIERTO
+note right on link
+  consultarAlumno()
 end note
 
-
-IMPORTAR_ALUMNOS_COMP -[#green]---> ALUMNOS_ABIERTO_FINAL
-
-note right of ALUMNOS_ABIERTO_FINAL
-    <b>Secretaria solicita</b> regresar
-    al módulo de alumnos.
+importarAlumnos -[#blue]---> ALUMNOS_ABIERTO
+note right on link
+  regresar al listado
 end note
-
-
-ALUMNOS_ABIERTO_FINAL -[#blue]-> [*]
-
 @enduml

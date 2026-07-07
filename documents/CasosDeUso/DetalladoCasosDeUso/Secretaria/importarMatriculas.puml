@@ -1,108 +1,46 @@
-@startuml ImportarMatriculas
+@startuml
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-title Importar matrículas
-
-' --- CONFIGURACIÓN DE ESTILO ---
-
-skinparam nodesep 120
-skinparam ranksep 120
-skinparam linetype ortho
-skinparam Padding 10
-
-state MATRICULAS_ABIERTO_INICIAL   as "MATRICULAS_ABIERTO"
-state IMPORTAR_MATRICULAS_COMP    as "IMPORTAR_MATRICULAS"
-state MATRICULA_ABIERTA_FINAL     as "MATRICULA_ABIERTA"
-state MATRICULAS_ABIERTO_FINAL    as "MATRICULAS_ABIERTO"
-
-[*] -[#green]-> MATRICULAS_ABIERTO_INICIAL
-
-' Entrada al caso de uso
-MATRICULAS_ABIERTO_INICIAL -[#green]-> IMPORTAR_MATRICULAS_COMP : importarMatriculas()
-
-note left of IMPORTAR_MATRICULAS_COMP
-    <b>Secretaria solicita</b> importar
-    información de matrículas.
-    <b>Sistema permite</b> adjuntar
-    un archivo para su procesamiento.
-end note
-
-
-state IMPORTAR_MATRICULAS_COMP {
-
-    state SolicitudArchivo   as "Selección de Archivo"
-    state ValidarFormato     as "Validación de Formato"
-    state ImportarRegistros  as "Importación de Registros"
-    state RetornarInforme     as "Informe de Importación"
-
-    [*] -[#green]-> SolicitudArchivo
-
-    note right of SolicitudArchivo
-        <b>Sistema permite</b> retornar el módulo
-        para adjuntar el archivo
-        de matrículas.
+state "importarMatriculas()" as importarMatriculas {
+   
+    state " " as Paso1
+    state " " as Paso2
+   
+    [*] -[#green]-> Paso1
+    note on link
+      <b>Secretaría</b> solicita importar información de matrículas
     end note
-
-    SolicitudArchivo -[#green]-> ValidarFormato
-
-    note left of ValidarFormato
-        <b>Secretaria solicita</b> procesar
-        el archivo seleccionado.
+   
+    Paso1 -[#green]-> Paso2
+    note on link
+      <b>Sistema</b> permite adjuntar un archivo de matrículas
     end note
-
-    ' Flujo alternativo: error de formato
-    ValidarFormato -[#red]-> SolicitudArchivo
-
-    note right of ValidarFormato
-        <b>Sistema valida</b> el formato
-        y la estructura de los datos.
-        <b>Si hay error:</b>
-        informa inconsistencias y
-        solicita un nuevo archivo.
+   
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Secretaría</b> adjunta el archivo
+      <b>Sistema</b> procesa el archivo y muestra un informe de importación
+      • Permite solicitar consultar detalle de matrícula
+      • Permite solicitar regresar al listado
     end note
-
-    ' Flujo básico: formato válido
-    ValidarFormato -[#green]-> ImportarRegistros
-
-    note left of ImportarRegistros
-        <b>Sistema importa</b> los registros
-        de matrícula contenidos
-        en el archivo.
-    end note
-
-    ImportarRegistros -[#green]-> RetornarInforme
-
-    note right of RetornarInforme
-        <b>Sistema permite</b> retornar un informe
-        del proceso de importación,
-        indicando registros válidos
-        y errores detectados.
-    end note
-
-    RetornarInforme -[#green]-> [*]
 }
 
-' --- SALIDAS DEL CASO DE USO ---
+state "MATRICULAS_ABIERTO" as MATRICULAS_ABIERTO
+state "MATRICULA_DETALLE_ABIERTA" as MATRICULA_DETALLE_ABIERTA
 
-IMPORTAR_MATRICULAS_COMP -[#green]---> MATRICULA_ABIERTA_FINAL : consultarDetalleMatricula()
-
-note left of MATRICULA_ABIERTA_FINAL
-    <b>Secretaria solicita</b> consultar
-    el detalle de la matrícula
-    importada.
+importarMatriculas -[#green]---> MATRICULA_DETALLE_ABIERTA
+note right on link
+  consultarDetalleMatricula()
 end note
 
-
-IMPORTAR_MATRICULAS_COMP -[#green]---> MATRICULAS_ABIERTO_FINAL
-
-note right of MATRICULAS_ABIERTO_FINAL
-    <b>Secretaria solicita</b> regresar
-    al módulo de matrículas.
+importarMatriculas -[#blue]---> MATRICULAS_ABIERTO
+note right on link
+  regresar al listado
 end note
-
-
-MATRICULAS_ABIERTO_FINAL -[#blue]-> [*]
-
 @enduml
-
-
-

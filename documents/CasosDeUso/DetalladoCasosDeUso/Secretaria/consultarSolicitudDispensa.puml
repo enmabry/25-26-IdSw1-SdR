@@ -1,66 +1,45 @@
-@startuml ConsultarSolicitudDispensa
-title Consultar Solicitud Dispensa
+@startuml
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-' --- CONFIGURACIÓN DE ESTILO ---
-skinparam nodesep 100
-skinparam ranksep 100
-skinparam linetype ortho
-skinparam Padding 10
-
-' --- DEFINICIÓN DE ESTADOS ---
-state DISPENSA_ABIERTO_INICIAL  as "DISPENSA_ABIERTO"
-state CONSULTAR_DISPENSA_COMP   as "consultarSolicitudDispensa()"
-state SOLICITUD_DISPENSA_EDITAR as "SOLICITUD_DISPENSA_ABIERTA"
-state DISPENSAS_ABIERTO_FINAL   as "DISPENSAS_ABIERTO"
-
-' Inicio
-[*] -[#green]-> DISPENSA_ABIERTO_INICIAL
-
-' Entrada: Secretaria solicita consultar
-DISPENSA_ABIERTO_INICIAL -[#green]-> CONSULTAR_DISPENSA_COMP : consultarSolicitudDispensa()
-note left on link
-    <b>Secretaria solicita</b>
-    Consultar una solicitud específica.
-    <b>Sistema permite</b> abrir el detalle.
-end note
-
-' Estado Compuesto: Visualización en Modo Lectura
-state CONSULTAR_DISPENSA_COMP {
-    state ConsultarSolicitud as "Consulta (Modo Lectura)"
-    
-    ' Inicio interno
-    [*] -[#green]-> ConsultarSolicitud
-    
-    ' Nota interna
-    note right of ConsultarSolicitud
-        <b>Sistema permite</b> retornar
-        la solicitud de la dispensa
-        exclusivamente en modo Lectura.
+state "consultarSolicitudDispensa()" as consultarSolicitudDispensa {
+   
+    state " " as Paso1
+    state " " as Paso2
+   
+    [*] -[#green]-> Paso1
+    note on link
+      <b>Secretaría</b> solicita mostrar solicitud de dispensa
     end note
-    
-    ' Fin interno
-    ConsultarSolicitud -[#green]-> [*]
+   
+    Paso1 -[#green]-> Paso2
+    note on link
+      <b>Sistema</b> muestra datos de la solicitud
+    end note
+   
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Secretaría</b> revisa la información de la solicitud
+      • Permite solicitar editar solicitud
+      • Permite solicitar regresar al listado
+    end note
 }
 
-' SALIDA 1: Transición a Edición (Avance)
-CONSULTAR_DISPENSA_COMP -[#green]---> SOLICITUD_DISPENSA_EDITAR : editarSolicitudDispensa()
-note left on link
-    <b>EDITAR:</b>
-    <b>Secretaria solicita</b> modificar la solicitud.
-    <b>Sistema permite</b> el modo edición.
-end note
+state "SOLICITUD_DISPENSA_ABIERTA" as SOLICITUD_DISPENSA_ABIERTA
+state "DISPENSAS_ABIERTO" as DISPENSAS_ABIERTO
 
-' SALIDA 2: Guardar/Cerrar (Retorno)
-' Usamos rojo para indicar la acción de cerrar/salir del detalle actual
-CONSULTAR_DISPENSA_COMP -[#red]---> DISPENSAS_ABIERTO_FINAL : Guardar/Cerrar solicitud()
+consultarSolicitudDispensa -[#green]---> SOLICITUD_DISPENSA_ABIERTA
 note right on link
-    <b>FINALIZAR:</b>
-    <b>Secretaria solicita</b> salir del detalle.
-    <b>Sistema permite</b> volver al listado.
+  editarSolicitudDispensa()
 end note
 
-' Fin del flujo
-SOLICITUD_DISPENSA_EDITAR -[#blue]-> [*]
-DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
-
+consultarSolicitudDispensa -[#blue]---> DISPENSAS_ABIERTO
+note right on link
+  regresar al listado
+end note
 @enduml

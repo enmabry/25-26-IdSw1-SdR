@@ -1,55 +1,38 @@
-@startuml ConsultarDetalleMatricula
-title Consultar detalle de matrícula
+@startuml
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-' --- CONFIGURACIÓN DE ESTILO (Idéntica al ejemplo) ---
-skinparam nodesep 100
-skinparam ranksep 100
-skinparam linetype ortho
-skinparam Padding 10
-
-' --- DEFINICIÓN DE ESTADOS CON ALIAS ---
-state MATRICULAS_ABIERTO_INICIAL   as "MATRICULAS_ABIERTO"
-state MATRICULA_ABIERTA_COMP       as "MATRICULA_ABIERTA"
-state MATRICULAS_ABIERTO_FINAL     as "MATRICULAS_ABIERTO"
-
-' Flujo inicial
-[*] -[#green]-> MATRICULAS_ABIERTO_INICIAL
-
-' Entrada al estado de detalle
-MATRICULAS_ABIERTO_INICIAL -[#green]-> MATRICULA_ABIERTA_COMP : consultarDetalleMatricula()
-note left on link
-    <b>Secretaria solicita</b> seleccionar una matrícula.
-    <b>Sistema permite</b> abrir el detalle de la misma.
-end note
-
-' Estado Compuesto: Visualización del detalle
-state MATRICULA_ABIERTA_COMP {
-    state ConsultaDetalle as "Consulta del Detalle"
+state "consultarDetalleMatricula()" as consultarDetalleMatricula {
    
-    ' Inicio interno
-    [*] -[#green]-> ConsultaDetalle
+    state " " as Paso1
+    state " " as Paso2
    
-    ' Nota sobre la actividad interna (solo visualización en este caso)
-    note right of ConsultaDetalle
-        <b>Sistema permite</b> retornar todos los datos asociados
-        a la matrícula seleccionada para su consulta.
+    [*] -[#green]-> Paso1
+    note on link
+      <b>Secretaría</b> solicita mostrar detalle de matrícula
     end note
    
-    ' Fin interno
-    ConsultaDetalle -[#green]-> [*]
+    Paso1 -[#green]-> Paso2
+    note on link
+      <b>Sistema</b> muestra datos de la matrícula
+    end note
+   
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Secretaría</b> revisa la información de la matrícula
+      • Permite solicitar regresar al listado
+    end note
 }
 
-' --- SALIDAS ---
-' En un caso de uso de "Consultar Detalle", usualmente solo hay acción de "Cerrar" o "Volver".
-' Usamos la flecha roja (#red) para indicar retorno/cierre, consistente con el ejemplo.
+state "MATRICULAS_ABIERTO" as MATRICULAS_ABIERTO
 
-MATRICULA_ABIERTA_COMP -[#red]---> MATRICULAS_ABIERTO_FINAL : cerrarDetalleMatricula()
+consultarDetalleMatricula -[#blue]---> MATRICULAS_ABIERTO
 note right on link
-    <b>CERRAR:</b>
-    <b>Secretaria solicita</b> salir del detalle.
-    <b>Sistema permite</b> regresar al listado principal.
+  regresar al listado
 end note
-
-' Finalización del flujo
-MATRICULAS_ABIERTO_FINAL -[#blue]-> [*]
-
+@enduml

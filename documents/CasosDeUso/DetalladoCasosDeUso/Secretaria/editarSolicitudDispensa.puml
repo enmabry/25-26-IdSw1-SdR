@@ -1,94 +1,46 @@
-@startuml EditarSolicitudDispensa
+@startuml
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-title Editar solicitud de dispensa
-
-' --- CONFIGURACIÓN DE ESTILO ---
-
-skinparam nodesep 120
-skinparam ranksep 120
-skinparam linetype ortho
-skinparam Padding 10
-
-state SOLICITUD_DISPENSA_ABIERTA_INICIAL as "SOLICITUD_DISPENSA_ABIERTA"
-state EDICION_SOLICITUD_COMP             as "EDICION_SOLICITUD_DISPENSA"
-state DISPENSAS_ABIERTO_FINAL            as "DISPENSAS_ABIERTO"
-state SOLICITUD_DISPENSA_ABIERTA_FINAL   as "SOLICITUD_DISPENSA_ABIERTA"
-
-[*] -[#green]-> SOLICITUD_DISPENSA_ABIERTA_INICIAL
-
-' Entrada al caso de uso
-SOLICITUD_DISPENSA_ABIERTA_INICIAL -[#green]-> EDICION_SOLICITUD_COMP : editarSolicitudDispensa()
-
-note left of EDICION_SOLICITUD_COMP
-    <b>Secretaria solicita</b> editar una
-    solicitud de dispensa existente.
-    <b>Sistema permite</b> habilitar
-    la edición de la información.
-end note
-
-
-state EDICION_SOLICITUD_COMP {
-
-    state PermitirModificacion as "Edición de Datos"
-    state ValidarModificaciones as "Validación de Cambios"
-
-    [*] -[#green]-> PermitirModificacion
-
-    note right of PermitirModificacion
-        <b>Sistema permite</b> modificar
-        los datos de la solicitud.
+state "editarSolicitudDispensa()" as editarSolicitudDispensa {
+   
+    state " " as Paso1
+    state " " as Paso2
+   
+    [*] -[#green]-> Paso1
+    note on link
+      <b>Secretaría</b> solicita editar solicitud de dispensa
     end note
-
-    PermitirModificacion -[#green]-> ValidarModificaciones
-
-    note left of ValidarModificaciones
-        <b>Secretaria solicita</b> registrar
-        las modificaciones realizadas.
+   
+    Paso1 -[#green]-> Paso2
+    note on link
+      <b>Sistema</b> muestra datos de la solicitud
     end note
-
-    ' Flujo alternativo: error de validación
-    ValidarModificaciones -[#red]-> PermitirModificacion
-
-    note right of ValidarModificaciones
-        <b>Sistema valida</b> los cambios
-        realizados.
-        <b>Si hay error:</b>
-        informa inconsistencias y
-        permite corrección.
-    end note
-
-    ' Flujo básico: cambios válidos
-    ValidarModificaciones -[#green]-> [*]
-
-    note left of ValidarModificaciones
-        <b>Sistema confirma</b> que los
-        datos están listos para
-        ser guardados.
+   
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Secretaría</b> introduce datos actualizados
+      <b>Sistema</b> permite editar solicitud
+      • Permite solicitar confirmar edición
+      • Permite solicitar cancelar operación
     end note
 }
 
-' --- SALIDAS DEL CASO DE USO ---
+state "DISPENSAS_ABIERTO" as DISPENSAS_ABIERTO
+state "SOLICITUD_DISPENSA_ABIERTA" as SOLICITUD_DISPENSA_ABIERTA
 
-EDICION_SOLICITUD_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : guardarSolicitudDispensa()
-
-note left of DISPENSAS_ABIERTO_FINAL
-    <b>GUARDAR:</b>
-    <b>Secretaria solicita</b> registrar
-    los cambios realizados.
-    <b>Sistema permite</b> persistir
-    la información.
+editarSolicitudDispensa -[#green]---> DISPENSAS_ABIERTO
+note right on link
+  abrirDispensas()
 end note
 
-
-EDICION_SOLICITUD_COMP -[#green]---> SOLICITUD_DISPENSA_ABIERTA_FINAL 
-
-note right of SOLICITUD_DISPENSA_ABIERTA_FINAL
-    <b>Secretaria solicita</b> mantener
-    la solicitud abierta sin
-    salir del detalle.
+editarSolicitudDispensa -[#blue]---> SOLICITUD_DISPENSA_ABIERTA
+note right on link
+  cancelar operación
 end note
-
-
-DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
-
 @enduml
