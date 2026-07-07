@@ -25,22 +25,21 @@ state "importarAlumnos()" as importarAlumnos {
     Paso2 -[#green]-> [*]
     note on link
       <b>Secretaría</b> adjunta el archivo
-      <b>Sistema</b> procesa el archivo y muestra un informe de importación
-      • Permite solicitar consultar detalle de alumno
-      • Permite solicitar regresar al listado
+      <b>Sistema</b> permite importar datos
+      • Permite solicitar confirmar importación
+      • Permite solicitar cancelar operación
     end note
 }
 
 state "ALUMNOS_ABIERTO" as ALUMNOS_ABIERTO
-state "ALUMNO_DETALLE_ABIERTO" as ALUMNO_DETALLE_ABIERTO
 
-importarAlumnos -[#green]---> ALUMNO_DETALLE_ABIERTO
+importarAlumnos -[#green]---> ALUMNOS_ABIERTO
 note right on link
-  consultarAlumno()
+  abrirAlumnos() - lista actualizada
 end note
 
 importarAlumnos -[#blue]---> ALUMNOS_ABIERTO
 note right on link
-  regresar al listado
+  abrirAlumnos() - cancelar operación
 end note
 @enduml

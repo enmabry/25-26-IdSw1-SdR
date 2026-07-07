@@ -11,14 +11,14 @@
 | 1. [crearUsuario()](../DetalladoCasosDeUso/Administrador/crearUsuario.puml) [Administrador] |
 | 2. [consultarUsuario()](../DetalladoCasosDeUso/Administrador/consultarUsuario.puml) [Administrador] |
 | 3. [editarUsuario()](../DetalladoCasosDeUso/Administrador/editarUsuario.puml) [Administrador] |
-| 4. [importarListasAlumnos()](../DetalladoCasosDeUso/Secretaria/importarListasAlumnos.puml) [Secretaria] |
+| 4. [importarAlumnos()](../DetalladoCasosDeUso/Secretaria/importarAlumnos.puml) [Secretaria] |
 | 5. [importarMatriculas()](../DetalladoCasosDeUso/Secretaria/importarMatriculas.puml) [Secretaria] |
 | 6. [crearSesionClase()](../DetalladoCasosDeUso/Profesor/crearSesionClase.puml) [Profesor] |
 | 7. [editarSesionClase()](../DetalladoCasosDeUso/Profesor/editarSesionClase.puml) [Profesor] |
 | 8. [registrarTomaAsistencia()](../DetalladoCasosDeUso/Profesor/registrarTomaAsistencia.puml) [Profesor] |
 | 9. [cerrarSesionClase()](../DetalladoCasosDeUso/Profesor/cerrarSesionClase.puml) [Profesor] |
 | 10. [consultarDetalleAlumno()](../DetalladoCasosDeUso/Profesor/consultarDetalleAlumno.puml) [Profesor] |
-| 11. [consultarDetalleAlumno()](../DetalladoCasosDeUso/Secretaria/consultarDetalleAlumno.puml) [Secretaria] |
+| 11. [consultarAlumno()](../DetalladoCasosDeUso/Secretaria/consultarAlumno.puml) [Secretaria] |
 | 12. [consultarDetalleMatricula()](../DetalladoCasosDeUso/Secretaria/consultarDetalleMatricula.puml) [Secretaria] |
 | 13. [crearSolicitudDispensa()](../DetalladoCasosDeUso/Alumno/crearSolicitudDispensa.puml) [Alumno] |
 | 14. [editarSolicitudDispensa()](../DetalladoCasosDeUso/Alumno/editarSolicitudDispensa.puml) [Alumno] |

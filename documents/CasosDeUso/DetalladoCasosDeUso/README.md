@@ -102,11 +102,11 @@
 | :--- |
 | [Código UML](Profesor/exportarHistorialAsistencias.puml) |
 
-### Importar Listas Alumnos [Secretaria]
+### Importar Alumnos [Secretaria]
 
-| ![Detallado de Importar Listas Alumnos](Secretaria/importarListasAlumnos.svg) |
+| ![Detallado de Importar Alumnos](Secretaria/importarAlumnos.svg) |
 | :--- |
-| [Código UML](Secretaria/importarListasAlumnos.puml) |
+| [Código UML](Secretaria/importarAlumnos.puml) |
 
 ### Importar Matriculas [Secretaria]
 
@@ -114,11 +114,11 @@
 | :--- |
 | [Código UML](Secretaria/importarMatriculas.puml) |
 
-### Consultar Detalle Alumno [Secretaria]
+### Consultar Alumno [Secretaria]
 
-| ![Detallado de Consultar Detalle Alumno](Secretaria/consultarDetalleAlumno.svg) |
+| ![Detallado de Consultar Alumno](Secretaria/consultarAlumno.svg) |
 | :--- |
-| [Código UML](Secretaria/consultarDetalleAlumno.puml) |
+| [Código UML](Secretaria/consultarAlumno.puml) |
 
 ### Consultar Detalle Matricula [Secretaria]
 

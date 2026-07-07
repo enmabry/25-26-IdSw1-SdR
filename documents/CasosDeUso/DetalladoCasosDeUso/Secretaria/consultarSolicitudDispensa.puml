@@ -40,6 +40,6 @@ end note
 
 consultarSolicitudDispensa -[#blue]---> DISPENSAS_ABIERTO
 note right on link
-  regresar al listado
+  abrirDispensas()
 end note
 @enduml

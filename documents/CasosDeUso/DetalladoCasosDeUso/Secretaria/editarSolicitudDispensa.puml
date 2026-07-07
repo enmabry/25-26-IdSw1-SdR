@@ -27,20 +27,19 @@ state "editarSolicitudDispensa()" as editarSolicitudDispensa {
       <b>Secretaría</b> introduce datos actualizados
       <b>Sistema</b> permite editar solicitud
       • Permite solicitar confirmar edición
-      • Permite solicitar cancelar operación
+      • Permite solicitar cancelar edición
     end note
 }
 
 state "DISPENSAS_ABIERTO" as DISPENSAS_ABIERTO
-state "SOLICITUD_DISPENSA_ABIERTA" as SOLICITUD_DISPENSA_ABIERTA
 
 editarSolicitudDispensa -[#green]---> DISPENSAS_ABIERTO
 note right on link
   abrirDispensas()
 end note
 
-editarSolicitudDispensa -[#blue]---> SOLICITUD_DISPENSA_ABIERTA
+editarSolicitudDispensa -[#blue]---> DISPENSAS_ABIERTO
 note right on link
-  cancelar operación
+  cancelar edición
 end note
 @enduml

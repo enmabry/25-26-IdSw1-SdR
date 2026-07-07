@@ -26,13 +26,19 @@ state "consultarDetalleMatricula()" as consultarDetalleMatricula {
     note on link
       <b>Secretaría</b> revisa la información de la matrícula
       • Permite solicitar regresar al listado
+      • Permite solicitar cancelar operación
     end note
 }
 
 state "MATRICULAS_ABIERTO" as MATRICULAS_ABIERTO
 
+consultarDetalleMatricula -[#green]---> MATRICULAS_ABIERTO
+note right on link
+  abrirMatriculas()
+end note
+
 consultarDetalleMatricula -[#blue]---> MATRICULAS_ABIERTO
 note right on link
-  regresar al listado
+  cancelar operación
 end note
 @enduml

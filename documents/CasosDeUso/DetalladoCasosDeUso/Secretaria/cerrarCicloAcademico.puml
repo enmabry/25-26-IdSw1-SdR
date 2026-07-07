@@ -35,11 +35,11 @@ state "MATRICULAS_ABIERTO" as MATRICULAS_ABIERTO
 
 cerrarCicloAcademico -[#green]---> MATRICULAS_ABIERTO
 note right on link
-  confirmar cierre
+  abrirMatriculas() - ciclo cerrado
 end note
 
 cerrarCicloAcademico -[#blue]---> MATRICULAS_ABIERTO
 note right on link
-  cancelar operación
+  abrirMatriculas() - cancelar operación
 end note
 @enduml

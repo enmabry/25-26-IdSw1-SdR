@@ -26,13 +26,19 @@ state "consultarAlumno()" as consultarAlumno {
     note on link
       <b>Secretaría</b> revisa la información del alumno
       • Permite solicitar regresar al listado
+      • Permite solicitar cancelar operación
     end note
 }
 
 state "ALUMNOS_ABIERTO" as ALUMNOS_ABIERTO
 
+consultarAlumno -[#green]---> ALUMNOS_ABIERTO
+note right on link
+  abrirAlumnos()
+end note
+
 consultarAlumno -[#blue]---> ALUMNOS_ABIERTO
 note right on link
-  regresar al listado
+  cancelar operación
 end note
 @enduml
