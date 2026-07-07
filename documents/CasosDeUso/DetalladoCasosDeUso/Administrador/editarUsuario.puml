@@ -37,11 +37,11 @@ state "USUARIOS_ABIERTO" as USUARIOS_ABIERTO
 
 editarUsuario -[#green]---> USUARIOS_ABIERTO
 note right on link
-  guardarUsuario()
+  guardar edición
 end note
 
 editarUsuario -[#blue]---> USUARIOS_ABIERTO
 note right on link
-  cerrarUsuario()
+  cancelar edición
 end note
 @enduml

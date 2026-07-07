@@ -43,6 +43,6 @@ end note
 
 crearUsuario -[#blue]---> USUARIOS_ABIERTO
 note right on link
-  cerrarUsuario()
+  cancelar creación
 end note
 @enduml

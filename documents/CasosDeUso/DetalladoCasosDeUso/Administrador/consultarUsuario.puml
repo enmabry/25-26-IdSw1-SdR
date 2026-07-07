@@ -43,6 +43,6 @@ end note
 
 consultarUsuario -[#blue]---> USUARIOS_ABIERTO
 note right on link
-  cerrarUsuario()
+  cerrar consulta
 end note
 @enduml
