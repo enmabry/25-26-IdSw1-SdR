@@ -19,7 +19,7 @@ ALUMNOS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionAlumnos()
 
 ALUMNOS_ABIERTO --> ALUMNOS_ABIERTO : importarAlumnos()
 ALUMNOS_ABIERTO --> ALUMNO_DETALLE_ABIERTO : consultarAlumno()
-ALUMNO_DETALLE_ABIERTO --> ALUMNOS_ABIERTO : cerrarDetalleAlumno()
+ALUMNO_DETALLE_ABIERTO --> ALUMNOS_ABIERTO : abrirAlumnos()
 
 ' ==========================================
 '   MÓDULO MATRÍCULAS
@@ -30,7 +30,7 @@ MATRICULAS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionMatriculas()
 MATRICULAS_ABIERTO --> MATRICULAS_ABIERTO : importarMatriculas()
 MATRICULAS_ABIERTO --> MATRICULAS_ABIERTO : cerrarCicloAcademico()
 MATRICULAS_ABIERTO --> MATRICULA_DETALLE_ABIERTA : consultarDetalleMatricula()
-MATRICULA_DETALLE_ABIERTA --> MATRICULAS_ABIERTO : cerrarDetalleMatricula()
+MATRICULA_DETALLE_ABIERTA --> MATRICULAS_ABIERTO : abrirMatriculas()
 
 ' ==========================================
 '   MÓDULO ASISTENCIAS (SESIONES DE CLASE)
@@ -53,11 +53,9 @@ DISPENSAS_ABIERTO --> SISTEMA_DISPONIBLE : completarGestionDispensas()
 
 DISPENSAS_ABIERTO --> SOLICITUD_DISPENSA_ABIERTA : crearSolicitudDispensa()
 DISPENSAS_ABIERTO --> SOLICITUD_DISPENSA_ABIERTA : consultarSolicitudDispensa()
-DISPENSAS_ABIERTO --> SOLICITUD_DISPENSA_ABIERTA : consultarSolicitudesDispensa()
 
 SOLICITUD_DISPENSA_ABIERTA --> SOLICITUD_DISPENSA_ABIERTA : editarSolicitudDispensa()
-SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO : guardarSolicitudDispensa()
-SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO : cerrarSolicitudDispensa()
+SOLICITUD_DISPENSA_ABIERTA --> DISPENSAS_ABIERTO : abrirDispensas()
 
 ' ==========================================
 '   MÓDULO USUARIOS Y ROLES
@@ -69,5 +67,5 @@ USUARIOS_ABIERTO --> USUARIO_DETALLE_ABIERTO : crearUsuario()
 USUARIOS_ABIERTO --> USUARIO_DETALLE_ABIERTO : consultarUsuario()
 
 USUARIO_DETALLE_ABIERTO --> USUARIO_DETALLE_ABIERTO : editarUsuario()
-USUARIO_DETALLE_ABIERTO --> USUARIOS_ABIERTO : cerrarUsuario()
+USUARIO_DETALLE_ABIERTO --> USUARIOS_ABIERTO : abrirUsuarios()
 @enduml
