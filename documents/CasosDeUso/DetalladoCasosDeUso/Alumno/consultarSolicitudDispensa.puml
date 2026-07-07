@@ -1,55 +1,48 @@
-@startuml ConsultarSolicitudDispensa
-title Consultar solicitud de dispensa
-' --- CONFIGURACIÓN DE ESTILO ---
-skinparam nodesep 100 
-skinparam ranksep 100
-skinparam linetype ortho
-skinparam Padding 10
+@startuml
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-state DISPENSAS_ABIERTO_INICIAL          as "DISPENSAS_ABIERTO"
-state SOLICITUD_DISPENSA_ABIERTA_COMP    as "SOLICITUD_DISPENSA_ABIERTA"
-state DISPENSAS_ABIERTO_FINAL            as "DISPENSAS_ABIERTO"
+state "consultarSolicitudDispensa()" as consultarSolicitudDispensa {
 
-[*] -[#green]-> DISPENSAS_ABIERTO_INICIAL
+    ' Estados anónimos vacíos para simular los pasos
+    state " " as Paso1
+    state " " as Paso2
 
-' Entrada al estado
-DISPENSAS_ABIERTO_INICIAL -[#green]-> SOLICITUD_DISPENSA_ABIERTA_COMP : consultarSolicitudDispensa()
-note left on link
-    <b>Alumno solicita</b> seleccionar una solicitud.
-    <b>Sistema permite</b> abrir el detalle de la misma.
-end note
-
-state SOLICITUD_DISPENSA_ABIERTA_COMP {
-    state SolicitarEditarSolicitud as "Consulta y Edición"
-    
-    ' Metodo interno para consistencia técnica
-    SolicitarEditarSolicitud :
-    
-    [*] -[#green]-> SolicitarEditarSolicitud
-    
-    note right of SolicitarEditarSolicitud
-        <b>Sistema permite</b> retornar los datos.
-        <b>Alumno solicita</b> modificar campos mediante
-        **editarSolicitudDispensa()**.
+    [*] -[#green]-> Paso1
+    note on link
+      <b>Alumno</b> solicita seleccionar una solicitud
     end note
-    
-    SolicitarEditarSolicitud -[#green]-> [*]
+
+    Paso1 -[#green]-> Paso2
+    note on link
+      <b>Sistema</b> permite abrir el detalle y retornar los datos de la solicitud
+    end note
+
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Alumno</b> revisa la información de la solicitud
+      <b>Sistema</b> permite mantener los datos en pantalla
+      • Permite solicitar editar la solicitud
+      • Permite solicitar cancelar y volver al listado
+    end note
 }
 
-' Salidas con lenguaje RUP reforzado
-SOLICITUD_DISPENSA_ABIERTA_COMP -[#green]---> DISPENSAS_ABIERTO_FINAL : guardarSolicitudDispensa()
-note left on link
-    <b>GUARDAR:</b>
-    <b>Alumno solicita</b> registrar cambios.
-    <b>Sistema permite</b> persistir la información.
-end note
+state "SOLICITUD_DISPENSA_ABIERTA" as SOLICITUD_DISPENSA_ABIERTA
+state "DISPENSAS_ABIERTO" as DISPENSAS_ABIERTO
 
-SOLICITUD_DISPENSA_ABIERTA_COMP -[#red]---> DISPENSAS_ABIERTO_FINAL : cerrarSolicitudDispensa()
+consultarSolicitudDispensa -[#green]---> SOLICITUD_DISPENSA_ABIERTA
 note right on link
-    <b>CERRAR:</b>
-    <b>Alumno solicita</b> salir del detalle.
-    <b>Sistema permite</b> descartar cambios.
+  editarSolicitudDispensa()
 end note
 
-DISPENSAS_ABIERTO_FINAL -[#blue]-> [*]
+consultarSolicitudDispensa -[#red]---> DISPENSAS_ABIERTO
+note right on link
+  abrirDispensas()
+end note
+
 @enduml

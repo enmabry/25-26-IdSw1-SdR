@@ -30,6 +30,12 @@
 | :--- |
 | [Código UML](Administrador/editarUsuario.puml) |
 
+### Abrir Dispensas [Alumno]
+
+| ![Detallado de Abrir Dispensas](Alumno/abrirDispensas.svg) |
+| :--- |
+| [Código UML](Alumno/abrirDispensas.puml) |
+
 ### Crear Solicitud Dispensa [Alumno]
 
 | ![Detallado de Crear Solicitud Dispensa](Alumno/crearSolicitudDispensa.svg) |
