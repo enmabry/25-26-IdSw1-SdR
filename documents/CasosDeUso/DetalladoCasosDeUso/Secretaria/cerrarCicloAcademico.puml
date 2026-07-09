@@ -20,7 +20,10 @@ state "cerrarCicloAcademico()" as cerrarCicloAcademico {
     Paso1 -[#green]-> Paso2
     note on link
       <b>Sistema</b> permite acceder al módulo de cierre
-      • Muestra información del ciclo para confirmación
+      y muestra información para confirmación:
+      • Ciclo Actual y Estado General
+      • Verificación de actas cerradas y dispensas resueltas
+      • Verificación de copia de seguridad generada
     end note
    
     Paso2 -[#green]-> [*]
@@ -35,11 +38,11 @@ state "MATRICULAS_ABIERTO" as MATRICULAS_ABIERTO
 
 cerrarCicloAcademico -[#green]---> MATRICULAS_ABIERTO
 note right on link
-  abrirMatriculas() - ciclo cerrado
+  abrirMatriculas()
 end note
 
 cerrarCicloAcademico -[#blue]---> MATRICULAS_ABIERTO
 note right on link
-  abrirMatriculas() - cancelar operación
+  cancelar operación
 end note
 @enduml

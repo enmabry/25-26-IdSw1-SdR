@@ -20,8 +20,10 @@ state "crearUsuario()" as crearUsuario {
    
     Paso1 -[#green]-> Paso2
     note on link
-      <b>Sistema</b> solicita datos mínimos del usuario
-      • Correo o ID de usuario (obligatorio)
+      <b>Sistema</b> solicita ingresar datos del usuario
+      • Nombres Completos y Apellidos Completos
+      • DNI / Pasaporte y Correo Electrónico
+      • Rol en el Sistema
     end note
    
     Paso2 -[#green]-> [*]

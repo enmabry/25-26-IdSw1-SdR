@@ -19,7 +19,8 @@ state "importarAlumnos()" as importarAlumnos {
    
     Paso1 -[#green]-> Paso2
     note on link
-      <b>Sistema</b> permite adjuntar un archivo de alumnos
+      <b>Sistema</b> permite indicar el Formato Aceptado y
+      seleccionar el Archivo de Origen (Excel/CSV)
     end note
    
     Paso2 -[#green]-> [*]

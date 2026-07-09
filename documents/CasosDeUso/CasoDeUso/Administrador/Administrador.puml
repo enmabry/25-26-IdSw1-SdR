@@ -6,11 +6,13 @@ skinparam style strictuml
 actor Administrador
 
 package "Usuarios y roles" {
+    usecase "Abrir usuarios" as UsuariosAbrir
     usecase "Crear usuario" as UsuariosCrear
     usecase "Consultar usuario" as UsuariosConsultar
     usecase "Editar usuario" as UsuariosEditar
 }
 
+Administrador --> UsuariosAbrir
 Administrador --> UsuariosCrear
 Administrador --> UsuariosConsultar
 Administrador --> UsuariosEditar

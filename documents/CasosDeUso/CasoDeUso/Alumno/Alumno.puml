@@ -1,4 +1,4 @@
-@startuml CasosDeUsoAlumno
+@startuml
 Title Casos de Uso: Alumno
 left to right direction
 skinparam style strictuml
@@ -6,11 +6,13 @@ skinparam style strictuml
 actor Alumno
 
 package "Módulo Dispensas (Vista Alumno)" {
+    usecase "Abrir dispensas" as AbrirDispensas
     usecase "Crear solicitud de dispensa" as CrearSolicitudDispensa
     usecase "Consultar estado de dispensa" as ConsultarEstadoDispensa
     usecase "Editar solicitud de dispensa" as EditarSolicitudDispensa
 }
 
+Alumno --> AbrirDispensas
 Alumno --> CrearSolicitudDispensa
 Alumno --> ConsultarEstadoDispensa
 Alumno --> EditarSolicitudDispensa

@@ -26,8 +26,8 @@ state "editarSolicitudDispensa()" as editarSolicitudDispensa {
     Paso2 -[#green]-> [*]
     note on link
       <b>Alumno</b> proporciona datos actualizados
-      • Motivo de la dispensa
-      • Documentación adjunta
+      • Asignatura, Tipo/Motivo, Día(s), Franja horaria
+      • Asignatura solapada, Justificación, Documento adjunto
       <b>Sistema</b> permite editar la solicitud
       • Permite solicitar guardar cambios
       • Permite solicitar cerrar solicitud

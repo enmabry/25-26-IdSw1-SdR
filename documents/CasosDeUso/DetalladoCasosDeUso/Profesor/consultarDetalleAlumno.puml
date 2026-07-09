@@ -1,43 +1,42 @@
 @startuml
-title Consultar Detalle Alumno
+skinparam nodesep 60
+skinparam ranksep 60
 skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-state ALUMNOS_ABIERTO_INICIAL as "ALUMNOS_ABIERTO"
-state ALUMNOS_ABIERTO_FINAL as "ALUMNOS_ABIERTO"
-state ALUMNO_ABIERTO_COMP     as "ALUMNO_ABIERTO"
+state "consultarDetalleAlumno()" as consultarDetalleAlumno {
+    state " " as Paso1
+    state " " as Paso2
 
-[*] -[#green]-> ALUMNOS_ABIERTO_INICIAL
-
-ALUMNOS_ABIERTO_INICIAL -[#green]-> ALUMNO_ABIERTO_COMP : consultarDetalleAlumno()
-note on link
-<b>Profesor</b> se encuentra en ALUMNOS_ABIERTO
-y <b>solicita</b> consultar el detalle de un alumno específico.
-
-<b>Sistema permite</b> retornar la información académica,
-<b>retornando</b> ALUMNO_ABIERTO.
-end note
-
-state ALUMNO_ABIERTO_COMP as "ALUMNO_ABIERTO" {
-
-    state ConsultaFicha
-
-    [*] -[#green]-> ConsultaFicha
+    [*] -[#green]-> Paso1
     note on link
-    <b>Sistema permite</b> retornar la ficha completa del alumno:
-    • Datos personales y Foto
-    • Resumen de asistencias y faltas
+      <b>Profesor</b> solicita consultar el detalle de un alumno específico
     end note
 
-    ConsultaFicha -[#green]-> [*]
+    Paso1 -[#green]-> Paso2
     note on link
-    <b>Profesor solicita</b> realizar una acción.
+      <b>Sistema</b> permite mostrar la ficha completa del alumno:
+      • Nombres Completos y Asignatura Actual
+      • Porcentaje de Asistencia y Faltas Injustificadas
+      • Sesiones Dispensadas
     end note
 
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Profesor</b> revisa la información del alumno
+      <b>Sistema</b> permite mantener los datos en pantalla
+      • Permite solicitar volver al listado
+    end note
 }
 
-ALUMNO_ABIERTO_COMP -[#red]-> ALUMNOS_ABIERTO_FINAL : cerrarDetalleAlumno()
-note on link
-<b>Sistema permite</b> nuevamente retornar el listado en ALUMNOS_ABIERTO.
+state "ALUMNOS_ABIERTO" as ALUMNOS_ABIERTO
+
+consultarDetalleAlumno -[#blue]---> ALUMNOS_ABIERTO
+note right on link
+  abrirAlumnos()
 end note
 
 @enduml

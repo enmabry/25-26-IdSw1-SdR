@@ -1,33 +1,32 @@
 @startuml
-title Cerrar Sesión Clase
+skinparam nodesep 60
+skinparam ranksep 60
 skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-state SESION_ACTUAL_INICIAL as "SESION_ASISTENCIA_ABIERTA"
-state PROCESO_CIERRE_COMP   as "FINALIZANDO_SESION"
-state ASISTENCIAS_FINAL     as "ASISTENCIAS_ABIERTO"
+state "cerrarSesionClase()" as cerrarSesionClase {
+    state " " as Paso1
 
-[*] -[#green]-> SESION_ACTUAL_INICIAL
-
-SESION_ACTUAL_INICIAL -[#green]-> PROCESO_CIERRE_COMP : cerrarSesionClase()
-note on link
-<b>Profesor solicita</b> cerrar la sesión actual.
-end note
-
-state PROCESO_CIERRE_COMP {
-
-
-    [*] -[#green]-> [*]
+    [*] -[#green]-> Paso1
     note on link
-    <b>Sistema permite</b> retornar la hora de finalización
-    y <b>marca</b> la sesión como concluida.
+      <b>Profesor</b> solicita cerrar la sesión actual
     end note
 
+    Paso1 -[#green]-> [*]
+    note on link
+      <b>Sistema</b> permite mostrar la hora de finalización
+      y marca la sesión como concluida
+    end note
 }
 
-PROCESO_CIERRE_COMP -[#green]-> ASISTENCIAS_FINAL
-note on link
-<b>Sistema permite</b> retornar el listado de 
-ASISTENCIAS_ABIERTO actualizado.
+state "ASISTENCIAS_ABIERTO" as ASISTENCIAS_ABIERTO
+
+cerrarSesionClase -[#blue]---> ASISTENCIAS_ABIERTO
+note right on link
+  abrirAsistencias()
 end note
 
 @enduml

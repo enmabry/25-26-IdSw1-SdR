@@ -15,7 +15,10 @@ state "consultarSolicitudDispensa()" as consultarSolicitud {
     [*] -[#green]-> Paso1 
     note on link
       <b>Director de Grado</b> solicita consultar una dispensa específica
-      <b>Sistema</b> muestra la información detallada de la solicitud
+      <b>Sistema</b> muestra la información detallada de la solicitud:
+      • Estado de la Dispensa, Asignatura y Tipo/Motivo
+      • Día, Franja horaria y Asignatura solapada
+      • Justificación / Comentarios
     end note    
     
     Paso1 -[#green]-> [*]
@@ -35,7 +38,7 @@ note right on link
   editarSolicitudDispensa()
 end note
 
-consultarSolicitud -[#green]---> DISPENSAS_ABIERTO
+consultarSolicitud -[#blue]---> DISPENSAS_ABIERTO
 note right on link
   abrirDispensas()
 end note

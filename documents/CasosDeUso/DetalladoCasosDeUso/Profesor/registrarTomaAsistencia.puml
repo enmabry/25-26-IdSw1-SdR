@@ -1,43 +1,40 @@
 @startuml
-title Registrar Toma Asistencia
+skinparam nodesep 60
+skinparam ranksep 60
 skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-state SESION_ACTUAL_INICIAL as "SESION_ASISTENCIA_ABIERTA"
-state PROCESO_TOMA_COMP     as "SESION_ASISTENCIA_ABIERTA"
-state SESION_ACTUAL_FINAL   as "SESION_ASISTENCIA_ABIERTA"
+state "registrarTomaAsistencia()" as registrarTomaAsistencia {
+    state " " as Paso1
+    state " " as Paso2
 
-[*] -[#green]-> SESION_ACTUAL_INICIAL
-
-SESION_ACTUAL_INICIAL -[#green]-> PROCESO_TOMA_COMP : registrarTomaAsistencia()
-note on link
-<b>Profesor</b> se encuentra en una clase activa
-y <b>solicita</b> pasar lista a los alumnos.
-
-<b>Sistema permite</b> retornar el listado para su edición.
-end note
-
-state PROCESO_TOMA_COMP {
-
-    state ConsultaListado
-
-    [*] -[#green]-> ConsultaListado
+    [*] -[#green]-> Paso1
     note on link
-    <b>Sistema permite</b> retornar el listado de alumnos matriculados.
+      <b>Profesor</b> se encuentra en una clase activa
+      y solicita pasar lista a los alumnos
     end note
 
-    ConsultaListado -[#green]-> [*]
+    Paso1 -[#green]-> Paso2
     note on link
-    <b>Sistema permite introducir</b> el estado de cada alumno.
+      <b>Sistema</b> permite mostrar el listado de alumnos matriculados
+    end note
 
-    <b>Profesor introduce</b> los cambios necesarios:
-    • Presente / Ausente / Tarde
-    • Justificación (si aplica)
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Sistema</b> permite introducir el estado de cada alumno
+      <b>Profesor</b> introduce los cambios:
+      • Presente / Ausente / Tarde
+      • Justificación (si aplica)
     end note
 }
 
-PROCESO_TOMA_COMP -[#green]-> SESION_ACTUAL_FINAL
-note on link
-<b>Sistema permite</b> retornar nuevamente el detalle de la clase actualizada.
-end note
+state "SESION_CLASE_ABIERTA" as SESION_CLASE_ABIERTA
 
+registrarTomaAsistencia -[#blue]---> SESION_CLASE_ABIERTA
+note right on link
+  cerrarSesiónClase()
+end note
 @enduml

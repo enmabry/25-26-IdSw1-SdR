@@ -6,6 +6,7 @@ skinparam style strictuml
 actor Profesor
 
 package "Módulo Alumnos " {
+    usecase "Abrir alumnos" as AlumnosAbrir
     usecase "Consultar alumno" as AlumnosConsultar
 }
 
@@ -18,9 +19,11 @@ package "Módulo Asistencias" {
 }
 
 package "Módulo Dispensas" {
+    usecase "Abrir dispensas" as DispensasAbrir
     usecase "Consultar solicitud de dispensa" as DispensasConsultar
 }
 
+Profesor --> AlumnosAbrir
 Profesor --> AlumnosConsultar
 
 Profesor --> AsistenciasCrearSesion
@@ -29,5 +32,6 @@ Profesor --> AsistenciasRegistrarToma
 Profesor --> AsistenciasCerrarSesion
 Profesor --> AsistenciasExportarHistorial
 
+Profesor --> DispensasAbrir
 Profesor --> DispensasConsultar
 @enduml

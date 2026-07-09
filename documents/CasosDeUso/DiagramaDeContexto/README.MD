@@ -10,8 +10,14 @@ Visión general del sistema en relación con su entorno, actores externos y lím
 
 ---
 
-## Diagrama de Contexto
+## Diagrama de Contexto (Vista General)
 
 | ![Diagrama de Contexto](DiagramaDeContexto.svg) |
 | :--- |
 | [Código UML](DiagramaDeContexto.puml) |
+
+## Diagrama de Contexto (Dashboard Detallado)
+
+| ![Diagrama de Contexto Detallado](DiagramaDeContextoDetallado.svg) |
+| :--- |
+| [Código UML](DiagramaDeContextoDetallado.puml) |

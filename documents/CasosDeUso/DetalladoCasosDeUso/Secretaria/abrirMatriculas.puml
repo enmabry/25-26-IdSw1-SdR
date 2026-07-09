@@ -1,0 +1,60 @@
+@startuml
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
+
+state "abrirMatriculas()" as abrirMatriculas {
+
+    state " " as Paso1
+    state " " as Paso2
+
+    [*] -[#green]-> Paso1 
+    note on link
+      <b>Secretaría</b> solicita abrir matrículas
+    end note    
+    
+    Paso1 -[#green]-> Paso2
+    note on link
+      <b>Sistema</b> permite mostrar lista de matrículas
+      • Alumno, asignatura, periodo, estado
+    end note
+    
+    Paso2 -[#green]-> Paso2
+    note on link
+      <b>Secretaría</b> solicita filtrar lista
+      <b>Sistema</b> permite mostrar lista filtrada
+    end note
+    
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Secretaría</b> revisa la lista de matrículas
+      <b>Sistema</b> permite mantener la lista en pantalla
+      • Permite solicitar consultar detalle de matrícula
+      • Permite solicitar importar matrículas
+      • Permite solicitar cerrar ciclo académico
+    end note
+}
+
+state "MATRICULA_DETALLE_ABIERTA" as MATRICULA_DETALLE_ABIERTA
+state "MATRICULAS_ABIERTO" as MATRICULAS_ABIERTO
+
+abrirMatriculas -[#green]---> MATRICULAS_ABIERTO
+note right on link
+  importarMatriculas()
+end note
+
+abrirMatriculas -[#green]---> MATRICULAS_ABIERTO
+note right on link
+  cerrarCicloAcademico()
+end note
+
+abrirMatriculas -[#green]---> MATRICULA_DETALLE_ABIERTA
+note right on link
+  consultarDetalleMatricula()
+end note
+
+@enduml

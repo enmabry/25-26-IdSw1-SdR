@@ -20,7 +20,10 @@ state "editarUsuario()" as editarUsuario {
    
     Paso1 -[#green]-> Paso2
     note on link
-      <b>Sistema</b> permite mostrar los datos actuales del usuario
+      <b>Sistema</b> solicita ingresar datos a modificar
+      • Nombres Completos y Apellidos Completos
+      • Correo Electrónico
+      • Rol en el Sistema y Estado
     end note
    
     Paso2 -[#green]-> [*]

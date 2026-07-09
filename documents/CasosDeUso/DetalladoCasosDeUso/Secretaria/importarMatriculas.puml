@@ -19,7 +19,8 @@ state "importarMatriculas()" as importarMatriculas {
    
     Paso1 -[#green]-> Paso2
     note on link
-      <b>Sistema</b> permite adjuntar un archivo de matrículas
+      <b>Sistema</b> permite indicar el Formato Aceptado y
+      seleccionar el Archivo de Origen (Excel/CSV)
     end note
    
     Paso2 -[#green]-> [*]
@@ -35,11 +36,11 @@ state "MATRICULAS_ABIERTO" as MATRICULAS_ABIERTO
 
 importarMatriculas -[#green]---> MATRICULAS_ABIERTO
 note right on link
-  abrirMatriculas() - lista actualizada
+  abrirMatriculas
 end note
 
 importarMatriculas -[#blue]---> MATRICULAS_ABIERTO
 note right on link
-  abrirMatriculas() - cancelar operación
+  cancelar operacion
 end note
 @enduml

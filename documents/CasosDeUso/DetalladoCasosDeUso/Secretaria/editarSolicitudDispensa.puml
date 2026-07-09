@@ -19,7 +19,10 @@ state "editarSolicitudDispensa()" as editarSolicitudDispensa {
    
     Paso1 -[#green]-> Paso2
     note on link
-      <b>Sistema</b> muestra datos de la solicitud
+      <b>Sistema</b> muestra datos de la solicitud a modificar:
+      • Alumno Solicitante y Asignatura
+      • Tipo/Motivo, Día(s) y Franja horaria
+      • Observaciones Internas (Sec.)
     end note
    
     Paso2 -[#green]-> [*]

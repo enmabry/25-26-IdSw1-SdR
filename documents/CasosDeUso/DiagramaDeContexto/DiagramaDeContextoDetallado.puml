@@ -1,0 +1,114 @@
+@startuml
+title Diagrama de Contexto (Dashboard Detallado)
+left to right direction
+skinparam style strictuml
+skinparam linetype polyline
+
+<style>
+legend {
+  BackGroundColor #f0f0f0
+}
+</style>
+
+legend top
+    **DASHBOARD DE CONTEXTO** - <i>Casos de uso</i>
+    ====
+    |<#gray>     | No detallado aún o retorno |<#green>     | Detallado (Con enlace al .puml) |
+end legend
+
+state "SESION_CERRADA" as NoAuth
+state "SISTEMA_DISPONIBLE" as Menu
+
+state "ALUMNOS_ABIERTO" as ListAlumnos
+state "ALUMNO_DETALLE_ABIERTO" as EditAlumno
+
+state "MATRICULAS_ABIERTO" as ListMatriculas
+state "MATRICULA_DETALLE_ABIERTA" as EditMatricula
+
+state "ASISTENCIAS_ABIERTO" as ListAsistencias
+state "SESION_CLASE_ABIERTA" as EditSesion
+
+state "DISPENSAS_ABIERTO" as ListDispensas
+state "SOLICITUD_DISPENSA_ABIERTA" as EditDispensa
+
+state "USUARIOS_ABIERTO" as ListUsuarios
+state "USUARIO_DETALLE_ABIERTO" as EditUsuario
+
+[*] --> NoAuth
+
+' --- CONTROL DE ACCESO ---
+NoAuth -[#gray,thickness=2]-> Menu : iniciarSesion()
+Menu -[#gray,thickness=2]-> NoAuth : cerrarSesion()
+Menu -[#gray,thickness=2]-> NoAuth : sesionInactiva()
+
+' ==========================================
+'   MÓDULO ALUMNOS
+' ==========================================
+Menu -[#green,thickness=2]-> ListAlumnos : [[../DetalladoCasosDeUso/Secretaria/abrirAlumnos.puml abrirAlumnos() Sec.]]
+Menu -[#green,thickness=2]-> ListAlumnos : [[../DetalladoCasosDeUso/Profesor/abrirAlumnos.puml abrirAlumnos() Prof.]]
+ListAlumnos -[#gray,thickness=2]-> Menu : completarGestionAlumnos()
+
+ListAlumnos -[#green,thickness=2]-> ListAlumnos : [[../DetalladoCasosDeUso/Secretaria/importarAlumnos.puml importarAlumnos()]]
+ListAlumnos -[#green,thickness=2]-> EditAlumno : [[../DetalladoCasosDeUso/Secretaria/consultarAlumno.puml consultarAlumno() Sec.]]
+ListAlumnos -[#green,thickness=2]-> EditAlumno : [[../DetalladoCasosDeUso/Profesor/consultarDetalleAlumno.puml consultarDetalleAlumno() Prof.]]
+EditAlumno -[#green,thickness=2]-> ListAlumnos : [[../DetalladoCasosDeUso/Secretaria/abrirAlumnos.puml abrirAlumnos()]]
+
+' ==========================================
+'   MÓDULO MATRÍCULAS
+' ==========================================
+Menu -[#green,thickness=2]-> ListMatriculas : [[../DetalladoCasosDeUso/Secretaria/abrirMatriculas.puml abrirMatriculas()]]
+ListMatriculas -[#gray,thickness=2]-> Menu : completarGestionMatriculas()
+
+ListMatriculas -[#green,thickness=2]-> ListMatriculas : [[../DetalladoCasosDeUso/Secretaria/importarMatriculas.puml importarMatriculas()]]
+ListMatriculas -[#green,thickness=2]-> ListMatriculas : [[../DetalladoCasosDeUso/Secretaria/cerrarCicloAcademico.puml cerrarCicloAcademico()]]
+ListMatriculas -[#green,thickness=2]-> EditMatricula : [[../DetalladoCasosDeUso/Secretaria/consultarDetalleMatricula.puml consultarDetalleMatricula()]]
+EditMatricula -[#green,thickness=2]-> ListMatriculas : [[../DetalladoCasosDeUso/Secretaria/abrirMatriculas.puml abrirMatriculas()]]
+
+' ==========================================
+'   MÓDULO ASISTENCIAS (SESIONES DE CLASE)
+' ==========================================
+Menu -[#gray,thickness=2]-> ListAsistencias : abrirAsistencias()
+ListAsistencias -[#gray,thickness=2]-> Menu : completarGestionAsistencias()
+
+ListAsistencias -[#green,thickness=2]-> ListAsistencias : [[../DetalladoCasosDeUso/Profesor/exportarHistorialAsistencias.puml exportarHistorialAsistencias()]]
+ListAsistencias -[#green,thickness=2]-> EditSesion : [[../DetalladoCasosDeUso/Profesor/crearSesionClase.puml crearSesionClase()]]
+
+EditSesion -[#green,thickness=2]-> EditSesion : [[../DetalladoCasosDeUso/Profesor/editarSesionClase.puml editarSesionClase()]]
+EditSesion -[#green,thickness=2]-> EditSesion : [[../DetalladoCasosDeUso/Profesor/registrarTomaAsistencia.puml registrarTomaAsistencia()]]
+EditSesion -[#green,thickness=2]-> ListAsistencias : [[../DetalladoCasosDeUso/Profesor/cerrarSesionClase.puml cerrarSesionClase()]]
+
+' ==========================================
+'   MÓDULO DISPENSAS
+' ==========================================
+Menu -[#green,thickness=2]-> ListDispensas : [[../DetalladoCasosDeUso/Alumno/abrirDispensas.puml abrirDispensas() Alu.]]
+Menu -[#green,thickness=2]-> ListDispensas : [[../DetalladoCasosDeUso/Profesor/abrirDispensas.puml abrirDispensas() Prof.]]
+Menu -[#green,thickness=2]-> ListDispensas : [[../DetalladoCasosDeUso/DirectorDeGrado/abrirDispensas.puml abrirDispensas() Dir.]]
+Menu -[#green,thickness=2]-> ListDispensas : [[../DetalladoCasosDeUso/Secretaria/abrirDispensas.puml abrirDispensas() Sec.]]
+ListDispensas -[#gray,thickness=2]-> Menu : completarGestionDispensas()
+
+ListDispensas -[#green,thickness=2]-> EditDispensa : [[../DetalladoCasosDeUso/Alumno/crearSolicitudDispensa.puml crearSolicitudDispensa() Alu.]]
+ListDispensas -[#green,thickness=2]-> EditDispensa : [[../DetalladoCasosDeUso/Secretaria/crearSolicitudDispensa.puml crearSolicitudDispensa() Sec.]]
+
+ListDispensas -[#green,thickness=2]-> EditDispensa : [[../DetalladoCasosDeUso/Alumno/consultarSolicitudDispensa.puml consultarSolicitudDispensa() Alu.]]
+ListDispensas -[#green,thickness=2]-> EditDispensa : [[../DetalladoCasosDeUso/Secretaria/consultarSolicitudDispensa.puml consultarSolicitudDispensa() Sec.]]
+ListDispensas -[#green,thickness=2]-> EditDispensa : [[../DetalladoCasosDeUso/Profesor/consultarSolicitudDispensa.puml consultarSolicitudDispensa() Prof.]]
+ListDispensas -[#green,thickness=2]-> EditDispensa : [[../DetalladoCasosDeUso/DirectorDeGrado/consultarSolicitudDispensa.puml consultarSolicitudDispensa() Dir.]]
+
+EditDispensa -[#green,thickness=2]-> EditDispensa : [[../DetalladoCasosDeUso/Alumno/editarSolicitudDispensa.puml editarSolicitudDispensa() Alu.]]
+EditDispensa -[#green,thickness=2]-> EditDispensa : [[../DetalladoCasosDeUso/Secretaria/editarSolicitudDispensa.puml editarSolicitudDispensa() Sec.]]
+EditDispensa -[#green,thickness=2]-> EditDispensa : [[../DetalladoCasosDeUso/DirectorDeGrado/editarSolicitudDispensa.puml editarSolicitudDispensa() Dir.]]
+
+EditDispensa -[#green,thickness=2]-> ListDispensas : [[../DetalladoCasosDeUso/Alumno/abrirDispensas.puml abrirDispensas()]]
+
+' ==========================================
+'   MÓDULO USUARIOS Y ROLES
+' ==========================================
+Menu -[#green,thickness=2]-> ListUsuarios : [[../DetalladoCasosDeUso/Administrador/abrirUsuarios.puml abrirUsuarios()]]
+ListUsuarios -[#gray,thickness=2]-> Menu : completarGestionUsuarios()
+
+ListUsuarios -[#green,thickness=2]-> EditUsuario : [[../DetalladoCasosDeUso/Administrador/crearUsuario.puml crearUsuario()]]
+ListUsuarios -[#green,thickness=2]-> EditUsuario : [[../DetalladoCasosDeUso/Administrador/consultarUsuario.puml consultarUsuario()]]
+
+EditUsuario -[#green,thickness=2]-> EditUsuario : [[../DetalladoCasosDeUso/Administrador/editarUsuario.puml editarUsuario()]]
+EditUsuario -[#green,thickness=2]-> ListUsuarios : [[../DetalladoCasosDeUso/Administrador/abrirUsuarios.puml abrirUsuarios()]]
+@enduml

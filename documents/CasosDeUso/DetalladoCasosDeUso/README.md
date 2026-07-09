@@ -12,17 +12,17 @@
 | :--- |
 | [Código UML](Administrador/abrirUsuarios.puml) |
 
-### Crear Usuario [Administrador]
-
-| ![Detallado de Crear Usuario](Administrador/crearUsuario.svg) |
-| :--- |
-| [Código UML](Administrador/crearUsuario.puml) |
-
 ### Consultar Usuario [Administrador]
 
 | ![Detallado de Consultar Usuario](Administrador/consultarUsuario.svg) |
 | :--- |
 | [Código UML](Administrador/consultarUsuario.puml) |
+
+### Crear Usuario [Administrador]
+
+| ![Detallado de Crear Usuario](Administrador/crearUsuario.svg) |
+| :--- |
+| [Código UML](Administrador/crearUsuario.puml) |
 
 ### Editar Usuario [Administrador]
 
@@ -36,6 +36,12 @@
 | :--- |
 | [Código UML](Alumno/abrirDispensas.puml) |
 
+### Consultar Solicitud Dispensa [Alumno]
+
+| ![Detallado de Consultar Solicitud Dispensa](Alumno/consultarSolicitudDispensa.svg) |
+| :--- |
+| [Código UML](Alumno/consultarSolicitudDispensa.puml) |
+
 ### Crear Solicitud Dispensa [Alumno]
 
 | ![Detallado de Crear Solicitud Dispensa](Alumno/crearSolicitudDispensa.svg) |
@@ -48,11 +54,11 @@
 | :--- |
 | [Código UML](Alumno/editarSolicitudDispensa.puml) |
 
-### Consultar Solicitud Dispensa [Alumno]
+### Abrir Dispensas [Director de Grado]
 
-| ![Detallado de Consultar Solicitud Dispensa](Alumno/consultarSolicitudDispensa.svg) |
+| ![Detallado de Abrir Dispensas](DirectorDeGrado/abrirDispensas.svg) |
 | :--- |
-| [Código UML](Alumno/consultarSolicitudDispensa.puml) |
+| [Código UML](DirectorDeGrado/abrirDispensas.puml) |
 
 ### Consultar Solicitud Dispensa [Director de Grado]
 
@@ -66,23 +72,17 @@
 | :--- |
 | [Código UML](DirectorDeGrado/editarSolicitudDispensa.puml) |
 
-### Crear Sesion Clase [Profesor]
+### Abrir Alumnos [Profesor]
 
-| ![Detallado de Crear Sesion Clase](Profesor/crearSesionClase.svg) |
+| ![Detallado de Abrir Alumnos](Profesor/abrirAlumnos.svg) |
 | :--- |
-| [Código UML](Profesor/crearSesionClase.puml) |
+| [Código UML](Profesor/abrirAlumnos.puml) |
 
-### Editar Sesion Clase [Profesor]
+### Abrir Dispensas [Profesor]
 
-| ![Detallado de Editar Sesion Clase](Profesor/editarSesionClase.svg) |
+| ![Detallado de Abrir Dispensas](Profesor/abrirDispensas.svg) |
 | :--- |
-| [Código UML](Profesor/editarSesionClase.puml) |
-
-### Registrar Toma Asistencia [Profesor]
-
-| ![Detallado de Registrar Toma Asistencia](Profesor/registrarTomaAsistencia.svg) |
-| :--- |
-| [Código UML](Profesor/registrarTomaAsistencia.puml) |
+| [Código UML](Profesor/abrirDispensas.puml) |
 
 ### Cerrar Sesion Clase [Profesor]
 
@@ -102,23 +102,53 @@
 | :--- |
 | [Código UML](Profesor/consultarSolicitudDispensa.puml) |
 
+### Crear Sesion Clase [Profesor]
+
+| ![Detallado de Crear Sesion Clase](Profesor/crearSesionClase.svg) |
+| :--- |
+| [Código UML](Profesor/crearSesionClase.puml) |
+
+### Editar Sesion Clase [Profesor]
+
+| ![Detallado de Editar Sesion Clase](Profesor/editarSesionClase.svg) |
+| :--- |
+| [Código UML](Profesor/editarSesionClase.puml) |
+
 ### Exportar Historial Asistencias [Profesor]
 
 | ![Detallado de Exportar Historial Asistencias](Profesor/exportarHistorialAsistencias.svg) |
 | :--- |
 | [Código UML](Profesor/exportarHistorialAsistencias.puml) |
 
-### Importar Alumnos [Secretaria]
+### Registrar Toma Asistencia [Profesor]
 
-| ![Detallado de Importar Alumnos](Secretaria/importarAlumnos.svg) |
+| ![Detallado de Registrar Toma Asistencia](Profesor/registrarTomaAsistencia.svg) |
 | :--- |
-| [Código UML](Secretaria/importarAlumnos.puml) |
+| [Código UML](Profesor/registrarTomaAsistencia.puml) |
 
-### Importar Matriculas [Secretaria]
+### Abrir Alumnos [Secretaria]
 
-| ![Detallado de Importar Matriculas](Secretaria/importarMatriculas.svg) |
+| ![Detallado de Abrir Alumnos](Secretaria/abrirAlumnos.svg) |
 | :--- |
-| [Código UML](Secretaria/importarMatriculas.puml) |
+| [Código UML](Secretaria/abrirAlumnos.puml) |
+
+### Abrir Dispensas [Secretaria]
+
+| ![Detallado de Abrir Dispensas](Secretaria/abrirDispensas.svg) |
+| :--- |
+| [Código UML](Secretaria/abrirDispensas.puml) |
+
+### Abrir Matriculas [Secretaria]
+
+| ![Detallado de Abrir Matriculas](Secretaria/abrirMatriculas.svg) |
+| :--- |
+| [Código UML](Secretaria/abrirMatriculas.puml) |
+
+### Cerrar Ciclo Academico [Secretaria]
+
+| ![Detallado de Cerrar Ciclo Academico](Secretaria/cerrarCicloAcademico.svg) |
+| :--- |
+| [Código UML](Secretaria/cerrarCicloAcademico.puml) |
 
 ### Consultar Alumno [Secretaria]
 
@@ -132,6 +162,12 @@
 | :--- |
 | [Código UML](Secretaria/consultarDetalleMatricula.puml) |
 
+### Consultar Solicitud Dispensa [Secretaria]
+
+| ![Detallado de Consultar Solicitud Dispensa](Secretaria/consultarSolicitudDispensa.svg) |
+| :--- |
+| [Código UML](Secretaria/consultarSolicitudDispensa.puml) |
+
 ### Crear Solicitud Dispensa [Secretaria]
 
 | ![Detallado de Crear Solicitud Dispensa](Secretaria/crearSolicitudDispensa.svg) |
@@ -144,15 +180,15 @@
 | :--- |
 | [Código UML](Secretaria/editarSolicitudDispensa.puml) |
 
-### Consultar Solicitud Dispensa [Secretaria]
+### Importar Alumnos [Secretaria]
 
-| ![Detallado de Consultar Solicitud Dispensa](Secretaria/consultarSolicitudDispensa.svg) |
+| ![Detallado de Importar Alumnos](Secretaria/importarAlumnos.svg) |
 | :--- |
-| [Código UML](Secretaria/consultarSolicitudDispensa.puml) |
+| [Código UML](Secretaria/importarAlumnos.puml) |
 
-### Cerrar Ciclo Academico [Secretaria]
+### Importar Matriculas [Secretaria]
 
-| ![Detallado de Cerrar Ciclo Academico](Secretaria/cerrarCicloAcademico.svg) |
+| ![Detallado de Importar Matriculas](Secretaria/importarMatriculas.svg) |
 | :--- |
-| [Código UML](Secretaria/cerrarCicloAcademico.puml) |
+| [Código UML](Secretaria/importarMatriculas.puml) |
 

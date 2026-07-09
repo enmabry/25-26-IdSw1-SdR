@@ -19,7 +19,9 @@ state "consultarAlumno()" as consultarAlumno {
    
     Paso1 -[#green]-> Paso2
     note on link
-      <b>Sistema</b> muestra datos del alumno
+      <b>Sistema</b> muestra datos del alumno:
+      • Nombres Completos y DNI / Pasaporte
+      • Correo Institucional y Carrera
     end note
    
     Paso2 -[#green]-> [*]

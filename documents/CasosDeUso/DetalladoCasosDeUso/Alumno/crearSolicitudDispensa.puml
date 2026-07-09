@@ -21,9 +21,10 @@ state "crearSolicitudDispensa()" as crearSolicitudDispensa {
     Paso1 -[#green]-> Paso2
     note on link
       <b>Sistema</b> solicita datos iniciales
-      • Asignatura (obligatorio)
-      • Periodo (obligatorio)
-      • Horario (obligatorio)
+      • Asignatura de la dispensa y Tipo/Motivo
+      • Día(s) de la semana y Franja horaria afectada
+      • Asignatura solapada y Justificación
+      • Documento adjunto
     end note
 
     Paso2 -[#green]-> [*]

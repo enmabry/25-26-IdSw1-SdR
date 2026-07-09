@@ -1,46 +1,42 @@
 @startuml
-title Editar Sesión Clase
+skinparam nodesep 60
+skinparam ranksep 60
 skinparam linetype polyline
+skinparam NoteBackgroundColor lightyellow
+skinparam NoteBorderColor gray
+skinparam StateBackgroundColor #F5F5F5
+skinparam StateBorderColor gray
 
-state SESION_ACTUAL_INICIAL as "SESION_ASISTENCIA_ABIERTA"
-state PROCESO_EDICION_COMP  as "SESION_ASISTENCIA_ABIERTA"
-state SESION_ACTUAL_FINAL   as "SESION_ASISTENCIA_ABIERTA"
+state "editarSesionClase()" as editarSesionClase {
+    state " " as Paso1
+    state " " as Paso2
 
-[*] -[#green]-> SESION_ACTUAL_INICIAL
-
-SESION_ACTUAL_INICIAL -[#green]-> PROCESO_EDICION_COMP : editarSesionClase()
-note on link
-<b>Profesor</b> se encuentra en una sesión activa
-y <b>solicita</b> modificar los detalles de la clase.
-
-<b>Sistema permite introducir</b> las modificaciones
-en los campos informativos.
-end note
-
-state PROCESO_EDICION_COMP {
-
-    state ModificacionDatos
-
-    [*] -[#green]-> ModificacionDatos
+    [*] -[#green]-> Paso1
     note on link
-    <b>Sistema</b> permite introducir los nuevos datos.
-
-    <b>Profesor</b> introduce la información necesaria.
+      <b>Profesor</b> se encuentra en una sesión activa
+      y solicita modificar los detalles de la clase
     end note
 
-    ModificacionDatos -[#green]-> [*]
+    Paso1 -[#green]-> Paso2
     note on link
-    <b>Sistema permite</b> retornar los cambios para confirmación.
-    
-    <b>Profesor solicita</b> guardar los cambios.
+      <b>Sistema</b> permite introducir los nuevos datos
+      <b>Profesor</b> introduce las modificaciones:
+      • Asignatura y Fecha de Sesión
+      • Hora de Inicio, Hora de Fin y Tipo de Sesión
     end note
 
+    Paso2 -[#green]-> [*]
+    note on link
+      <b>Sistema</b> permite mostrar los cambios para confirmación
+      <b>Profesor</b> solicita guardar los cambios
+    end note
 }
 
-PROCESO_EDICION_COMP -[#green]-> SESION_ACTUAL_FINAL
-note on link
-<b>Sistema permite</b> retornar nuevamente el detalle de la clase
-con los cambios aplicados.
+state "SESION_CLASE_ABIERTA" as SESION_CLASE_ABIERTA
+
+editarSesionClase -[#blue]---> SESION_CLASE_ABIERTA
+note right on link
+  cerrarSesiónClase()
 end note
 
 @enduml

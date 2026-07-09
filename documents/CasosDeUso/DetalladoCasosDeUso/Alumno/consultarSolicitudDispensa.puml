@@ -20,7 +20,10 @@ state "consultarSolicitudDispensa()" as consultarSolicitudDispensa {
 
     Paso1 -[#green]-> Paso2
     note on link
-      <b>Sistema</b> permite abrir el detalle y retornar los datos de la solicitud
+      <b>Sistema</b> permite abrir el detalle y mostrar:
+      • Estado de la Dispensa, Asignatura y Motivo
+      • Día, Franja horaria y Asignatura solapada
+      • Justificación / Comentarios
     end note
 
     Paso2 -[#green]-> [*]
@@ -40,7 +43,7 @@ note right on link
   editarSolicitudDispensa()
 end note
 
-consultarSolicitudDispensa -[#red]---> DISPENSAS_ABIERTO
+consultarSolicitudDispensa -[#blue]---> DISPENSAS_ABIERTO
 note right on link
   abrirDispensas()
 end note

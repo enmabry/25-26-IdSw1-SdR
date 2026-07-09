@@ -19,7 +19,9 @@ state "consultarDetalleMatricula()" as consultarDetalleMatricula {
    
     Paso1 -[#green]-> Paso2
     note on link
-      <b>Sistema</b> muestra datos de la matrícula
+      <b>Sistema</b> muestra las Materias Matriculadas:
+      • Lista de Asignaturas
+      • Grupo y Estado (Aprobada/Reprobada/Cursando)
     end note
    
     Paso2 -[#green]-> [*]

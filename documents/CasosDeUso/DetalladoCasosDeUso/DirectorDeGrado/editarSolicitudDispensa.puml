@@ -20,14 +20,15 @@ state "editarSolicitudDispensa()" as editarSolicitud {
     
     Paso1 -[#green]-> [*]
     note on link
-      <b>Director de Grado</b> modifica el estado u observaciones y guarda
+      <b>Director de Grado</b> modifica campos permitidos:
+      • Estado de la Dispensa y Observaciones/Resolución
       <b>Sistema</b> valida, registra los cambios y muestra confirmación
     end note
 }
 
 state "DISPENSAS_ABIERTO" as DISPENSAS_ABIERTO
 
-editarSolicitud -[#green]---> DISPENSAS_ABIERTO
+editarSolicitud -[#blue]---> DISPENSAS_ABIERTO
 note right on link
   abrirDispensas()
 end note

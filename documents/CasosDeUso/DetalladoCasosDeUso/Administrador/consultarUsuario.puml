@@ -20,7 +20,10 @@ state "consultarUsuario()" as consultarUsuario {
    
     Paso1 -[#green]-> Paso2
     note on link
-      <b>Sistema</b> permite mostrar credenciales y datos del usuario
+      <b>Sistema</b> permite mostrar los datos del usuario:
+      • Nombres Completos y DNI / Pasaporte
+      • Correo Electrónico
+      • Rol en el Sistema y Estado (Activo/Inactivo)
     end note
    
     Paso2 -[#green]-> [*]
@@ -43,6 +46,6 @@ end note
 
 consultarUsuario -[#blue]---> USUARIOS_ABIERTO
 note right on link
-  cerrar consulta
+  abrirUsuarios()
 end note
 @enduml

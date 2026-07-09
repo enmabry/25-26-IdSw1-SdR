@@ -10,10 +10,12 @@ actor DirectorDeGrado
 Profesor <|-- DirectorDeGrado
 
 package "Módulo Dispensas" {
+    usecase "Abrir dispensas" as AbrirDispensas
     usecase "Consultar solicitudes de dispensa" as ConsultarSolicitudesDispensa
     usecase "Editar solicitud de dispensa" as EditarSolicitudDispensa
 }
 
+DirectorDeGrado --> AbrirDispensas
 DirectorDeGrado --> ConsultarSolicitudesDispensa
 DirectorDeGrado --> EditarSolicitudDispensa
 @enduml
