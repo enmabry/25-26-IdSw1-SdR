@@ -45,7 +45,8 @@ El **Centro de Gestión Universitaria (CGU)** es un sistema institucional para l
         <li><a href="/documents/CasosDeUso/DiagramaDeContexto/">Diagrama de Contexto</a></li>
         <li><a href="/documents/CasosDeUso/CasoDeUso/">Casos de Uso</a></li>
         <li><a href="/documents/CasosDeUso/DetalladoCasosDeUso/">Detallado de Casos de Uso</a></li>
-        <li><a href="/documents/CasosDeUso/PriorizaciónCasosDeUso.md">Priorización</a></li>
+        <li><a href="/documents/CasosDeUso/Prototipos/">Prototipos</a></li>
+        <li><a href="/documents/CasosDeUso/PriorizaciónCasosDeUso/PriorizaciónCasosDeUso.md">Priorización</a></li>
       </ul>
     </td>
   </tr>
