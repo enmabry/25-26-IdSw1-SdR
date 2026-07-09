@@ -51,7 +51,8 @@ ListAlumnos -[#gray,thickness=2]-> Menu : completarGestionAlumnos()
 ListAlumnos -[#green,thickness=2]-> ListAlumnos : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#importar-alumnos-secretaria importarAlumnos()]]
 ListAlumnos -[#green,thickness=2]-> EditAlumno : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#consultar-alumno-secretaria consultarAlumno() Sec.]]
 ListAlumnos -[#green,thickness=2]-> EditAlumno : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#consultar-detalle-alumno-profesor consultarDetalleAlumno() Prof.]]
-EditAlumno -[#green,thickness=2]-> ListAlumnos : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#abrir-alumnos-secretaria abrirAlumnos()]]
+EditAlumno -[#green,thickness=2]-> ListAlumnos : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#abrir-alumnos-secretaria abrirAlumnos() Sec.]]
+EditAlumno -[#green,thickness=2]-> ListAlumnos : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#abrir-alumnos-profesor abrirAlumnos() Prof.]]
 
 ' ==========================================
 '   MÓDULO MATRÍCULAS
@@ -98,7 +99,10 @@ EditDispensa -[#green,thickness=2]-> EditDispensa : [[https://github.com/enmabry
 EditDispensa -[#green,thickness=2]-> EditDispensa : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#editar-solicitud-dispensa-secretaria editarSolicitudDispensa() Sec.]]
 EditDispensa -[#green,thickness=2]-> EditDispensa : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#editar-solicitud-dispensa-director-de-grado editarSolicitudDispensa() Dir.]]
 
-EditDispensa -[#green,thickness=2]-> ListDispensas : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#abrir-dispensas-alumno abrirDispensas()]]
+EditDispensa -[#green,thickness=2]-> ListDispensas : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#abrir-dispensas-alumno abrirDispensas() Alu.]]
+EditDispensa -[#green,thickness=2]-> ListDispensas : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#abrir-dispensas-profesor abrirDispensas() Prof.]]
+EditDispensa -[#green,thickness=2]-> ListDispensas : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#abrir-dispensas-director-de-grado abrirDispensas() Dir.]]
+EditDispensa -[#green,thickness=2]-> ListDispensas : [[https://github.com/enmabry/25-26-IdSw1-SdR/blob/main/documents/CasosDeUso/DetalladoCasosDeUso/README.md#abrir-dispensas-secretaria abrirDispensas() Sec.]]
 
 ' ==========================================
 '   MÓDULO USUARIOS Y ROLES
